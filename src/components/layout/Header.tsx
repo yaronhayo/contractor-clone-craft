@@ -30,6 +30,9 @@ export const Header = () => {
             <Link to="/blog" className="hover:text-primary transition-colors">Blog Hub Page</Link>
           </li>
           <li>
+            <Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link>
+          </li>
+          <li>
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-1 hover:text-primary transition-colors">
                 Services <ChevronDown className="h-4 w-4" aria-hidden="true" />
@@ -51,12 +54,12 @@ export const Header = () => {
                 Service Area Hub <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
-                <DropdownMenuItem asChild><Link to="/service-areas">(City) Downtown</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas">(City) North</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas">(City) South</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas">(Nearby Town)</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas">(Suburb A)</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas">(Suburb B)</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas/city-downtown">(City) Downtown</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas/city-north">(City) North</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas/city-south">(City) South</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas/nearby-town">(Nearby Town)</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas/suburb-a">(Suburb A)</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas/suburb-b">(Suburb B)</Link></DropdownMenuItem>
                 <DropdownMenuItem asChild><Link to="/service-areas">All areas</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

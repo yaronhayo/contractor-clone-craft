@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
+import { Link } from "react-router-dom";
 
 const areas = [
   "(City) Downtown",
@@ -26,10 +27,14 @@ const ServiceAreasHub = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
             {areas.map((a) => (
-              <a key={a} href="#" className="rounded-lg border bg-card p-4 hover-scale block">
+              <Link
+                key={a}
+                to={`/service-areas/${a.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+                className="rounded-lg border bg-card p-4 hover-scale block"
+              >
                 <h2 className="font-semibold">{a}</h2>
                 <p className="text-sm text-muted-foreground mt-1">Learn more about services offered in this area</p>
-              </a>
+              </Link>
             ))}
           </div>
 

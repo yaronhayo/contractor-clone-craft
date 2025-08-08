@@ -14,6 +14,9 @@ import Contact from "./pages/Contact";
 import ServiceDetail from "./pages/ServiceDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import BlogPost from "./pages/BlogPost";
+import ServiceAreaDetail from "./pages/ServiceAreaDetail";
+import Gallery from "./pages/Gallery";
 
 const queryClient = new QueryClient();
 
@@ -28,9 +31,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/services" element={<ServicesHub />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/service-areas" element={<ServiceAreasHub />} />
+            <Route path="/service-areas/:slug" element={<ServiceAreaDetail />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
