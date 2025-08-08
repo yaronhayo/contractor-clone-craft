@@ -31,8 +31,8 @@ const Footer = () => {
             <a href="#" className="hover:text-primary">LinkedIn</a>
             <a href="#" className="hover:text-primary">Instagram</a>
             <a href="#" className="hover:text-primary">Twitter</a>
-            <a href="#" className="hover:text-primary">Privacy Policy</a>
-            <a href="#" className="hover:text-primary">Terms & Conditions</a>
+            <a href="/privacy-policy" className="hover:text-primary">Privacy Policy</a>
+            <a href="/terms" className="hover:text-primary">Terms & Conditions</a>
           </nav>
         </div>
       </div>
