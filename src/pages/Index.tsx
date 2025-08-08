@@ -13,7 +13,7 @@ import FinalCTA from "@/components/sections/FinalCTA";
 import CompanyInfo from "@/components/sections/CompanyInfo";
 import CTABanner from "@/components/sections/CTABanner";
 import Seo from "@/components/Seo";
-
+import FAQ from "@/components/sections/FAQ";
 const Index = () => {
   return (
     <div>
@@ -27,6 +27,7 @@ const Index = () => {
         <Services />
         <WhyUs />
         <Process />
+        <FAQ />
         <ReviewsTeaser />
         <EstimateForm />
         <FinalCTA />

@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Blog Hub Page", href: "#blog" },
-  { label: "Services", href: "#services", caret: true },
-  { label: "Service Area Hub", href: "#areas", caret: true },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Services", href: "/services", caret: true },
+  { label: "Service Area Hub", href: "/service-areas", caret: true },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const Header = () => {
@@ -23,17 +23,17 @@ export const Header = () => {
         <ul className="hidden md:flex items-center gap-6 text-sm">
           {navItems.map((item) => (
             <li key={item.label}>
-              <a href={item.href} className="hover:text-primary transition-colors inline-flex items-center gap-1">
+              <Link to={item.href} className="hover:text-primary transition-colors inline-flex items-center gap-1">
                 {item.label}
                 {item.caret && <ChevronDown className="h-4 w-4" aria-hidden="true" />}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="rounded-full">
-            <a href="#build">Build Your Own Website!</a>
+            <a href="/#build">Build Your Own Website!</a>
           </Button>
         </div>
       </nav>
