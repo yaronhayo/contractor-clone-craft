@@ -1,6 +1,6 @@
 import heroImg from "@/assets/hero-house.jpg";
 import { Button } from "@/components/ui/button";
-
+import { PhoneCall } from "lucide-react";
 const Hero = () => {
   return (
     <section aria-label="Hero" className="relative">
@@ -19,8 +19,11 @@ const Hero = () => {
             (how and what customer will get out of it)
           </p>
           <div className="mt-8">
-            <Button size="lg" asChild>
-              <a href="#build" aria-label="Get Templates Here">Get Templates Here</a>
+            <Button size="lg" className="rounded-full" asChild>
+              <a href="#build" aria-label="Get Templates Here" className="flex items-center gap-2">
+                <PhoneCall className="h-5 w-5" aria-hidden="true" />
+                Get Templates Here
+              </a>
             </Button>
           </div>
         </div>

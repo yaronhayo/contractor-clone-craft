@@ -30,7 +30,7 @@ export const Header = () => {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Button asChild size="sm">
+          <Button asChild size="sm" className="rounded-full">
             <a href="#build">Build Your Own Website!</a>
           </Button>
         </div>
