@@ -23,8 +23,18 @@ const Footer = () => {
           <a href="#build" className="inline-block mt-3 text-primary underline">Build Your Own Website</a>
         </div>
       </div>
-      <div className="py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Contractor Template Clone. All rights reserved.
+      <div className="py-4 border-t">
+        <div className="container flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <div>© {new Date().getFullYear()} Contractor Template Clone. All rights reserved.</div>
+          <nav className="flex items-center gap-4">
+            <a href="#" className="hover:text-primary">Facebook</a>
+            <a href="#" className="hover:text-primary">LinkedIn</a>
+            <a href="#" className="hover:text-primary">Instagram</a>
+            <a href="#" className="hover:text-primary">Twitter</a>
+            <a href="#" className="hover:text-primary">Privacy Policy</a>
+            <a href="#" className="hover:text-primary">Terms & Conditions</a>
+          </nav>
+        </div>
       </div>
     </footer>
   );

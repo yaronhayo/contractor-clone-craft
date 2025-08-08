@@ -7,7 +7,9 @@ import Welcome from "@/components/sections/Welcome";
 import Services from "@/components/sections/Services";
 import WhyUs from "@/components/sections/WhyUs";
 import Process from "@/components/sections/Process";
+import ReviewsTeaser from "@/components/sections/ReviewsTeaser";
 import EstimateForm from "@/components/sections/EstimateForm";
+import FinalCTA from "@/components/sections/FinalCTA";
 import CompanyInfo from "@/components/sections/CompanyInfo";
 import CTABanner from "@/components/sections/CTABanner";
 import Seo from "@/components/Seo";
@@ -25,7 +27,9 @@ const Index = () => {
         <Services />
         <WhyUs />
         <Process />
+        <ReviewsTeaser />
         <EstimateForm />
+        <FinalCTA />
         <CompanyInfo />
         <CTABanner />
       </main>

@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Blog Hub Page", href: "#blog" },
-  { label: "Services", href: "#services" },
-  { label: "Service Area Hub", href: "#areas" },
+  { label: "Services", href: "#services", caret: true },
+  { label: "Service Area Hub", href: "#areas", caret: true },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -22,8 +23,9 @@ export const Header = () => {
         <ul className="hidden md:flex items-center gap-6 text-sm">
           {navItems.map((item) => (
             <li key={item.label}>
-              <a href={item.href} className="hover:text-primary transition-colors">
+              <a href={item.href} className="hover:text-primary transition-colors inline-flex items-center gap-1">
                 {item.label}
+                {item.caret && <ChevronDown className="h-4 w-4" aria-hidden="true" />}
               </a>
             </li>
           ))}
