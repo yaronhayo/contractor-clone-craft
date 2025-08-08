@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  { label: "Blog Hub Page", href: "/blog" },
   { label: "Services", href: "/services", caret: true },
   { label: "Service Area Hub", href: "/service-areas", caret: true },
   { label: "Contact", href: "/contact" },
@@ -13,6 +14,7 @@ const navItems = [
 export const Header = () => {
   return (
     <header className="w-full sticky top-0 z-40 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
+      <a href="#content" className="sr-only focus:not-sr-only focus:absolute left-2 top-2 bg-primary text-primary-foreground px-3 py-2 rounded-md">Skip to content</a>
       <nav className="container flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2 font-extrabold tracking-tight text-xl">
           <span className="px-2 py-1 border rounded-md">GET</span>
@@ -21,14 +23,47 @@ export const Header = () => {
         </Link>
 
         <ul className="hidden md:flex items-center gap-6 text-sm">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <Link to={item.href} className="hover:text-primary transition-colors inline-flex items-center gap-1">
-                {item.label}
-                {item.caret && <ChevronDown className="h-4 w-4" aria-hidden="true" />}
-              </Link>
-            </li>
-          ))}
+          <li>
+            <Link to="/about" className="hover:text-primary transition-colors">About</Link>
+          </li>
+          <li>
+            <Link to="/blog" className="hover:text-primary transition-colors">Blog Hub Page</Link>
+          </li>
+          <li>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-1 hover:text-primary transition-colors">
+                Services <ChevronDown className="h-4 w-4" aria-hidden="true" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild><Link to="/services/service-number-1">Service #1</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/services/service-number-2">Service #2</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/services/service-number-3">Service #3</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/services/service-number-4">Service #4</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/services/service-number-5">Service #5</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/services/service-number-6">Service #6</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/services">All services</Link></DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </li>
+          <li>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-1 hover:text-primary transition-colors">
+                Service Area Hub <ChevronDown className="h-4 w-4" aria-hidden="true" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild><Link to="/service-areas">(City) Downtown</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas">(City) North</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas">(City) South</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas">(Nearby Town)</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas">(Suburb A)</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas">(Suburb B)</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas">All areas</Link></DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </li>
+          <li>
+            <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
+          </li>
         </ul>
 
         <div className="flex items-center gap-2">
