@@ -7,11 +7,20 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CalendarDays, Clock, Share2, UserRound } from "lucide-react";
+import { CalendarDays, Clock, Share2, UserRound, Link2 } from "lucide-react";
 import heroHouse from "@/assets/hero-house.jpg";
+import ReadingProgress from "@/components/blog/ReadingProgress";
+import service1 from "@/assets/service-1.jpg";
+import service2 from "@/assets/service-2.jpg";
 
 const toTitle = (slug?: string) =>
   (slug || "").split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+
+const related = [
+  { title: "Project Planning Checklist", slug: "project-planning-checklist", image: service1 },
+  { title: "Budgeting for Your (Service)", slug: "budgeting-for-service", image: service2 },
+  { title: "Top 7 Questions to Ask", slug: "top-7-questions", image: heroHouse },
+];
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -20,6 +29,7 @@ const BlogPost = () => {
   const readTime = "8 min read";
   const published = "2025-01-01";
   const featuredImage = heroHouse;
+  const tags = ["How‑To", "Planning", "Tips"];
 
   const shareText = encodeURIComponent(title);
   const shareUrl = encodeURIComponent(articleUrl);
@@ -29,6 +39,8 @@ const BlogPost = () => {
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
   } as const;
 
+  const imageAbs = typeof window !== "undefined" ? new URL(featuredImage, window.location.origin).toString() : featuredImage;
+
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -37,7 +49,34 @@ const BlogPost = () => {
     datePublished: published,
     dateModified: published,
     mainEntityOfPage: articleUrl,
-    image: [articleUrl + "/featured.jpg"],
+    image: [imageAbs],
+    publisher: {
+      "@type": "Organization",
+      name: "Your Company",
+      logo: {
+        "@type": "ImageObject",
+        url: typeof window !== "undefined" ? `${window.location.origin}/favicon.ico` : "/favicon.ico",
+      },
+    },
+  };
+
+  const CopyLinkButton = () => {
+    const onCopy = async () => {
+      try {
+        await navigator.clipboard.writeText(articleUrl);
+        const el = document.getElementById("copy-label");
+        if (el) {
+          el.textContent = "Copied!";
+          setTimeout(() => (el.textContent = "Copy link"), 1500);
+        }
+      } catch {}
+    };
+    return (
+      <Button variant="outline" size="sm" onClick={onCopy} aria-describedby="copy-label">
+        <Link2 className="h-4 w-4 mr-1" aria-hidden="true" />
+        <span id="copy-label">Copy link</span>
+      </Button>
+    );
   };
 
   return (
@@ -46,33 +85,48 @@ const BlogPost = () => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleLd)}</script>
       </Helmet>
+      <ReadingProgress />
       <Header />
       <main>
-        <article className="container py-14 md:py-20">
-          <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-            <Link to="/">Home</Link> / <Link to="/blog">Blog</Link> / <span className="text-foreground">{title}</span>
-          </nav>
+        {/* Hero / Meta */}
+        <section className="border-b bg-gradient-to-b from-primary/10 to-transparent">
+          <div className="container py-10 md:py-14">
+            <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
+              <Link to="/">Home</Link> / <Link to="/blog">Blog</Link> / <span className="text-foreground">{title}</span>
+            </nav>
+            <header className="mt-4">
+              <Badge className="mb-3">How‑To</Badge>
+              <h1 className="text-3xl md:text-5xl font-extrabold">{title}</h1>
+              <p className="mt-3 text-muted-foreground max-w-3xl">Insights, how‑tos, and expert advice to help you plan your next project.</p>
+              <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-2">
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border"><UserRound className="h-4 w-4 text-primary" aria-hidden="true" /></span>
+                  By Editorial Team
+                </span>
+                <span className="inline-flex items-center gap-1"><CalendarDays className="h-4 w-4" aria-hidden="true" />{new Date(published).toLocaleDateString()}</span>
+                <span className="inline-flex items-center gap-1"><Clock className="h-4 w-4" aria-hidden="true" />{readTime}</span>
+              </div>
+              <div className="mt-4 flex items-center gap-2">
+                <Button asChild size="sm" variant="outline">
+                  <a href={shareLinks.x} target="_blank" rel="noreferrer"><Share2 className="h-4 w-4 mr-1" aria-hidden="true" />Share</a>
+                </Button>
+                <Button asChild size="sm" variant="outline">
+                  <a href={shareLinks.facebook} target="_blank" rel="noreferrer">Facebook</a>
+                </Button>
+                <Button asChild size="sm" variant="outline">
+                  <a href={shareLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+                </Button>
+                <CopyLinkButton />
+              </div>
+            </header>
+          </div>
+        </section>
 
-          {/* Title & Meta */}
-          <header className="mt-4">
-            <h1 className="text-3xl md:text-5xl font-extrabold">{title}</h1>
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1"><CalendarDays className="h-4 w-4" aria-hidden="true" />{new Date(published).toLocaleDateString()}</span>
-              <span className="inline-flex items-center gap-1"><Clock className="h-4 w-4" aria-hidden="true" />{readTime}</span>
-              <Badge variant="secondary">How‑To</Badge>
-            </div>
-
-            <div className="mt-4 flex items-center gap-2">
-              <Button asChild size="sm" variant="outline">
-                <a href={shareLinks.x} target="_blank" rel="noreferrer"><Share2 className="h-4 w-4 mr-1" aria-hidden="true" />Share</a>
-              </Button>
-            </div>
-          </header>
-
+        <article className="container py-10 md:py-16">
           {/* Featured Image */}
-          <div className="mt-8 rounded-lg overflow-hidden border">
+          <div className="rounded-lg overflow-hidden border">
             <AspectRatio ratio={16 / 9}>
-              <img src={featuredImage} alt={`${title} featured`} loading="lazy" className="h-full w-full object-cover" />
+              <img src={featuredImage} alt={`${title} featured image`} loading="lazy" className="h-full w-full object-cover" />
             </AspectRatio>
           </div>
 
@@ -84,10 +138,17 @@ const BlogPost = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
                   This is a sample article page generated for your template. Replace with your content.
                 </p>
+                <blockquote>
+                  "Quality craftsmanship and clear communication are the foundation of every successful project."
+                </blockquote>
                 <h2 id="introduction">Introduction</h2>
                 <p>
                   Start with the problem, clarify the outcome, and help readers understand the scope before they begin.
                 </p>
+                <div className="rounded-lg border p-4 bg-card">
+                  <strong className="block">Pro tip</strong>
+                  <p className="text-sm text-muted-foreground mt-1">Compare quotes with the same scope and materials to avoid surprises.</p>
+                </div>
                 <h2 id="benefits">Benefits</h2>
                 <ul>
                   <li>Understand the basics of choosing the right contractor</li>
@@ -102,8 +163,15 @@ const BlogPost = () => {
                 </ol>
               </section>
 
+              {/* Tags */}
+              <div className="mt-8 flex flex-wrap gap-2">
+                {tags.map((t) => (
+                  <Badge key={t} variant="secondary">{t}</Badge>
+                ))}
+              </div>
+
               {/* Author */}
-              <div className="mt-12">
+              <div className="mt-10">
                 <Card>
                   <CardHeader className="flex-row items-center gap-3">
                     <div className="rounded-full border p-2"><UserRound className="h-5 w-5 text-primary" aria-hidden="true" /></div>
@@ -123,7 +191,7 @@ const BlogPost = () => {
             </div>
 
             {/* TOC */}
-            <aside className="lg:col-span-4">
+            <aside className="lg:col-span-4 lg:sticky lg:top-24 h-max">
               <div className="rounded-lg border p-6 bg-card">
                 <h2 className="font-semibold">On this page</h2>
                 <nav className="mt-3 text-sm">
@@ -136,6 +204,25 @@ const BlogPost = () => {
               </div>
             </aside>
           </div>
+
+          {/* Related Posts */}
+          <section className="mt-16">
+            <h2 className="text-xl md:text-2xl font-bold">Related Articles</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+              {related.map((r) => (
+                <Link key={r.slug} to={`/blog/${r.slug}`} className="block group">
+                  <Card className="overflow-hidden h-full">
+                    <AspectRatio ratio={16 / 9}>
+                      <img src={r.image} alt={`${r.title} related article`} loading="lazy" className="h-full w-full object-cover" />
+                    </AspectRatio>
+                    <CardHeader>
+                      <CardTitle className="text-base group-hover:underline story-link">{r.title}</CardTitle>
+                    </CardHeader>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </section>
         </article>
       </main>
       <Footer />
@@ -144,4 +231,5 @@ const BlogPost = () => {
 };
 
 export default BlogPost;
+
 
