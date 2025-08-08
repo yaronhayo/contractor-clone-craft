@@ -1,12 +1,25 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Hero from "@/components/sections/Hero";
+import FeaturesBar from "@/components/sections/FeaturesBar";
+import Questions from "@/components/sections/Questions";
+import Welcome from "@/components/sections/Welcome";
+import CTABanner from "@/components/sections/CTABanner";
+import Seo from "@/components/Seo";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div>
+      <Seo title="We Are The Best (Service) In (City)" description="Clone of Contractor Website Template – premium hero, services, and CTA sections." canonical="/" />
+      <Header />
+      <main>
+        <Hero />
+        <FeaturesBar />
+        <Questions />
+        <Welcome />
+        <CTABanner />
+      </main>
+      <Footer />
     </div>
   );
 };
