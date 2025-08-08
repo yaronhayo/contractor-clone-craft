@@ -2,41 +2,115 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { CalendarDays, Clock, Tag, ArrowRight } from "lucide-react";
+import heroHouse from "@/assets/hero-house.jpg";
+import service1 from "@/assets/service-1.jpg";
+import service2 from "@/assets/service-2.jpg";
 
-const posts = Array.from({ length: 6 }).map((_, i) => ({
-  title: `How to Choose the Right (Service) #${i + 1}`,
-  excerpt: "Practical tips to evaluate providers, compare quotes, and avoid common pitfalls.",
-  date: "2025-01-01",
-  slug: `choose-right-service-${i + 1}`,
-}));
+const categories = ["How‑To", "Planning", "Costs", "Maintenance", "Inspiration"];
+
+const posts = Array.from({ length: 9 }).map((_, i) => {
+  const images = [heroHouse, service1, service2];
+  const img = images[i % images.length];
+  return {
+    title: `How to Choose the Right (Service) #${i + 1}`,
+    excerpt: "Practical tips to evaluate providers, compare quotes, and avoid common pitfalls.",
+    date: "2025-01-01",
+    readTime: `${8 + (i % 4)} min read`,
+    slug: `choose-right-service-${i + 1}`,
+    category: categories[i % categories.length],
+    image: img,
+  };
+});
 
 const Blog = () => {
   return (
     <div>
-      <Seo title="Blog Hub Page" description="Guides and tips about (service) for homeowners in (City)." canonical="/blog" />
+      <Seo title="Blog | Expert Tips & Guides" description="Explore expert (service) tips, how‑tos, and planning guides for (City) homeowners." canonical="/blog" />
       <Header />
       <main>
-        <section className="container py-14 md:py-20">
+        {/* Hero */}
+        <section className="container py-14 md:py-20 animate-fade-in">
           <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Blog Hub Page</h1>
-            <p className="mt-3 text-muted-foreground">Insights, how‑tos, and expert advice to help you plan your next project.</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold">Expert (Service) Tips & Guides</h1>
+            <p className="mt-4 text-muted-foreground">Learn from our team—clear, practical advice to plan your next project with confidence.</p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+              {categories.map((c) => (
+                <Badge key={c} variant="secondary" className="text-xs">{c}</Badge>
+              ))}
+            </div>
           </header>
+        </section>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {/* Posts Grid */}
+        <section className="container pb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((p) => (
-              <Link key={p.title} to={`/blog/${p.slug}`} className="hover-scale block">
-                <Card className="">
-                  <CardHeader>
-                    <CardTitle>{p.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-muted-foreground">
-                    <p>{p.excerpt}</p>
-                    <p className="mt-3 text-xs opacity-70">{new Date(p.date).toLocaleDateString()}</p>
-                  </CardContent>
-                </Card>
-              </Link>
+              <article key={p.slug} className="group">
+                <Link to={`/blog/${p.slug}`} className="block">
+                  <Card className="overflow-hidden h-full">
+                    <div className="relative">
+                      <AspectRatio ratio={16 / 9}>
+                        <img
+                          src={p.image}
+                          alt={`${p.title} – ${p.category}`}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      </AspectRatio>
+                      <div className="absolute left-3 top-3">
+                        <Badge>{p.category}</Badge>
+                      </div>
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="text-lg group-hover:underline story-link">{p.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">{p.excerpt}</p>
+                      <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
+                        <span className="inline-flex items-center gap-1"><CalendarDays className="h-4 w-4" aria-hidden="true" />{new Date(p.date).toLocaleDateString()}</span>
+                        <span className="inline-flex items-center gap-1"><Clock className="h-4 w-4" aria-hidden="true" />{p.readTime}</span>
+                      </div>
+                      <div className="mt-4 inline-flex items-center gap-1 text-primary">
+                        <span className="text-sm">Read more</span>
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </article>
             ))}
+          </div>
+
+          {/* Pagination (static demo) */}
+          <nav className="mt-10 flex items-center justify-center gap-2" aria-label="Pagination">
+            <Button variant="outline" size="sm">Previous</Button>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>Page</span>
+              <span className="font-medium text-foreground">1</span>
+              <span>of 5</span>
+            </div>
+            <Button size="sm">Next</Button>
+          </nav>
+        </section>
+
+        {/* CTA */}
+        <section className="container pb-20">
+          <div className="rounded-lg border p-6 md:p-10 text-center bg-card">
+            <h2 className="text-xl md:text-2xl font-bold">Ready to start your project?</h2>
+            <p className="mt-2 text-muted-foreground">Get a fast, no‑obligation estimate from our friendly team.</p>
+            <div className="mt-4 flex items-center justify-center gap-3">
+              <Button asChild>
+                <a href="/contact">Get Free Estimate</a>
+              </Button>
+              <Button variant="outline" asChild>
+                <a href="/services"><Tag className="h-4 w-4 mr-1" aria-hidden="true" />View Services</a>
+              </Button>
+            </div>
           </div>
         </section>
       </main>
@@ -46,3 +120,4 @@ const Blog = () => {
 };
 
 export default Blog;
+
