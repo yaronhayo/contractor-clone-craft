@@ -12,12 +12,12 @@ const posts = Array.from({ length: 6 }).map((_, i) => ({
 const Blog = () => {
   return (
     <div>
-      <Seo title="Blog Hub" description="Guides and tips about (service) for homeowners in (City)." canonical="/blog" />
+      <Seo title="Blog Hub Page" description="Guides and tips about (service) for homeowners in (City)." canonical="/blog" />
       <Header />
       <main>
         <section className="container py-14 md:py-20">
           <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Blog</h1>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Blog Hub Page</h1>
             <p className="mt-3 text-muted-foreground">Insights, how‑tos, and expert advice to help you plan your next project.</p>
           </header>
 
