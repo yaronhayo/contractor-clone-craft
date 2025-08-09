@@ -14,6 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getSanityClient } from "@/lib/sanity/client";
 import { blogListQuery } from "@/lib/sanity/queries";
 import { siteConfig } from "@/config/site-config";
+import { Helmet } from "react-helmet-async";
 
 const categories = ["How‑To", "Planning", "Costs", "Maintenance", "Inspiration"];
 
@@ -53,9 +54,21 @@ const Blog = () => {
         image: p.imageUrl || heroHouse,
       }))
     : fallbackPosts);
+  const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+    ],
+  };
   return (
     <div>
       <Seo title="Blog | Locksmith Tips & Guides" description="Explore expert locksmith tips, how‑tos, and planning guides for local homeowners." canonical="/blog" />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      </Helmet>
       <Header />
       <main>
         {/* Hero */}

@@ -3,13 +3,7 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
-const navItems = [
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Services", href: "/services", caret: true },
-  { label: "Service Areas", href: "/service-areas", caret: true },
-  { label: "Contact", href: "/contact" },
-];
+// cleaned unused navItems
 
 export const Header = () => {
   const areas = Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values()).slice(0, 6);
