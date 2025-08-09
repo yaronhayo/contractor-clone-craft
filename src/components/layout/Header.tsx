@@ -85,7 +85,7 @@ export const Header = () => {
 
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="rounded-full">
-            <Link to="/#build">Build Your Own Website!</Link>
+            <a href={`tel:${siteConfig.business.phone}`} aria-label={`Call ${siteConfig.business.name}`}>Call Now</a>
           </Button>
         </div>
       </nav>

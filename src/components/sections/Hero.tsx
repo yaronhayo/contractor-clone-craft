@@ -24,9 +24,9 @@ const Hero = () => {
           </p>
           <div className="mt-8">
             <Button size="lg" className="rounded-full" asChild>
-              <a href="#build" aria-label="Get Templates Here" className="flex items-center gap-2">
+              <a href={`tel:${siteConfig.business.phone}`} aria-label={`Call ${siteConfig.business.name}`} className="flex items-center gap-2">
                 <PhoneCall className="h-5 w-5" aria-hidden="true" />
-                Get Templates Here
+                Call Now
               </a>
             </Button>
           </div>

@@ -4,10 +4,10 @@ import { siteConfig } from "@/config/site-config";
 const Services = () => {
   return (
     <section id="areas" className="container py-14 md:py-20">
-      <div className="text-center max-w-3xl mx-auto">
-        <p className="text-sm uppercase tracking-widest text-muted-foreground">(Service Area) + (Service) Expert Friendly Service</p>
-        <p className="mt-2 text-muted-foreground">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
-      </div>
+      <header className="text-center max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-extrabold">Locksmith Services in {siteConfig.business.hqAddress.city}</h2>
+        <p className="mt-2 text-muted-foreground">From emergency lockouts to rekeying, car keys, and smart lock installs—our licensed locksmiths have you covered.</p>
+      </header>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {siteConfig.taxonomy.services.slice(0, 6).map((s) => {

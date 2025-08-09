@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
 
@@ -8,9 +9,28 @@ const ServiceDetail = () => {
   const { slug } = useParams();
   const service = siteConfig.taxonomy.services.find((s) => s.slug === slug) ?? siteConfig.taxonomy.services[0];
 
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.shortDescription || `Learn about ${service.name}. Get a free estimate today.`,
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteConfig.business.legalName || siteConfig.business.name,
+      telephone: siteConfig.business.phone,
+      url: siteConfig.seo.siteUrl,
+    },
+    areaServed: siteConfig.locations.map((l) => ({
+      "@type": "City",
+      name: `${l.address.city}, ${l.address.state}`,
+    })),
+  };
   return (
     <div>
       <Seo title={`${service.name} | ${siteConfig.business.name}`} description={service.shortDescription || `Learn about ${service.name}. Get a free estimate today.`} canonical={siteConfig.routes.individualService(service.slug)} />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(serviceLd)}</script>
+      </Helmet>
       <Header />
       <main>
         <article className="container py-14 md:py-20">
