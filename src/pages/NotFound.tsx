@@ -2,7 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
-
+import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
     <div>
@@ -15,10 +15,10 @@ const NotFound = () => {
           <p className="mt-3 text-muted-foreground">Sorry, we couldn’t find the page you’re looking for.</p>
           <div className="mt-6 flex items-center justify-center gap-3">
             <Button asChild>
-              <a href="/">Go back home</a>
+              <Link to="/">Go back home</Link>
             </Button>
             <Button asChild variant="outline">
-              <a href="/contact">Contact support</a>
+              <Link to="/contact">Contact support</Link>
             </Button>
           </div>
         </section>

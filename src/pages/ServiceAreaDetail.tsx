@@ -4,7 +4,6 @@ import Seo from "@/components/Seo";
 import ServiceAreasMap from "@/components/maps/ServiceAreasMap";
 import { siteConfig } from "@/config/site-config";
 import { Link, useParams } from "react-router-dom";
-
 const toTitle = (slug?: string) =>
   (slug || "").split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 
@@ -53,7 +52,7 @@ const ServiceAreaDetail = () => {
           </section>
 
           <div className="mt-10">
-            <a href="/#estimate" className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-3 font-medium hover:bg-primary/90">Get a Free Estimate</a>
+            <Link to="/#estimate" className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-3 font-medium hover:bg-primary/90">Get a Free Estimate</Link>
           </div>
         </article>
       </main>

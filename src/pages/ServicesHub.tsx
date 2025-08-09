@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site-config";
 const ServicesHub = () => {
   return (
     <div>
-      <Seo title="Services" description="Explore our full list of (services) available in (City) and nearby areas." canonical="/services" />
+      <Seo title="Services" description={`Explore our full list of locksmith services available in ${siteConfig.business.hqAddress.city} and nearby areas.`} canonical="/services" />
       <Header />
       <main>
         <section className="container py-14 md:py-20">

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, Sparkles, Clock, HandshakeIcon } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const Stat = ({ value, label }: { value: string; label: string }) => (
   <Card className="text-center hover-scale">
     <CardHeader>
@@ -49,10 +49,10 @@ const About = () => {
             <p className="mt-4 text-muted-foreground">We deliver high-quality (service) to (City) with honesty, craftsmanship, and care.</p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild>
-                <a href="/contact">Get Your Free Estimate</a>
+                <Link to="/contact">Get Your Free Estimate</Link>
               </Button>
               <Button variant="outline" asChild>
-                <a href="/services">Explore Services</a>
+                <Link to="/services">Explore Services</Link>
               </Button>
             </div>
           </header>

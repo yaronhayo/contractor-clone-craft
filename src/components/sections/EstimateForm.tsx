@@ -10,7 +10,7 @@ import { renderInvisibleRecaptcha } from "@/lib/recaptcha";
 import { sendEstimateRequest } from "@/lib/email";
 import { Autocomplete } from "@react-google-maps/api";
 import { useMaps } from "@/contexts/MapsProvider";
-
+import { Link } from "react-router-dom";
 const EstimateForm = () => {
   const { toast } = useToast();
   const [address, setAddress] = useState("");
@@ -107,9 +107,9 @@ const EstimateForm = () => {
   return (
     <section id="estimate" className="container py-14 md:py-20">
       <header className="text-center max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-extrabold">Get A Free Estimate On (Service)</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold">Get A Free Estimate</h2>
         <p className="mt-2 text-muted-foreground">Fill out the quick form below to schedule a no-pressure, no-obligation quote.</p>
-        <p className="mt-2 font-semibold">Need to contact us right away? Call Us: (000) 555-5555</p>
+        <p className="mt-2 font-semibold">Need to contact us right away? Call Us: {siteConfig.business.phone}</p>
       </header>
 
       <div ref={recaptchaRef} className="hidden" />
@@ -177,7 +177,7 @@ const EstimateForm = () => {
           <div className="flex items-start gap-2">
             <Checkbox id="consent" checked={consent} onCheckedChange={(v) => setConsent(Boolean(v))} />
             <label htmlFor="consent" className="text-sm text-muted-foreground">
-              I agree to the <a href="/privacy-policy" className="underline">Privacy Policy</a>.
+              I agree to the <Link to="/privacy-policy" className="underline">Privacy Policy</Link>.
             </label>
           </div>
           <Button type="submit" className="mt-2">Request Free Estimate</Button>

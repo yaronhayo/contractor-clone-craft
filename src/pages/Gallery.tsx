@@ -12,7 +12,7 @@ import hero from "@/assets/hero-house.jpg";
 import s1 from "@/assets/service-1.jpg";
 import s2 from "@/assets/service-2.jpg";
 import { Helmet } from "react-helmet-async";
-
+import { Link } from "react-router-dom";
 const allImages = [
   { src: hero, alt: "Exterior remodeling project – modern home facade", category: "Exteriors", date: "2025-01-01" },
   { src: s1, alt: "Kitchen renovation – quartz countertops and backsplash", category: "Kitchens", date: "2025-01-05" },
@@ -126,10 +126,10 @@ const Gallery = () => {
             <p className="mt-2 text-muted-foreground">Tell us about your project—we'll provide a fast, friendly estimate.</p>
             <div className="mt-4 flex items-center justify-center gap-3">
               <Button asChild>
-                <a href="/contact">Get Free Estimate</a>
+                <Link to="/contact">Get Free Estimate</Link>
               </Button>
               <Button variant="outline" asChild>
-                <a href="/services"><ImageIcon className="h-4 w-4 mr-1" aria-hidden="true" />View Services</a>
+                <Link to="/services"><ImageIcon className="h-4 w-4 mr-1" aria-hidden="true" />View Services</Link>
               </Button>
             </div>
           </div>

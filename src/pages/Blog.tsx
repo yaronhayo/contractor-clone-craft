@@ -105,10 +105,10 @@ const Blog = () => {
             <p className="mt-2 text-muted-foreground">Get a fast, no‑obligation estimate from our friendly team.</p>
             <div className="mt-4 flex items-center justify-center gap-3">
               <Button asChild>
-                <a href="/contact">Get Free Estimate</a>
+                <Link to="/contact">Get Free Estimate</Link>
               </Button>
               <Button variant="outline" asChild>
-                <a href="/services"><Tag className="h-4 w-4 mr-1" aria-hidden="true" />View Services</a>
+                <Link to="/services"><Tag className="h-4 w-4 mr-1" aria-hidden="true" />View Services</Link>
               </Button>
             </div>
           </div>

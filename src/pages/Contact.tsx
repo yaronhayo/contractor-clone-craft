@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Helmet } from "react-helmet-async";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
-
+import { Link } from "react-router-dom";
 const InfoCard = ({ icon: Icon, title, children }: { icon: React.ComponentType<any>; title: string; children: React.ReactNode }) => (
   <Card className="h-full">
     <CardHeader className="flex-row items-center gap-3">
@@ -102,7 +102,7 @@ const Contact = () => {
                 <a href={telHref}><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call {phone}</a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="/services">Explore Services<ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" /></a>
+                <Link to="/services">Explore Services<ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" /></Link>
               </Button>
             </div>
           </div>

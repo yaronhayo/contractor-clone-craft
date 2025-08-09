@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
-
 const navItems = [
   { label: "About", href: "/about" },
   { label: "Blog Hub Page", href: "/blog" },
@@ -86,7 +85,7 @@ export const Header = () => {
 
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="rounded-full">
-            <a href="/#build">Build Your Own Website!</a>
+            <Link to="/#build">Build Your Own Website!</Link>
           </Button>
         </div>
       </nav>
