@@ -60,7 +60,7 @@ const Contact = () => {
                 <a href={telHref} aria-label="Call us now" onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "contact_hero", phone }); } catch {} }}><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call Now</a>
               </Button>
               <Button variant="outline" asChild>
-                <a href={mailHref} aria-label="Email us"><Mail className="h-4 w-4 mr-2" aria-hidden="true" />Email Us</a>
+                <a href={mailHref} aria-label="Email us" onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "email_click", source: "contact_hero", email }); } catch {} }}><Mail className="h-4 w-4 mr-2" aria-hidden="true" />Email Us</a>
               </Button>
             </div>
           </header>
@@ -74,7 +74,7 @@ const Contact = () => {
               <p>Mon–Fri, 8am–5pm</p>
             </InfoCard>
             <InfoCard icon={Mail} title="Email">
-              <a href={mailHref} className="story-link">{email}</a>
+              <a href={mailHref} className="story-link" onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "email_click", source: "contact_info", email }); } catch {} }}>{email}</a>
               <p>We reply within one business day</p>
             </InfoCard>
             <InfoCard icon={MapPin} title="Address">
