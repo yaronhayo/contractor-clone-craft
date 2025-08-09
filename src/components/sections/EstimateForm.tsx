@@ -8,7 +8,7 @@ import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@
 import { siteConfig } from "@/config/site-config";
 import { renderInvisibleRecaptcha } from "@/lib/recaptcha";
 import { sendEstimateRequest } from "@/lib/email";
-import { Autocomplete, useLoadScript } from "@react-google-maps/api";
+import { Autocomplete, useJsApiLoader } from "@react-google-maps/api";
 
 const EstimateForm = () => {
   const { toast } = useToast();
@@ -26,7 +26,7 @@ const EstimateForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const siteKey = siteConfig.integrations.recaptcha?.siteKey || "";
   const mapsKey = siteConfig.integrations.googleMaps?.apiKey || "";
-  const { isLoaded: mapsLoaded } = useLoadScript({ googleMapsApiKey: mapsKey, libraries: ["places"] });
+  const { isLoaded: mapsLoaded } = useJsApiLoader({ id: "gmaps-script", googleMapsApiKey: mapsKey, libraries: ["places"] });
   const autocompleteRef = useRef<any>(null);
 
   const serviceOptions = siteConfig.taxonomy?.services || [];
