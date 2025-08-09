@@ -19,6 +19,7 @@ import BlogPost from "./pages/BlogPost";
 import ServiceAreaDetail from "./pages/ServiceAreaDetail";
 import Gallery from "./pages/Gallery";
 import Locations from "./pages/Locations";
+import Setup from "./pages/Setup";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/service-areas/:slug" element={<ServiceAreaDetail />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/locations" element={<Locations />} />
+            <Route path="/setup" element={<Setup />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
