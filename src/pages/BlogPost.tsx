@@ -113,7 +113,7 @@ const BlogPost = () => {
       </Helmet>
       <ReadingProgress />
       <Header />
-      <main>
+      <main id="content">
         {/* Hero / Meta */}
         <section className="border-b bg-gradient-to-b from-primary/10 to-transparent">
           <div className="container py-10 md:py-14">

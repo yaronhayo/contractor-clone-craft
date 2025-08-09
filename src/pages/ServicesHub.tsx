@@ -22,7 +22,7 @@ const ServicesHub = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
       <Header />
-      <main>
+      <main id="content">
         <section className="container py-14 md:py-20">
           <header className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-extrabold">Locksmith Services in {siteConfig.business.hqAddress.city}</h1>

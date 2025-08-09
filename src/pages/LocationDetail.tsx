@@ -4,17 +4,32 @@ import Seo from "@/components/Seo";
 import LocationsMap from "@/components/maps/LocationsMap";
 import { siteConfig } from "@/config/site-config";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const LocationDetail = () => {
   const { slug } = useParams();
   const location = siteConfig.locations.find((l) => l.slug === slug) || siteConfig.locations[0];
   const title = location ? `${location.name} | ${siteConfig.business.name}` : `Location | ${siteConfig.business.name}`;
 
+  const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Locations", item: `${siteUrl}${siteConfig.routes.locationsIndex}` },
+      { "@type": "ListItem", position: 3, name: location.name, item: `${siteUrl}${siteConfig.routes.locationDetail(location.slug)}` },
+    ],
+  };
+
   return (
     <div>
       <Seo title={title} description={`Visit or contact ${location.name}. View address, phone, and service coverage.`} canonical={siteConfig.routes.locationDetail(location.slug)} />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      </Helmet>
       <Header />
-      <main>
+      <main id="content">
         <article className="container py-14 md:py-20">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
             <Link to="/">Home</Link> / <Link to={siteConfig.routes.locationsIndex}>Locations</Link> / <span className="text-foreground">{location.name}</span>

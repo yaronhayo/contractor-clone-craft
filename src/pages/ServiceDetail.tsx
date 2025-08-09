@@ -44,7 +44,7 @@ const ServiceDetail = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
       <Header />
-      <main>
+      <main id="content">
         <article className="container py-14 md:py-20">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
             <Link to="/">Home</Link> / <Link to={siteConfig.routes.servicesIndex}>Services</Link> / <span className="text-foreground">{service.name}</span>

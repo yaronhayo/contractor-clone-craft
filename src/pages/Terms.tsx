@@ -1,13 +1,26 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
+import { Helmet } from "react-helmet-async";
 
 const Terms = () => {
+  const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Terms & Conditions", item: `${siteUrl}/terms` },
+    ],
+  };
   return (
     <div>
       <Seo title="Terms & Conditions" description="Review the terms and conditions for using our website and services." canonical="/terms" />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      </Helmet>
       <Header />
-      <main>
+      <main id="content">
         <section className="container py-14 md:py-20">
           <header className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-extrabold">Terms & Conditions</h1>

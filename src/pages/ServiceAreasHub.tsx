@@ -21,7 +21,7 @@ const ServiceAreasHub = () => {
     <div>
       <Seo title="Locksmith Service Areas" description={`We serve ${siteConfig.business.hqAddress.city} and nearby areas. Explore neighborhoods we cover.`} canonical="/service-areas" />
       <Header />
-      <main>
+      <main id="content">
         <section className="container py-14 md:py-20">
           <Helmet>
             <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

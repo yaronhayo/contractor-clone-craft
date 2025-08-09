@@ -20,7 +20,7 @@ const Locations = () => {
     <div>
       <Seo title="Locations" description="Find our locations and service coverage on the map." canonical="/locations" />
       <Header />
-      <main>
+      <main id="content">
         <section className="container py-14 md:py-20">
           <Helmet>
             <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

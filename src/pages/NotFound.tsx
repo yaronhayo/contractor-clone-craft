@@ -12,7 +12,7 @@ const NotFound = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Header />
-      <main>
+      <main id="content">
         <section className="container py-20 text-center">
           <p className="text-sm text-muted-foreground">Error 404</p>
           <h1 className="mt-2 text-3xl md:text-4xl font-extrabold">Page not found</h1>
