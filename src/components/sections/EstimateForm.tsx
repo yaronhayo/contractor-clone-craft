@@ -9,6 +9,7 @@ import { siteConfig } from "@/config/site-config";
 import { renderInvisibleRecaptcha } from "@/lib/recaptcha";
 import { sendEstimateRequest } from "@/lib/email";
 import { Autocomplete, useJsApiLoader } from "@react-google-maps/api";
+import { getMapsLoaderOptions } from "@/lib/maps";
 
 const EstimateForm = () => {
   const { toast } = useToast();
@@ -26,7 +27,7 @@ const EstimateForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const siteKey = siteConfig.integrations.recaptcha?.siteKey || "";
   const mapsKey = siteConfig.integrations.googleMaps?.apiKey || "";
-  const { isLoaded: mapsLoaded } = useJsApiLoader({ id: "gmaps-script", googleMapsApiKey: mapsKey, libraries: ["places"] });
+  const { isLoaded: mapsLoaded } = useJsApiLoader(getMapsLoaderOptions(mapsKey));
   const autocompleteRef = useRef<any>(null);
 
   const serviceOptions = siteConfig.taxonomy?.services || [];
@@ -158,20 +159,20 @@ const EstimateForm = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium">Name *</label>
-              <Input required placeholder="Your name" />
+              <Input required placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
               <label className="block text-sm font-medium">Phone Number *</label>
-              <Input required type="tel" placeholder="(000) 555-5555" />
+              <Input required type="tel" placeholder="(000) 555-5555" value={phone} onChange={(e) => setPhone(e.target.value)} />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium">Email *</label>
-            <Input required type="email" placeholder="you@example.com" />
+            <Input required type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div>
             <label className="block text-sm font-medium">Short description of what you need</label>
-            <Textarea rows={5} placeholder="Tell us more about your project" />
+            <Textarea rows={5} placeholder="Tell us more about your project" value={message} onChange={(e) => setMessage(e.target.value)} />
           </div>
           <Button type="submit" className="mt-2">Request Free Estimate</Button>
         </div>
