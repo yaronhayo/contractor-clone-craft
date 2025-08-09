@@ -1,8 +1,13 @@
+import { useState } from "react";
 import Seo from "@/components/Seo";
 import { siteConfig } from "@/config/site-config";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
+import { useToast } from "@/components/ui/use-toast";
 
 const StatusBadge = ({ ok }: { ok: boolean }) => (
   <Badge variant={ok ? "default" : "secondary"}>{ok ? "Configured" : "Missing"}</Badge>
@@ -14,6 +19,54 @@ const Setup = () => {
   const recaptchaOk = Boolean(siteConfig.integrations.recaptcha?.siteKey);
   const sanityOk = Boolean(siteConfig.integrations.sanity?.projectId);
 
+  const { toast } = useToast();
+  const [form, setForm] = useState({
+    businessName: siteConfig.business.name || "",
+    businessPhone: siteConfig.business.phone || "",
+    businessEmail: siteConfig.business.email || "",
+    businessSiteUrl: siteConfig.business.siteUrl || "",
+    seoSiteUrl: siteConfig.seo.siteUrl || "",
+    mapsApiKey: siteConfig.integrations.googleMaps?.apiKey || "",
+    mapsMapId: siteConfig.integrations.googleMaps?.mapId || "",
+    gtmContainerId: siteConfig.integrations.gtm?.containerId || "",
+    recaptchaSiteKey: siteConfig.integrations.recaptcha?.siteKey || "",
+    sanityProjectId: siteConfig.integrations.sanity?.projectId || "",
+    sanityDataset: siteConfig.integrations.sanity?.dataset || "production",
+  });
+
+  const onSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    const overrides = {
+      business: {
+        name: form.businessName,
+        phone: form.businessPhone,
+        email: form.businessEmail,
+        siteUrl: form.businessSiteUrl,
+      },
+      seo: { siteUrl: form.seoSiteUrl },
+      integrations: {
+        googleMaps: { apiKey: form.mapsApiKey || undefined, mapId: form.mapsMapId || undefined },
+        gtm: { containerId: form.gtmContainerId || undefined },
+        recaptcha: { version: "v2-invisible", siteKey: form.recaptchaSiteKey || undefined },
+        sanity: { projectId: form.sanityProjectId || undefined, dataset: form.sanityDataset || undefined },
+      },
+    };
+    try {
+      localStorage.setItem("siteConfigOverrides", JSON.stringify(overrides));
+      toast({ title: "Settings saved", description: "Reloading to apply changes..." });
+      setTimeout(() => window.location.reload(), 600);
+    } catch (err) {
+      toast({ title: "Failed to save", description: "Please try again.", variant: "destructive" as any });
+    }
+  };
+
+  const onReset = () => {
+    try {
+      localStorage.removeItem("siteConfigOverrides");
+      toast({ title: "Reset complete", description: "Reloading to defaults..." });
+      setTimeout(() => window.location.reload(), 600);
+    } catch {}
+  };
   return (
     <div>
       <Seo
@@ -141,6 +194,109 @@ const Setup = () => {
             </li>
           </ul>
         </article>
+
+        <section className="mt-10">
+          <h2 className="text-xl md:text-2xl font-bold">Configure Settings</h2>
+          <p className="text-sm text-muted-foreground mt-1">These are publishable keys and basic business settings. Values are saved in your browser and applied across the site.</p>
+          <form onSubmit={onSave} className="mt-6 grid gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Business</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <Label htmlFor="businessName">Business name</Label>
+                  <Input id="businessName" value={form.businessName} onChange={(e) => setForm((f) => ({ ...f, businessName: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="businessPhone">Phone</Label>
+                  <Input id="businessPhone" value={form.businessPhone} onChange={(e) => setForm((f) => ({ ...f, businessPhone: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="businessEmail">Email</Label>
+                  <Input id="businessEmail" type="email" value={form.businessEmail} onChange={(e) => setForm((f) => ({ ...f, businessEmail: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="businessSiteUrl">Business site URL</Label>
+                  <Input id="businessSiteUrl" placeholder="https://www.example.com" value={form.businessSiteUrl} onChange={(e) => setForm((f) => ({ ...f, businessSiteUrl: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>SEO</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1 md:col-span-2">
+                  <Label htmlFor="seoSiteUrl">Canonical site URL</Label>
+                  <Input id="seoSiteUrl" placeholder="https://www.example.com" value={form.seoSiteUrl} onChange={(e) => setForm((f) => ({ ...f, seoSiteUrl: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Google Maps</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <Label htmlFor="mapsApiKey">Maps API key</Label>
+                  <Input id="mapsApiKey" value={form.mapsApiKey} onChange={(e) => setForm((f) => ({ ...f, mapsApiKey: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="mapsMapId">Map ID (optional)</Label>
+                  <Input id="mapsMapId" value={form.mapsMapId} onChange={(e) => setForm((f) => ({ ...f, mapsMapId: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Google Tag Manager</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1 md:col-span-2">
+                  <Label htmlFor="gtmContainerId">Container ID</Label>
+                  <Input id="gtmContainerId" placeholder="GTM-XXXXXX" value={form.gtmContainerId} onChange={(e) => setForm((f) => ({ ...f, gtmContainerId: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>reCAPTCHA</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1 md:col-span-2">
+                  <Label htmlFor="recaptchaSiteKey">Site key</Label>
+                  <Input id="recaptchaSiteKey" value={form.recaptchaSiteKey} onChange={(e) => setForm((f) => ({ ...f, recaptchaSiteKey: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Sanity (optional)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <Label htmlFor="sanityProjectId">Project ID</Label>
+                  <Input id="sanityProjectId" value={form.sanityProjectId} onChange={(e) => setForm((f) => ({ ...f, sanityProjectId: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="sanityDataset">Dataset</Label>
+                  <Input id="sanityDataset" value={form.sanityDataset} onChange={(e) => setForm((f) => ({ ...f, sanityDataset: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="flex items-center gap-3">
+              <Button type="submit">Save changes</Button>
+              <Button type="button" variant="outline" onClick={onReset}>Reset to defaults</Button>
+            </div>
+          </form>
+        </section>
       </main>
     </div>
   );

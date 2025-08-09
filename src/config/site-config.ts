@@ -196,8 +196,25 @@ export type SiteConfig = {
   integrations: Integrations;
 };
 
+// Utility: shallow-deep merge for config overrides (arrays are replaced)
+function mergeDeep<T>(target: T, source: any): T {
+  if (!source) return target;
+  const isObj = (v: any) => v && typeof v === "object" && !Array.isArray(v);
+  const output: any = Array.isArray(target) ? [...(source ?? target)] : { ...(target as any) };
+  for (const key of Object.keys(source)) {
+    const srcVal = (source as any)[key];
+    const tgtVal = (target as any)[key];
+    if (isObj(srcVal) && isObj(tgtVal)) {
+      output[key] = mergeDeep(tgtVal, srcVal);
+    } else if (srcVal !== undefined) {
+      output[key] = srcVal;
+    }
+  }
+  return output;
+}
+
 // Default example config – replace values per client on new projects
-export const siteConfig: SiteConfig = {
+const baseConfig: SiteConfig = {
   business: {
     name: "Your Brand Locksmith",
     legalName: "Your Brand LLC",
@@ -428,3 +445,10 @@ export const siteConfig: SiteConfig = {
     },
   },
 };
+
+// Apply runtime overrides from localStorage (publishable keys & settings)
+const overrides = typeof window !== "undefined" ? (() => {
+  try { return JSON.parse(localStorage.getItem("siteConfigOverrides") || "null"); } catch { return null; }
+})() : null;
+
+export const siteConfig: SiteConfig = overrides ? mergeDeep(baseConfig, overrides) : baseConfig;
