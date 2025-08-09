@@ -53,7 +53,7 @@ const About = () => {
         })}</script>
       </Helmet>
       <Header />
-      <main>
+      <main id="content">
         {/* Hero */}
         <section className="container py-16 md:py-24 animate-fade-in">
           <header className="max-w-3xl mx-auto text-center">

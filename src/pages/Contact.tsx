@@ -49,7 +49,7 @@ const Contact = () => {
         })}</script>
       </Helmet>
       <Header />
-      <main>
+      <main id="content">
         {/* Hero */}
         <section className="container py-14 md:py-20 animate-fade-in">
           <header className="text-center max-w-3xl mx-auto">

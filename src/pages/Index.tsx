@@ -20,7 +20,7 @@ const Index = () => {
     <div>
       <Seo title={siteConfig.seo.defaultTitle} description={siteConfig.seo.defaultDescription} canonical="/" />
       <Header />
-      <main>
+      <main id="content">
         <Hero />
         <FeaturesBar />
         <Questions />
