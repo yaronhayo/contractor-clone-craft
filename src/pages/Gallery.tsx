@@ -59,7 +59,7 @@ const Gallery = () => {
 
   return (
     <div>
-      <Seo title="Project Gallery | Recent Work" description="Browse our (service) project gallery—before & afters, kitchens, bathrooms, and exteriors." canonical="/gallery" />
+      <Seo title="Project Gallery | Recent Work" description="Browse recent locksmith projects—lock installs, rekeys, car keys, and smart locks." canonical="/gallery" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(galleryLd)}</script>
       </Helmet>
@@ -69,7 +69,7 @@ const Gallery = () => {
         <section className="container py-14 md:py-20 animate-fade-in">
           <header className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-5xl font-extrabold">Project Gallery</h1>
-            <p className="mt-4 text-muted-foreground">A look at our recent work and craftsmanship across kitchens, baths, and exteriors.</p>
+            <p className="mt-4 text-muted-foreground">A look at recent locksmith work: installs, rekeys, car keys, and more.</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               {categories.map((cat) => (
                 <Button

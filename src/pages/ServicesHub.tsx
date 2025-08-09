@@ -7,13 +7,13 @@ import { siteConfig } from "@/config/site-config";
 const ServicesHub = () => {
   return (
     <div>
-      <Seo title="Services" description={`Explore our full list of locksmith services available in ${siteConfig.business.hqAddress.city} and nearby areas.`} canonical="/services" />
+      <Seo title="Locksmith Services" description={`Explore our full list of locksmith services available in ${siteConfig.business.hqAddress.city} and nearby areas.`} canonical="/services" />
       <Header />
       <main>
         <section className="container py-14 md:py-20">
           <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Our Services</h1>
-            <p className="mt-3 text-muted-foreground">Professional, reliable, and tailored to your project needs.</p>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Locksmith Services in {siteConfig.business.hqAddress.city}</h1>
+            <p className="mt-3 text-muted-foreground">Professional, reliable, and tailored to your security needs.</p>
           </header>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">

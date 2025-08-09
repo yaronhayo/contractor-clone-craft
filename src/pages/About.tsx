@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, Sparkles, Clock, HandshakeIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { siteConfig } from "@/config/site-config";
 const Stat = ({ value, label }: { value: string; label: string }) => (
   <Card className="text-center hover-scale">
     <CardHeader>
@@ -39,14 +40,14 @@ const TimelineItem = ({ year, title, text }: { year: string; title: string; text
 const About = () => {
   return (
     <div>
-      <Seo title="About Our Company" description="Learn about our mission, values, and the expert team behind our (service)." canonical="/about" />
+      <Seo title={`About ${siteConfig.business.name}`} description={`Learn about our locksmith team serving ${siteConfig.business.hqAddress.city}—licensed, insured, and trusted.`} canonical="/about" />
       <Header />
       <main>
         {/* Hero */}
         <section className="container py-16 md:py-24 animate-fade-in">
           <header className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-5xl font-extrabold">About Our Company</h1>
-            <p className="mt-4 text-muted-foreground">We deliver high-quality (service) to (City) with honesty, craftsmanship, and care.</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold">About Our Locksmith Company</h1>
+            <p className="mt-4 text-muted-foreground">We deliver reliable locksmith services in {siteConfig.business.hqAddress.city} with honesty, craftsmanship, and care.</p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild>
                 <Link to="/contact">Get Your Free Estimate</Link>
@@ -87,10 +88,10 @@ const About = () => {
             <article className="md:col-span-2 space-y-4 text-muted-foreground">
               <h2 className="text-xl md:text-2xl font-bold text-foreground">Our Story</h2>
               <p>
-                Since day one, our focus has been helping homeowners and businesses get reliable, professional (service). From the first call to the final walkthrough, we communicate clearly and treat your property with respect.
+                Since day one, our focus has been helping homeowners and businesses with dependable locksmith services. From the first call to the final walkthrough, we communicate clearly and treat your property with respect.
               </p>
               <p>
-                Our certified technicians undergo ongoing training to ensure your project is done safely, on time, and on budget.
+                Our certified locksmiths undergo ongoing training to ensure your job is done safely, on time, and on budget.
               </p>
             </article>
             <aside className="rounded-lg border p-6 bg-card">
@@ -108,8 +109,8 @@ const About = () => {
             <div>
               <h3 className="font-semibold">Milestones</h3>
               <ol className="mt-4 space-y-4 border-l pl-4">
-                <TimelineItem year="2015" title="Founded in (City)" text="Started with a mission to raise the bar for local (service)." />
-                <TimelineItem year="2018" title="Team Expansion" text="Grew our certified crew and added new service offerings." />
+                <TimelineItem year="2015" title={`Founded in ${siteConfig.business.hqAddress.city}`} text="Started with a mission to raise the bar for local locksmith services." />
+                <TimelineItem year="2018" title="Team Expansion" text="Grew our certified locksmith crew and added new service offerings." />
                 <TimelineItem year="2022" title="500th Project" text="A major milestone—earning consistent 5-star reviews from clients." />
               </ol>
             </div>

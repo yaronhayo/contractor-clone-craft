@@ -17,11 +17,11 @@ const posts = Array.from({ length: 9 }).map((_, i) => {
   const images = [heroHouse, service1, service2];
   const img = images[i % images.length];
   return {
-    title: `How to Choose the Right (Service) #${i + 1}`,
+    title: `How to Choose the Right Locksmith #${i + 1}`,
     excerpt: "Practical tips to evaluate providers, compare quotes, and avoid common pitfalls.",
     date: "2025-01-01",
     readTime: `${8 + (i % 4)} min read`,
-    slug: `choose-right-service-${i + 1}`,
+    slug: `choose-right-locksmith-${i + 1}`,
     category: categories[i % categories.length],
     image: img,
   };
@@ -30,14 +30,14 @@ const posts = Array.from({ length: 9 }).map((_, i) => {
 const Blog = () => {
   return (
     <div>
-      <Seo title="Blog | Expert Tips & Guides" description="Explore expert (service) tips, how‑tos, and planning guides for (City) homeowners." canonical="/blog" />
+      <Seo title="Blog | Locksmith Tips & Guides" description="Explore expert locksmith tips, how‑tos, and planning guides for local homeowners." canonical="/blog" />
       <Header />
       <main>
         {/* Hero */}
         <section className="container py-14 md:py-20 animate-fade-in">
           <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-extrabold">Expert (Service) Tips & Guides</h1>
-            <p className="mt-4 text-muted-foreground">Learn from our team—clear, practical advice to plan your next project with confidence.</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold">Expert Locksmith Tips & Guides</h1>
+            <p className="mt-4 text-muted-foreground">Learn from our team—clear, practical advice to keep your property secure and your day moving.</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               {categories.map((c) => (
                 <Badge key={c} variant="secondary" className="text-xs">{c}</Badge>

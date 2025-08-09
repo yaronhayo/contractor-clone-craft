@@ -10,13 +10,13 @@ const ServiceAreasHub = () => {
   const areas = Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values());
   return (
     <div>
-      <Seo title="Service Areas" description="We serve (City) and surrounding areas. Explore the neighborhoods we cover." canonical="/service-areas" />
+      <Seo title="Locksmith Service Areas" description={`We serve ${siteConfig.business.hqAddress.city} and nearby areas. Explore neighborhoods we cover.`} canonical="/service-areas" />
       <Header />
       <main>
         <section className="container py-14 md:py-20">
           <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Service Area Hub</h1>
-            <p className="mt-3 text-muted-foreground">Proudly serving customers across (Region).</p>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Locksmith Service Areas</h1>
+            <p className="mt-3 text-muted-foreground">Proudly serving customers across the {siteConfig.business.hqAddress.city} metro area.</p>
           </header>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">

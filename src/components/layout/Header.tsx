@@ -51,7 +51,7 @@ export const Header = () => {
               <DropdownMenuTrigger className="inline-flex items-center gap-1 hover:text-primary transition-colors">
                 Services <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
+              <DropdownMenuContent align="start" className="z-50 bg-popover border shadow-md" sideOffset={6}>
                 {siteConfig.taxonomy.services.slice(0, 6).map((s) => (
                   <DropdownMenuItem asChild key={s.slug}>
                     <Link to={siteConfig.routes.individualService(s.slug)}>{s.name}</Link>
@@ -66,7 +66,7 @@ export const Header = () => {
               <DropdownMenuTrigger className="inline-flex items-center gap-1 hover:text-primary transition-colors">
                 Service Area Hub <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
+              <DropdownMenuContent align="start" className="z-50 bg-popover border shadow-md" sideOffset={6}>
                 {areas.map((a) => (
                   <DropdownMenuItem asChild key={a.slug}>
                     <Link to={siteConfig.routes.serviceAreaDetail(a.slug)}>

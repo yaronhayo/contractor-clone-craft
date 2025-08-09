@@ -74,6 +74,15 @@ const EstimateForm = () => {
 
     const res = await sendEstimateRequest(payload as any);
     if (res.ok) {
+      try {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+          event: "estimate_request_submitted",
+          form: "estimate",
+          services: payload.services,
+          city: siteConfig.business.hqAddress.city,
+        });
+      } catch {}
       toast({ title: "Request sent", description: "We will contact you shortly." });
       setAddress("");
       setService("");
