@@ -1,6 +1,8 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
+import ServiceAreasMap from "@/components/maps/ServiceAreasMap";
+import { siteConfig } from "@/config/site-config";
 import { Link, useParams } from "react-router-dom";
 
 const toTitle = (slug?: string) =>
@@ -9,6 +11,8 @@ const toTitle = (slug?: string) =>
 const ServiceAreaDetail = () => {
   const { slug } = useParams();
   const area = toTitle(slug) || "Service Area";
+  const loc = siteConfig.locations.find((l) => l.serviceAreas.some((a) => a.slug === slug));
+  const locationId = loc?.id;
 
   return (
     <div>
@@ -39,6 +43,13 @@ const ServiceAreaDetail = () => {
               <li>Transparent pricing</li>
               <li>Licensed and insured</li>
             </ul>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="text-xl font-bold mb-3">Map</h2>
+            <div className="rounded-lg overflow-hidden border aspect-[4/3]">
+              <ServiceAreasMap height={360} locationId={locationId || undefined} />
+            </div>
           </section>
 
           <div className="mt-10">

@@ -33,6 +33,9 @@ export const Header = () => {
             <Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link>
           </li>
           <li>
+            <Link to="/locations" className="hover:text-primary transition-colors">Locations</Link>
+          </li>
+          <li>
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-1 hover:text-primary transition-colors">
                 Services <ChevronDown className="h-4 w-4" aria-hidden="true" />

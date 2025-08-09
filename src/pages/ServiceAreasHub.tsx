@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
+import ServiceAreasMap from "@/components/maps/ServiceAreasMap";
 import { Link } from "react-router-dom";
 
 const areas = [
@@ -41,11 +42,7 @@ const ServiceAreasHub = () => {
           <div className="mt-10">
             <h2 className="text-xl font-bold mb-3">Coverage Map</h2>
             <div className="aspect-[4/3] rounded-lg overflow-hidden border">
-              <iframe
-                title="Service Area Map"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-122.5%2C37.6%2C-122.2%2C37.85&layer=mapnik"
-                className="w-full h-full"
-              />
+              <ServiceAreasMap height={480} />
             </div>
           </div>
         </section>

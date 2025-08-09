@@ -1,19 +1,42 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { siteConfig } from "@/config/site-config";
+import { renderInvisibleRecaptcha } from "@/lib/recaptcha";
 
 const EstimateForm = () => {
   const { toast } = useToast();
   const [services, setServices] = useState<string[]>([]);
+  const recaptchaRef = useRef<HTMLDivElement | null>(null);
+  const [widgetId, setWidgetId] = useState<number | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string>("");
+  const siteKey = siteConfig.integrations.recaptcha?.siteKey || "";
 
   const toggle = (s: string) =>
     setServices((prev) => (prev.includes(s) ? prev.filter((i) => i !== s) : [...prev, s]));
+  
+  // Setup Invisible reCAPTCHA v2 when site key is available
+  useEffect(() => {
+    if (!siteKey || !recaptchaRef.current || widgetId !== null) return;
+    (async () => {
+      const id = await renderInvisibleRecaptcha(recaptchaRef.current!, siteKey, (token: string) => {
+        setRecaptchaToken(token);
+        toast({ title: "Request sent", description: "We will contact you shortly." });
+        console.log("Estimate form submitted", { services, recaptchaToken: token });
+      });
+      if (id !== null) setWidgetId(id);
+    })();
+  }, [siteKey, widgetId, services, toast]);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (siteKey && widgetId !== null && (window as any).grecaptcha) {
+      (window as any).grecaptcha.execute(widgetId);
+      return;
+    }
     toast({ title: "Request sent", description: "We will contact you shortly." });
     console.log("Estimate form submitted", { services });
   };
@@ -26,6 +49,7 @@ const EstimateForm = () => {
         <p className="mt-2 font-semibold">Need to contact us right away? Call Us: (000) 555-5555</p>
       </header>
 
+      <div ref={recaptchaRef} className="hidden" />
       <form onSubmit={onSubmit} className="mt-10 grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
           <label className="block text-sm font-medium">Where do you need our services? (Address) *</label>
