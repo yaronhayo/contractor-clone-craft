@@ -1,19 +1,21 @@
+import { siteConfig } from "@/config/site-config";
+
 const steps = [
   {
     title: "Step 1: Reach Out to Us",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    text: "Tell us what you need—lockout, rekey, car key, or install—and your location.",
   },
   {
-    title: "Step 2: Schedule (Service)",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean massa cum sociis natoque penatibus.",
+    title: "Step 2: Schedule Your Service",
+    text: "We confirm details and give you clear pricing with a convenient time window.",
   },
   {
-    title: "Step 3: (We Provide Service)",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Venenatis vitae justo.",
+    title: "Step 3: We Do the Work",
+    text: "A licensed locksmith arrives on time and completes the job with care.",
   },
   {
-    title: "Step 4: Enjoy the Results",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla consequat massa quis enim.",
+    title: "Step 4: You're All Set",
+    text: "We test everything, tidy up, and make sure you’re satisfied before we leave.",
   },
 ];
 
@@ -21,8 +23,8 @@ const Process = () => {
   return (
     <section id="process" className="container py-14 md:py-20">
       <header className="text-center max-w-2xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-extrabold">How Our (Service) Works (What Customer Can Expect)</h2>
-        <p className="mt-2 text-muted-foreground">Our Process Is Nice And Easy Just Look At Our Four Steps</p>
+        <h2 className="text-2xl md:text-3xl font-extrabold">How Our Locksmith Service Works in {siteConfig.business.hqAddress.city}</h2>
+        <p className="mt-2 text-muted-foreground">Simple, transparent, and fast—just four easy steps.</p>
       </header>
       <ol className="grid md:grid-cols-4 gap-6 mt-10">
         {steps.map((s, idx) => (

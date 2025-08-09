@@ -5,9 +5,9 @@ import { ChevronDown } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 const navItems = [
   { label: "About", href: "/about" },
-  { label: "Blog Hub Page", href: "/blog" },
+  { label: "Blog", href: "/blog" },
   { label: "Services", href: "/services", caret: true },
-  { label: "Service Area Hub", href: "/service-areas", caret: true },
+  { label: "Service Areas", href: "/service-areas", caret: true },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -38,7 +38,7 @@ export const Header = () => {
             <Link to="/about" className="hover:text-primary transition-colors">About</Link>
           </li>
           <li>
-            <Link to="/blog" className="hover:text-primary transition-colors">Blog Hub Page</Link>
+            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
           </li>
           <li>
             <Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link>
@@ -64,7 +64,7 @@ export const Header = () => {
           <li>
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-1 hover:text-primary transition-colors">
-                Service Area Hub <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                Service Areas <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="z-50 bg-popover border shadow-md" sideOffset={6}>
                 {areas.map((a) => (
