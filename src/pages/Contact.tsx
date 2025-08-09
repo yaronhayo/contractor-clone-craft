@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Helmet } from "react-helmet-async";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
+import { siteConfig } from "@/config/site-config";
 
 const InfoCard = ({ icon: Icon, title, children }: { icon: React.ComponentType<any>; title: string; children: React.ReactNode }) => (
   <Card className="h-full">
@@ -21,6 +22,10 @@ const InfoCard = ({ icon: Icon, title, children }: { icon: React.ComponentType<a
 
 const Contact = () => {
   const canonical = "/contact";
+  const phone = siteConfig.business.phone;
+  const email = siteConfig.business.email;
+  const telHref = `tel:${phone.replace(/[^+\d]/g, "")}`;
+  const mailHref = `mailto:${email}`;
   const pageUrl = typeof window !== "undefined" ? `${window.location.origin}${canonical}` : canonical;
   const contactLd = {
     "@context": "https://schema.org",
@@ -44,10 +49,10 @@ const Contact = () => {
             <p className="mt-4 text-muted-foreground">Fast, friendly help from a local team—request a free estimate or reach us directly.</p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild>
-                <a href="tel:+18055555555" aria-label="Call us now"><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call Now</a>
+                <a href={telHref} aria-label="Call us now"><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call Now</a>
               </Button>
               <Button variant="outline" asChild>
-                <a href="mailto:service@example.com" aria-label="Email us"><Mail className="h-4 w-4 mr-2" aria-hidden="true" />Email Us</a>
+                <a href={mailHref} aria-label="Email us"><Mail className="h-4 w-4 mr-2" aria-hidden="true" />Email Us</a>
               </Button>
             </div>
           </header>
@@ -57,16 +62,16 @@ const Contact = () => {
         <section className="container pb-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <InfoCard icon={Phone} title="Phone">
-              <a href="tel:+18055555555" className="story-link">(805) 555-5555</a>
+              <a href={telHref} className="story-link">{phone}</a>
               <p>Mon–Fri, 8am–5pm</p>
             </InfoCard>
             <InfoCard icon={Mail} title="Email">
-              <a href="mailto:service@example.com" className="story-link">service@example.com</a>
+              <a href={mailHref} className="story-link">{email}</a>
               <p>We reply within one business day</p>
             </InfoCard>
             <InfoCard icon={MapPin} title="Address">
-              <p>BUSINESS ADDRESS</p>
-              <p>Serving (City) and surrounding areas</p>
+              <p>{siteConfig.business.hqAddress.line1}, {siteConfig.business.hqAddress.city}, {siteConfig.business.hqAddress.state} {siteConfig.business.hqAddress.postalCode}</p>
+              <p>Serving {siteConfig.locations[0]?.address.city}, {siteConfig.locations[0]?.address.state} and surrounding areas</p>
             </InfoCard>
             <InfoCard icon={Clock} title="Hours">
               <p>Mon–Fri: 8:00AM – 5:00PM</p>
@@ -94,7 +99,7 @@ const Contact = () => {
             <p className="mt-2 text-muted-foreground">Give us a quick call and we’ll answer your questions on the spot.</p>
             <div className="mt-4 flex items-center justify-center gap-3">
               <Button asChild>
-                <a href="tel:+18055555555"><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call (805) 555-5555</a>
+                <a href={telHref}><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call {phone}</a>
               </Button>
               <Button variant="outline" asChild>
                 <a href="/services">Explore Services<ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" /></a>

@@ -174,6 +174,12 @@ const EstimateForm = () => {
             <label className="block text-sm font-medium">Short description of what you need</label>
             <Textarea rows={5} placeholder="Tell us more about your project" value={message} onChange={(e) => setMessage(e.target.value)} />
           </div>
+          <div className="flex items-start gap-2">
+            <Checkbox id="consent" checked={consent} onCheckedChange={(v) => setConsent(Boolean(v))} />
+            <label htmlFor="consent" className="text-sm text-muted-foreground">
+              I agree to the <a href="/privacy-policy" className="underline">Privacy Policy</a>.
+            </label>
+          </div>
           <Button type="submit" className="mt-2">Request Free Estimate</Button>
         </div>
       </form>

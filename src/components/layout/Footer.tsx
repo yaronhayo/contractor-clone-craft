@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
 
 const Footer = () => {
@@ -11,9 +12,9 @@ const Footer = () => {
             {siteConfig.business.social?.linkedin && (<a href={siteConfig.business.social.linkedin} className="hover:text-primary" aria-label="LinkedIn">LinkedIn</a>)}
             {siteConfig.business.social?.instagram && (<a href={siteConfig.business.social.instagram} className="hover:text-primary" aria-label="Instagram">Instagram</a>)}
             {siteConfig.business.social?.twitter && (<a href={siteConfig.business.social.twitter} className="hover:text-primary" aria-label="Twitter">Twitter</a>)}
-            <a href="/privacy-policy" className="hover:text-primary">Privacy Policy</a>
-            <a href="/terms" className="hover:text-primary">Terms</a>
-            <a href="/setup" className="hover:text-primary" aria-label="Project Setup Checklist">Setup</a>
+            <Link to="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-primary">Terms</Link>
+            <Link to="/setup" className="hover:text-primary" aria-label="Project Setup Checklist">Setup</Link>
           </nav>
         </div>
       </div>
