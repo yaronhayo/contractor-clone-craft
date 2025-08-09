@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { Helmet } from "react-helmet-async";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -21,17 +22,61 @@ const Setup = () => {
 
   const { toast } = useToast();
   const [form, setForm] = useState({
+    // Business
     businessName: siteConfig.business.name || "",
     businessPhone: siteConfig.business.phone || "",
     businessEmail: siteConfig.business.email || "",
     businessSiteUrl: siteConfig.business.siteUrl || "",
+    // Address
+    addressLine1: siteConfig.business.hqAddress.line1 || "",
+    addressLine2: siteConfig.business.hqAddress.line2 || "",
+    addressCity: siteConfig.business.hqAddress.city || "",
+    addressState: siteConfig.business.hqAddress.state || "",
+    addressPostalCode: siteConfig.business.hqAddress.postalCode || "",
+    addressCountry: siteConfig.business.hqAddress.country || "",
+    // Hours
+    hoursMon: siteConfig.business.hours.mon || "",
+    hoursTue: siteConfig.business.hours.tue || "",
+    hoursWed: siteConfig.business.hours.wed || "",
+    hoursThu: siteConfig.business.hours.thu || "",
+    hoursFri: siteConfig.business.hours.fri || "",
+    hoursSat: siteConfig.business.hours.sat || "",
+    hoursSun: siteConfig.business.hours.sun || "",
+    // Social
+    socialFacebook: siteConfig.business.social?.facebook || "",
+    socialInstagram: siteConfig.business.social?.instagram || "",
+    socialTwitter: siteConfig.business.social?.twitter || "",
+    socialYoutube: siteConfig.business.social?.youtube || "",
+    socialTiktok: siteConfig.business.social?.tiktok || "",
+    socialLinkedin: siteConfig.business.social?.linkedin || "",
+    socialYelp: siteConfig.business.social?.yelp || "",
+    socialGoogleBusiness: siteConfig.business.social?.googleBusiness || "",
+    // Branding colors (HSL strings)
+    brandingPrimary: siteConfig.business.branding.colors.primary || "",
+    brandingSecondary: siteConfig.business.branding.colors.secondary || "",
+    brandingAccent: siteConfig.business.branding.colors.accent || "",
+    // SEO
     seoSiteUrl: siteConfig.seo.siteUrl || "",
+    seoDefaultTitle: siteConfig.seo.defaultTitle || "",
+    seoDefaultDescription: siteConfig.seo.defaultDescription || "",
+    // Google Maps
     mapsApiKey: siteConfig.integrations.googleMaps?.apiKey || "",
     mapsMapId: siteConfig.integrations.googleMaps?.mapId || "",
+    mapsDefaultCenterLat: String(siteConfig.integrations.googleMaps?.defaultCenter?.lat ?? ""),
+    mapsDefaultCenterLng: String(siteConfig.integrations.googleMaps?.defaultCenter?.lng ?? ""),
+    mapsDefaultZoom: String(siteConfig.integrations.googleMaps?.defaultZoom ?? ""),
+    // GTM
     gtmContainerId: siteConfig.integrations.gtm?.containerId || "",
+    gtmDataLayerName: siteConfig.integrations.gtm?.dataLayerName || "dataLayer",
+    // reCAPTCHA
     recaptchaSiteKey: siteConfig.integrations.recaptcha?.siteKey || "",
+    // Sanity
     sanityProjectId: siteConfig.integrations.sanity?.projectId || "",
     sanityDataset: siteConfig.integrations.sanity?.dataset || "production",
+    sanityApiVersion: siteConfig.integrations.sanity?.apiVersion || "2024-10-01",
+    // Freepik
+    freepikAttribution: siteConfig.integrations.freepik?.defaultAttribution || "",
+    freepikProfileUrl: siteConfig.integrations.freepik?.profileUrl || "",
   });
 
   const onSave = (e: React.FormEvent) => {
@@ -42,13 +87,62 @@ const Setup = () => {
         phone: form.businessPhone,
         email: form.businessEmail,
         siteUrl: form.businessSiteUrl,
+        hqAddress: {
+          line1: form.addressLine1,
+          line2: form.addressLine2 || undefined,
+          city: form.addressCity,
+          state: form.addressState,
+          postalCode: form.addressPostalCode,
+          country: form.addressCountry || undefined,
+        },
+        hours: {
+          mon: form.hoursMon,
+          tue: form.hoursTue,
+          wed: form.hoursWed,
+          thu: form.hoursThu,
+          fri: form.hoursFri,
+          sat: form.hoursSat,
+          sun: form.hoursSun,
+        },
+        social: {
+          facebook: form.socialFacebook || undefined,
+          instagram: form.socialInstagram || undefined,
+          twitter: form.socialTwitter || undefined,
+          youtube: form.socialYoutube || undefined,
+          tiktok: form.socialTiktok || undefined,
+          linkedin: form.socialLinkedin || undefined,
+          yelp: form.socialYelp || undefined,
+          googleBusiness: form.socialGoogleBusiness || undefined,
+        },
+        branding: {
+          colors: {
+            primary: form.brandingPrimary,
+            secondary: form.brandingSecondary,
+            accent: form.brandingAccent,
+          },
+          logos: siteConfig.business.branding.logos,
+          favicon: siteConfig.business.branding.favicon,
+        },
       },
-      seo: { siteUrl: form.seoSiteUrl },
+      seo: {
+        siteUrl: form.seoSiteUrl,
+        defaultTitle: form.seoDefaultTitle,
+        defaultDescription: form.seoDefaultDescription,
+      },
       integrations: {
-        googleMaps: { apiKey: form.mapsApiKey || undefined, mapId: form.mapsMapId || undefined },
-        gtm: { containerId: form.gtmContainerId || undefined },
+        googleMaps: {
+          apiKey: form.mapsApiKey || undefined,
+          mapId: form.mapsMapId || undefined,
+          defaultCenter: {
+            lat: form.mapsDefaultCenterLat ? parseFloat(form.mapsDefaultCenterLat) : undefined as any,
+            lng: form.mapsDefaultCenterLng ? parseFloat(form.mapsDefaultCenterLng) : undefined as any,
+          },
+          defaultZoom: form.mapsDefaultZoom ? parseInt(form.mapsDefaultZoom) : undefined as any,
+        },
+        gtm: { containerId: form.gtmContainerId || undefined, dataLayerName: form.gtmDataLayerName || undefined },
         recaptcha: { version: "v2-invisible", siteKey: form.recaptchaSiteKey || undefined },
-        sanity: { projectId: form.sanityProjectId || undefined, dataset: form.sanityDataset || undefined },
+        sanity: { projectId: form.sanityProjectId || undefined, dataset: form.sanityDataset || undefined, apiVersion: form.sanityApiVersion || undefined },
+        freepik: { defaultAttribution: form.freepikAttribution || undefined, profileUrl: form.freepikProfileUrl || undefined },
       },
     };
     try {
@@ -232,6 +326,14 @@ const Setup = () => {
                   <Label htmlFor="seoSiteUrl">Canonical site URL</Label>
                   <Input id="seoSiteUrl" placeholder="https://www.example.com" value={form.seoSiteUrl} onChange={(e) => setForm((f) => ({ ...f, seoSiteUrl: e.target.value }))} />
                 </div>
+                <div className="space-y-1">
+                  <Label htmlFor="seoDefaultTitle">Default title</Label>
+                  <Input id="seoDefaultTitle" value={form.seoDefaultTitle} onChange={(e) => setForm((f) => ({ ...f, seoDefaultTitle: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="seoDefaultDescription">Default description</Label>
+                  <Textarea id="seoDefaultDescription" rows={4} value={form.seoDefaultDescription} onChange={(e) => setForm((f) => ({ ...f, seoDefaultDescription: e.target.value }))} />
+                </div>
               </CardContent>
             </Card>
 
@@ -248,6 +350,18 @@ const Setup = () => {
                   <Label htmlFor="mapsMapId">Map ID (optional)</Label>
                   <Input id="mapsMapId" value={form.mapsMapId} onChange={(e) => setForm((f) => ({ ...f, mapsMapId: e.target.value }))} />
                 </div>
+                <div className="space-y-1">
+                  <Label htmlFor="mapsDefaultCenterLat">Default center lat</Label>
+                  <Input id="mapsDefaultCenterLat" type="number" step="any" value={form.mapsDefaultCenterLat} onChange={(e) => setForm((f) => ({ ...f, mapsDefaultCenterLat: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="mapsDefaultCenterLng">Default center lng</Label>
+                  <Input id="mapsDefaultCenterLng" type="number" step="any" value={form.mapsDefaultCenterLng} onChange={(e) => setForm((f) => ({ ...f, mapsDefaultCenterLng: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="mapsDefaultZoom">Default zoom</Label>
+                  <Input id="mapsDefaultZoom" type="number" value={form.mapsDefaultZoom} onChange={(e) => setForm((f) => ({ ...f, mapsDefaultZoom: e.target.value }))} />
+                </div>
               </CardContent>
             </Card>
 
@@ -256,9 +370,13 @@ const Setup = () => {
                 <CardTitle>Google Tag Manager</CardTitle>
               </CardHeader>
               <CardContent className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-1 md:col-span-2">
+                <div className="space-y-1 md:col-span-1">
                   <Label htmlFor="gtmContainerId">Container ID</Label>
                   <Input id="gtmContainerId" placeholder="GTM-XXXXXX" value={form.gtmContainerId} onChange={(e) => setForm((f) => ({ ...f, gtmContainerId: e.target.value }))} />
+                </div>
+                <div className="space-y-1 md:col-span-1">
+                  <Label htmlFor="gtmDataLayerName">Data layer name</Label>
+                  <Input id="gtmDataLayerName" placeholder="dataLayer" value={form.gtmDataLayerName} onChange={(e) => setForm((f) => ({ ...f, gtmDataLayerName: e.target.value }))} />
                 </div>
               </CardContent>
             </Card>
