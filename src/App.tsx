@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import GTM from "@/components/integrations/GTM";
+import { MapsProvider } from "@/contexts/MapsProvider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
@@ -27,7 +28,8 @@ const queryClient = new QueryClient();
 const App = () => (
   <HelmetProvider>
     <GTM />
-    <QueryClientProvider client={queryClient}>
+    <MapsProvider>
+      <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -53,7 +55,8 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </MapsProvider>
   </HelmetProvider>
 );
 

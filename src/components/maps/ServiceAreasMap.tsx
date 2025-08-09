@@ -1,8 +1,8 @@
 
 import React from "react";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import { siteConfig } from "@/config/site-config";
-import { getMapsLoaderOptions } from "@/lib/maps";
+import { useMaps } from "@/contexts/MapsProvider";
 
 export type ServiceAreasMapProps = {
   locationId?: string; // limit to one location's service areas
@@ -18,7 +18,7 @@ const ServiceAreasMap: React.FC<ServiceAreasMapProps> = ({ locationId, height = 
   const defaultCenter = siteConfig.integrations.googleMaps?.defaultCenter || { lat: 29.4252, lng: -98.4946 };
   const defaultZoom = zoom ?? siteConfig.integrations.googleMaps?.defaultZoom ?? 10;
 
-  const { isLoaded } = useJsApiLoader(getMapsLoaderOptions(apiKey));
+  const { isLoaded } = useMaps();
 
   const locations = siteConfig.locations.filter(l => !locationId || l.id === locationId);
   const areas = locations.flatMap(l => l.serviceAreas);
