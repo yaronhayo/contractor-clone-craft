@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+import { siteConfig } from "@/config/site-config";
 
 const navItems = [
   { label: "About", href: "/about" },
@@ -12,6 +13,7 @@ const navItems = [
 ];
 
 export const Header = () => {
+  const areas = Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values()).slice(0, 6);
   return (
     <header className="w-full sticky top-0 z-40 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
       <a href="#content" className="sr-only focus:not-sr-only focus:absolute left-2 top-2 bg-primary text-primary-foreground px-3 py-2 rounded-md">Skip to content</a>
@@ -57,12 +59,13 @@ export const Header = () => {
                 Service Area Hub <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
-                <DropdownMenuItem asChild><Link to="/service-areas/city-downtown">(City) Downtown</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas/city-north">(City) North</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas/city-south">(City) South</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas/nearby-town">(Nearby Town)</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas/suburb-a">(Suburb A)</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-areas/suburb-b">(Suburb B)</Link></DropdownMenuItem>
+                {areas.map((a) => (
+                  <DropdownMenuItem asChild key={a.slug}>
+                    <Link to={siteConfig.routes.serviceAreaDetail(a.slug)}>
+                      {a.name}, {a.state}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
                 <DropdownMenuItem asChild><Link to="/service-areas">All areas</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

@@ -2,19 +2,12 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import ServiceAreasMap from "@/components/maps/ServiceAreasMap";
+import { siteConfig } from "@/config/site-config";
 import { Link } from "react-router-dom";
 
-const areas = [
-  "(City) Downtown",
-  "(City) North",
-  "(City) South",
-  "(Nearby Town)",
-  "(Suburb A)",
-  "(Suburb B)",
-  "(County Region)",
-];
 
 const ServiceAreasHub = () => {
+  const areas = Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values());
   return (
     <div>
       <Seo title="Service Areas" description="We serve (City) and surrounding areas. Explore the neighborhoods we cover." canonical="/service-areas" />
@@ -29,11 +22,11 @@ const ServiceAreasHub = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
             {areas.map((a) => (
               <Link
-                key={a}
-                to={`/service-areas/${a.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+                key={a.slug}
+                to={siteConfig.routes.serviceAreaDetail(a.slug)}
                 className="rounded-lg border bg-card p-4 hover-scale block"
               >
-                <h2 className="font-semibold">{a}</h2>
+                <h2 className="font-semibold">{a.name}, {a.state}</h2>
                 <p className="text-sm text-muted-foreground mt-1">Learn more about services offered in this area</p>
               </Link>
             ))}
