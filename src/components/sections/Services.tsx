@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
+import { useQuery } from "@tanstack/react-query";
+import { getServices, fallbackServiceItems } from "@/lib/cms";
 
 const Services = () => {
+  const { data } = useQuery({ queryKey: ["services"], queryFn: getServices, staleTime: 60_000 });
+  const items = (data && data.length ? data : fallbackServiceItems()).slice(0, 6);
+
   return (
     <section id="areas" className="container py-14 md:py-20">
       <header className="text-center max-w-3xl mx-auto">
@@ -10,12 +15,14 @@ const Services = () => {
       </header>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        {siteConfig.taxonomy.services.slice(0, 6).map((s) => {
-          const img = s.images?.[0] || siteConfig.media.serviceCardDefault;
+        {items.map((s) => {
+          const to = siteConfig.routes.individualService(s.slug);
+          const imgSrc = s.imageUrl || siteConfig.media.serviceCardDefault?.src || "";
+          const alt = `${s.name} photo`;
           return (
-            <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-lg overflow-hidden border bg-card block hover-scale">
-              {img && (
-                <img src={img.src} alt={img.alt || `${s.name} photo`} className="w-full h-48 object-cover" loading="lazy" />
+            <Link key={s.slug} to={to} className="rounded-lg overflow-hidden border bg-card block hover-scale">
+              {imgSrc && (
+                <img src={imgSrc} alt={alt} className="w-full h-48 object-cover" loading="lazy" />
               )}
               <div className="p-4">
                 <h3 className="font-semibold">{s.name}</h3>

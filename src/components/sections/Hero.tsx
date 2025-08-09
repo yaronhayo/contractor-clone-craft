@@ -1,12 +1,22 @@
 import { siteConfig } from "@/config/site-config";
 import { Button } from "@/components/ui/button";
 import { PhoneCall } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { getHomepageContent } from "@/lib/cms";
+
 const Hero = () => {
-  const heroSrc = siteConfig.media.hero?.src || "/src/assets/hero-house.jpg";
-  const heroAlt = siteConfig.media.hero?.alt || `${siteConfig.business.name} hero image`;
-  const primaryLoc = siteConfig.locations.find(l => l.isPrimary) || siteConfig.locations[0];
+  const { data } = useQuery({ queryKey: ["homepage"], queryFn: getHomepageContent, staleTime: 60_000 });
+
+  const primaryLoc = siteConfig.locations.find((l) => l.isPrimary) || siteConfig.locations[0];
   const city = primaryLoc?.address.city;
   const state = primaryLoc?.address.state;
+
+  const fallbackTitle = `${siteConfig.business.name} — Trusted Local Pros ${city && state ? `in ${city}, ${state}` : ""}`;
+  const heroTitle = data?.heroTitle?.trim() ? data?.heroTitle : fallbackTitle;
+  const heroDescription = data?.heroDescription?.trim() ? data?.heroDescription : siteConfig.seo.defaultDescription;
+  const heroSrc = data?.heroImageUrl || siteConfig.media.hero?.src || "/src/assets/hero-house.jpg";
+  const heroAlt = siteConfig.media.hero?.alt || `${siteConfig.business.name} hero image`;
+
   return (
     <section aria-label="Hero" className="relative">
       <div className="absolute inset-0">
@@ -17,10 +27,10 @@ const Hero = () => {
       <div className="relative container h-[70vh] md:h-[80vh] flex items-center justify-center text-center">
         <div className="max-w-4xl animate-fade-in">
           <h1 id="content" className="text-4xl md:text-6xl font-extrabold tracking-tight">
-            {siteConfig.business.name} — Trusted Local Pros {city && state ? `in ${city}, ${state}` : ""}
+            {heroTitle}
           </h1>
           <p className="mt-4 text-lg md:text-xl text-muted-foreground">
-            {siteConfig.seo.defaultDescription}
+            {heroDescription}
           </p>
           <div className="mt-8">
             <Button size="lg" className="rounded-full" asChild>
@@ -47,3 +57,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

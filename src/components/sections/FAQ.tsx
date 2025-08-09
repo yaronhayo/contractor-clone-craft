@@ -1,8 +1,10 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Helmet } from "react-helmet-async";
 import { siteConfig } from "@/config/site-config";
+import { useQuery } from "@tanstack/react-query";
+import { getFaqs } from "@/lib/cms";
 
-const faqs = [
+const fallbackFaqs = [
   { q: "Do you offer free estimates?", a: "Yes, we provide fast, no-obligation estimates. Submit the form and we'll reach out." },
   { q: "Which areas do you serve?", a: `We proudly serve ${siteConfig.business.hqAddress.city} and surrounding neighborhoods within a 30-mile radius.` },
   { q: "Are you licensed and insured?", a: "Absolutely. We are fully licensed and insured for your peace of mind." },
@@ -10,6 +12,9 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  const { data } = useQuery({ queryKey: ["faqs"], queryFn: getFaqs, staleTime: 60_000 });
+  const faqs = data && data.length ? data : fallbackFaqs;
+
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

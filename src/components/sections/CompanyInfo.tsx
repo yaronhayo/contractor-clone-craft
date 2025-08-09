@@ -1,22 +1,37 @@
 import { siteConfig } from "@/config/site-config";
 import LocationsMap from "@/components/maps/LocationsMap";
+import { useQuery } from "@tanstack/react-query";
+import { getSiteSettings } from "@/lib/cms";
 
 const CompanyInfo = () => {
+  const { data } = useQuery({ queryKey: ["site-settings"], queryFn: getSiteSettings, staleTime: 60_000 });
+
+  const businessName = data?.businessName || siteConfig.business.name;
+  const email = data?.email || siteConfig.business.email;
+  const phone = data?.phone || siteConfig.business.phone;
+  const address = {
+    line1: data?.address?.line1 || siteConfig.business.hqAddress.line1,
+    city: data?.address?.city || siteConfig.business.hqAddress.city,
+    state: data?.address?.state || siteConfig.business.hqAddress.state,
+    postalCode: data?.address?.postalCode || siteConfig.business.hqAddress.postalCode,
+  };
+  const description = data?.defaultDescription || siteConfig.seo.defaultDescription;
+
   return (
     <section id="contact" className="container py-14 md:py-20">
       <div className="grid lg:grid-cols-3 gap-8">
         <article className="lg:col-span-1">
-          <h3 className="text-xl font-bold mb-2">About {siteConfig.business.name}</h3>
+          <h3 className="text-xl font-bold mb-2">About {businessName}</h3>
           <p className="text-muted-foreground">
-            {siteConfig.seo.defaultDescription}
+            {description}
           </p>
         </article>
         <article className="lg:col-span-1">
           <h3 className="text-xl font-bold mb-2">Contact Us</h3>
             <ul className="space-y-1 text-sm">
-              <li>Email: {siteConfig.business.email}</li>
-              <li>Phone: {siteConfig.business.phone}</li>
-              <li>Address: {siteConfig.business.hqAddress.line1}, {siteConfig.business.hqAddress.city}, {siteConfig.business.hqAddress.state} {siteConfig.business.hqAddress.postalCode}</li>
+              <li>Email: {email}</li>
+              <li>Phone: {phone}</li>
+              <li>Address: {address.line1}, {address.city}, {address.state} {address.postalCode}</li>
             </ul>
           <div className="mt-4">
             <h4 className="font-semibold">Hours Of Operation</h4>
