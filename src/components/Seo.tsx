@@ -12,6 +12,9 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
   const canonicalUrl = canonical.startsWith("http") ? canonical : `${siteUrl}${canonical}`;
   const shareImage = siteConfig.seo.image;
 
+  const services = siteConfig.taxonomy.services || [];
+  const cities = siteConfig.locations.map((l) => ({ "@type": "City", name: `${l.address.city}, ${l.address.state}` }));
+
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -33,6 +36,26 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
         addressRegion: siteConfig.business.hqAddress.state,
         postalCode: siteConfig.business.hqAddress.postalCode,
         addressCountry: siteConfig.business.hqAddress.country || "US",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Locksmith Services",
+        itemListElement: services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: s.name,
+            serviceType: s.name,
+            description: s.shortDescription,
+            areaServed: cities,
+            provider: {
+              "@type": "LocalBusiness",
+              name: siteConfig.business.legalName || siteConfig.business.name,
+              url: siteUrl,
+              telephone: siteConfig.business.phone,
+            },
+          },
+        })),
       },
     },
   ];
