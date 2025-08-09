@@ -16,7 +16,7 @@ const LocationsMap: React.FC<LocationsMapProps> = ({ locationIds, height = 400, 
   const defaultCenter = siteConfig.integrations.googleMaps?.defaultCenter || { lat: 29.4252, lng: -98.4946 };
   const defaultZoom = zoom ?? siteConfig.integrations.googleMaps?.defaultZoom ?? 10;
 
-  const { isLoaded } = useJsApiLoader({ id: "gmaps-script", googleMapsApiKey: apiKey });
+  const { isLoaded } = useJsApiLoader({ id: "gmaps-script", googleMapsApiKey: apiKey, libraries: ["places"] });
 
   const locations = siteConfig.locations.filter(l => !locationIds || locationIds.includes(l.id));
   const center = locations[0]?.geo || defaultCenter;

@@ -16,7 +16,7 @@ const ServiceAreasMap: React.FC<ServiceAreasMapProps> = ({ locationId, height = 
   const defaultCenter = siteConfig.integrations.googleMaps?.defaultCenter || { lat: 29.4252, lng: -98.4946 };
   const defaultZoom = zoom ?? siteConfig.integrations.googleMaps?.defaultZoom ?? 10;
 
-  const { isLoaded } = useJsApiLoader({ id: "gmaps-script", googleMapsApiKey: apiKey });
+  const { isLoaded } = useJsApiLoader({ id: "gmaps-script", googleMapsApiKey: apiKey, libraries: ["places"] });
 
   const locations = siteConfig.locations.filter(l => !locationId || l.id === locationId);
   const areas = locations.flatMap(l => l.serviceAreas);
