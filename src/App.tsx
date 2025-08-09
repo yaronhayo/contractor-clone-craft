@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import GTM from "@/components/integrations/GTM";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
@@ -22,6 +23,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <HelmetProvider>
+    <GTM />
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
