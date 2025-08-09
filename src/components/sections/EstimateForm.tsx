@@ -4,42 +4,103 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 import { siteConfig } from "@/config/site-config";
 import { renderInvisibleRecaptcha } from "@/lib/recaptcha";
-import { sendEstimateRequest, type EstimateRequestPayload } from "@/lib/email";
+import { sendEstimateRequest } from "@/lib/email";
+import { Autocomplete, useLoadScript } from "@react-google-maps/api";
 
 const EstimateForm = () => {
   const { toast } = useToast();
-  const [services, setServices] = useState<string[]>([]);
+  const [address, setAddress] = useState("");
+  const [service, setService] = useState<string>("");
+  const [timeframe, setTimeframe] = useState<string>("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
   const recaptchaRef = useRef<HTMLDivElement | null>(null);
   const [widgetId, setWidgetId] = useState<number | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string>("");
+  const [submitting, setSubmitting] = useState(false);
   const siteKey = siteConfig.integrations.recaptcha?.siteKey || "";
+  const mapsKey = siteConfig.integrations.googleMaps?.apiKey || "";
+  const { isLoaded: mapsLoaded } = useLoadScript({ googleMapsApiKey: mapsKey, libraries: ["places"] });
+  const autocompleteRef = useRef<any>(null);
 
-  const toggle = (s: string) =>
-    setServices((prev) => (prev.includes(s) ? prev.filter((i) => i !== s) : [...prev, s]));
-  
+  const serviceOptions = siteConfig.taxonomy?.services || [];
+  const timeframeOptions = [
+    "ASAP (within 1 hour)",
+    "Today",
+    "Within 24 hours",
+    "Within 3 days",
+    "Schedule a date",
+  ];
+
   // Setup Invisible reCAPTCHA v2 when site key is available
   useEffect(() => {
     if (!siteKey || !recaptchaRef.current || widgetId !== null) return;
     (async () => {
       const id = await renderInvisibleRecaptcha(recaptchaRef.current!, siteKey, (token: string) => {
         setRecaptchaToken(token);
-        toast({ title: "Request sent", description: "We will contact you shortly." });
-        console.log("Estimate form submitted", { services, recaptchaToken: token });
       });
       if (id !== null) setWidgetId(id);
     })();
-  }, [siteKey, widgetId, services, toast]);
+  }, [siteKey, widgetId]);
+
+  // When token is received from reCAPTCHA, send the form
+  useEffect(() => {
+    if (!submitting) return;
+    if (siteKey) {
+      if (recaptchaToken) {
+        void doSend(recaptchaToken);
+      }
+    }
+  }, [recaptchaToken, submitting, siteKey]);
+
+  const doSend = async (token: string) => {
+    const payload = {
+      address,
+      services: [service, timeframe ? `Timeframe: ${timeframe}` : ""].filter(Boolean) as string[],
+      name,
+      phone,
+      email,
+      message: [timeframe ? `Preferred timeframe: ${timeframe}` : "", message].filter(Boolean).join("\n\n"),
+      recaptchaToken: token || undefined,
+      pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
+    };
+
+    const res = await sendEstimateRequest(payload as any);
+    if (res.ok) {
+      toast({ title: "Request sent", description: "We will contact you shortly." });
+      setAddress("");
+      setService("");
+      setTimeframe("");
+      setName("");
+      setPhone("");
+      setEmail("");
+      setMessage("");
+      setConsent(false);
+    } else {
+      toast({ title: "Something went wrong", description: res.error || "Please try again.", variant: "destructive" } as any);
+    }
+    setSubmitting(false);
+    setRecaptchaToken("");
+  };
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!consent) {
+      toast({ title: "Consent required", description: "Please accept the privacy policy to proceed.", variant: "destructive" } as any);
+      return;
+    }
+    setSubmitting(true);
     if (siteKey && widgetId !== null && (window as any).grecaptcha) {
       (window as any).grecaptcha.execute(widgetId);
       return;
     }
-    toast({ title: "Request sent", description: "We will contact you shortly." });
-    console.log("Estimate form submitted", { services });
+    void doSend("");
   };
 
   return (
@@ -53,18 +114,45 @@ const EstimateForm = () => {
       <div ref={recaptchaRef} className="hidden" />
       <form onSubmit={onSubmit} className="mt-10 grid md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <label className="block text-sm font-medium">Where do you need our services? (Address) *</label>
-          <Input required placeholder="123 Main St, City, ST" />
+          <label className="block text-sm font-medium">Service address *</label>
+          {mapsLoaded ? (
+            <Autocomplete
+              onLoad={(ac) => (autocompleteRef.current = ac)}
+              onPlaceChanged={() => {
+                const place = autocompleteRef.current?.getPlace?.();
+                const formatted = place?.formatted_address || address;
+                setAddress(formatted);
+              }}
+            >
+              <Input required placeholder="123 Main St, City, ST" value={address} onChange={(e) => setAddress(e.target.value)} />
+            </Autocomplete>
+          ) : (
+            <Input required placeholder="123 Main St, City, ST" value={address} onChange={(e) => setAddress(e.target.value)} />
+          )}
 
-          <label className="block text-sm font-medium mt-4">What type of (Service) do you need? *</label>
-          <div className="grid grid-cols-2 gap-3">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <label key={i} className="flex items-center gap-2 text-sm">
-                <Checkbox checked={services.includes(String(i + 1))} onCheckedChange={() => toggle(String(i + 1))} />
-                Service #{i + 1}
-              </label>
-            ))}
-          </div>
+          <label className="block text-sm font-medium mt-4">What type of service do you need? *</label>
+          <Select value={service} onValueChange={setService}>
+            <SelectTrigger>
+              <SelectValue placeholder="Select a service" />
+            </SelectTrigger>
+            <SelectContent>
+              {serviceOptions.map((s: any) => (
+                <SelectItem key={s.slug} value={s.name}>{s.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          <label className="block text-sm font-medium mt-4">Preferred timeframe *</label>
+          <Select value={timeframe} onValueChange={setTimeframe}>
+            <SelectTrigger>
+              <SelectValue placeholder="When do you need this?" />
+            </SelectTrigger>
+            <SelectContent>
+              {timeframeOptions.map((t) => (
+                <SelectItem key={t} value={t}>{t}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
