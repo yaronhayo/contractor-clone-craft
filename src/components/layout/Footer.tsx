@@ -10,6 +10,7 @@ const Footer = () => {
             <a href="#" className="hover:text-primary">Instagram</a>
             <a href="#" className="hover:text-primary">Twitter</a>
             <a href="/privacy-policy" className="hover:text-primary">Privacy Policy</a>
+            <a href="/setup" className="hover:text-primary" aria-label="Project Setup Checklist">Setup</a>
           </nav>
         </div>
       </div>
