@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { siteConfig } from "@/config/site-config";
 import { renderInvisibleRecaptcha } from "@/lib/recaptcha";
+import { sendEstimateRequest, type EstimateRequestPayload } from "@/lib/email";
 
 const EstimateForm = () => {
   const { toast } = useToast();
