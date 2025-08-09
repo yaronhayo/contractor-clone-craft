@@ -12,6 +12,10 @@ import heroHouse from "@/assets/hero-house.jpg";
 import ReadingProgress from "@/components/blog/ReadingProgress";
 import service1 from "@/assets/service-1.jpg";
 import service2 from "@/assets/service-2.jpg";
+import { useQuery } from "@tanstack/react-query";
+import { getSanityClient } from "@/lib/sanity/client";
+import { blogPostBySlugQuery } from "@/lib/sanity/queries";
+import { siteConfig } from "@/config/site-config";
 
 const toTitle = (slug?: string) =>
   (slug || "").split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
@@ -24,12 +28,23 @@ const related = [
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const title = toTitle(slug) || "Blog Post";
+  const sanityOk = Boolean(siteConfig.integrations.sanity?.projectId);
+  const { data: post } = useQuery({
+    enabled: sanityOk && Boolean(slug),
+    queryKey: ["blog-post", slug],
+    queryFn: async () => {
+      const client = getSanityClient();
+      if (!client.config().projectId) return null;
+      return client.fetch(blogPostBySlugQuery, { slug });
+    },
+  });
+  const baseTitle = toTitle(slug) || "Blog Post";
+  const title = (post as any)?.title || baseTitle;
   const articleUrl = typeof window !== "undefined" ? `${window.location.origin}/blog/${slug}` : `/blog/${slug}`;
   const readTime = "8 min read";
-  const published = "2025-01-01";
-  const featuredImage = heroHouse;
-  const tags = ["How‑To", "Planning", "Tips"];
+  const published = (post as any)?.publishedAt || "2025-01-01";
+  const featuredImage = (post as any)?.imageUrl || heroHouse;
+  const tags = [((post as any)?.category || "News")] as string[];
 
   const shareText = encodeURIComponent(title);
   const shareUrl = encodeURIComponent(articleUrl);

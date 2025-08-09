@@ -3,10 +3,14 @@ import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const NotFound = () => {
   return (
     <div>
       <Seo title="Page Not Found (404)" description="The page you are looking for doesn't exist. Return to the homepage." canonical="/404" />
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <Header />
       <main>
         <section className="container py-20 text-center">
