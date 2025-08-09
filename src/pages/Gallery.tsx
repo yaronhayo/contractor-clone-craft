@@ -13,6 +13,7 @@ import s1 from "@/assets/service-1.jpg";
 import s2 from "@/assets/service-2.jpg";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { siteConfig } from "@/config/site-config";
 const allImages = [
   { src: hero, alt: "Exterior remodeling project – modern home facade", category: "Exteriors", date: "2025-01-01" },
   { src: s1, alt: "Kitchen renovation – quartz countertops and backsplash", category: "Kitchens", date: "2025-01-05" },
@@ -56,12 +57,22 @@ const Gallery = () => {
     name: "Project Gallery",
     image: images.map((img) => img.src),
   };
+  const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Gallery", item: `${siteUrl}/gallery` },
+    ],
+  };
 
   return (
     <div>
       <Seo title="Project Gallery | Recent Work" description="Browse recent locksmith projects—lock installs, rekeys, car keys, and smart locks." canonical="/gallery" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(galleryLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
       <Header />
       <main>

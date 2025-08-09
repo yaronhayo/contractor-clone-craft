@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, Sparkles, Clock, HandshakeIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
+import { Helmet } from "react-helmet-async";
 const Stat = ({ value, label }: { value: string; label: string }) => (
   <Card className="text-center hover-scale">
     <CardHeader>
@@ -41,6 +42,16 @@ const About = () => {
   return (
     <div>
       <Seo title={`About ${siteConfig.business.name}`} description={`Learn about our locksmith team serving ${siteConfig.business.hqAddress.city}—licensed, insured, and trusted.`} canonical="/about" />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "")}/` },
+            { "@type": "ListItem", position: 2, name: "About", item: `${siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "")}/about` },
+          ],
+        })}</script>
+      </Helmet>
       <Header />
       <main>
         {/* Hero */}

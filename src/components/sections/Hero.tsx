@@ -24,7 +24,17 @@ const Hero = () => {
           </p>
           <div className="mt-8">
             <Button size="lg" className="rounded-full" asChild>
-              <a href={`tel:${siteConfig.business.phone}`} aria-label={`Call ${siteConfig.business.name}`} className="flex items-center gap-2">
+              <a
+                href={`tel:${siteConfig.business.phone}`}
+                aria-label={`Call ${siteConfig.business.name}`}
+                className="flex items-center gap-2"
+                onClick={() => {
+                  try {
+                    (window as any).dataLayer = (window as any).dataLayer || [];
+                    (window as any).dataLayer.push({ event: "phone_click", source: "hero", phone: siteConfig.business.phone });
+                  } catch {}
+                }}
+              >
                 <PhoneCall className="h-5 w-5" aria-hidden="true" />
                 Call Now
               </a>

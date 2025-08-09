@@ -39,6 +39,14 @@ const Contact = () => {
       <Seo title="Contact Us" description="Get in touch for a free estimate or to ask questions about our services." canonical={canonical} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(contactLd)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${typeof window !== "undefined" ? window.location.origin : ""}/` },
+            { "@type": "ListItem", position: 2, name: "Contact", item: pageUrl },
+          ],
+        })}</script>
       </Helmet>
       <Header />
       <main>
@@ -49,7 +57,7 @@ const Contact = () => {
             <p className="mt-4 text-muted-foreground">Fast, friendly help from a local team—request a free estimate or reach us directly.</p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild>
-                <a href={telHref} aria-label="Call us now"><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call Now</a>
+                <a href={telHref} aria-label="Call us now" onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "contact_hero", phone }); } catch {} }}><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call Now</a>
               </Button>
               <Button variant="outline" asChild>
                 <a href={mailHref} aria-label="Email us"><Mail className="h-4 w-4 mr-2" aria-hidden="true" />Email Us</a>
@@ -62,7 +70,7 @@ const Contact = () => {
         <section className="container pb-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <InfoCard icon={Phone} title="Phone">
-              <a href={telHref} className="story-link">{phone}</a>
+              <a href={telHref} className="story-link" onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "contact_info", phone }); } catch {} }}>{phone}</a>
               <p>Mon–Fri, 8am–5pm</p>
             </InfoCard>
             <InfoCard icon={Mail} title="Email">
@@ -99,7 +107,7 @@ const Contact = () => {
             <p className="mt-2 text-muted-foreground">Give us a quick call and we’ll answer your questions on the spot.</p>
             <div className="mt-4 flex items-center justify-center gap-3">
               <Button asChild>
-                <a href={telHref}><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call {phone}</a>
+                <a href={telHref} onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "contact_cta", phone }); } catch {} }}><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call {phone}</a>
               </Button>
               <Button variant="outline" asChild>
                 <Link to="/services">Explore Services<ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" /></Link>

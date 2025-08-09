@@ -81,7 +81,7 @@ const ServiceDetail = () => {
           </section>
 
           <div className="mt-10">
-            <Link to="/#estimate" className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-3 font-medium hover:bg-primary/90">
+            <Link to="/#estimate" onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "cta_click", source: "service_detail", cta: "estimate", service: service.name }); } catch {} }} className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-3 font-medium hover:bg-primary/90">
               Get a Free Estimate
             </Link>
           </div>

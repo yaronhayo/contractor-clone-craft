@@ -4,15 +4,27 @@ import Seo from "@/components/Seo";
 import LocationsMap from "@/components/maps/LocationsMap";
 import { siteConfig } from "@/config/site-config";
 import { Link } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 const Locations = () => {
   const locations = siteConfig.locations;
+  const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Locations", item: `${siteUrl}/locations` },
+    ],
+  };
   return (
     <div>
       <Seo title="Locations" description="Find our locations and service coverage on the map." canonical="/locations" />
       <Header />
       <main>
         <section className="container py-14 md:py-20">
+          <Helmet>
+            <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+          </Helmet>
           <header className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-extrabold">Our Locations</h1>
             <p className="mt-3 text-muted-foreground">Find the nearest location and see our coverage area.</p>

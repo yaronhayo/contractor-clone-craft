@@ -3,11 +3,24 @@ import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
+import { Helmet } from "react-helmet-async";
 
 const ServicesHub = () => {
+  const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+    ],
+  };
   return (
     <div>
       <Seo title="Locksmith Services" description={`Explore our full list of locksmith services available in ${siteConfig.business.hqAddress.city} and nearby areas.`} canonical="/services" />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      </Helmet>
       <Header />
       <main>
         <section className="container py-14 md:py-20">
