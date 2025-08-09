@@ -363,9 +363,9 @@ export const siteConfig: SiteConfig = {
   ],
   routes: {
     servicesIndex: "/services",
-    serviceCategory: (categorySlug: string) => `/${categorySlug}`,
-    individualService: (serviceSlug: string) => `/${serviceSlug}`,
-    serviceCity: (serviceSlug: string, citySlug: string) => `/${serviceSlug}-${citySlug}`,
+    serviceCategory: (categorySlug: string) => `/services/${categorySlug}`,
+    individualService: (serviceSlug: string) => `/services/${serviceSlug}`,
+    serviceCity: (serviceSlug: string, citySlug: string) => `/services/${serviceSlug}-${citySlug}`,
     locationsIndex: "/locations",
     locationDetail: (locationSlug: string) => `/locations/${locationSlug}`,
     serviceAreasIndex: "/service-areas",

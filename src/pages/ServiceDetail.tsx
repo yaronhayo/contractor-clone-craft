@@ -2,39 +2,29 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import { Link, useParams } from "react-router-dom";
-import service1 from "@/assets/service-1.jpg";
-import service2 from "@/assets/service-2.jpg";
-
-const allServices = [
-  { slug: "service-number-1", title: "Service Provided #1", image: service1 },
-  { slug: "service-number-2", title: "Service Provided #2", image: service2 },
-  { slug: "service-number-3", title: "Service Provided #3", image: service1 },
-  { slug: "service-number-4", title: "Service Provided #4", image: service2 },
-  { slug: "service-number-5", title: "Service Provided #5", image: service1 },
-  { slug: "service-number-6", title: "Service Provided #6", image: service2 },
-];
+import { siteConfig } from "@/config/site-config";
 
 const ServiceDetail = () => {
   const { slug } = useParams();
-  const service = allServices.find((s) => s.slug === slug) ?? allServices[0];
+  const service = siteConfig.taxonomy.services.find((s) => s.slug === slug) ?? siteConfig.taxonomy.services[0];
 
   return (
     <div>
-      <Seo title={`${service.title} in (City)`} description={`Details about ${service.title} for homeowners in (City). Get a free estimate today.`} canonical={`/services/${service.slug}`} />
+      <Seo title={`${service.name} | ${siteConfig.business.name}`} description={service.shortDescription || `Learn about ${service.name}. Get a free estimate today.`} canonical={siteConfig.routes.individualService(service.slug)} />
       <Header />
       <main>
         <article className="container py-14 md:py-20">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-            <Link to="/">Home</Link> / <Link to="/services">Services</Link> / <span className="text-foreground">{service.title}</span>
+            <Link to="/">Home</Link> / <Link to={siteConfig.routes.servicesIndex}>Services</Link> / <span className="text-foreground">{service.name}</span>
           </nav>
 
           <header className="mt-4">
-            <h1 className="text-3xl md:text-4xl font-extrabold">{service.title}</h1>
-            <p className="mt-3 text-muted-foreground max-w-3xl">Professional, reliable, and hassle‑free — learn what to expect when you choose us for {service.title.toLowerCase()} in (City).</p>
+            <h1 className="text-3xl md:text-4xl font-extrabold">{service.name}</h1>
+            <p className="mt-3 text-muted-foreground max-w-3xl">{service.shortDescription || "Professional, reliable, and hassle‑free service."}</p>
           </header>
 
           <div className="mt-8 rounded-lg overflow-hidden border">
-            <img src={service.image} alt={`${service.title} example project photo`} className="w-full h-72 object-cover" loading="lazy" />
+            {(() => { const img = service.images?.[0] || siteConfig.media.serviceCardDefault; return img ? (<img src={img.src} alt={img.alt || `${service.name} example photo`} className="w-full h-72 object-cover" loading="lazy" />) : null; })()}
           </div>
 
           <section className="prose prose-neutral dark:prose-invert max-w-none mt-8">

@@ -1,26 +1,68 @@
 import { Helmet } from "react-helmet-async";
+import { siteConfig } from "@/config/site-config";
 
 interface SeoProps {
   title: string;
   description: string;
-  canonical?: string;
+  canonical?: string; // absolute or path starting with /
 }
 
 const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
-  const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
-  const canonicalUrl = `${siteUrl}${canonical}`;
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: title,
-    url: canonicalUrl,
-  };
+  const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
+  const canonicalUrl = canonical.startsWith("http") ? canonical : `${siteUrl}${canonical}`;
+  const shareImage = siteConfig.seo.image;
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: siteConfig.business.name,
+      url: siteUrl,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: siteConfig.business.legalName || siteConfig.business.name,
+      url: siteUrl,
+      telephone: siteConfig.business.phone,
+      image: shareImage?.src,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.business.hqAddress.line1,
+        addressLocality: siteConfig.business.hqAddress.city,
+        addressRegion: siteConfig.business.hqAddress.state,
+        postalCode: siteConfig.business.hqAddress.postalCode,
+        addressCountry: siteConfig.business.hqAddress.country || "US",
+      },
+    },
+  ];
 
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
+
+      {/* Open Graph */}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:type" content="website" />
+      {shareImage && (
+        <>
+          <meta property="og:image" content={shareImage.src} />
+          <meta property="og:image:width" content={String(shareImage.width)} />
+          <meta property="og:image:height" content={String(shareImage.height)} />
+          <meta property="og:image:alt" content={shareImage.alt} />
+        </>
+      )}
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      {shareImage && <meta name="twitter:image" content={shareImage.src} />}
+
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>
   );

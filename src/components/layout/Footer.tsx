@@ -1,15 +1,18 @@
+import { siteConfig } from "@/config/site-config";
+
 const Footer = () => {
   return (
     <footer id="contact" className="border-t mt-16">
       <div className="py-4">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} (Business Name) All rights reserved.</div>
+          <div>© {new Date().getFullYear()} {siteConfig.business.legalName || siteConfig.business.name}. All rights reserved.</div>
           <nav className="flex items-center gap-4">
-            <a href="#" className="hover:text-primary">Facebook</a>
-            <a href="#" className="hover:text-primary">LinkedIn</a>
-            <a href="#" className="hover:text-primary">Instagram</a>
-            <a href="#" className="hover:text-primary">Twitter</a>
+            {siteConfig.business.social?.facebook && (<a href={siteConfig.business.social.facebook} className="hover:text-primary" aria-label="Facebook">Facebook</a>)}
+            {siteConfig.business.social?.linkedin && (<a href={siteConfig.business.social.linkedin} className="hover:text-primary" aria-label="LinkedIn">LinkedIn</a>)}
+            {siteConfig.business.social?.instagram && (<a href={siteConfig.business.social.instagram} className="hover:text-primary" aria-label="Instagram">Instagram</a>)}
+            {siteConfig.business.social?.twitter && (<a href={siteConfig.business.social.twitter} className="hover:text-primary" aria-label="Twitter">Twitter</a>)}
             <a href="/privacy-policy" className="hover:text-primary">Privacy Policy</a>
+            <a href="/terms" className="hover:text-primary">Terms</a>
             <a href="/setup" className="hover:text-primary" aria-label="Project Setup Checklist">Setup</a>
           </nav>
         </div>

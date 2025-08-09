@@ -18,9 +18,19 @@ export const Header = () => {
     <header className="w-full sticky top-0 z-40 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
       <a href="#content" className="sr-only focus:not-sr-only focus:absolute left-2 top-2 bg-primary text-primary-foreground px-3 py-2 rounded-md">Skip to content</a>
       <nav className="container flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center gap-2 font-extrabold tracking-tight text-xl">
-          <span className="px-2 py-1 border rounded-md">GET</span>
-          <span className="text-primary">BIZZY</span>
+        <Link to="/" className="flex items-center gap-2 font-extrabold tracking-tight text-xl" aria-label={siteConfig.business.name}>
+          {siteConfig.business.branding.logos.light?.src ? (
+            <img
+              src={siteConfig.business.branding.logos.light.src}
+              alt={siteConfig.business.branding.logos.light.alt || `${siteConfig.business.name} logo`}
+              width={siteConfig.business.branding.logos.light.width}
+              height={siteConfig.business.branding.logos.light.height}
+              className="h-8 w-auto"
+              loading="eager"
+            />
+          ) : (
+            <span className="text-primary">{siteConfig.business.name}</span>
+          )}
           <span className="sr-only">Home</span>
         </Link>
 
@@ -43,13 +53,12 @@ export const Header = () => {
                 Services <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
-                <DropdownMenuItem asChild><Link to="/services/service-number-1">Service #1</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/services/service-number-2">Service #2</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/services/service-number-3">Service #3</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/services/service-number-4">Service #4</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/services/service-number-5">Service #5</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/services/service-number-6">Service #6</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/services">All services</Link></DropdownMenuItem>
+                {siteConfig.taxonomy.services.slice(0, 6).map((s) => (
+                  <DropdownMenuItem asChild key={s.slug}>
+                    <Link to={siteConfig.routes.individualService(s.slug)}>{s.name}</Link>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuItem asChild><Link to={siteConfig.routes.servicesIndex}>All services</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
