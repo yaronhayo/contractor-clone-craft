@@ -4,6 +4,7 @@ import Seo from "@/components/Seo";
 import ServiceAreasMap from "@/components/maps/ServiceAreasMap";
 import { siteConfig } from "@/config/site-config";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const toTitle = (slug?: string) =>
   (slug || "").split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 
@@ -12,10 +13,23 @@ const ServiceAreaDetail = () => {
   const area = toTitle(slug) || "Service Area";
   const loc = siteConfig.locations.find((l) => l.serviceAreas.some((a) => a.slug === slug));
   const locationId = loc?.id;
+  const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Service Areas", item: `${siteUrl}/service-areas` },
+      { "@type": "ListItem", position: 3, name: area, item: `${siteUrl}/service-areas/${slug}` },
+    ],
+  };
 
   return (
     <div>
-      <Seo title={`${area} | Service Area`} description={`Learn about our services available in ${area}. Get a free estimate today.`} canonical={`/service-areas/${slug}`} />
+      <Seo title={`${area} | Locksmith Service Area`} description={`Locksmith services available in ${area}. Get a free estimate today.`} canonical={`/service-areas/${slug}`} />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+      </Helmet>
       <Header />
       <main>
         <article className="container py-14 md:py-20">
@@ -24,16 +38,16 @@ const ServiceAreaDetail = () => {
           </nav>
 
           <header className="mt-4">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Top‑Rated (Service) in {area}</h1>
-            <p className="mt-3 text-muted-foreground max-w-3xl">Proudly serving homeowners and businesses in {area}. Reliable scheduling, friendly pros, and great results.</p>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Locksmith Services in {area}</h1>
+            <p className="mt-3 text-muted-foreground max-w-3xl">Proudly serving homeowners and businesses in {area}. 24/7 lockout help, rekeys, car keys, smart locks, and more.</p>
           </header>
 
           <section className="prose prose-neutral dark:prose-invert max-w-none mt-8">
-            <h2>Services Available in {area}</h2>
+            <h2>Locksmith Services Available in {area}</h2>
             <ul>
-              <li>(Service Provided #1)</li>
-              <li>(Service Provided #2)</li>
-              <li>(Service Provided #3)</li>
+              <li>Emergency lockout assistance</li>
+              <li>Lock rekeying and repair</li>
+              <li>Car key replacement and key fobs</li>
             </ul>
 
             <h3>Why Locals Choose Us</h3>

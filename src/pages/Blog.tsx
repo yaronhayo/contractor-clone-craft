@@ -10,10 +10,14 @@ import { CalendarDays, Clock, Tag, ArrowRight } from "lucide-react";
 import heroHouse from "@/assets/hero-house.jpg";
 import service1 from "@/assets/service-1.jpg";
 import service2 from "@/assets/service-2.jpg";
+import { useQuery } from "@tanstack/react-query";
+import { getSanityClient } from "@/lib/sanity/client";
+import { blogListQuery } from "@/lib/sanity/queries";
+import { siteConfig } from "@/config/site-config";
 
 const categories = ["How‑To", "Planning", "Costs", "Maintenance", "Inspiration"];
 
-const posts = Array.from({ length: 9 }).map((_, i) => {
+const fallbackPosts = Array.from({ length: 9 }).map((_, i) => {
   const images = [heroHouse, service1, service2];
   const img = images[i % images.length];
   return {
@@ -28,6 +32,27 @@ const posts = Array.from({ length: 9 }).map((_, i) => {
 });
 
 const Blog = () => {
+  const sanityOk = Boolean(siteConfig.integrations.sanity?.projectId);
+  const { data: sanityPosts } = useQuery({
+    enabled: sanityOk,
+    queryKey: ["blog-list"],
+    queryFn: async () => {
+      const client = getSanityClient();
+      if (!client.config().projectId) return [] as any[];
+      return client.fetch(blogListQuery);
+    },
+  });
+  const posts = (sanityOk && Array.isArray(sanityPosts) && sanityPosts.length
+    ? sanityPosts.map((p: any) => ({
+        title: p.title,
+        excerpt: p.excerpt || "",
+        date: p.publishedAt || new Date().toISOString(),
+        readTime: "",
+        slug: p.slug,
+        category: p.categories?.[0]?.title || "News",
+        image: p.imageUrl || heroHouse,
+      }))
+    : fallbackPosts);
   return (
     <div>
       <Seo title="Blog | Locksmith Tips & Guides" description="Explore expert locksmith tips, how‑tos, and planning guides for local homeowners." canonical="/blog" />

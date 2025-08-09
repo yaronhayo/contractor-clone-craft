@@ -18,7 +18,7 @@ const toTitle = (slug?: string) =>
 
 const related = [
   { title: "Project Planning Checklist", slug: "project-planning-checklist", image: service1 },
-  { title: "Budgeting for Your (Service)", slug: "budgeting-for-service", image: service2 },
+  { title: "Budgeting for Locksmith Services", slug: "budgeting-for-locksmith-services", image: service2 },
   { title: "Top 7 Questions to Ask", slug: "top-7-questions", image: heroHouse },
 ];
 
@@ -60,6 +60,16 @@ const BlogPost = () => {
     },
   };
 
+  const siteUrl = typeof window !== "undefined" ? window.location.origin : ("" as string);
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+      { "@type": "ListItem", position: 3, name: title, item: articleUrl },
+    ],
+  };
   const CopyLinkButton = () => {
     const onCopy = async () => {
       try {
@@ -84,6 +94,7 @@ const BlogPost = () => {
       <Seo title={`${title} | Blog`} description={`Read ${title} and learn practical tips from our team.`} canonical={`/blog/${slug}`} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
       <ReadingProgress />
       <Header />
@@ -185,8 +196,8 @@ const BlogPost = () => {
 
               {/* Prev/Next */}
               <nav className="mt-8 flex items-center justify-between" aria-label="Article pagination">
-                <Link to="/blog/choose-right-service-1" className="text-sm text-primary story-link">← Previous</Link>
-                <Link to="/blog/choose-right-service-2" className="text-sm text-primary story-link">Next →</Link>
+                <Link to="/blog/choose-right-locksmith-1" className="text-sm text-primary story-link">← Previous</Link>
+                <Link to="/blog/choose-right-locksmith-2" className="text-sm text-primary story-link">Next →</Link>
               </nav>
             </div>
 

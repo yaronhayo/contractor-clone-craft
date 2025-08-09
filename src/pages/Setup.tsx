@@ -2,6 +2,7 @@ import Seo from "@/components/Seo";
 import { siteConfig } from "@/config/site-config";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Helmet } from "react-helmet-async";
 
 const StatusBadge = ({ ok }: { ok: boolean }) => (
   <Badge variant={ok ? "default" : "secondary"}>{ok ? "Configured" : "Missing"}</Badge>
@@ -20,6 +21,10 @@ const Setup = () => {
         description="Project setup checklist for this template: configure brand details, Google Maps, GTM, and reCAPTCHA."
         canonical="/setup"
       />
+
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
 
       <main id="content" className="container py-14 md:py-20">
         <header className="max-w-3xl">
