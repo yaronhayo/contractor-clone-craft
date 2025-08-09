@@ -96,6 +96,21 @@ const Setup = () => {
 
           <Card>
             <CardHeader>
+              <CardTitle>SEO & Sitemap</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span>Canonical site URL</span>
+                <StatusBadge ok={Boolean(siteConfig.seo.siteUrl)} />
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Set <code>seo.siteUrl</code>. We generated <code>/sitemap.xml</code> and you can add it to <code>/public/robots.txt</code>.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
               <CardTitle>Sanity (optional)</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">

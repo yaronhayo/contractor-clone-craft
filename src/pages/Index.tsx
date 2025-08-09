@@ -14,10 +14,11 @@ import CompanyInfo from "@/components/sections/CompanyInfo";
 import CTABanner from "@/components/sections/CTABanner";
 import Seo from "@/components/Seo";
 import FAQ from "@/components/sections/FAQ";
+import { siteConfig } from "@/config/site-config";
 const Index = () => {
   return (
     <div>
-      <Seo title="We Are The Best (Service) In (City)" description="Clone of Contractor Website Template – hero, services, process, estimate form, and contact." canonical="/" />
+      <Seo title={siteConfig.seo.defaultTitle} description={siteConfig.seo.defaultDescription} canonical="/" />
       <Header />
       <main>
         <Hero />
