@@ -208,6 +208,7 @@ const ServicesHub = () => {
   return (
     <div>
       <Seo title="Locksmith Services in Englewood NJ | All Services" description={`Complete locksmith services in Englewood, Fort Lee, Tenafly and surrounding areas. Emergency lockout, rekeys, car keys, and commercial services.`} canonical="/services" />
+      <Seo title="Complete Garage Door Services in Elmwood Park NJ | ez2fix" description={`Expert garage door repair, installation, opener service, and emergency repairs in Elmwood Park, Montclair, Fair Lawn and surrounding Bergen County areas.`} canonical="/services" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
@@ -215,7 +216,7 @@ const ServicesHub = () => {
       <Header />
       <main id="content">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-hidden">
+        name: "All Garage Door Services",
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(234,158,37,0.15),transparent)]" />
           <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
@@ -389,10 +390,10 @@ const ServicesHub = () => {
               Frequently Asked Questions
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-              Locksmith Service Questions
+              Garage Door Service Questions
             </h2>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              Common questions about our locksmith services, pricing, and coverage areas.
+              Common questions about our garage door services, pricing, and coverage areas in Elmwood Park and surrounding areas.
             </p>
           </header>
 
@@ -400,28 +401,28 @@ const ServicesHub = () => {
             <Accordion type="single" collapsible className="w-full space-y-4">
               {[
                 {
-                  q: "What areas do you serve for locksmith services?",
-                  a: "We serve Englewood, Fort Lee, Tenafly, Bergenfield, Cliffside Park, Ridgefield Park, Ridgefield, Cresskill, and surrounding Bergen County areas. Emergency service available 24/7."
+                  q: "What areas do you serve for garage door services?",
+                  a: "We serve Elmwood Park, Montclair, Fair Lawn, Little Falls, Cedar Grove, West Caldwell, North Caldwell, and surrounding Bergen County areas. Emergency garage door service available 24/7."
                 },
                 {
-                  q: "How quickly can you respond to emergency lockouts?",
-                  a: "For emergency lockouts, we typically arrive within 15-30 minutes. Our mobile units are strategically positioned across Bergen County for rapid response."
+                  q: "How quickly can you respond to emergency garage door repairs?",
+                  a: "For emergency garage door repairs, we typically arrive within 15-30 minutes. Our mobile units are strategically positioned across Bergen County for rapid response to broken springs, opener failures, and doors off track."
                 },
                 {
-                  q: "Do you provide free estimates for locksmith services?",
-                  a: "Yes, we provide free, no-obligation estimates for all non-emergency locksmith services. Emergency lockout service has transparent, upfront pricing."
+                  q: "Do you provide free estimates for garage door services?",
+                  a: "Yes, we provide free, no-obligation estimates for all garage door installations and non-emergency repairs. Emergency garage door service has transparent, upfront pricing."
                 },
                 {
-                  q: "Are your locksmiths licensed and insured?",
-                  a: "Absolutely. All our locksmiths are fully licensed (NJ License #13VH13578200), bonded, and insured for your complete peace of mind."
+                  q: "Are your garage door technicians licensed and insured?",
+                  a: "Absolutely. All our garage door technicians are fully licensed (NJ License #13VH13553300), bonded, and insured for your complete peace of mind."
                 },
                 {
-                  q: "What types of locks and security systems do you work with?",
-                  a: "We service all types of locks including traditional deadbolts, smart locks, high-security locks, automotive locks, and commercial access control systems."
+                  q: "What garage door brands and types do you service?",
+                  a: "We service all major garage door brands including LiftMaster, Chamberlain, Genie, Craftsman, Wayne Dalton, and more. We work on residential, commercial, steel, wood, aluminum, and insulated garage doors."
                 },
                 {
-                  q: "Do you offer 24/7 emergency locksmith service?",
-                  a: "Yes, we provide 24/7 emergency locksmith service for lockouts, break-ins, and urgent security needs throughout our service area."
+                  q: "Do you offer 24/7 emergency garage door service?",
+                  a: "Yes, we provide 24/7 emergency garage door service for broken springs, opener failures, doors off track, and other urgent garage door needs throughout our service area."
                 }
               ].map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg px-4">
