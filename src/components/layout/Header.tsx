@@ -46,6 +46,9 @@ export const Header = () => {
                 Services <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="z-50 bg-popover border shadow-md" sideOffset={6}>
+                <DropdownMenuItem asChild>
+                  <Link to={siteConfig.routes.individualService("emergency-locksmith")}>Emergency Locksmith (24/7)</Link>
+                </DropdownMenuItem>
                 {siteConfig.taxonomy.services.slice(0, 6).map((s) => (
                   <DropdownMenuItem asChild key={s.slug}>
                     <Link to={siteConfig.routes.individualService(s.slug)}>{s.name}</Link>
