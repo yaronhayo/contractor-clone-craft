@@ -179,6 +179,9 @@ const Setup = () => {
           <p className="mt-3 text-muted-foreground">
             Use this checklist for each Vercel project (single-brand). Edit values in <code>src/config/site-config.ts</code>.
           </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Full launch steps are documented in <code>docs/launch-checklist.md</code> inside your repo.
+          </p>
         </header>
 
         <section className="grid gap-6 md:grid-cols-2 mt-10">

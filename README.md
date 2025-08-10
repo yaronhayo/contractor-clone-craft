@@ -71,3 +71,13 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+---
+
+## Launch Checklist (Vercel + GitHub + Sanity + Claude Code)
+
+Use this step-by-step guide when launching a new locksmith site from this starter.
+
+- Open the checklist: [docs/launch-checklist.md](docs/launch-checklist.md)
+- Covers repo setup, Sanity content, GTM/Maps/reCAPTCHA, SEO, performance, analytics, and deployment.
+- Includes tips for customizing with Claude Code (GitHub-linked) and submitting sitemaps to Search Console.
