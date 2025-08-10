@@ -23,7 +23,7 @@ Use this checklist for every new locksmith website you launch from this starter.
 - Enter Sanity: projectId, dataset, apiVersion (e.g. 2024-10-01), useCdn: true
 - Enter Google Tag Manager ID (e.g. GTM-XXXXXXX)
 - Enter Google Maps browser key (prevents NoApiKeys warning)
-- Enter reCAPTCHA v3 site key (if using Estimate form with spam protection)
+- Enter reCAPTCHA v2 Invisible site key (used by Estimate form)
 - Fill Business NAP, hours, social links, branding, SEO siteUrl and defaultDescription
 - Save → the page reloads with overrides persisted in localStorage
 
