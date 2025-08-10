@@ -251,19 +251,19 @@ const baseConfig: SiteConfig = {
       },
       logos: {
         light: {
-          src: "/src/assets/ez2fix logo.png",
+          src: "/ez2fix-logo.png",
           width: 200,
           height: 48,
           alt: "ez2fix Logo",
         },
         dark: {
-          src: "/src/assets/ez2fix logo.png",
+          src: "/ez2fix-logo.png",
           width: 200,
           height: 48,
           alt: "ez2fix Logo",
         },
         mark: {
-          src: "/src/assets/ez2fix logo.png",
+          src: "/ez2fix-logo.png",
           width: 48,
           height: 48,
           alt: "ez2fix Logo Mark",

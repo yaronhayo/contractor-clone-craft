@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Company Info with Logo */}
           <div className="space-y-6">
-            <Link to="/#" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group">
               {siteConfig.business.branding.logos.light?.src ? (
                 <img
                   src={siteConfig.business.branding.logos.light.src}
