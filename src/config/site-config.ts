@@ -495,4 +495,11 @@ const overrides = typeof window !== "undefined" ? (() => {
   try { return JSON.parse(localStorage.getItem("siteConfigOverrides") || "null"); } catch { return null; }
 })() : null;
 
-export const siteConfig: SiteConfig = overrides ? mergeDeep(baseConfig, overrides) : baseConfig;
+const mergedConfig = overrides ? mergeDeep(baseConfig, overrides) : baseConfig;
+
+// Ensure locations array is never empty to prevent undefined primaryLoc
+if (!mergedConfig.locations || mergedConfig.locations.length === 0) {
+  mergedConfig.locations = [baseConfig.locations[0]];
+}
+
+export const siteConfig: SiteConfig = mergedConfig;
