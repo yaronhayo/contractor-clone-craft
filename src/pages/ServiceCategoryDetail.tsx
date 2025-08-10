@@ -75,6 +75,24 @@ const ServiceCategoryDetail = () => {
             })}
           </div>
 
+          <section className="mt-12">
+            <h2 className="text-xl font-bold">Popular in Top Cities</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+              {Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values()).slice(0,4).map((a) => (
+                <div key={a.slug} className="rounded-md border p-4">
+                  <div className="font-medium">{a.name}, {a.state}</div>
+                  <ul className="mt-2 space-y-1 text-sm">
+                    {services.slice(0,3).map((s) => (
+                      <li key={s.slug}>
+                        <Link to={siteConfig.routes.serviceCity(s.slug, a.slug)} className="story-link">{s.name} in {a.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <div className="text-center mt-10">
             <Link to="/service-categories" className="story-link">Back to categories</Link>
           </div>
