@@ -118,7 +118,17 @@ const EstimateForm = () => {
       <header className="text-center max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-extrabold">Get A Free Estimate</h2>
         <p className="mt-2 text-muted-foreground">Fill out the quick form below to schedule a no-pressure, no-obligation quote.</p>
-        <p className="mt-2 font-semibold">Need to contact us right away? Call Us: {siteConfig.business.phone}</p>
+        <p className="mt-2 font-semibold">Need to contact us right away? <a
+          href={`tel:${siteConfig.business.phone}`}
+          className="underline"
+          aria-label={`Call ${siteConfig.business.name}`}
+          onClick={() => {
+            try {
+              (window as any).dataLayer = (window as any).dataLayer || [];
+              (window as any).dataLayer.push({ event: "phone_click", source: "estimate_header", phone: siteConfig.business.phone });
+            } catch {}
+          }}
+        >Call {siteConfig.business.phone}</a></p>
       </header>
 
       <div ref={recaptchaRef} className="hidden" />

@@ -16,7 +16,19 @@ const Welcome = () => {
       <header className="text-center max-w-3xl mx-auto">
         <p className="text-sm uppercase tracking-widest text-muted-foreground">Welcome to {siteConfig.business.name}</p>
         <h2 className="text-2xl md:text-3xl font-extrabold mt-2">Trusted Locksmiths in {siteConfig.business.hqAddress.city}</h2>
-        <a href={`tel:${siteConfig.business.phone}`} className="inline-block mt-4 text-primary underline">Call {siteConfig.business.phone}</a>
+        <a
+          href={`tel:${siteConfig.business.phone}`}
+          aria-label={`Call ${siteConfig.business.name}`}
+          className="inline-block mt-4 text-primary underline"
+          onClick={() => {
+            try {
+              (window as any).dataLayer = (window as any).dataLayer || [];
+              (window as any).dataLayer.push({ event: "phone_click", source: "welcome", phone: siteConfig.business.phone });
+            } catch {}
+          }}
+        >
+          Call {siteConfig.business.phone}
+        </a>
       </header>
 
       <div className="grid md:grid-cols-3 gap-6 mt-10">
