@@ -16,14 +16,14 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Company Info with Logo */}
           <div className="space-y-6">
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/#" className="flex items-center gap-3 group">
               {siteConfig.business.branding.logos.light?.src ? (
                 <img
                   src={siteConfig.business.branding.logos.light.src}
                   alt={siteConfig.business.branding.logos.light.alt || `${siteConfig.business.name} logo`}
                   width={siteConfig.business.branding.logos.light.width}
                   height={siteConfig.business.branding.logos.light.height}
-                  className="h-10 w-auto"
+                  className="h-12 w-auto"
                 />
               ) : (
                 <div className="text-2xl font-extrabold text-primary">{siteConfig.business.name}</div>

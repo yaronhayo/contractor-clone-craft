@@ -13,14 +13,14 @@ export const Header = () => {
     <header className="w-full sticky top-0 z-40 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
       <a href="#content" className="sr-only focus:not-sr-only focus:absolute left-2 top-2 bg-primary text-primary-foreground px-3 py-2 rounded-md">Skip to content</a>
       <nav className="container flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center gap-2 font-extrabold tracking-tight text-xl" aria-label={siteConfig.business.name}>
+        <Link to="/#" className="flex items-center gap-2 font-extrabold tracking-tight text-xl" aria-label={siteConfig.business.name}>
           {siteConfig.business.branding.logos.light?.src ? (
             <img
               src={siteConfig.business.branding.logos.light.src}
               alt={siteConfig.business.branding.logos.light.alt || `${siteConfig.business.name} logo`}
               width={siteConfig.business.branding.logos.light.width}
               height={siteConfig.business.branding.logos.light.height}
-              className="h-8 w-auto"
+              className="h-10 w-auto"
               loading="eager"
             />
           ) : (

@@ -251,19 +251,19 @@ const baseConfig: SiteConfig = {
       },
       logos: {
         light: {
-          src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=400",
+          src: "/src/assets/ez2fix logo.png",
           width: 200,
           height: 48,
           alt: "ez2fix Logo",
         },
         dark: {
-          src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=400",
+          src: "/src/assets/ez2fix logo.png",
           width: 200,
           height: 48,
           alt: "ez2fix Logo",
         },
         mark: {
-          src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=100",
+          src: "/src/assets/ez2fix logo.png",
           width: 48,
           height: 48,
           alt: "ez2fix Logo Mark",
