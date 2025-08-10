@@ -60,7 +60,7 @@ const ProcessStep = ({ step, index }: { step: typeof steps[0]; index: number }) 
         
         {/* Time Indicator */}
         <div className="inline-flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full text-sm">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+          <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
           <span className="font-medium">{step.time}</span>
         </div>
       </div>

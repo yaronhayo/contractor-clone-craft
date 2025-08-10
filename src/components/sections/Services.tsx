@@ -57,7 +57,7 @@ const Services = () => {
                   
                   {/* Emergency Badge for 24/7 service */}
                   {service.name.includes("Emergency") && (
-                    <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                    <div className="absolute top-4 left-4 bg-destructive text-destructive-foreground px-3 py-1 rounded-full text-xs font-bold animate-pulse">
                       24/7 Available
                     </div>
                   )}
@@ -78,7 +78,7 @@ const Services = () => {
                       <Shield className="h-3 w-3" />
                       Licensed
                     </span>
-                    <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+                    <span className="inline-flex items-center gap-1 bg-accent/20 text-accent-foreground px-2 py-1 rounded-full text-xs font-medium">
                       <CheckCircle2 className="h-3 w-3" />
                       Guaranteed
                     </span>

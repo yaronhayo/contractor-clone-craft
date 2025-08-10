@@ -388,7 +388,7 @@ const EstimateForm = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-1 mb-3">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
+                    <Star key={i} className="h-4 w-4 text-primary fill-current" />
                   ))}
                 </div>
                 <blockquote className="text-sm text-gray-700 mb-3 italic">
@@ -437,7 +437,7 @@ const EstimateForm = () => {
               <span>24/7 Emergency Service</span>
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold">
-              <Star className="h-4 w-4 text-yellow-500 fill-current" />
+              <Star className="h-4 w-4 text-primary fill-current" />
               <span>4.9/5 Customer Rating</span>
             </div>
           </div>
