@@ -15,4 +15,7 @@
   <sitemap>
     <loc>https://www.example.com/sitemap-city-services.xml</loc>
   </sitemap>
+  <sitemap>
+    <loc>https://www.example.com/sitemap-locksmith-in.xml</loc>
+  </sitemap>
 </sitemapindex>
