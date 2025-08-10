@@ -60,17 +60,22 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Deploying to Vercel
 
-Simply open [Lovable](https://lovable.dev/projects/2aeb0aca-77ae-4e0e-b637-f9c72bd0034e) and click on Share -> Publish.
+Deploy this project on Vercel using the included vercel.json (SPA routing + API functions):
 
-## Can I connect a custom domain to my Lovable project?
+1) Connect GitHub repo in Vercel → New Project → Import
+2) Framework: Vite (auto-detected)
+   - Build Command: npm run build
+   - Output Directory: dist
+3) Environment Variables (Project Settings → Environment Variables)
+   - RESEND_API_KEY
+   - EMAIL_FROM (e.g., "Your Brand <no-reply@yourdomain.com>")
+   - EMAIL_TO (recipient inbox)
+4) Deploy, then open /setup on your site to configure client keys (Sanity, GTM, Maps, reCAPTCHA) and business info
+5) In /setup, use "Send test email" to verify /api/send-email on Vercel
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+More details: docs/vercel-deploy.md
 
 ---
 
