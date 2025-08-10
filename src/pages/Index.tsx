@@ -24,16 +24,11 @@ const Index = () => {
       <main id="content">
         <Hero />
         <FeaturesBar />
-        <Welcome />
         <Services />
-        <PopularCityServices />
         <WhyUs />
         <Process />
         <FAQ />
         <ReviewsTeaser />
-        <EstimateForm />
-        <CompanyInfo />
-        <FinalCTA />
       </main>
       <Footer />
     </MapsProvider>
