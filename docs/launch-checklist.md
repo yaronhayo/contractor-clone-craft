@@ -48,8 +48,10 @@ Use this checklist for every new locksmith website you launch from this starter.
 
 ## 8) Vercel deploy
 1. Connect GitHub repo to Vercel and import
-2. Set required environment values in Vercel (Sanity, GTM, Maps, reCAPTCHA, email provider if used)
-3. Deploy → verify site, sitemap.xml, robots.txt
+2. Set server-side environment variables in Vercel:
+   - RESEND_API_KEY, EMAIL_FROM, EMAIL_TO (for /api/send-email)
+   - (All other client keys are entered on /setup: Sanity, GTM, Google Maps, reCAPTCHA v2 Invisible)
+3. Deploy → verify site, /setup, /api/send-email, sitemap.xml, robots.txt
 4. Add custom domain and enable HTTPS
 
 ## 9) Search Console & indexing
