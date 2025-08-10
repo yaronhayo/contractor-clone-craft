@@ -79,6 +79,8 @@ const Setup = () => {
     // Freepik
     freepikAttribution: siteConfig.integrations.freepik?.defaultAttribution || "",
     freepikProfileUrl: siteConfig.integrations.freepik?.profileUrl || "",
+    // Locations & Service Areas (JSON)
+    locationsJson: JSON.stringify(siteConfig.locations, null, 2),
   });
 
   const onSave = (e: React.FormEvent) => {
@@ -148,11 +150,18 @@ const Setup = () => {
       },
     };
     try {
+      let locationsOverride: any[] | undefined = undefined;
+      try {
+        const parsed = JSON.parse(form.locationsJson || "[]");
+        if (Array.isArray(parsed)) locationsOverride = parsed;
+      } catch {}
+      if (locationsOverride) (overrides as any).locations = locationsOverride;
+
       localStorage.setItem("siteConfigOverrides", JSON.stringify(overrides));
       toast({ title: "Settings saved", description: "Reloading to apply changes..." });
       setTimeout(() => window.location.reload(), 600);
     } catch (err) {
-      toast({ title: "Failed to save", description: "Please try again.", variant: "destructive" as any });
+      toast({ title: "Failed to save", description: "Please check your Locations JSON and try again.", variant: "destructive" as any });
     }
   };
 
@@ -411,6 +420,28 @@ const Setup = () => {
                   <Label htmlFor="sanityDataset">Dataset</Label>
                   <Input id="sanityDataset" value={form.sanityDataset} onChange={(e) => setForm((f) => ({ ...f, sanityDataset: e.target.value }))} />
                 </div>
+                <div className="space-y-1 md:col-span-1">
+                  <Label htmlFor="sanityApiVersion">API version</Label>
+                  <Input id="sanityApiVersion" placeholder="2024-10-01" value={form.sanityApiVersion} onChange={(e) => setForm((f) => ({ ...f, sanityApiVersion: e.target.value }))} />
+                </div>
+                <div className="flex items-center gap-3 md:col-span-1">
+                  <Switch id="sanityUseCdn" checked={!!form.sanityUseCdn} onCheckedChange={(checked) => setForm((f) => ({ ...f, sanityUseCdn: Boolean(checked) }))} />
+                  <Label htmlFor="sanityUseCdn">Use CDN (faster, cacheable)</Label>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Business Locations & Service Areas</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <p className="text-sm text-muted-foreground">Edit the locations array used across the site. This supports nested serviceAreas per location. Changes apply instantly after saving.</p>
+                <div className="space-y-1">
+                  <Label htmlFor="locationsJson">Locations JSON</Label>
+                  <Textarea id="locationsJson" rows={12} value={form.locationsJson} onChange={(e) => setForm((f) => ({ ...f, locationsJson: e.target.value }))} />
+                </div>
+                <p className="text-xs text-muted-foreground">Tip: Keep a backup. Each location requires id, name, slug, phone, address, geo, hours, and serviceAreas[].</p>
               </CardContent>
             </Card>
 
