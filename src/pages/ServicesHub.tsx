@@ -15,11 +15,24 @@ const ServicesHub = () => {
       { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
     ],
   };
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "All Locksmith Services",
+    itemListElement: siteConfig.taxonomy.services.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: s.name,
+      url: `${siteUrl}${siteConfig.routes.individualService(s.slug)}`,
+    })),
+  };
+
   return (
     <div>
       <Seo title="Locksmith Services" description={`Explore our full list of locksmith services available in ${siteConfig.business.hqAddress.city} and nearby areas.`} canonical="/services" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
       </Helmet>
       <Header />
       <main id="content">

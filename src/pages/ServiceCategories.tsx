@@ -17,6 +17,17 @@ const ServiceCategories = () => {
       { "@type": "ListItem", position: 2, name: "Service Categories", item: `${siteUrl}/service-categories` },
     ],
   };
+  const categoriesListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Locksmith Service Categories",
+    itemListElement: categories.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      url: `${siteUrl}${siteConfig.routes.serviceCategory(c.slug)}`,
+    })),
+  };
 
   return (
     <div>
@@ -27,6 +38,7 @@ const ServiceCategories = () => {
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(categoriesListLd)}</script>
       </Helmet>
       <Header />
       <main id="content">
