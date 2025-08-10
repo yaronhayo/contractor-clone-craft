@@ -21,7 +21,7 @@ export const Header = () => {
               alt={siteConfig.business.branding.logos.light.alt || `${siteConfig.business.name} logo`}
               width={siteConfig.business.branding.logos.light.width}
               height={siteConfig.business.branding.logos.light.height}
-             className="h-[60px] w-auto"
+             className="h-[78px] w-auto"
               loading="eager"
             />
           ) : (
