@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Suspense, lazy } from "react";
 import GTM from "@/components/integrations/GTM";
 
+import MobileCallBar from "@/components/layout/MobileCallBar";
 import Index from "./pages/Index";
 const NotFound = lazy(() => import("./pages/NotFound"));
 const About = lazy(() => import("./pages/About"));
@@ -65,6 +66,7 @@ const App = () => (
             </Routes>
           </Suspense>
         </BrowserRouter>
+        <MobileCallBar />
       </TooltipProvider>
       </QueryClientProvider>
     
