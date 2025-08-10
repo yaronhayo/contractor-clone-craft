@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/config/site-config";
-import { Shield, Clock, Award, Star, CheckCircle2, Wrench } from "lucide-react";
+import { Shield, Clock, Award, Star, CheckCircle2, Wrench, PhoneCall, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const FeatureCard = ({ icon: Icon, title, description, stats }: { 
   icon: React.ComponentType<any>; 

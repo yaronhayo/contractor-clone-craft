@@ -12,7 +12,7 @@ import { sendEstimateRequest } from "@/lib/email";
 import { Autocomplete } from "@react-google-maps/api";
 import { useMaps } from "@/contexts/MapsProvider";
 import { Link } from "react-router-dom";
-import { Calculator, PhoneCall, MapPin, Clock, CheckCircle2, Star } from "lucide-react";
+import { Calculator, PhoneCall, MapPin, Clock, CheckCircle2, Star, Wrench, Shield } from "lucide-react";
 
 const EstimateForm = () => {
   const { toast } = useToast();
