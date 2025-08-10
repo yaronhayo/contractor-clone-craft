@@ -35,11 +35,11 @@ const Hero = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative container z-10">
+      <div className="relative container z-10 pt-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="max-w-2xl">
+          <div className="max-w-xl">
           {/* Trust Indicators */}
-          <div className="flex flex-wrap items-center gap-4 mb-6 animate-fade-in">
+          <div className="flex flex-wrap items-center gap-3 mb-4 animate-fade-in">
             <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
               <Star className="h-4 w-4 text-yellow-500 fill-current" />
               <span className="text-sm font-semibold text-gray-900">4.9/5 Rating</span>
@@ -54,7 +54,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <h1 id="content" className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight animate-fade-in">
+          <h1 id="content" className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight animate-fade-in">
             <span className="text-white">
               Expert Garage Door Service
             </span>
@@ -62,13 +62,13 @@ const Hero = () => {
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">in {city}, {state}</span>
           </h1>
           
-          <p className="mt-6 text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed animate-fade-in">
+          <p className="mt-4 text-base md:text-lg text-white/90 leading-relaxed animate-fade-in">
             Emergency repairs, professional installations, and 24/7 service across Bergen and Hudson Counties. 
             <strong className="text-yellow-400"> Fast response guaranteed.</strong>
           </p>
 
           {/* Key Benefits */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl animate-fade-in">
+          <div className="mt-6 grid grid-cols-1 gap-2 animate-fade-in">
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
               <span>Same-day emergency garage door repair</span>
@@ -88,8 +88,8 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row items-start gap-4 animate-fade-in">
-            <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group" asChild>
+          <div className="mt-8 flex flex-col sm:flex-row items-start gap-4 animate-fade-in">
+            <Button size="lg" className="text-base px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group" asChild>
               <a
                 href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
                 aria-label={`Call ${siteConfig.business.name}`}
@@ -104,7 +104,7 @@ const Hero = () => {
                 Call Now: {siteConfig.business.phone}
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 rounded-full border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
+            <Button variant="outline" size="lg" className="text-base px-6 py-4 rounded-full border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
               <a href="#estimate">Get Free Estimate</a>
             </Button>
           </div>
@@ -113,31 +113,31 @@ const Hero = () => {
           {/* Quick Booking Form */}
           <div className="animate-fade-in">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Get Your Free Estimate</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Get Your Free Estimate</h3>
               <form className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input 
                     type="text" 
                     placeholder="Your Name" 
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                   />
                   <input 
                     type="tel" 
                     placeholder="Phone Number" 
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                   />
                 </div>
                 <input 
                   type="text" 
                   placeholder="Service Address (City, NJ)" 
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 />
                 <select 
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 >
                   <option value="">Select Service Needed</option>
                   <option value="emergency-repair">Emergency Garage Door Repair</option>
@@ -147,8 +147,7 @@ const Hero = () => {
                   <option value="maintenance">Maintenance & Tune-up</option>
                 </select>
                 <Button 
-                  size="lg" 
-                  className="w-full text-lg py-4 rounded-lg bg-gradient-to-r from-primary to-yellow-600 hover:from-primary/90 hover:to-yellow-600/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full text-base py-3 rounded-lg bg-gradient-to-r from-primary to-yellow-600 hover:from-primary/90 hover:to-yellow-600/90 shadow-lg hover:shadow-xl transition-all duration-300"
                   type="submit"
                 >
                   Get Free Estimate
