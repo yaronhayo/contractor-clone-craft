@@ -38,14 +38,14 @@ const Welcome = () => {
         <header className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Star className="h-4 w-4 fill-current" />
-            Welcome to Pro Line Garage Experts
+            Welcome to ez2fix
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-            Edison's Most Trusted Garage Door Experts
+            Elmwood Park's Most Trusted Garage Door Service
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            For over 10 years, we've been the go-to garage door specialists for homeowners and businesses 
-            across Edison, Bergen County, and Hudson County. Our commitment to excellence shows in every project.
+            For over 10 years, we've been providing expert garage door repair in Elmwood Park, Montclair, and surrounding areas. 
+            Our commitment to quality service and 10 year warranty shows in every project.
           </p>
           
           {/* Quick Contact */}
@@ -66,7 +66,7 @@ const Welcome = () => {
               </a>
             </Button>
             <p className="text-sm text-muted-foreground">
-              Available 7 days a week, 7AM - 11PM
+              Same day service available • Free estimates
             </p>
           </div>
         </header>
@@ -76,20 +76,20 @@ const Welcome = () => {
           <FeatureCard 
             icon={Shield} 
             title="Licensed & Insured" 
-            description="Fully licensed garage door specialists with comprehensive insurance coverage. Your property and investment are completely protected."
-            stats="NJ License #13VH13578200"
+            description="Fully licensed garage door technicians with comprehensive insurance coverage. Your property and investment are completely protected."
+            stats="NJ License #13VH13553300"
           />
           <FeatureCard 
             icon={Clock} 
-            title="24/7 Emergency Service" 
-            description="Garage door emergencies happen at the worst times. That's why we're available around the clock for urgent repairs and lockouts."
-            stats="24/7"
+            title="Same Day Service" 
+            description="Need garage door repair today? We offer same day service across Elmwood Park, Montclair, and surrounding areas."
+            stats="Same Day"
           />
           <FeatureCard 
             icon={Award} 
-            title="Proven Excellence" 
-            description="Over 500 garage doors serviced with consistent 5-star reviews. Our track record speaks for itself across Bergen and Hudson Counties."
-            stats="500+"
+            title="10 Year Warranty" 
+            description="All garage door repairs come with our exclusive 10 year warranty. Plus, seniors receive 10% discount on all services."
+            stats="10 Years"
           />
         </div>
 

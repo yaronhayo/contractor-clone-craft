@@ -96,47 +96,50 @@ const Process = () => {
           ))}
         </div>
 
-        {/* Emergency Process Highlight */}
-        <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-8 md:p-12 text-white text-center shadow-xl">
+        {/* Warranty & Benefits Highlight */}
+        <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-primary-foreground shadow-xl">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Emergency Garage Door Service Process
+            Our Service Guarantees
           </h3>
           <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-            For urgent garage door repairs, we've streamlined our emergency response to get you back up and running as quickly as possible.
+            Quality garage door repair services with unmatched warranties and customer benefits across Elmwood Park and surrounding areas.
           </p>
           
-          <div className="grid md:grid-cols-3 gap-6 mb-8 text-center">
+          <div className="grid md:grid-cols-4 gap-6 mb-8 text-center">
             <div className="bg-white/10 rounded-xl p-4">
-              <div className="text-2xl font-bold mb-1">≤ 15 min</div>
-              <div className="text-sm opacity-90">Response Time</div>
+              <div className="text-2xl font-bold mb-1">10 Years</div>
+              <div className="text-sm opacity-90">Warranty</div>
             </div>
             <div className="bg-white/10 rounded-xl p-4">
-              <div className="text-2xl font-bold mb-1">≤ 60 min</div>
-              <div className="text-sm opacity-90">On-Site Arrival</div>
+              <div className="text-2xl font-bold mb-1">10%</div>
+              <div className="text-sm opacity-90">Senior Discount</div>
             </div>
             <div className="bg-white/10 rounded-xl p-4">
-              <div className="text-2xl font-bold mb-1">≤ 2 hrs</div>
-              <div className="text-sm opacity-90">Most Repairs Complete</div>
+              <div className="text-2xl font-bold mb-1">Same Day</div>
+              <div className="text-sm opacity-90">Service</div>
+            </div>
+            <div className="bg-white/10 rounded-xl p-4">
+              <div className="text-2xl font-bold mb-1">Free</div>
+              <div className="text-sm opacity-90">On-Site Estimate</div>
             </div>
           </div>
-
-          <Button size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-bold" asChild>
-            <a 
-              href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
-              onClick={() => {
-                try {
-                  (window as any).dataLayer = (window as any).dataLayer || [];
-                  (window as any).dataLayer.push({ event: "phone_click", source: "emergency_process", phone: siteConfig.business.phone });
-                } catch {}
-              }}
-            >
-              Emergency Service: {siteConfig.business.phone}
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );
 };
 
+          <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-bold" asChild>
+            <a 
+              href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
+              onClick={() => {
+                try {
+                  (window as any).dataLayer = (window as any).dataLayer || [];
+                  (window as any).dataLayer.push({ event: "phone_click", source: "guarantees_cta", phone: siteConfig.business.phone });
+                } catch {}
+              }}
+            >
+              Call for Free Estimate: {siteConfig.business.phone}
+            </a>
+          </Button>
+        </div>
 export default Process;

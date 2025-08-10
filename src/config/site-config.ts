@@ -217,18 +217,18 @@ function mergeDeep<T>(target: T, source: any): T {
 const baseConfig: SiteConfig = {
   business: {
     name: "First Class Locksmith",
-    legalName: "First Class Locksmith LLC",
+    legalName: "ez2fix LLC",
     phone: "(551) 250-5665",
     email: "support@firstclasslocksmithnj.com",
     siteUrl: "https://firstclasslocksmithnj.com",
     hqAddress: {
       line1: "123 Main Street",
-      city: "Englewood",
+      city: "Elmwood Park",
       state: "NJ",
-      postalCode: "07631",
+      postalCode: "07407",
       country: "US",
     },
-    geo: { lat: 40.8929, lng: -73.9726 },
+    geo: { lat: 40.9026, lng: -74.1218 },
     hours: {
       mon: "24 Hours",
       tue: "24 Hours",
@@ -239,9 +239,9 @@ const baseConfig: SiteConfig = {
       sun: "24 Hours",
     },
     social: {
-      facebook: "https://facebook.com/firstclasslocksmithnj",
-      instagram: "https://instagram.com/firstclasslocksmithnj",
-      googleBusiness: "https://g.page/firstclasslocksmithnj",
+      facebook: "https://facebook.com/ez2fix",
+      instagram: "https://instagram.com/ez2fix",
+      googleBusiness: "https://g.page/ez2fix",
     },
     branding: {
       colors: {
@@ -251,29 +251,29 @@ const baseConfig: SiteConfig = {
       },
       logos: {
         light: {
-          src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Logo.png",
+          src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=400",
           width: 200,
           height: 48,
-          alt: "First Class Locksmith Logo",
+          alt: "ez2fix Logo",
         },
         dark: {
-          src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Logo.png",
+          src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=400",
           width: 200,
           height: 48,
-          alt: "First Class Locksmith Logo",
+          alt: "ez2fix Logo",
         },
         mark: {
-          src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Favicon.png",
+          src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=100",
           width: 48,
           height: 48,
-          alt: "First Class Locksmith Logo Mark",
+          alt: "ez2fix Logo Mark",
         },
       },
     },
   },
   media: {
     hero: {
-      src: "https://images.pexels.com/photos/1077735/pexels-photo-1077735.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1600",
       width: 1600,
       height: 900,
       alt: "Professional garage door installation and repair services",
@@ -285,14 +285,14 @@ const baseConfig: SiteConfig = {
       },
     },
     serviceCardDefault: {
-      src: "https://images.pexels.com/photos/1077735/pexels-photo-1077735.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 800,
       alt: "Professional garage door service",
     },
     gallery: [
       {
-        src: "https://images.pexels.com/photos/1077735/pexels-photo-1077735.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1200",
         width: 1200,
         height: 800,
         alt: "Garage door services - installation and repair",
@@ -302,54 +302,48 @@ const baseConfig: SiteConfig = {
   taxonomy: {
     categories: [
       {
-        slug: "emergency-garage-door",
-        name: "Emergency Garage Door",
-        description: "24/7 emergency garage door repair—fast response when your door won't open.",
+        slug: "garage-door-repair",
+        name: "Garage Door Repair",
+        description: "Expert garage door repair services for all types of residential and commercial doors.",
       },
       {
-        slug: "residential-garage-door",
-        name: "Residential Garage Door",
-        description: "Complete residential garage door services including installation and repair.",
+        slug: "garage-door-installation",
+        name: "Garage Door Installation",
+        description: "Professional garage door installation with quality doors and expert craftsmanship.",
       },
       {
-        slug: "commercial-garage-door",
-        name: "Commercial Garage Door",
-        description: "Professional commercial garage door services for businesses and warehouses.",
+        slug: "garage-door-opener",
+        name: "Garage Door Opener",
+        description: "Garage door opener repair, installation, and programming services.",
       },
       {
-        slug: "garage-door-maintenance",
-        name: "Garage Door Maintenance",
-        description: "Preventive maintenance and tune-ups to keep your garage door running smoothly.",
+        slug: "emergency-repair",
+        name: "Emergency Repair",
+        description: "24/7 emergency garage door repair for urgent situations and same-day service.",
       },
     ],
     services: [
-      // Emergency Garage Door
-      { slug: "garage-door-emergency", name: "Garage Door Emergency", categorySlug: "emergency-garage-door", shortDescription: "24/7 emergency garage door repair—get your door working again fast." },
-      { slug: "spring-replacement", name: "Spring Replacement", categorySlug: "emergency-garage-door", shortDescription: "Emergency garage door spring replacement and repair service." },
-      { slug: "opener-repair", name: "Opener Repair", categorySlug: "emergency-garage-door", shortDescription: "Garage door opener repair and troubleshooting service." },
+      // Garage Door Repair
+      { slug: "garage-door-spring-repair", name: "Garage Door Spring Repair Services", categorySlug: "garage-door-repair", shortDescription: "Professional garage door spring repair and replacement with 10 year warranty." },
+      { slug: "garage-door-repair", name: "Garage Door Repair Services", categorySlug: "garage-door-repair", shortDescription: "Complete garage door repair services with same day service available." },
       
-      // Residential Garage Door
-      { slug: "garage-door-installation", name: "Garage Door Installation", categorySlug: "residential-garage-door", shortDescription: "Professional garage door installation with quality doors and expert service." },
-      { slug: "garage-door-replacement", name: "Garage Door Replacement", categorySlug: "residential-garage-door", shortDescription: "Complete garage door replacement with modern, energy-efficient doors." },
-      { slug: "garage-door-repair", name: "Garage Door Repair", categorySlug: "residential-garage-door", shortDescription: "Expert garage door repair to restore proper function and safety." },
+      // Garage Door Installation
+      { slug: "garage-door-installation", name: "Garage Door Installation Services", categorySlug: "garage-door-installation", shortDescription: "Professional garage door installation with free on-site estimate and 10% senior discount." },
       
-      // Commercial Garage Door
-      { slug: "commercial-garage-doors", name: "Commercial Garage Doors", categorySlug: "commercial-garage-door", shortDescription: "Heavy-duty commercial garage doors for warehouses and businesses." },
-      { slug: "overhead-door-service", name: "Overhead Door Service", categorySlug: "commercial-garage-door", shortDescription: "Professional overhead door installation and repair for commercial properties." },
+      // Garage Door Opener
+      { slug: "garage-door-opener-repair", name: "Garage Door Opener Repair Service", categorySlug: "garage-door-opener", shortDescription: "Expert garage door opener repair and programming with same day service." },
       
-      // Garage Door Maintenance
-      { slug: "preventive-maintenance", name: "Preventive Maintenance", categorySlug: "garage-door-maintenance", shortDescription: "Regular maintenance to prevent costly garage door repairs and extend life." },
-      { slug: "safety-inspection", name: "Safety Inspection", categorySlug: "garage-door-maintenance", shortDescription: "Comprehensive garage door safety inspections and tune-ups." },
-
+      // Emergency Repair
+      { slug: "emergency-garage-door-repair", name: "24/7 Emergency Garage Door Repair", categorySlug: "emergency-repair", shortDescription: "24/7 emergency garage door repair with fast response across Elmwood Park and surrounding areas." },
     ],
   },
   locations: [
     {
-      id: "loc-edison",
-      name: "ez2fix Elmwood Park",
-      slug: "ez2fix-elmwood-park-nj",
-      phone: "(201) 554-6769",
-      email: "info@ez2fix.com",
+      id: "loc-elmwood-park",
+      name: "First Class Locksmith Elmwood Park",
+      slug: "first-class-locksmith-elmwood-park-nj",
+      phone: "(551) 250-5665",
+      email: "support@firstclasslocksmithnj.com",
       address: {
         line1: "123 Main Street",
         city: "Elmwood Park",
@@ -370,36 +364,18 @@ const baseConfig: SiteConfig = {
       isPrimary: true,
       coverageRadiusMiles: 50,
       serviceAreas: [
-        // Bergen County cities
         {
-          name: "Englewood",
+          name: "North Caldwell",
           state: "NJ",
-          slug: "englewood-nj",
-          center: { lat: 40.8929, lng: -73.9726 },
-          neighborhoods: ["Downtown", "North Englewood"],
+          slug: "north-caldwell-nj",
+          center: { lat: 40.8465, lng: -74.2582 },
         },
-        { name: "Fort Lee", state: "NJ", slug: "fort-lee-nj", center: { lat: 40.8501, lng: -73.9701 } },
-        { name: "Tenafly", state: "NJ", slug: "tenafly-nj", center: { lat: 40.9251, lng: -73.9626 } },
-        { name: "Bergenfield", state: "NJ", slug: "bergenfield-nj", center: { lat: 40.9276, lng: -73.9973 } },
-        { name: "Cliffside Park", state: "NJ", slug: "cliffside-park-nj", center: { lat: 40.8215, lng: -73.9879 } },
-        { name: "Ridgefield Park", state: "NJ", slug: "ridgefield-park-nj", center: { lat: 40.8565, lng: -74.0198 } },
-        { name: "Ridgefield", state: "NJ", slug: "ridgefield-nj", center: { lat: 40.8348, lng: -74.0104 } },
-        { name: "Cresskill", state: "NJ", slug: "cresskill-nj", center: { lat: 40.9426, lng: -73.9596 } },
-        { name: "Teaneck", state: "NJ", slug: "teaneck-nj", center: { lat: 40.8876, lng: -74.0159 } },
-        { name: "Hackensack", state: "NJ", slug: "hackensack-nj", center: { lat: 40.8859, lng: -74.0435 } },
-        { name: "Paramus", state: "NJ", slug: "paramus-nj", center: { lat: 40.9445, lng: -74.0654 } },
-        { name: "Ridgewood", state: "NJ", slug: "ridgewood-nj", center: { lat: 40.9798, lng: -74.1165 } },
+        { name: "West Caldwell", state: "NJ", slug: "west-caldwell-nj", center: { lat: 40.8465, lng: -74.2765 } },
+        { name: "Little Falls", state: "NJ", slug: "little-falls-nj", center: { lat: 40.8782, lng: -74.2176 } },
+        { name: "Montclair", state: "NJ", slug: "montclair-nj", center: { lat: 40.8259, lng: -74.2090 } },
+        { name: "Cedar Grove", state: "NJ", slug: "cedar-grove-nj", center: { lat: 40.8532, lng: -74.2287 } },
         { name: "Fair Lawn", state: "NJ", slug: "fair-lawn-nj", center: { lat: 40.9362, lng: -74.1318 } },
-        
-        // Hudson County cities
-        { name: "Jersey City", state: "NJ", slug: "jersey-city-nj", center: { lat: 40.7178, lng: -74.0431 }, neighborhoods: ["Downtown", "Newport", "The Heights"] },
-        { name: "Hoboken", state: "NJ", slug: "hoboken-nj", center: { lat: 40.7430, lng: -74.0324 } },
-        { name: "Bayonne", state: "NJ", slug: "bayonne-nj", center: { lat: 40.6687, lng: -74.1143 } },
-        { name: "Union City", state: "NJ", slug: "union-city-nj", center: { lat: 40.7662, lng: -74.0376 } },
-        { name: "West New York", state: "NJ", slug: "west-new-york-nj", center: { lat: 40.7879, lng: -74.0143 } },
-        { name: "North Bergen", state: "NJ", slug: "north-bergen-nj", center: { lat: 40.8043, lng: -74.0121 } },
-        { name: "Secaucus", state: "NJ", slug: "secaucus-nj", center: { lat: 40.7896, lng: -74.0565 } },
-        { name: "Weehawken", state: "NJ", slug: "weehawken-nj", center: { lat: 40.7698, lng: -74.0198 } },
+        { name: "Clifton", state: "NJ", slug: "clifton-nj", center: { lat: 40.8584, lng: -74.1638 } },
         
       ],
     },
@@ -415,15 +391,15 @@ const baseConfig: SiteConfig = {
     serviceAreaDetail: (areaSlug: string) => `/service-areas/${areaSlug}`,
   },
   seo: {
-    defaultTitle: "First Class Locksmith — 24/7 Garage Door Service in Englewood, NJ | Emergency Repair",
+    defaultTitle: "ez2fix — Garage Door Repair Elmwood Park NJ | Same Day Service | Free Estimate",
     defaultDescription:
-      "24/7 emergency garage door service in Englewood, NJ. Spring repair, opener service, installation, and emergency repairs. Fast response across Bergen and Hudson counties.",
-    siteUrl: "https://firstclasslocksmithnj.com",
+      "Garage door repair Elmwood Park NJ - Spring repair, opener service, installation. Same day service, 10 year warranty, 10% senior discount. Free on-site estimate.",
+    siteUrl: "https://ez2fix.com",
     image: {
-      src: "https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 630,
-      alt: "First Class Locksmith – quality garage door service",
+      alt: "ez2fix – quality garage door service",
     },
     templates: {
       service: "{{service.name}} | {{business.name}}",
@@ -435,7 +411,7 @@ const baseConfig: SiteConfig = {
   integrations: {
     googleMaps: {
       apiKey: "", // set per-site in Vercel Project Environment
-      defaultCenter: { lat: 40.8929, lng: -73.9726 },
+      defaultCenter: { lat: 40.9026, lng: -74.1218 },
       defaultZoom: 11,
     },
     recaptcha: {
@@ -447,9 +423,9 @@ const baseConfig: SiteConfig = {
       dataLayerName: "dataLayer",
     },
     resend: {
-      fromEmail: "no-reply@firstclasslocksmithnj.com",
-      replyToEmail: "support@firstclasslocksmithnj.com",
-      brand: "First Class Locksmith",
+      fromEmail: "no-reply@ez2fix.com",
+      replyToEmail: "support@ez2fix.com",
+      brand: "ez2fix",
       templates: {
         contactForm: "resend_template_contact",
         estimateRequest: "resend_template_estimate",
@@ -467,7 +443,7 @@ const baseConfig: SiteConfig = {
       profileUrl: "https://www.pexels.com/",
     },
     vercel: {
-      projectName: "first-class-locksmith",
+      projectName: "ez2fix",
     },
   },
 };

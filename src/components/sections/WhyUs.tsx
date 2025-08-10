@@ -85,14 +85,14 @@ const WhyUs = () => {
         <header className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Star className="h-4 w-4 fill-current" />
-            Why Choose Pro Line Garage Experts
+            Why Choose ez2fix
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-            Edison's Premier Garage Door Service Company
+            Elmwood Park's Premier Garage Door Service Company
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            When you choose Pro Line Garage Experts, you're choosing expertise, reliability, and a commitment to excellence 
-            that has made us the most trusted garage door service in Bergen and Hudson Counties.
+            When you choose ez2fix, you're choosing expertise, reliability, and a commitment to excellence 
+            that has made us the most trusted garage door service in Elmwood Park, Montclair, and surrounding areas.
           </p>
         </header>
 

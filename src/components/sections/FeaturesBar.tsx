@@ -15,11 +15,11 @@ const FeatureItem = ({ icon: Icon, text, highlight }: {
 
 const FeaturesBar = () => {
   const features = [
-    { icon: Clock, text: "24/7 Emergency Service", highlight: true },
-    { icon: Shield, text: "Licensed & Insured" },
+    { icon: Clock, text: "Same Day Service", highlight: true },
+    { icon: Shield, text: "Licensed NJ #13VH13553300" },
     { icon: Wrench, text: "All Garage Door Brands" },
     { icon: Star, text: "4.9/5 Customer Rating" },
-    { icon: CheckCircle2, text: "Satisfaction Guaranteed" },
+    { icon: CheckCircle2, text: "10 Year Warranty" },
   ];
 
   return (

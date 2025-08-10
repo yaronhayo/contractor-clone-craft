@@ -56,34 +56,38 @@ const Hero = () => {
 
           <h1 id="content" className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight animate-fade-in">
             <span className="text-white">
-              24/7 Emergency Garage Door Service
+              Garage Door Repair Elmwood Park
             </span>
             <br />
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">in {city}, {state}</span>
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Same Day Service & Free Estimate</span>
           </h1>
           
           <p className="mt-4 text-base md:text-lg text-white/90 leading-relaxed animate-fade-in">
-            Garage door repair, spring replacement, opener service, and installation. Available 24/7 across Bergen and Hudson Counties. 
-            <strong className="text-yellow-400"> 15-minute response guaranteed.</strong>
+            Expert garage door repair in Elmwood Park, Montclair, and surrounding areas. Spring repair, opener service, and installation with 10 year warranty. 
+            <strong className="text-yellow-400"> Same day service available.</strong>
           </p>
 
           {/* Key Benefits */}
           <div className="mt-6 grid grid-cols-1 gap-2 animate-fade-in">
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>15-minute emergency garage door response</span>
+              <span>Same day garage door repair service</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Residential, commercial & industrial garage doors</span>
+              <span>10 year warranty on all repairs</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Licensed NJ garage door specialist with 10+ years experience</span>
+              <span>Licensed NJ contractor #13VH13553300</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Transparent pricing with no hidden fees</span>
+              <span>10% senior discount available</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm text-white">
+              <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
+              <span>Free on-site estimate</span>
             </div>
           </div>
 
@@ -131,7 +135,7 @@ const Hero = () => {
                 </div>
                 <input 
                   type="text" 
-                  placeholder="Service Address (Englewood, NJ)" 
+                  placeholder="Service Address (Elmwood Park, NJ)" 
                   required
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 />
@@ -140,11 +144,11 @@ const Hero = () => {
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 >
                   <option value="">Select Garage Door Service</option>
-                  <option value="garage-door-emergency">Garage Door Emergency</option>
-                  <option value="spring-replacement">Spring Replacement</option>
-                  <option value="garage-door-installation">Garage Door Installation</option>
-                  <option value="opener-repair">Opener Repair</option>
+                  <option value="garage-door-spring-repair">Garage Door Spring Repair</option>
                   <option value="garage-door-repair">Garage Door Repair</option>
+                  <option value="garage-door-opener-repair">Garage Door Opener Repair</option>
+                  <option value="garage-door-installation">Garage Door Installation</option>
+                  <option value="emergency-garage-door-repair">24/7 Emergency Repair</option>
                 </select>
                 <Button 
                   className="w-full text-base py-3 rounded-lg bg-gradient-to-r from-primary to-orange-500 hover:from-primary/90 hover:to-orange-500/90 shadow-lg hover:shadow-xl transition-all duration-300"
@@ -154,7 +158,7 @@ const Hero = () => {
                 </Button>
               </form>
               <p className="text-xs text-gray-600 text-center mt-3">
-                Free quotes • No obligation • 15-minute emergency response
+                Free on-site estimate • 10 year warranty • Same day service • 10% senior discount
               </p>
             </div>
           </div>
@@ -163,9 +167,9 @@ const Hero = () => {
 
       {/* Floating Stats */}
       <div className="absolute bottom-8 right-8 hidden lg:block animate-slide-in-right">
-        <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-lg p-4 shadow-lg">
-          <div className="text-2xl font-bold text-primary">24/7</div>
-          <div className="text-sm text-gray-600">Emergency Garage Door</div>
+        <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-lg p-4 shadow-lg text-center">
+          <div className="text-2xl font-bold text-primary">10 Yr</div>
+          <div className="text-sm text-gray-600">Warranty</div>
         </div>
       </div>
     </section>
