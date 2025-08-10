@@ -119,7 +119,7 @@ const EstimateForm = () => {
         <h2 className="text-2xl md:text-3xl font-extrabold">Get A Free Estimate</h2>
         <p className="mt-2 text-muted-foreground">Fill out the quick form below to schedule a no-pressure, no-obligation quote.</p>
         <p className="mt-2 font-semibold">Need to contact us right away? <a
-          href={`tel:${siteConfig.business.phone}`}
+          href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`}
           className="underline"
           aria-label={`Call ${siteConfig.business.name}`}
           onClick={() => {

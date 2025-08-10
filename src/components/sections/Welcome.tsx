@@ -17,7 +17,7 @@ const Welcome = () => {
         <p className="text-sm uppercase tracking-widest text-muted-foreground">Welcome to {siteConfig.business.name}</p>
         <h2 className="text-2xl md:text-3xl font-extrabold mt-2">Trusted Locksmiths in {siteConfig.business.hqAddress.city}</h2>
         <a
-          href={`tel:${siteConfig.business.phone}`}
+          href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`}
           aria-label={`Call ${siteConfig.business.name}`}
           className="inline-block mt-4 text-primary underline"
           onClick={() => {

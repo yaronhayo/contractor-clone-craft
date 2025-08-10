@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site-config";
 const MobileCallBar = () => {
   const phone = siteConfig.business.phone;
   if (!phone) return null;
-  const telHref = `tel:${phone}`;
+  const telHref = `tel:${phone.replace(/[^+\\d]/g, "")}`;
 
   return (
     <div className="md:hidden fixed inset-x-0 bottom-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">

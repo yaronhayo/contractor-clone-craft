@@ -10,7 +10,7 @@ const FinalCTA = () => {
         <div className="mt-6 flex items-center justify-center gap-3">
           <Button asChild size="lg" variant="secondary" className="rounded-full bg-background text-foreground hover:opacity-90">
             <a
-              href={`tel:${siteConfig.business.phone}`}
+              href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`}
               aria-label={`Call ${siteConfig.business.name}`}
               className="flex items-center gap-2"
               onClick={() => {

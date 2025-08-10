@@ -35,7 +35,7 @@ const Hero = () => {
           <div className="mt-8">
             <Button size="lg" className="rounded-full" asChild>
               <a
-                href={`tel:${siteConfig.business.phone}`}
+                href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
                 aria-label={`Call ${siteConfig.business.name}`}
                 className="flex items-center gap-2"
                 onClick={() => {
