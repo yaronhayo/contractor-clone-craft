@@ -81,6 +81,8 @@ const Setup = () => {
     // Freepik
     freepikAttribution: siteConfig.integrations.freepik?.defaultAttribution || "",
     freepikProfileUrl: siteConfig.integrations.freepik?.profileUrl || "",
+    // Integrations (optional)
+    zapierWebhookUrl: (siteConfig as any).integrations?.zapier?.webhookUrl || "",
     // Locations & Service Areas (JSON)
     locationsJson: JSON.stringify(siteConfig.locations, null, 2),
   });
@@ -149,6 +151,7 @@ const Setup = () => {
         recaptcha: { version: "v2-invisible", siteKey: form.recaptchaSiteKey || undefined },
         sanity: { projectId: form.sanityProjectId || undefined, dataset: form.sanityDataset || undefined, apiVersion: form.sanityApiVersion || undefined, useCdn: form.sanityUseCdn },
         freepik: { defaultAttribution: form.freepikAttribution || undefined, profileUrl: form.freepikProfileUrl || undefined },
+        ...(form.zapierWebhookUrl ? { zapier: { webhookUrl: form.zapierWebhookUrl } } : {}),
       },
     };
     try {
@@ -174,6 +177,42 @@ const Setup = () => {
       setTimeout(() => window.location.reload(), 600);
     } catch {}
   };
+
+  const handleTestEmail = async () => {
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "test", name: "Setup Test", pageUrl: window.location.href }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || `HTTP ${res.status}`);
+      }
+      toast({ title: "Test email sent", description: "Check your EMAIL_TO inbox (server env)." });
+    } catch (e: any) {
+      toast({ title: "Email test failed", description: e?.message || "Missing server secrets?", variant: "destructive" as any });
+    }
+  };
+
+  const handleTriggerZapierWebhook = async () => {
+    if (!form.zapierWebhookUrl) {
+      toast({ title: "Missing URL", description: "Enter your Zapier webhook URL.", variant: "destructive" as any });
+      return;
+    }
+    try {
+      await fetch(form.zapierWebhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
+        body: JSON.stringify({ timestamp: new Date().toISOString(), triggered_from: window.location.origin, type: "setup_test" }),
+      });
+      toast({ title: "Request Sent", description: "Check Zap history to confirm it triggered." });
+    } catch (e: any) {
+      toast({ title: "Webhook failed", description: e?.message || "Unable to reach Zapier", variant: "destructive" as any });
+    }
+  };
+
   return (
     <div>
       <Seo
@@ -600,6 +639,34 @@ const Setup = () => {
               existingLocations={(() => { try { return JSON.parse(form.locationsJson || "[]"); } catch { return []; } })()}
               onMerge={(locs) => setForm((f) => ({ ...f, locationsJson: JSON.stringify(locs, null, 2) }))}
             />
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Server Email (Resend) & Secrets</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                <p className="text-sm text-muted-foreground">Private keys must be set in your hosting env (e.g., RESEND_API_KEY, EMAIL_FROM, EMAIL_TO). Use this to send a test message via /api/send-email.</p>
+                <div>
+                  <Button type="button" onClick={handleTestEmail}>Send test email</Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Zapier Webhook (optional)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-3 gap-3 items-end">
+                <div className="md:col-span-2 space-y-1">
+                  <Label htmlFor="zapierWebhookUrl">Webhook URL</Label>
+                  <Input id="zapierWebhookUrl" placeholder="https://hooks.zapier.com/hooks/catch/..." value={form.zapierWebhookUrl} onChange={(e) => setForm((f) => ({ ...f, zapierWebhookUrl: e.target.value }))} />
+                </div>
+                <div>
+                  <Button type="button" variant="outline" onClick={handleTriggerZapierWebhook}>Send test event</Button>
+                </div>
+                <p className="text-xs text-muted-foreground md:col-span-3">We store this URL in browser only. Forms can be wired later to POST to this webhook.</p>
+              </CardContent>
+            </Card>
 
             <div className="flex items-center gap-3">
               <Button type="submit">Save changes</Button>
