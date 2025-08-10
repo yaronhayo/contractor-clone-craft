@@ -59,12 +59,12 @@ const Hero = () => {
               Garage Door Repair Elmwood Park
             </span>
             <br />
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Same Day Service & Free Estimate</span>
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Same Day Service & Free Estimate</span>
           </h1>
           
           <p className="mt-4 text-base md:text-lg text-white/90 leading-relaxed animate-fade-in">
             Expert garage door repair in Elmwood Park, Montclair, and surrounding areas. Spring repair, opener service, and installation with 10 year warranty. 
-            <strong className="text-yellow-400"> Same day service available.</strong>
+            <strong className="text-primary"> Same day service available.</strong>
           </p>
 
           {/* CTA Buttons */}
@@ -151,7 +151,7 @@ const Hero = () => {
                   <option value="emergency-garage-door-repair">24/7 Emergency Repair</option>
                 </select>
                 <Button 
-                  className="w-full text-base py-3 rounded-lg bg-gradient-to-r from-primary to-orange-500 hover:from-primary/90 hover:to-orange-500/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full text-base py-3 rounded-lg bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300"
                   type="submit"
                 >
                   Request Garage Door Service
