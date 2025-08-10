@@ -31,7 +31,7 @@ const ReviewCard = ({ rating, text, author, location, service }: {
   </Card>
 );
 
-const ReviewsTeaser = () => {
+export default function ReviewsTeaser() {
   const city = siteConfig.business.hqAddress.city;
   const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
 
@@ -148,6 +148,3 @@ const ReviewsTeaser = () => {
       </div>
     </section>
   );
-};
-
-export default ReviewsTeaser;
