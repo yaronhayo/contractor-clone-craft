@@ -711,10 +711,10 @@ const ServicesHub = () => {
                 Popular in Your Area
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-white">
-                Locksmith Services in Top Cities
+                Garage Door Services in Top Cities
               </h2>
               <p className="mt-4 text-lg text-gray-300 leading-relaxed">
-                Quick access to our most requested locksmith services in the cities we serve across Bergen County.
+                Quick access to our most requested garage door services in the cities we serve across Bergen County.
               </p>
             </header>
 
@@ -730,7 +730,7 @@ const ServicesHub = () => {
                         <h3 className="font-bold text-white">{area.name}, {area.state}</h3>
                         <div className="flex items-center gap-1 text-xs text-gray-300">
                           <Star className="h-3 w-3 text-primary fill-current" />
-                          <span>5.0/5 rating</span>
+                          <span>5.0/5 garage door service</span>
                         </div>
                       </div>
                     </div>
@@ -768,11 +768,11 @@ const ServicesHub = () => {
           <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-primary-foreground shadow-xl">
             <div className="text-center">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Ready for Professional Locksmith Service?
+                Ready for Professional Garage Door Service?
               </h3>
               <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-                Don't wait when you need locksmith service. Our expert technicians are standing by to help 
-                with any lock, key, or security need across Englewood and surrounding areas.
+                Don't wait when you need garage door service. Our expert technicians are standing by to help 
+                with any garage door repair, installation, or emergency need across Elmwood Park and surrounding areas.
               </p>
               
               {/* Quick Stats */}
@@ -802,7 +802,7 @@ const ServicesHub = () => {
                     onClick={() => {
                       try {
                         (window as any).dataLayer = (window as any).dataLayer || [];
-                        (window as any).dataLayer.push({ event: "phone_click", source: "services_cta", phone: siteConfig.business.phone });
+                        (window as any).dataLayer.push({ event: "phone_click", source: "garage_door_services_cta", phone: siteConfig.business.phone });
                       } catch {}
                     }}
                   >
