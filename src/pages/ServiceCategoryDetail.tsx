@@ -24,11 +24,24 @@ const ServiceCategoryDetail = () => {
     ],
   };
 
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${category?.name || "Category"} Services`,
+    itemListElement: services.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: s.name,
+      url: `${siteUrl}${siteConfig.routes.individualService(s.slug)}`,
+    })),
+  };
+
   return (
     <div>
       <Seo title={title} description={description} canonical={siteConfig.routes.serviceCategory(slug || "")} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
       </Helmet>
       <Header />
       <main id="content">
