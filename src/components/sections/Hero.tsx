@@ -108,14 +108,53 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Emergency Banner */}
-          <div className="mt-8 p-4 bg-red-600 text-white rounded-lg border-l-4 border-red-800 animate-fade-in">
-            <div className="flex items-center gap-3">
-              <Clock className="h-5 w-5 animate-pulse" />
-              <div>
-                <p className="font-semibold">Emergency Garage Door Service Available 24/7</p>
-                <p className="text-sm opacity-90">Stuck with a broken garage door? Call now for immediate assistance!</p>
-              </div>
+          {/* Quick Booking Form */}
+          <div className="mt-10 max-w-2xl animate-fade-in">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Get Your Free Estimate</h3>
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input 
+                    type="text" 
+                    placeholder="Your Name" 
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                  />
+                  <input 
+                    type="tel" 
+                    placeholder="Phone Number" 
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                  />
+                </div>
+                <input 
+                  type="text" 
+                  placeholder="Service Address (City, NJ)" 
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                />
+                <select 
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                >
+                  <option value="">Select Service Needed</option>
+                  <option value="emergency-repair">Emergency Garage Door Repair</option>
+                  <option value="spring-repair">Spring Repair/Replacement</option>
+                  <option value="opener-repair">Garage Door Opener Repair</option>
+                  <option value="new-installation">New Garage Door Installation</option>
+                  <option value="maintenance">Maintenance & Tune-up</option>
+                </select>
+                <Button 
+                  size="lg" 
+                  className="w-full text-lg py-4 rounded-lg bg-gradient-to-r from-primary to-yellow-600 hover:from-primary/90 hover:to-yellow-600/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                  type="submit"
+                >
+                  Get Free Estimate
+                </Button>
+              </form>
+              <p className="text-xs text-gray-600 text-center mt-3">
+                Free estimates • No obligation • Fast response within 15 minutes
+              </p>
             </div>
           </div>
         </div>
