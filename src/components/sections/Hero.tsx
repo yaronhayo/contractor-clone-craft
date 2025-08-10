@@ -22,11 +22,12 @@ const Hero = () => {
   const heroAlt = mediaHero.alt || `${siteConfig.business.name} garage door repair service`;
   const heroWidth = mediaHero.width || 1600;
   const heroHeight = mediaHero.height || 900;
+  const preloadHref = mediaHero.src || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
   return (
     <section aria-label="Hero" className="relative min-h-[85vh] flex items-center">
       <Helmet>
-        <link rel="preload" as="image" href={(siteConfig.media.hero?.src ?? "") || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600"} />
+        <link rel="preload" as="image" href={preloadHref} />
       </Helmet>
       
       {/* Background Image with Enhanced Overlay */}
