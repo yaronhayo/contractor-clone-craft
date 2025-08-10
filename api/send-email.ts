@@ -31,8 +31,16 @@ export default async function handler(req: any, res: any) {
     email,
     message,
     pageUrl,
+    honeypot,
+    company,
   } = body || {};
 
+  // Honeypot spam check: silently accept but do not send
+  const hp = (honeypot || company || "").toString().trim();
+  if (hp) {
+    res.status(200).json({ ok: true });
+    return;
+  }
   const subjectBase = type === "estimate_request" ? "New Estimate Request" : "New Form Submission";
   const subject = `${subjectBase}${name ? ` from ${name}` : ""}`;
 

@@ -21,6 +21,7 @@ const EstimateForm = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(false);
+  const [hp, setHp] = useState(""); // honeypot
   const recaptchaRef = useRef<HTMLDivElement | null>(null);
   const [widgetId, setWidgetId] = useState<number | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string>("");
@@ -70,6 +71,7 @@ const EstimateForm = () => {
       message: [timeframe ? `Preferred timeframe: ${timeframe}` : "", message].filter(Boolean).join("\n\n"),
       recaptchaToken: token || undefined,
       pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
+      honeypot: hp || undefined,
     };
 
     const res = await sendEstimateRequest(payload as any);
@@ -133,6 +135,10 @@ const EstimateForm = () => {
 
       <div ref={recaptchaRef} className="hidden" />
       <form onSubmit={onSubmit} className="mt-10 grid md:grid-cols-2 gap-6">
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor="company">Company</label>
+          <input id="company" type="text" autoComplete="off" tabIndex={-1} value={hp} onChange={(e) => setHp(e.target.value)} />
+        </div>
         <div className="space-y-4">
           <label className="block text-sm font-medium">Service address *</label>
           {mapsLoaded ? (

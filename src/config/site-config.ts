@@ -333,6 +333,12 @@ const baseConfig: SiteConfig = {
         categorySlug: "residential-locksmith",
         shortDescription: "Emergency home lockout assistance, damage-free entry.",
       },
+      {
+        slug: "emergency-locksmith",
+        name: "Emergency Locksmith",
+        categorySlug: "residential-locksmith",
+        shortDescription: "24/7 emergency lockout assistance for homes, cars, and businesses.",
+      },
     ],
   },
   locations: [
