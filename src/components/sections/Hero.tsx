@@ -12,11 +12,11 @@ const Hero = () => {
   const city = primaryLoc?.address.city;
   const state = primaryLoc?.address.state;
 
-  const fallbackTitle = `${siteConfig.business.name} — Expert Garage Door Service ${city && state ? `in ${city}, ${state}` : ""}`;
+  const fallbackTitle = `${siteConfig.business.name} — Expert Garage Door Repair ${city && state ? `in ${city}, ${state}` : ""}`;
   const heroTitle = data?.heroTitle?.trim() ? data?.heroTitle : fallbackTitle;
   const heroDescription = data?.heroDescription?.trim() ? data?.heroDescription : siteConfig.seo.defaultDescription;
   const heroSrc = data?.heroImageUrl || siteConfig.media.hero?.src || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
-  const heroAlt = siteConfig.media.hero?.alt || `${siteConfig.business.name} hero image`;
+  const heroAlt = siteConfig.media.hero?.alt || `${siteConfig.business.name} garage door repair service`;
 
   return (
     <section aria-label="Hero" className="relative min-h-[85vh] flex items-center">
@@ -61,34 +61,34 @@ const Hero = () => {
 
           <h1 id="content" className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight animate-fade-in">
             <span className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-              Expert Garage Door Service
+              Expert Garage Door Repair
             </span>
             <br />
             <span className="text-primary">in {city}, {state}</span>
           </h1>
           
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-in">
-            Emergency repairs, professional installations, and 24/7 service across Bergen and Hudson Counties. 
-            <strong className="text-foreground"> Fast response guaranteed.</strong>
+            Emergency garage door repair, spring repair, and professional installations with 24/7 service in Elmwood Park and Montclair. 
+            <strong className="text-foreground"> Same-day service • 10-year warranty • Free estimates.</strong>
           </p>
 
           {/* Key Benefits */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl animate-fade-in">
             <div className="flex items-center gap-3 text-sm">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Same-day emergency garage door repair</span>
+              <span>Same-day garage door repair service</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>All major garage door brands serviced</span>
+              <span>10-year warranty on all repairs</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Licensed professionals with 10+ years experience</span>
+              <span>Licensed NJ professionals (License #13VH13553300)</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Transparent pricing with no hidden fees</span>
+              <span>10% senior discount + free on-site estimates</span>
             </div>
           </div>
 
@@ -120,8 +120,8 @@ const Hero = () => {
               <Clock className="h-5 w-5 animate-pulse" />
               <div>
                 <p className="font-semibold">Emergency Garage Door Service Available 24/7</p>
-                <p className="text-sm opacity-90">Stuck with a broken garage door? Call now for immediate assistance!</p>
-              </div>
+              <p className="font-semibold">Emergency Garage Door Repair Available 24/7</p>
+              <p className="text-sm opacity-90">Stuck with a broken garage door or spring? Call now for immediate assistance in Elmwood Park and surrounding areas!</p>
             </div>
           </div>
         </div>
@@ -130,8 +130,8 @@ const Hero = () => {
       {/* Floating Stats */}
       <div className="absolute bottom-8 right-8 hidden lg:block animate-slide-in-right">
         <div className="bg-background/95 backdrop-blur-sm border rounded-lg p-4 shadow-lg">
-          <div className="text-2xl font-bold text-primary">500+</div>
-          <div className="text-sm text-muted-foreground">Garage Doors Serviced</div>
+          <div className="text-2xl font-bold text-primary">1000+</div>
+          <div className="text-sm text-muted-foreground">Garage Doors Repaired</div>
         </div>
       </div>
     </section>
