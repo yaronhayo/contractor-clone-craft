@@ -123,6 +123,11 @@ const ServiceDetail = () => {
                   </Link>
                 ))}
             </div>
+            {category && (
+              <div className="mt-3 text-sm">
+                <Link to={siteConfig.routes.serviceCategory(category.slug)} className="story-link">Browse all {category.name} services</Link>
+              </div>
+            )}
           </section>
 
           <section className="mt-10">
