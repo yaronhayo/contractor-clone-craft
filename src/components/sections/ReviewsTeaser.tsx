@@ -137,9 +137,9 @@ export default function ReviewsTeaser() {
               <p className="opacity-90">Experience the same professional garage door service that earned us 250+ five-star reviews</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100 rounded-full px-6" asChild>
+              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100 rounded-full px-8" asChild>
                 <Link to="/reviews">
-                  Read All Reviews <ArrowRight className="h-4 w-4 ml-2" />
+                  Read All Reviews <Star className="h-4 w-4 ml-2" />
                 </Link>
               </Button>
             </div>

@@ -53,6 +53,15 @@ const FAQ = () => {
           ))}
         </Accordion>
       </div>
+      
+      {/* CTA */}
+      <div className="text-center mt-12">
+        <Button size="lg" variant="outline" className="rounded-full px-8 border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
+          <Link to="/faq">
+            Read All FAQs <HelpCircle className="h-4 w-4 ml-2" />
+          </Link>
+        </Button>
+      </div>
       </div>
     </section>
   );
