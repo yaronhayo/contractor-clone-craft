@@ -43,6 +43,18 @@ const ServicesHub = () => {
             <p className="mt-2 text-sm"><Link to="/service-categories" className="story-link">Browse by category</Link></p>
           </header>
 
+          <section className="mt-10">
+            <h2 className="text-xl font-bold text-center">Browse by Category</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+              {siteConfig.taxonomy.categories.map((c) => (
+                <Link key={c.slug} to={siteConfig.routes.serviceCategory(c.slug)} className="rounded-md border p-4 hover-scale block text-center">
+                  <span className="font-medium">{c.name}</span>
+                  {c.description ? <span className="block text-sm text-muted-foreground mt-1">{c.description}</span> : null}
+                </Link>
+              ))}
+            </div>
+          </section>
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
             {siteConfig.taxonomy.services.map((s) => {
               const img = s.images?.[0] || siteConfig.media.serviceCardDefault;
