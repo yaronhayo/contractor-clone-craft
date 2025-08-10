@@ -25,8 +25,8 @@ const ReviewsTeaser = () => {
       </Helmet>
       <div className="rounded-lg border p-6 bg-card flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <h3 className="text-xl font-bold">Top‑Rated Locksmith in {city}</h3>
-          <p className="text-muted-foreground">Real customer reviews for our locksmith services.</p>
+          <h3 className="text-xl font-bold">Top‑Rated Garage Door Experts in {city}</h3>
+          <p className="text-muted-foreground">Real customer reviews for our garage door services.</p>
         </div>
         <div className="flex items-center gap-1 text-primary" aria-label="5 star rating">
           {Array.from({ length: 5 }).map((_, i) => (

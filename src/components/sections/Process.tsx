@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site-config";
 const steps = [
   {
     title: "Step 1: Reach Out to Us",
-    text: "Tell us what you need—lockout, rekey, car key, or install—and your location.",
+    text: "Tell us what you need—repair, installation, emergency service—and your location.",
   },
   {
     title: "Step 2: Schedule Your Service",
@@ -11,7 +11,7 @@ const steps = [
   },
   {
     title: "Step 3: We Do the Work",
-    text: "A licensed locksmith arrives on time and completes the job with care.",
+    text: "A licensed technician arrives on time and completes the job with care.",
   },
   {
     title: "Step 4: You're All Set",
@@ -23,7 +23,7 @@ const Process = () => {
   return (
     <section id="process" className="container py-14 md:py-20">
       <header className="text-center max-w-2xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-extrabold">How Our Locksmith Service Works in {siteConfig.business.hqAddress.city}</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold">How Our Garage Door Service Works in {siteConfig.business.hqAddress.city}</h2>
         <p className="mt-2 text-muted-foreground">Simple, transparent, and fast—just four easy steps.</p>
       </header>
       <ol className="grid md:grid-cols-4 gap-6 mt-10">

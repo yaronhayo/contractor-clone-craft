@@ -57,8 +57,8 @@ const About = () => {
         {/* Hero */}
         <section className="container py-16 md:py-24 animate-fade-in">
           <header className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-5xl font-extrabold">About Our Locksmith Company</h1>
-            <p className="mt-4 text-muted-foreground">We deliver reliable locksmith services in {siteConfig.business.hqAddress.city} with honesty, craftsmanship, and care.</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold">About Our Garage Door Company</h1>
+            <p className="mt-4 text-muted-foreground">We deliver reliable garage door services in {siteConfig.business.hqAddress.city} with honesty, craftsmanship, and care.</p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild>
                 <Link to="/contact">Get Your Free Estimate</Link>
@@ -101,7 +101,7 @@ const About = () => {
                 <CardTitle className="text-lg">Licensing & Insurance</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-muted-foreground">
-                Licensed, bonded, and insured in {siteConfig.business.hqAddress.state}. License #: 123456 (replace). COI available on request.
+                Licensed, bonded, and insured in {siteConfig.business.hqAddress.state}. Fully certified garage door technicians. COI available on request.
               </CardContent>
             </Card>
             <Card className="h-full">
@@ -128,10 +128,10 @@ const About = () => {
             <article className="md:col-span-2 space-y-4 text-muted-foreground">
               <h2 className="text-xl md:text-2xl font-bold text-foreground">Our Story</h2>
               <p>
-                Since day one, our focus has been helping homeowners and businesses with dependable locksmith services. From the first call to the final walkthrough, we communicate clearly and treat your property with respect.
+                Since day one, our focus has been helping homeowners and businesses with dependable garage door services. From the first call to the final installation or repair, we communicate clearly and treat your property with respect.
               </p>
               <p>
-                Our certified locksmiths undergo ongoing training to ensure your job is done safely, on time, and on budget.
+                Our certified garage door technicians undergo ongoing training to ensure your job is done safely, on time, and on budget.
               </p>
             </article>
             <aside className="rounded-lg border p-6 bg-card">

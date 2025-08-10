@@ -66,14 +66,14 @@ export type SocialLinks = Partial<{
 }>;
 
 export type ServiceCategory = {
-  slug: string; // e.g., "automotive-locksmith"
+  slug: string; // e.g., "garage-door-repair"
   name: string;
   description?: string;
   image?: MediaAsset;
 };
 
 export type Service = {
-  slug: string; // e.g., "car-key-replacement"
+  slug: string; // e.g., "garage-door-installation"
   name: string;
   categorySlug: string;
   shortDescription?: string;
@@ -82,17 +82,17 @@ export type Service = {
 };
 
 export type ServiceAreaCity = {
-  name: string; // e.g., "San Antonio"
-  state: string; // e.g., "TX"
-  slug: string; // e.g., "san-antonio-tx"
+  name: string; // e.g., "Edison"
+  state: string; // e.g., "NJ"
+  slug: string; // e.g., "edison-nj"
   center?: Geo; // optional map marker
   neighborhoods?: string[];
 };
 
 export type Location = {
   id: string;
-  name: string; // e.g., "Locksmith San Antonio"
-  slug: string; // e.g., "locksmith-san-antonio-tx"
+  name: string; // e.g., "Pro Line Garage Experts Edison"
+  slug: string; // e.g., "pro-line-garage-experts-edison-nj"
   phone: string;
   email?: string;
   address: Address;
@@ -105,13 +105,13 @@ export type Location = {
 
 export type RouteTemplates = {
   servicesIndex: string; // "/services"
-  serviceCategory: (categorySlug: string) => string; // "/services/automotive-locksmith"
-  individualService: (categorySlug: string, serviceSlug: string) => string; // "/services/automotive-locksmith/car-key-replacement"
-  serviceCity: (serviceSlug: string, citySlug: string) => string; // "/car-key-replacement-san-antonio-tx"
+  serviceCategory: (categorySlug: string) => string; // "/services/garage-door-repair"
+  individualService: (categorySlug: string, serviceSlug: string) => string; // "/services/garage-door-repair/garage-door-spring-repair"
+  serviceCity: (serviceSlug: string, citySlug: string) => string; // "/garage-door-repair-edison-nj"
   locationsIndex: string; // "/locations"
-  locationDetail: (locationSlug: string) => string; // "/locations/locksmith-san-antonio-tx"
+  locationDetail: (locationSlug: string) => string; // "/locations/pro-line-garage-experts-edison-nj"
   serviceAreasIndex: string; // "/service-areas"
-  serviceAreaDetail: (areaSlug: string) => string; // "/service-areas/locksmith-near-san-antonio-tx"
+  serviceAreaDetail: (areaSlug: string) => string; // "/service-areas/edison-nj"
 };
 
 export type Integrations = {
@@ -161,7 +161,7 @@ export type SEOConfig = {
   image?: MediaAsset; // default share image
   templates: {
     service: string; // e.g., "{{service.name}} | {{business.name}}"
-    category: string; // e.g., "{{category.name}} Locksmith Services | {{business.name}}"
+    category: string; // e.g., "{{category.name}} Services | {{business.name}}"
     serviceCity: string; // e.g., "{{service.name}} in {{city.name}}, {{city.state}} | {{business.name}}"
     location: string; // e.g., "{{location.name}} | {{business.name}}"
   };
@@ -213,278 +213,187 @@ function mergeDeep<T>(target: T, source: any): T {
   return output;
 }
 
-// Default example config – replace values per client on new projects
+// Configuration for Pro Line Garage Experts
 const baseConfig: SiteConfig = {
   business: {
-    name: "Your Brand Locksmith",
-    legalName: "Your Brand LLC",
-    phone: "(800) 000-0000",
-    email: "hello@example.com",
-    siteUrl: "https://www.example.com",
+    name: "Pro Line Garage Experts",
+    legalName: "Pro Line Garage Experts LLC",
+    phone: "(732) 555-0100",
+    email: "info@prolinegaragenj.com",
+    siteUrl: "https://www.prolinegaragenj.com",
     hqAddress: {
-      line1: "123 Main St",
-      city: "San Antonio",
-      state: "TX",
-      postalCode: "78205",
+      line1: "123 Main Street",
+      city: "Edison",
+      state: "NJ",
+      postalCode: "08817",
       country: "US",
     },
-    geo: { lat: 29.4252, lng: -98.4946 },
+    geo: { lat: 40.5187, lng: -74.4121 },
     hours: {
-      mon: "8:00AM – 5:00PM",
-      tue: "8:00AM – 5:00PM",
-      wed: "8:00AM – 5:00PM",
-      thu: "8:00AM – 5:00PM",
-      fri: "8:00AM – 5:00PM",
-      sat: "8:00AM – 2:00PM",
-      sun: "Closed",
+      mon: "7:00AM – 11:00PM",
+      tue: "7:00AM – 11:00PM",
+      wed: "7:00AM – 11:00PM",
+      thu: "7:00AM – 11:00PM",
+      fri: "7:00AM – 11:00PM",
+      sat: "7:00AM – 11:00PM",
+      sun: "7:00AM – 11:00PM",
     },
     social: {
-      facebook: "https://facebook.com/yourbrand",
-      instagram: "https://instagram.com/yourbrand",
-      googleBusiness: "https://g.page/yourbrand",
+      facebook: "https://facebook.com/prolinegaragenj",
+      instagram: "https://instagram.com/prolinegaragenj",
+      googleBusiness: "https://g.page/prolinegaragenj",
     },
     branding: {
       colors: {
-        primary: "hsl(221 83% 53%)",
-        secondary: "hsl(217 32% 17%)",
-        accent: "hsl(155 60% 45%)",
+        primary: "hsl(15 85% 50%)",
+        secondary: "hsl(220 14% 96%)",
+        accent: "hsl(220 13% 91%)",
       },
       logos: {
         light: {
-          src: "/placeholder.svg",
+          src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=400",
           width: 200,
           height: 48,
-          alt: "Your Brand Logo (Light)",
+          alt: "Pro Line Garage Experts Logo",
         },
         dark: {
-          src: "/placeholder.svg",
+          src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=400",
           width: 200,
           height: 48,
-          alt: "Your Brand Logo (Dark)",
+          alt: "Pro Line Garage Experts Logo",
         },
         mark: {
-          src: "/placeholder.svg",
+          src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=100",
           width: 48,
           height: 48,
-          alt: "Your Brand Logo Mark",
+          alt: "Pro Line Garage Experts Logo Mark",
         },
       },
     },
   },
   media: {
     hero: {
-      src: "/src/assets/hero-house.jpg",
+      src: "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600",
       width: 1600,
       height: 900,
-      alt: "Locksmith working on front door – professional service",
+      alt: "Professional garage door installation and repair services",
       credit: {
         source: "Freepik",
         author: "Freepik",
-        url: "https://www.freepik.com/",
+        url: "https://www.pexels.com/",
         license: "Standard license",
       },
     },
     serviceCardDefault: {
-      src: "/src/assets/service-1.jpg",
+      src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 800,
-      alt: "Professional locksmith service",
+      alt: "Professional garage door service",
     },
     gallery: [
       {
-        src: "/src/assets/service-2.jpg",
+        src: "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1200",
         width: 1200,
         height: 800,
-        alt: "Automotive key programming on-site",
+        alt: "Garage door installation and repair",
       },
     ],
   },
   taxonomy: {
     categories: [
       {
-        slug: "emergency-locksmith",
-        name: "Emergency Locksmith",
-        description: "Urgent lockout services for cars, homes, businesses, and storage units—fast, damage-free entry.",
+        slug: "emergency-garage-door",
+        name: "Emergency Garage Door",
+        description: "24/7 emergency garage door repair and service—fast response when you need it most.",
       },
       {
-        slug: "residential-locksmith",
-        name: "Residential Locksmith",
-        description: "Home security: rekeys, repairs, replacements, and gate locks.",
+        slug: "garage-door-repair",
+        name: "Garage Door Repair",
+        description: "Complete garage door repair services including springs, openers, and rollers.",
       },
       {
-        slug: "commercial-locksmith",
-        name: "Commercial Locksmith",
-        description: "Business security: master key systems, access control, exit devices, and more.",
-      },
-      {
-        slug: "automotive-locksmith",
-        name: "Automotive Locksmith",
-        description: "Car key replacement, key fob programming, lockouts, and ignition repair.",
+        slug: "garage-door-installation",
+        name: "Garage Door Installation",
+        description: "Professional garage door installation with quality materials and expert craftsmanship.",
       },
     ],
     services: [
-      // Emergency Locksmith
-      { slug: "car-lockout", name: "Car Lockout", categorySlug: "emergency-locksmith", shortDescription: "24/7 car lockout assistance—quick, damage-free entry." },
-      { slug: "house-lockout", name: "House Lockout", categorySlug: "emergency-locksmith", shortDescription: "Locked out of your home? We’ll get you back inside safely." },
-      { slug: "business-lockout", name: "Business Lockout", categorySlug: "emergency-locksmith", shortDescription: "Emergency entry for offices, shops, and industrial properties." },
-      { slug: "storage-unit-lockout", name: "Storage Unit Lockout", categorySlug: "emergency-locksmith", shortDescription: "Fast access to storage units without damage." },
+      // Emergency Garage Door
+      { slug: "24-7-emergency-garage-door-service", name: "24/7 Emergency Garage Door Service", categorySlug: "emergency-garage-door", shortDescription: "Emergency garage door repair available 24/7—fast response when you're stuck." },
+      
+      // Garage Door Repair
+      { slug: "garage-door-repair", name: "Garage Door Repair", categorySlug: "garage-door-repair", shortDescription: "Expert garage door repair for all makes and models—same day service available." },
+      { slug: "garage-door-spring-repairs", name: "Garage Door Spring Repairs", categorySlug: "garage-door-repair", shortDescription: "Professional spring repair and replacement—restoring safe operation." },
+      { slug: "garage-door-opener-repair", name: "Garage Door Opener Repair", categorySlug: "garage-door-repair", shortDescription: "Garage door opener diagnosis and repair—all brands serviced." },
+      { slug: "roller-replacement-repair", name: "Roller Replacement & Repair", categorySlug: "garage-door-repair", shortDescription: "Smooth operation with professional roller replacement and repair services." },
 
-      // Residential Locksmith
-      { slug: "residential-lock-replacement", name: "Lock Replacement (Residential)", categorySlug: "residential-locksmith", shortDescription: "Replace worn or damaged home locks with secure hardware." },
-      { slug: "lock-rekey", name: "Lock Rekey", categorySlug: "residential-locksmith", shortDescription: "Rekey your existing locks to work with new keys." },
-      { slug: "lock-repair", name: "Lock Repair", categorySlug: "residential-locksmith", shortDescription: "Fix sticking, broken, or misaligned locks at your home." },
-      { slug: "gate-locks", name: "Gate Locks", categorySlug: "residential-locksmith", shortDescription: "Install and service secure locks for gates and outdoor entries." },
-
-      // Commercial Locksmith
-      { slug: "commercial-lock-replacement", name: "Lock Replacement (Commercial)", categorySlug: "commercial-locksmith", shortDescription: "Upgrade or replace commercial-grade locks for your business." },
-      { slug: "master-key-systems", name: "Master Key Systems", categorySlug: "commercial-locksmith", shortDescription: "Tiered access control with master and user-level keys." },
-      { slug: "access-control", name: "Access Control", categorySlug: "commercial-locksmith", shortDescription: "Keypads, card readers, and smart access solutions." },
-      { slug: "emergency-exit-devices", name: "Emergency Exit Devices", categorySlug: "commercial-locksmith", shortDescription: "Panic bars and fire exit hardware installation and service." },
-
-      // Automotive Locksmith
-      { slug: "car-key-replacement", name: "Car Key Replacement", categorySlug: "automotive-locksmith", shortDescription: "On-site replacement and programming for lost or broken car keys." },
-      { slug: "key-fob-programming", name: "Key Fob Programming", categorySlug: "automotive-locksmith", shortDescription: "Program new or existing fobs and remotes for your vehicle." },
-      { slug: "car-key-duplicate", name: "Car Key Duplicate", categorySlug: "automotive-locksmith", shortDescription: "Cut and program spare keys to avoid emergencies." },
-      { slug: "ignition-repair", name: "Ignition Repair", categorySlug: "automotive-locksmith", shortDescription: "Repair or replace faulty ignitions and key cylinders." },
-
-      // General catch-all service (optional existing)
-      { slug: "emergency-locksmith", name: "Emergency Locksmith", categorySlug: "emergency-locksmith", shortDescription: "24/7 emergency locksmith services for homes, cars, and businesses." },
+      // Garage Door Installation
+      { slug: "garage-door-installation", name: "Garage Door Installation", categorySlug: "garage-door-installation", shortDescription: "Complete garage door installation with quality materials and expert workmanship." },
     ],
   },
   locations: [
     {
-      id: "loc-san-antonio",
-      name: "Locksmith San Antonio",
-      slug: "locksmith-san-antonio-tx",
-      phone: "(210) 000-0000",
-      email: "sa@example.com",
+      id: "loc-edison",
+      name: "Pro Line Garage Experts Edison",
+      slug: "pro-line-garage-experts-edison-nj",
+      phone: "(732) 555-0100",
+      email: "edison@prolinegaragenj.com",
       address: {
-        line1: "200 Houston St",
-        city: "San Antonio",
-        state: "TX",
-        postalCode: "78205",
+        line1: "123 Main Street",
+        city: "Edison",
+        state: "NJ",
+        postalCode: "08817",
         country: "US",
       },
-      geo: { lat: 29.426, lng: -98.489 },
+      geo: { lat: 40.5187, lng: -74.4121 },
       hours: {
-        mon: "8:00AM – 6:00PM",
-        tue: "8:00AM – 6:00PM",
-        wed: "8:00AM – 6:00PM",
-        thu: "8:00AM – 6:00PM",
-        fri: "8:00AM – 6:00PM",
-        sat: "8:00AM – 4:00PM",
-        sun: "Closed",
+        mon: "7:00AM – 11:00PM",
+        tue: "7:00AM – 11:00PM",
+        wed: "7:00AM – 11:00PM",
+        thu: "7:00AM – 11:00PM",
+        fri: "7:00AM – 11:00PM",
+        sat: "7:00AM – 11:00PM",
+        sun: "7:00AM – 11:00PM",
       },
       isPrimary: true,
-      coverageRadiusMiles: 40,
+      coverageRadiusMiles: 50,
       serviceAreas: [
+        // Bergen County cities
         {
-          name: "San Antonio",
-          state: "TX",
-          slug: "san-antonio-tx",
-          center: { lat: 29.4241, lng: -98.4936 },
-          neighborhoods: ["Downtown", "Alamo Heights", "Stone Oak"],
+          name: "Englewood",
+          state: "NJ",
+          slug: "englewood-nj",
+          center: { lat: 40.8929, lng: -73.9726 },
+          neighborhoods: ["Downtown", "North Englewood"],
         },
-        { name: "Leon Valley", state: "TX", slug: "leon-valley-tx", center: { lat: 29.495, lng: -98.619 } },
-        { name: "Austin", state: "TX", slug: "austin-tx", center: { lat: 30.2672, lng: -97.7431 }, neighborhoods: ["Downtown", "South Congress", "Domain"] },
-        { name: "Houston", state: "TX", slug: "houston-tx", center: { lat: 29.7604, lng: -95.3698 }, neighborhoods: ["Downtown", "Midtown", "Montrose"] },
-        { name: "Dallas", state: "TX", slug: "dallas-tx", center: { lat: 32.7767, lng: -96.797 }, neighborhoods: ["Downtown", "Deep Ellum", "Uptown"] },
-      ],
-    },
-
-    {
-      id: "loc-miami",
-      name: "Locksmith Miami",
-      slug: "locksmith-miami-fl",
-      phone: "(305) 000-0000",
-      email: "miami@example.com",
-      address: {
-        line1: "100 Biscayne Blvd",
-        city: "Miami",
-        state: "FL",
-        postalCode: "33132",
-        country: "US",
-      },
-      geo: { lat: 25.7743, lng: -80.1937 },
-      hours: {
-        mon: "8:00AM – 6:00PM",
-        tue: "8:00AM – 6:00PM",
-        wed: "8:00AM – 6:00PM",
-        thu: "8:00AM – 6:00PM",
-        fri: "8:00AM – 6:00PM",
-        sat: "8:00AM – 4:00PM",
-        sun: "Closed",
-      },
-      coverageRadiusMiles: 40,
-      serviceAreas: [
-        { name: "Miami", state: "FL", slug: "miami-fl", center: { lat: 25.7617, lng: -80.1918 }, neighborhoods: ["Brickell", "Wynwood", "Little Havana"] },
-        { name: "Miami Beach", state: "FL", slug: "miami-beach-fl", center: { lat: 25.7907, lng: -80.130 }, neighborhoods: ["South Beach", "North Beach"] },
-        { name: "Hialeah", state: "FL", slug: "hialeah-fl", center: { lat: 25.8576, lng: -80.2781 } },
-        { name: "Fort Lauderdale", state: "FL", slug: "fort-lauderdale-fl", center: { lat: 26.1224, lng: -80.1373 } },
-      ],
-    },
-
-    {
-      id: "loc-los-angeles",
-      name: "Locksmith Los Angeles",
-      slug: "locksmith-los-angeles-ca",
-      phone: "(323) 000-0000",
-      email: "la@example.com",
-      address: {
-        line1: "600 S Spring St",
-        city: "Los Angeles",
-        state: "CA",
-        postalCode: "90014",
-        country: "US",
-      },
-      geo: { lat: 34.0479, lng: -118.2498 },
-      hours: {
-        mon: "8:00AM – 6:00PM",
-        tue: "8:00AM – 6:00PM",
-        wed: "8:00AM – 6:00PM",
-        thu: "8:00AM – 6:00PM",
-        fri: "8:00AM – 6:00PM",
-        sat: "8:00AM – 4:00PM",
-        sun: "Closed",
-      },
-      coverageRadiusMiles: 40,
-      serviceAreas: [
-        { name: "Los Angeles", state: "CA", slug: "los-angeles-ca", center: { lat: 34.0522, lng: -118.2437 }, neighborhoods: ["Downtown", "Silver Lake", "Hollywood"] },
-        { name: "Santa Monica", state: "CA", slug: "santa-monica-ca", center: { lat: 34.0195, lng: -118.4912 } },
-        { name: "Pasadena", state: "CA", slug: "pasadena-ca", center: { lat: 34.1478, lng: -118.1445 } },
-        { name: "Long Beach", state: "CA", slug: "long-beach-ca", center: { lat: 33.7701, lng: -118.1937 } },
-      ],
-    },
-
-    {
-      id: "loc-newark",
-      name: "Locksmith Newark",
-      slug: "locksmith-newark-nj",
-      phone: "(973) 000-0000",
-      email: "nj@example.com",
-      address: {
-        line1: "50 Park Pl",
-        city: "Newark",
-        state: "NJ",
-        postalCode: "07102",
-        country: "US",
-      },
-      geo: { lat: 40.7357, lng: -74.1724 },
-      hours: {
-        mon: "8:00AM – 6:00PM",
-        tue: "8:00AM – 6:00PM",
-        wed: "8:00AM – 6:00PM",
-        thu: "8:00AM – 6:00PM",
-        fri: "8:00AM – 6:00PM",
-        sat: "8:00AM – 4:00PM",
-        sun: "Closed",
-      },
-      coverageRadiusMiles: 40,
-      serviceAreas: [
-        { name: "Newark", state: "NJ", slug: "newark-nj", center: { lat: 40.7357, lng: -74.1724 }, neighborhoods: ["Downtown", "Ironbound"] },
-        { name: "Jersey City", state: "NJ", slug: "jersey-city-nj", center: { lat: 40.7178, lng: -74.0431 } },
-        { name: "Hoboken", state: "NJ", slug: "hoboken-nj", center: { lat: 40.743, lng: -74.0324 } },
-        { name: "Elizabeth", state: "NJ", slug: "elizabeth-nj", center: { lat: 40.66399, lng: -74.2107 } },
+        { name: "Fort Lee", state: "NJ", slug: "fort-lee-nj", center: { lat: 40.8501, lng: -73.9701 } },
+        { name: "Tenafly", state: "NJ", slug: "tenafly-nj", center: { lat: 40.9251, lng: -73.9626 } },
+        { name: "Bergenfield", state: "NJ", slug: "bergenfield-nj", center: { lat: 40.9276, lng: -73.9973 } },
+        { name: "Cliffside Park", state: "NJ", slug: "cliffside-park-nj", center: { lat: 40.8215, lng: -73.9879 } },
+        { name: "Ridgefield Park", state: "NJ", slug: "ridgefield-park-nj", center: { lat: 40.8565, lng: -74.0198 } },
+        { name: "Ridgefield", state: "NJ", slug: "ridgefield-nj", center: { lat: 40.8348, lng: -74.0104 } },
+        { name: "Cresskill", state: "NJ", slug: "cresskill-nj", center: { lat: 40.9426, lng: -73.9596 } },
+        { name: "Teaneck", state: "NJ", slug: "teaneck-nj", center: { lat: 40.8876, lng: -74.0159 } },
+        { name: "Hackensack", state: "NJ", slug: "hackensack-nj", center: { lat: 40.8859, lng: -74.0435 } },
+        { name: "Paramus", state: "NJ", slug: "paramus-nj", center: { lat: 40.9445, lng: -74.0654 } },
+        { name: "Ridgewood", state: "NJ", slug: "ridgewood-nj", center: { lat: 40.9798, lng: -74.1165 } },
+        { name: "Fair Lawn", state: "NJ", slug: "fair-lawn-nj", center: { lat: 40.9362, lng: -74.1318 } },
+        
+        // Hudson County cities
+        { name: "Jersey City", state: "NJ", slug: "jersey-city-nj", center: { lat: 40.7178, lng: -74.0431 }, neighborhoods: ["Downtown", "Newport", "The Heights"] },
+        { name: "Hoboken", state: "NJ", slug: "hoboken-nj", center: { lat: 40.7430, lng: -74.0324 } },
+        { name: "Bayonne", state: "NJ", slug: "bayonne-nj", center: { lat: 40.6687, lng: -74.1143 } },
+        { name: "Union City", state: "NJ", slug: "union-city-nj", center: { lat: 40.7662, lng: -74.0376 } },
+        { name: "West New York", state: "NJ", slug: "west-new-york-nj", center: { lat: 40.7879, lng: -74.0143 } },
+        { name: "North Bergen", state: "NJ", slug: "north-bergen-nj", center: { lat: 40.8043, lng: -74.0121 } },
+        { name: "Secaucus", state: "NJ", slug: "secaucus-nj", center: { lat: 40.7896, lng: -74.0565 } },
+        { name: "Weehawken", state: "NJ", slug: "weehawken-nj", center: { lat: 40.7698, lng: -74.0198 } },
+        
+        // Edison and surrounding Middlesex County
+        { name: "Edison", state: "NJ", slug: "edison-nj", center: { lat: 40.5187, lng: -74.4121 }, neighborhoods: ["Menlo Park", "Clara Barton", "Oak Tree"] },
+        { name: "Woodbridge", state: "NJ", slug: "woodbridge-nj", center: { lat: 40.5576, lng: -74.2846 } },
+        { name: "New Brunswick", state: "NJ", slug: "new-brunswick-nj", center: { lat: 40.4862, lng: -74.4518 } },
+        { name: "Perth Amboy", state: "NJ", slug: "perth-amboy-nj", center: { lat: 40.5065, lng: -74.2654 } },
       ],
     },
   ],
@@ -499,19 +408,19 @@ const baseConfig: SiteConfig = {
     serviceAreaDetail: (areaSlug: string) => `/service-areas/${areaSlug}`,
   },
   seo: {
-    defaultTitle: "Your Brand Locksmith — Trusted Local Pros",
+    defaultTitle: "Pro Line Garage Experts — Professional Garage Door Service in Edison, NJ",
     defaultDescription:
-      "Professional automotive, residential, and commercial locksmith services. Fast response, licensed & insured.",
-    siteUrl: "https://www.example.com",
+      "Professional garage door installation, repair, and emergency services in Edison, NJ. Serving Bergen and Hudson counties with 24/7 availability.",
+    siteUrl: "https://www.prolinegaragenj.com",
     image: {
-      src: "/src/assets/hero-house.jpg",
+      src: "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 630,
-      alt: "Your Brand Locksmith – quality service",
+      alt: "Pro Line Garage Experts – quality garage door service",
     },
     templates: {
       service: "{{service.name}} | {{business.name}}",
-      category: "{{category.name}} Locksmith Services | {{business.name}}",
+      category: "{{category.name}} Services | {{business.name}}",
       serviceCity: "{{service.name}} in {{city.name}}, {{city.state}} | {{business.name}}",
       location: "{{location.name}} | {{business.name}}",
     },
@@ -519,8 +428,8 @@ const baseConfig: SiteConfig = {
   integrations: {
     googleMaps: {
       apiKey: "", // set per-site in Vercel Project Environment
-      defaultCenter: { lat: 29.4252, lng: -98.4946 },
-      defaultZoom: 10,
+      defaultCenter: { lat: 40.5187, lng: -74.4121 },
+      defaultZoom: 11,
     },
     recaptcha: {
       version: "v2-invisible",
@@ -531,9 +440,9 @@ const baseConfig: SiteConfig = {
       dataLayerName: "dataLayer",
     },
     resend: {
-      fromEmail: "no-reply@example.com",
-      replyToEmail: "support@example.com",
-      brand: "Your Brand Locksmith",
+      fromEmail: "no-reply@prolinegaragenj.com",
+      replyToEmail: "info@prolinegaragenj.com",
+      brand: "Pro Line Garage Experts",
       templates: {
         contactForm: "resend_template_contact",
         estimateRequest: "resend_template_estimate",
@@ -547,11 +456,11 @@ const baseConfig: SiteConfig = {
       useCdn: true,
     },
     freepik: {
-      defaultAttribution: "Image by Freepik",
-      profileUrl: "https://www.freepik.com/",
+      defaultAttribution: "Image by Pexels",
+      profileUrl: "https://www.pexels.com/",
     },
     vercel: {
-      projectName: "your-brand-locksmith",
+      projectName: "pro-line-garage-experts",
     },
   },
 };

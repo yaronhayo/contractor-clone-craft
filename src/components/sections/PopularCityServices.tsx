@@ -8,8 +8,8 @@ const PopularCityServices = () => {
   return (
     <section id="popular-city-services" className="container py-14 md:py-20">
       <header className="text-center max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-extrabold">Popular locksmith services near you</h2>
-        <p className="mt-2 text-muted-foreground">Quick links to our most requested services in top cities we serve.</p>
+        <h2 className="text-2xl md:text-3xl font-extrabold">Popular garage door services near you</h2>
+        <p className="mt-2 text-muted-foreground">Quick links to our most requested garage door services in top cities we serve.</p>
       </header>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">

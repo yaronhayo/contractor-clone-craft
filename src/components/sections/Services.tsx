@@ -10,8 +10,8 @@ const Services = () => {
   return (
     <section id="areas" className="container py-14 md:py-20">
       <header className="text-center max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-extrabold">Locksmith Services in {siteConfig.business.hqAddress.city}</h2>
-        <p className="mt-2 text-muted-foreground">From emergency lockouts to rekeying, car keys, and smart lock installs—our licensed locksmiths have you covered.</p>
+        <h2 className="text-2xl md:text-3xl font-extrabold">Garage Door Services in {siteConfig.business.hqAddress.city}</h2>
+        <p className="mt-2 text-muted-foreground">From emergency repairs to new installations, springs, and openers—our licensed technicians have you covered.</p>
       </header>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">

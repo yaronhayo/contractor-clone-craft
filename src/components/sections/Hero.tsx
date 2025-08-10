@@ -12,10 +12,10 @@ const Hero = () => {
   const city = primaryLoc?.address.city;
   const state = primaryLoc?.address.state;
 
-  const fallbackTitle = `${siteConfig.business.name} — Trusted Local Pros ${city && state ? `in ${city}, ${state}` : ""}`;
+  const fallbackTitle = `${siteConfig.business.name} — Expert Garage Door Service ${city && state ? `in ${city}, ${state}` : ""}`;
   const heroTitle = data?.heroTitle?.trim() ? data?.heroTitle : fallbackTitle;
   const heroDescription = data?.heroDescription?.trim() ? data?.heroDescription : siteConfig.seo.defaultDescription;
-  const heroSrc = data?.heroImageUrl || siteConfig.media.hero?.src || "/src/assets/hero-house.jpg";
+  const heroSrc = data?.heroImageUrl || siteConfig.media.hero?.src || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
   const heroAlt = siteConfig.media.hero?.alt || `${siteConfig.business.name} hero image`;
 
   return (
