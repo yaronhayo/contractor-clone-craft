@@ -230,14 +230,14 @@ const ServicesHub = () => {
             <header className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 <Wrench className="h-4 w-4" />
-                Professional Locksmith Services
+                Professional Garage Door Services
               </div>
               <h1 className="text-3xl md:text-5xl font-extrabold text-white">
-                Complete Locksmith Services in Englewood, NJ
+                Complete Garage Door Services in Elmwood Park, NJ
               </h1>
               <p className="mt-6 text-lg text-gray-300 leading-relaxed">
-                From emergency lockouts to security upgrades, our licensed locksmiths provide expert service 
-                across Englewood, Fort Lee, Tenafly, and surrounding Bergen County areas.
+                From emergency repairs to new installations, our licensed garage door experts provide professional service 
+                across Elmwood Park, Montclair, Fair Lawn, and surrounding Bergen County areas.
               </p>
               
               {/* Trust Indicators */}
@@ -248,7 +248,7 @@ const ServicesHub = () => {
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                   <Shield className="h-4 w-4 text-green-400" />
-                  <span className="text-sm font-semibold">Licensed NJ #13VH13578200</span>
+                  <span className="text-sm font-semibold">Licensed NJ #13VH13553300</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                   <Clock className="h-4 w-4 text-blue-400" />
@@ -288,11 +288,11 @@ const ServicesHub = () => {
               Complete Service List
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-              All Locksmith Services Available
+              All Garage Door Services Available
             </h2>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              Comprehensive locksmith solutions for residential, commercial, automotive, and emergency needs 
-              throughout Englewood and surrounding Bergen County areas.
+              Comprehensive garage door solutions for residential, commercial, and emergency needs 
+              throughout Elmwood Park and surrounding Bergen County areas.
             </p>
           </header>
 
@@ -315,10 +315,10 @@ const ServicesHub = () => {
                 Our Process
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-                How Our Locksmith Service Works
+                How Our Garage Door Service Works
               </h2>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                From emergency lockouts to security upgrades, our streamlined process ensures fast, professional service every time.
+                From emergency repairs to new installations, our streamlined process ensures fast, professional garage door service every time.
               </p>
             </header>
 
@@ -328,28 +328,28 @@ const ServicesHub = () => {
                   number: "01",
                   icon: Phone,
                   title: "Contact Us",
-                  description: "Call us or submit a request online. We're available 24/7 for emergency lockouts and scheduled service.",
+                  description: "Call us or submit a request online. We're available 24/7 for emergency garage door repairs and scheduled service.",
                   time: "Immediate response"
                 },
                 {
                   number: "02", 
                   icon: Clock,
                   title: "Quick Response",
-                  description: "Our technician arrives within 15-30 minutes for emergencies, or at your scheduled appointment time.",
+                  description: "Our garage door technician arrives within 15-30 minutes for emergencies, or at your scheduled appointment time.",
                   time: "15-30 minutes"
                 },
                 {
                   number: "03",
                   icon: Wrench,
                   title: "Expert Service",
-                  description: "Licensed locksmith performs the work using quality tools and parts. Clear communication throughout.",
+                  description: "Licensed garage door specialist performs the work using quality tools and parts. Clear communication throughout.",
                   time: "30-60 minutes"
                 },
                 {
                   number: "04",
                   icon: CheckCircle2,
                   title: "Quality Assured",
-                  description: "Test all locks and keys, clean up completely, and ensure you're 100% satisfied before we leave.",
+                  description: "Test garage door operation and safety features, clean up completely, and ensure you're 100% satisfied before we leave.",
                   time: "Satisfaction guaranteed"
                 }
               ].map((step, index) => (
