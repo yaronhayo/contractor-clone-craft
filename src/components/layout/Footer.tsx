@@ -23,7 +23,7 @@ const Footer = () => {
                   alt={siteConfig.business.branding.logos.light.alt || `${siteConfig.business.name} logo`}
                   width={siteConfig.business.branding.logos.light.width}
                   height={siteConfig.business.branding.logos.light.height}
-                  className="h-12 w-auto"
+                 className="h-[72px] w-auto"
                 />
               ) : (
                 <div className="text-2xl font-extrabold text-primary">{siteConfig.business.name}</div>
