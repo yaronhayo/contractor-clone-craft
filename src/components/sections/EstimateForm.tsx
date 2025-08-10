@@ -62,6 +62,7 @@ const EstimateForm = () => {
   }, [recaptchaToken, submitting, siteKey]);
 
   const doSend = async (token: string) => {
+    const url = typeof window !== "undefined" ? new URL(window.location.href) : null;
     const payload = {
       address,
       services: [service, timeframe ? `Timeframe: ${timeframe}` : ""].filter(Boolean) as string[],
@@ -72,6 +73,12 @@ const EstimateForm = () => {
       recaptchaToken: token || undefined,
       pageUrl: typeof window !== "undefined" ? window.location.href : undefined,
       honeypot: hp || undefined,
+      referrer: typeof document !== "undefined" ? document.referrer : undefined,
+      utmSource: url?.searchParams.get("utm_source") || undefined,
+      utmMedium: url?.searchParams.get("utm_medium") || undefined,
+      utmCampaign: url?.searchParams.get("utm_campaign") || undefined,
+      utmTerm: url?.searchParams.get("utm_term") || undefined,
+      utmContent: url?.searchParams.get("utm_content") || undefined,
     };
 
     const res = await sendEstimateRequest(payload as any);

@@ -7,6 +7,12 @@ export type EstimateRequestPayload = {
   message?: string;
   recaptchaToken?: string;
   pageUrl?: string;
+  referrer?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmTerm?: string;
+  utmContent?: string;
 };
 
 export type ApiResponse = { ok: boolean; error?: string };

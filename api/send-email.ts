@@ -31,6 +31,12 @@ export default async function handler(req: any, res: any) {
     email,
     message,
     pageUrl,
+    referrer,
+    utmSource,
+    utmMedium,
+    utmCampaign,
+    utmTerm,
+    utmContent,
     honeypot,
     company,
   } = body || {};
@@ -55,7 +61,16 @@ export default async function handler(req: any, res: any) {
           ${address ? `<tr><td style="padding:6px 8px;font-weight:600">Address</td><td style="padding:6px 8px">${escapeHtml(address)}</td></tr>` : ""}
           ${Array.isArray(services) && services.length ? `<tr><td style="padding:6px 8px;font-weight:600">Services</td><td style="padding:6px 8px">${services.map(escapeHtml).join(", ")}</td></tr>` : ""}
           ${message ? `<tr><td style="padding:6px 8px;font-weight:600">Message</td><td style="padding:6px 8px;white-space:pre-wrap">${escapeHtml(message)}</td></tr>` : ""}
-          ${pageUrl ? `<tr><td style="padding:6px 8px;font-weight:600">Page</td><td style="padding:6px 8px"><a href="${escapeAttr(pageUrl)}">${escapeHtml(pageUrl)}</a></td></tr>` : ""}
+          ${pageUrl ? `<tr><td style="padding:6px 8px;font-weight:600">Landing Page</td><td style="padding:6px 8px"><a href="${escapeAttr(pageUrl)}">${escapeHtml(pageUrl)}</a></td></tr>` : ""}
+          ${referrer ? `<tr><td style=\"padding:6px 8px;font-weight:600\">Referrer</td><td style=\"padding:6px 8px\">${escapeHtml(referrer)}</td></tr>` : ""}
+          ${(utmSource || utmMedium || utmCampaign || utmTerm || utmContent) ? `
+            <tr><td colspan=\"2\" style=\"padding:6px 8px;font-weight:600\">UTM Parameters</td></tr>
+            ${utmSource ? `<tr><td style=\"padding:6px 8px\">utm_source</td><td style=\"padding:6px 8px\">${escapeHtml(utmSource)}</td></tr>` : ""}
+            ${utmMedium ? `<tr><td style=\"padding:6px 8px\">utm_medium</td><td style=\"padding:6px 8px\">${escapeHtml(utmMedium)}</td></tr>` : ""}
+            ${utmCampaign ? `<tr><td style=\"padding:6px 8px\">utm_campaign</td><td style=\"padding:6px 8px\">${escapeHtml(utmCampaign)}</td></tr>` : ""}
+            ${utmTerm ? `<tr><td style=\"padding:6px 8px\">utm_term</td><td style=\"padding:6px 8px\">${escapeHtml(utmTerm)}</td></tr>` : ""}
+            ${utmContent ? `<tr><td style=\"padding:6px 8px\">utm_content</td><td style=\"padding:6px 8px\">${escapeHtml(utmContent)}</td></tr>` : ""}
+          ` : ""}
           <tr><td style="padding:6px 8px;font-weight:600">Submitted</td><td style="padding:6px 8px">${new Date().toLocaleString()}</td></tr>
         </tbody>
       </table>
