@@ -36,7 +36,8 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="relative container z-10">
-        <div className="max-w-3xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-2xl">
           {/* Trust Indicators */}
           <div className="flex flex-wrap items-center gap-4 mb-6 animate-fade-in">
             <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
@@ -107,9 +108,10 @@ const Hero = () => {
               <a href="#estimate">Get Free Estimate</a>
             </Button>
           </div>
+          </div>
 
           {/* Quick Booking Form */}
-          <div className="mt-10 max-w-2xl animate-fade-in">
+          <div className="animate-fade-in">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
               <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Get Your Free Estimate</h3>
               <form className="space-y-4">
