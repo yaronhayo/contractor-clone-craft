@@ -32,7 +32,8 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="container py-14 md:py-20">
+    <section id="faq" className="py-14 md:py-20 bg-gray-50">
+      <div className="container">
       <header className="text-center max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-extrabold">Frequently Asked Questions</h2>
         <p className="mt-2 text-muted-foreground">Answers to common questions from our customers</p>
@@ -51,6 +52,7 @@ const FAQ = () => {
             </AccordionItem>
           ))}
         </Accordion>
+      </div>
       </div>
     </section>
   );

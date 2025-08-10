@@ -28,9 +28,9 @@ const FeatureCard = ({ icon: Icon, title, description, stats }: {
 
 const Welcome = () => {
   return (
-    <section id="about" className="relative py-16 md:py-24 overflow-hidden">
+    <section id="about" className="relative py-16 md:py-24 bg-gray-50 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-gray-50 to-accent/10" />
       <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
       

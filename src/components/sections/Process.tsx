@@ -45,23 +45,23 @@ const ProcessStep = ({ step, index }: { step: typeof steps[0]; index: number }) 
       
       <div className="relative bg-background border-2 rounded-2xl p-8 hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
         {/* Step Number Badge */}
-        <div className="absolute -top-4 left-8 bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+        <div className="absolute -top-4 left-8 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
           {step.number}
         </div>
         
         {/* Icon */}
-        <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gray-50 transition-colors duration-300 shadow-lg">
           <Icon className="h-8 w-8 text-primary" />
         </div>
         
         {/* Content */}
-        <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-        <p className="text-muted-foreground mb-4 leading-relaxed">{step.text}</p>
+        <h3 className="text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
+        <p className="text-gray-600 mb-4 leading-relaxed">{step.text}</p>
         
         {/* Time Indicator */}
-        <div className="inline-flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full text-sm">
+        <div className="inline-flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full text-sm">
           <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-          <span className="font-medium">{step.time}</span>
+          <span className="font-medium text-gray-700">{step.time}</span>
         </div>
       </div>
     </div>
@@ -70,20 +70,20 @@ const ProcessStep = ({ step, index }: { step: typeof steps[0]; index: number }) 
 
 const Process = () => {
   return (
-    <section id="process" className="relative py-16 md:py-24 bg-gradient-to-b from-muted/20 to-background overflow-hidden">
+    <section id="process" className="relative py-16 md:py-24 bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(120,119,198,0.1),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(234,158,37,0.1),transparent)]" />
       
       <div className="relative container">
         <header className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Wrench className="h-4 w-4" />
             Our Proven Process
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white">
             How Our Garage Door Service Works
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-6 text-lg text-gray-300 leading-relaxed">
             From your first call to project completion, we've streamlined our process to be simple, transparent, 
             and stress-free for homeowners across {siteConfig.business.hqAddress.city} and surrounding areas.
           </p>

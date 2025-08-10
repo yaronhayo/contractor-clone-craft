@@ -72,13 +72,13 @@ export default function ReviewsTeaser() {
   ];
 
   return (
-    <section className="relative py-16 md:py-24 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-gray-50 overflow-hidden">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(ratingLd)}</script>
       </Helmet>
 
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(120,119,198,0.1),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(234,158,37,0.1),transparent)]" />
       
       <div className="relative container">
         <header className="text-center max-w-4xl mx-auto mb-16">
