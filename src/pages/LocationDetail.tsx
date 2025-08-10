@@ -23,11 +23,58 @@ const LocationDetail = () => {
     ],
   };
 
+  const tel = (location.phone || siteConfig.business.phone).replace(/[^+\d]/g, "");
+  const telHref = `tel:${tel}`;
+  const mailHref = location.email ? `mailto:${location.email}` : undefined;
+
+  const openingHoursSpecification = (() => {
+    const dayMap: Record<string, string> = { mon: "Monday", tue: "Tuesday", wed: "Wednesday", thu: "Thursday", fri: "Friday", sat: "Saturday", sun: "Sunday" };
+    const parseTime = (t: string) => {
+      const m = t?.trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(AM|PM)$/i);
+      if (!m) return null;
+      let h = parseInt(m[1], 10);
+      const min = parseInt(m[2] || "0", 10);
+      const ampm = m[3].toUpperCase();
+      if (ampm === "AM") { if (h === 12) h = 0; } else { if (h !== 12) h += 12; }
+      return `${String(h).padStart(2, "0")}:${String(min).padStart(2, "0")}`;
+    };
+    const specs: any[] = [];
+    (Object.keys(dayMap) as Array<keyof typeof dayMap>).forEach((k) => {
+      const val = (location.hours as any)[k];
+      if (!val || /closed/i.test(val)) return;
+      const parts = val.split(/[–-]/);
+      if (parts.length !== 2) return;
+      const open = parseTime(parts[0]);
+      const close = parseTime(parts[1]);
+      if (open && close) specs.push({ "@type": "OpeningHoursSpecification", dayOfWeek: `https://schema.org/${dayMap[k]}`, opens: open, closes: close });
+    });
+    return specs;
+  })();
+
+  const locationLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: location.name,
+    url: `${siteUrl}${siteConfig.routes.locationDetail(location.slug)}`,
+    telephone: location.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: location.address.line1,
+      addressLocality: location.address.city,
+      addressRegion: location.address.state,
+      postalCode: location.address.postalCode,
+      addressCountry: location.address.country || "US",
+    },
+    geo: { "@type": "GeoCoordinates", latitude: location.geo.lat, longitude: location.geo.lng },
+    areaServed: location.serviceAreas.map((a) => ({ "@type": "City", name: `${a.name}, ${a.state}` })),
+    openingHoursSpecification: openingHoursSpecification.length ? openingHoursSpecification : undefined,
+  };
   return (
     <div>
       <Seo title={title} description={`Visit or contact ${location.name}. View address, phone, and service coverage.`} canonical={siteConfig.routes.locationDetail(location.slug)} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(locationLd)}</script>
       </Helmet>
       <Header />
       <main id="content">
@@ -55,8 +102,18 @@ const LocationDetail = () => {
                 <p className="text-sm text-muted-foreground mt-1">
                   {location.address.line1}, {location.address.city}, {location.address.state} {location.address.postalCode}
                 </p>
-                <p className="text-sm mt-1">Phone: {location.phone}</p>
-                {location.email && <p className="text-sm">Email: {location.email}</p>}
+                <p className="text-sm mt-1">
+                  Phone: <a href={telHref} className="story-link" aria-label={`Call ${location.name}`}
+                    onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "location_detail", phone: location.phone, location: location.name }); } catch {} }}
+                  >{location.phone}</a>
+                </p>
+                {location.email && (
+                  <p className="text-sm">
+                    Email: <a href={mailHref as string} className="story-link" aria-label={`Email ${location.name}`}
+                      onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "email_click", source: "location_detail", email: location.email, location: location.name }); } catch {} }}
+                    >{location.email}</a>
+                  </p>
+                )}
               </div>
 
               <div className="rounded-lg border p-4">
@@ -94,3 +151,4 @@ const LocationDetail = () => {
 };
 
 export default LocationDetail;
+
