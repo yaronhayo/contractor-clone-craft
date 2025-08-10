@@ -25,6 +25,7 @@ const Setup = lazy(() => import("./pages/Setup"));
 const LocationDetail = lazy(() => import("./pages/LocationDetail"));
 const ServiceCategories = lazy(() => import("./pages/ServiceCategories"));
 const CityHub = lazy(() => import("./pages/CityHub"));
+const CityServiceDetail = lazy(() => import("./pages/CityServiceDetail"));
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/services" element={<ServicesHub />} />
+              <Route path="/services/:serviceSlug-:citySlug" element={<CityServiceDetail />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/service-areas" element={<ServiceAreasHub />} />
               <Route path="/service-areas/:slug" element={<ServiceAreaDetail />} />

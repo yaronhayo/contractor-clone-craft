@@ -47,7 +47,7 @@ const CityHub = () => {
             <h2 className="text-xl font-bold">Popular Services in {areaName}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
               {siteConfig.taxonomy.services.map((s) => (
-                <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-md border p-4 hover-scale">
+                <Link key={s.slug} to={siteConfig.routes.serviceCity(s.slug, slug || "")} className="rounded-md border p-4 hover-scale">
                   <span className="font-medium">{s.name}</span>
                   <span className="block text-sm text-muted-foreground mt-1">{s.shortDescription || "Learn more"}</span>
                 </Link>
