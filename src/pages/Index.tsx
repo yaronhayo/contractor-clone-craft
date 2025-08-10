@@ -5,6 +5,7 @@ import FeaturesBar from "@/components/sections/FeaturesBar";
 import Questions from "@/components/sections/Questions";
 import Welcome from "@/components/sections/Welcome";
 import Services from "@/components/sections/Services";
+import PopularCityServices from "@/components/sections/PopularCityServices";
 import WhyUs from "@/components/sections/WhyUs";
 import Process from "@/components/sections/Process";
 import ReviewsTeaser from "@/components/sections/ReviewsTeaser";
@@ -26,8 +27,8 @@ const Index = () => {
         <Questions />
         <Welcome />
         <Services />
+        <PopularCityServices />
         <WhyUs />
-        <Process />
         <FAQ />
         <ReviewsTeaser />
         <EstimateForm />
