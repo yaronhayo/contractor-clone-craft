@@ -56,7 +56,11 @@ export const Header = () => {
                 ))}
                 <DropdownMenuItem asChild><Link to={siteConfig.routes.servicesIndex}>All services</Link></DropdownMenuItem>
                 <DropdownMenuItem asChild><Link to="/service-categories">Browse categories</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to={siteConfig.routes.serviceCategory("emergency-locksmith")}>Emergency category</Link></DropdownMenuItem>
+                {siteConfig.taxonomy.categories.map((c) => (
+                  <DropdownMenuItem asChild key={c.slug}>
+                    <Link to={siteConfig.routes.serviceCategory(c.slug)}>{c.name}</Link>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
