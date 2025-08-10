@@ -171,6 +171,9 @@ const WhyUs = () => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="border-2 border-gray-900 text-gray-900 bg-white hover:bg-gray-900 hover:text-white rounded-full px-8 py-4 text-lg font-semibold" asChild>
+                <a href="#contact">Contact Us</a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
