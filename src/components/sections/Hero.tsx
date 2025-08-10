@@ -18,11 +18,11 @@ const Hero = () => {
   
   // Robust fallback for media hero properties
   const mediaHero = siteConfig.media.hero || {};
-  const heroSrc = data?.heroImageUrl || (typeof mediaHero.src === 'string' ? mediaHero.src : "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  const heroSrc = (data?.heroImageUrl || '').toString() || (mediaHero.src || '').toString() || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
   const heroAlt = mediaHero.alt || `${siteConfig.business.name} garage door repair service`;
   const heroWidth = mediaHero.width || 1600;
   const heroHeight = mediaHero.height || 900;
-  const preloadHref = typeof mediaHero.src === 'string' ? mediaHero.src : "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
+  const preloadHref = (mediaHero.src || '').toString() || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
   return (
     <section aria-label="Hero" className="relative min-h-[85vh] flex items-center">
