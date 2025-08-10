@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Suspense, lazy } from "react";
 import GTM from "@/components/integrations/GTM";
+import PageViewTracker from "@/components/integrations/PageViewTracker";
 
 import MobileCallBar from "@/components/layout/MobileCallBar";
 import Index from "./pages/Index";
@@ -40,6 +41,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <PageViewTracker />
           <Suspense fallback={<div className="container py-20">Loading...</div>}>
             <Routes>
               <Route path="/" element={<Index />} />

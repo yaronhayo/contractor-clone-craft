@@ -50,7 +50,7 @@ const ServiceCategories = () => {
                       const img = s.images?.[0] || siteConfig.media.serviceCardDefault;
                       return (
                         <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-lg overflow-hidden border bg-card block hover-scale">
-                          {img && <img src={img.src} alt={img.alt || `${s.name} photo`} className="w-full h-44 object-cover" loading="lazy" />}
+                          {img && <img src={img.src} alt={img.alt || `${s.name} photo`} width={img.width} height={img.height} className="w-full h-44 object-cover" loading="lazy" />}
                           <div className="p-4">
                             <h3 className="font-semibold">{s.name}</h3>
                             <p className="text-sm text-muted-foreground mt-1">{s.shortDescription || "Learn more"}</p>

@@ -36,7 +36,7 @@ const ServicesHub = () => {
               return (
                 <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-lg overflow-hidden border bg-card block hover-scale">
                   {img && (
-                    <img src={img.src} alt={img.alt || `${s.name} photo`} className="w-full h-48 object-cover" loading="lazy" />
+                    <img src={img.src} alt={img.alt || `${s.name} photo`} width={img.width} height={img.height} className="w-full h-48 object-cover" loading="lazy" />
                   )}
                   <div className="p-4">
                     <h2 className="font-semibold">{s.name}</h2>

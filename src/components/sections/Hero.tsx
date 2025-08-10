@@ -20,7 +20,7 @@ const Hero = () => {
   return (
     <section aria-label="Hero" className="relative">
       <div className="absolute inset-0">
-        <img src={heroSrc} alt={heroAlt} className="w-full h-[70vh] md:h-[80vh] object-cover" loading="eager" decoding="async" fetchPriority="high" />
+        <img src={heroSrc} alt={heroAlt} width={siteConfig.media.hero?.width || 1600} height={siteConfig.media.hero?.height || 900} className="w-full h-[70vh] md:h-[80vh] object-cover" loading="eager" decoding="async" fetchPriority="high" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background/80" />
       </div>
 

@@ -22,7 +22,7 @@ const Services = () => {
           return (
             <Link key={s.slug} to={to} className="rounded-lg overflow-hidden border bg-card block hover-scale">
               {imgSrc && (
-                <img src={imgSrc} alt={alt} className="w-full h-48 object-cover" loading="lazy" />
+                <img src={imgSrc} alt={alt} width={siteConfig.media.serviceCardDefault?.width || 1200} height={siteConfig.media.serviceCardDefault?.height || 800} className="w-full h-48 object-cover" loading="lazy" />
               )}
               <div className="p-4">
                 <h3 className="font-semibold">{s.name}</h3>
