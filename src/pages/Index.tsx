@@ -2,7 +2,6 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import FeaturesBar from "@/components/sections/FeaturesBar";
-import Questions from "@/components/sections/Questions";
 import Welcome from "@/components/sections/Welcome";
 import Services from "@/components/sections/Services";
 import PopularCityServices from "@/components/sections/PopularCityServices";
@@ -12,32 +11,32 @@ import ReviewsTeaser from "@/components/sections/ReviewsTeaser";
 import EstimateForm from "@/components/sections/EstimateForm";
 import FinalCTA from "@/components/sections/FinalCTA";
 import CompanyInfo from "@/components/sections/CompanyInfo";
-import CTABanner from "@/components/sections/CTABanner";
 import Seo from "@/components/Seo";
 import FAQ from "@/components/sections/FAQ";
 import { siteConfig } from "@/config/site-config";
+import { MapsProvider } from "@/contexts/MapsProvider";
+
 const Index = () => {
   return (
-    <div>
+    <MapsProvider>
       <Seo title={siteConfig.seo.defaultTitle} description={siteConfig.seo.defaultDescription} canonical="/" />
       <Header />
       <main id="content">
         <Hero />
         <FeaturesBar />
-        <Questions />
         <Welcome />
         <Services />
         <PopularCityServices />
         <WhyUs />
+        <Process />
         <FAQ />
         <ReviewsTeaser />
         <EstimateForm />
-        <FinalCTA />
         <CompanyInfo />
-        <CTABanner />
+        <FinalCTA />
       </main>
       <Footer />
-    </div>
+    </MapsProvider>
   );
 };
 
