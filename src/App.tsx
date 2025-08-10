@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Suspense, lazy } from "react";
 import GTM from "@/components/integrations/GTM";
-import { MapsProvider } from "@/contexts/MapsProvider";
+
 import Index from "./pages/Index";
 const NotFound = lazy(() => import("./pages/NotFound"));
 const About = lazy(() => import("./pages/About"));
@@ -29,7 +29,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <HelmetProvider>
     <GTM />
-    <MapsProvider>
+    
       <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -59,7 +59,7 @@ const App = () => (
         </BrowserRouter>
       </TooltipProvider>
       </QueryClientProvider>
-    </MapsProvider>
+    
   </HelmetProvider>
 );
 

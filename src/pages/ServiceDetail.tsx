@@ -77,7 +77,22 @@ const ServiceDetail = () => {
               <li>Licensed and insured technicians</li>
               <li>On‑time arrival and friendly service</li>
               <li>Top‑rated local reviews</li>
-            </ul>
+          </ul>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="text-xl font-bold">Related Services</h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+              {siteConfig.taxonomy.services
+                .filter((s) => s.categorySlug === service.categorySlug && s.slug !== service.slug)
+                .slice(0, 3)
+                .map((s) => (
+                  <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-md border p-4 hover-scale">
+                    <span className="font-medium">{s.name}</span>
+                    <span className="block text-sm text-muted-foreground mt-1">{s.shortDescription || "Learn more"}</span>
+                  </Link>
+                ))}
+            </div>
           </section>
 
           <div className="mt-10">

@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import LocationsMap from "@/components/maps/LocationsMap";
 import { siteConfig } from "@/config/site-config";
+import { MapsProvider } from "@/contexts/MapsProvider";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
@@ -42,9 +43,11 @@ const LocationDetail = () => {
 
           <div className="grid lg:grid-cols-3 gap-6 mt-8">
             <section className="lg:col-span-2">
-              <div className="rounded-lg overflow-hidden border aspect-[4/3]">
-                <LocationsMap height={420} locationIds={[location.id]} />
-              </div>
+              <MapsProvider>
+                <div className="rounded-lg overflow-hidden border aspect-[4/3]">
+                  <LocationsMap height={420} locationIds={[location.id]} />
+                </div>
+              </MapsProvider>
             </section>
             <aside className="space-y-4">
               <div className="rounded-lg border p-4">

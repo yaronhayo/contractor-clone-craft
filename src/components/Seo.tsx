@@ -29,6 +29,16 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
       url: siteUrl,
       telephone: siteConfig.business.phone,
       image: shareImage?.src,
+      priceRange: "$$",
+      sameAs: Object.values(siteConfig.business.social || {}).filter(Boolean),
+      hasMap: siteConfig.business.social?.googleBusiness,
+      geo: siteConfig.business.geo
+        ? {
+            "@type": "GeoCoordinates",
+            latitude: siteConfig.business.geo.lat,
+            longitude: siteConfig.business.geo.lng,
+          }
+        : undefined,
       address: {
         "@type": "PostalAddress",
         streetAddress: siteConfig.business.hqAddress.line1,
@@ -37,6 +47,7 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
         postalCode: siteConfig.business.hqAddress.postalCode,
         addressCountry: siteConfig.business.hqAddress.country || "US",
       },
+      areaServed: cities,
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Locksmith Services",
@@ -71,6 +82,7 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={siteConfig.business.name} />
       {shareImage && (
         <>
           <meta property="og:image" content={shareImage.src} />
@@ -85,6 +97,9 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {shareImage && <meta name="twitter:image" content={shareImage.src} />}
+      {siteConfig.business.social?.twitter && (
+        <meta name="twitter:site" content={"@" + siteConfig.business.social.twitter.split("/").pop()} />
+      )}
 
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
     </Helmet>

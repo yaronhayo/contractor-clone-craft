@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import ServiceAreasMap from "@/components/maps/ServiceAreasMap";
+import { MapsProvider } from "@/contexts/MapsProvider";
 import { siteConfig } from "@/config/site-config";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -68,10 +69,24 @@ const CityServiceLanding = ({ slug, area, locationId }: CityServiceLandingProps)
           </section>
 
           <section className="mt-10">
-            <h2 className="text-xl font-bold mb-3">Map</h2>
-            <div className="rounded-lg overflow-hidden border aspect-[4/3]">
-              <ServiceAreasMap height={360} locationId={locationId || undefined} />
+            <h2 className="text-xl font-bold">Popular services in {area}</h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+              {siteConfig.taxonomy.services.slice(0,3).map((s) => (
+                <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-md border p-4 hover-scale">
+                  <span className="font-medium">{s.name}</span>
+                  <span className="block text-sm text-muted-foreground mt-1">{s.shortDescription || "Learn more"}</span>
+                </Link>
+              ))}
             </div>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="text-xl font-bold mb-3">Map</h2>
+            <MapsProvider>
+              <div className="rounded-lg overflow-hidden border aspect-[4/3]">
+                <ServiceAreasMap height={360} locationId={locationId || undefined} />
+              </div>
+            </MapsProvider>
           </section>
 
           <div className="mt-10">

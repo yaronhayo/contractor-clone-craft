@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import LocationsMap from "@/components/maps/LocationsMap";
+import { MapsProvider } from "@/contexts/MapsProvider";
 import { siteConfig } from "@/config/site-config";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -32,9 +33,11 @@ const Locations = () => {
 
           <div className="mt-10 grid lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
-              <div className="rounded-lg overflow-hidden border aspect-[4/3]">
-                <LocationsMap height={480} />
-              </div>
+              <MapsProvider>
+                <div className="rounded-lg overflow-hidden border aspect-[4/3]">
+                  <LocationsMap height={480} />
+                </div>
+              </MapsProvider>
             </div>
             <aside className="space-y-4">
               {locations.map((loc) => (
