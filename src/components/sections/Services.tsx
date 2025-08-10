@@ -26,30 +26,6 @@ const Services = () => {
         </p>
       </header>
 
-      {/* Service Categories Grid */}
-      <div className="grid md:grid-cols-3 gap-8 mb-16">
-        {siteConfig.taxonomy.categories.map((category, index) => (
-          <div key={category.slug} className={`relative group animate-fade-in`} style={{ animationDelay: `${index * 100}ms` }}>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100" />
-            <div className="relative bg-background border-2 rounded-2xl p-6 h-full hover:border-primary/30 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Wrench className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold">{category.name}</h3>
-              </div>
-              <p className="text-muted-foreground mb-6">{category.description}</p>
-              <Link 
-                to={siteConfig.routes.serviceCategory(category.slug)}
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200"
-              >
-                Explore Services <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
-
       {/* Detailed Services Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {items.map((service, index) => {
