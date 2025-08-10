@@ -107,7 +107,7 @@ const Welcome = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="group">
               <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
-                4.9★
+                5.0★
               </div>
               <div className="text-sm text-muted-foreground">Average Rating</div>
             </div>

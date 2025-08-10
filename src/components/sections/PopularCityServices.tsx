@@ -21,7 +21,7 @@ const CityCard = ({ area, services }: {
           </h3>
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <Star className="h-3 w-3 text-yellow-500 fill-current" />
-            <span>Top-rated garage door service</span>
+            <span>5.0/5 garage door service</span>
           </div>
         </div>
       </div>
