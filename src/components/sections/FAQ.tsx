@@ -1,8 +1,11 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 import { siteConfig } from "@/config/site-config";
 import { useQuery } from "@tanstack/react-query";
 import { getFaqs } from "@/lib/cms";
+import { Link } from "react-router-dom";
+import { HelpCircle } from "lucide-react";
 
 const fallbackFaqs = [
   { q: "Do you offer free garage door estimates?", a: "Yes, we provide fast, no-obligation garage door estimates. Submit the form or call us and we'll assess your garage door needs." },
