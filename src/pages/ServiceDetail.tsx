@@ -90,23 +90,24 @@ const ServiceDetail = () => {
           </div>
 
           <section className="prose prose-neutral dark:prose-invert max-w-none mt-8">
-            <h2>What’s Included</h2>
+            <h2>What's Included in Our Garage Door Service</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar
-              dapibus leo. We follow a clear, customer‑first process to ensure great results every time.
+              Our garage door services include comprehensive inspection, quality parts, professional installation or repair, and thorough testing. We follow a clear, customer‑first process to ensure your garage door operates safely and reliably.
             </p>
-            <h3>Our 4‑Step Process</h3>
+            <h3>Our 4‑Step Garage Door Service Process</h3>
             <ol>
-              <li>Reach out and tell us about your project.</li>
-              <li>We schedule a convenient time and provide transparent pricing.</li>
-              <li>Our trained team completes the work with care and craftsmanship.</li>
-              <li>Final walkthrough and satisfaction check.</li>
+              <li>Contact us about your garage door repair or installation needs.</li>
+              <li>We schedule a convenient time and provide upfront, transparent pricing.</li>
+              <li>Our certified garage door technicians complete the work with precision and care.</li>
+              <li>Final testing of garage door operation and safety features before we leave.</li>
             </ol>
-            <h3>Why Choose Us</h3>
+            <h3>Why Choose Pro Line Garage Experts</h3>
             <ul>
-              <li>Licensed and insured technicians</li>
-              <li>On‑time arrival and friendly service</li>
-              <li>Top‑rated local reviews</li>
+              <li>Licensed and insured garage door specialists</li>
+              <li>24/7 emergency garage door repair available</li>
+              <li>All major garage door brands serviced</li>
+              <li>Top‑rated in Bergen and Hudson counties</li>
+              <li>Satisfaction guarantee on all garage door work</li>
           </ul>
           </section>
 

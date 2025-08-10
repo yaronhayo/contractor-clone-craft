@@ -24,7 +24,7 @@ const Cities = () => {
     <div>
       <Seo
         title={`Cities We Serve | ${siteConfig.business.name}`}
-        description={`Browse all cities and neighborhoods we serve from ${siteConfig.business.hqAddress.city}.`}
+        description={`Browse all cities in Bergen County, Hudson County, and surrounding NJ areas where we provide garage door services.`}
         canonical="/city"
       />
       <Helmet>
@@ -34,17 +34,17 @@ const Cities = () => {
       <main id="content">
         <section className="container py-14 md:py-20">
           <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Cities We Serve</h1>
-            <p className="mt-3 text-muted-foreground">Find your city and jump into popular services near you.</p>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Garage Door Service Areas</h1>
+            <p className="mt-3 text-muted-foreground">Find your city and explore garage door services available in your area.</p>
           </header>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
             {areas.map((a) => (
               <div key={a.slug} className="rounded-lg border p-4 bg-card">
-                <h2 className="font-semibold">{a.name}, {a.state}</h2>
-                <p className="text-sm text-muted-foreground mt-1">Trusted locksmiths near you.</p>
+                <h2 className="font-semibold">Garage Door Service in {a.name}, {a.state}</h2>
+                <p className="text-sm text-muted-foreground mt-1">Professional garage door repair and installation.</p>
                 <div className="mt-3">
-                  <Link to={`/city/${a.slug}`} className="text-sm story-link">View city hub</Link>
+                  <Link to={`/city/${a.slug}`} className="text-sm story-link">View garage door services</Link>
                 </div>
                 <ul className="mt-3 space-y-1 text-sm">
                   {siteConfig.taxonomy.services.slice(0, 3).map((s) => (

@@ -5,10 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 import { getFaqs } from "@/lib/cms";
 
 const fallbackFaqs = [
-  { q: "Do you offer free estimates?", a: "Yes, we provide fast, no-obligation estimates. Submit the form and we'll reach out." },
-  { q: "Which areas do you serve?", a: `We proudly serve ${siteConfig.business.hqAddress.city} and surrounding neighborhoods within a 30-mile radius.` },
-  { q: "Are you licensed and insured?", a: "Absolutely. We are fully licensed and insured for your peace of mind." },
-  { q: "What payments do you accept?", a: "We accept major credit cards, checks, and offer financing options on select services." },
+  { q: "Do you offer free garage door estimates?", a: "Yes, we provide fast, no-obligation garage door estimates. Submit the form or call us and we'll assess your garage door needs." },
+  { q: "Which areas do you serve for garage door service?", a: `We proudly serve Edison, all of Bergen County, Hudson County, and surrounding NJ areas. Same-day garage door service available in most locations.` },
+  { q: "Are your garage door technicians licensed and insured?", a: "Absolutely. We are fully licensed and insured garage door specialists with certified technicians for your peace of mind." },
+  { q: "Do you provide emergency garage door repair?", a: "Yes! We offer 24/7 emergency garage door repair service. Whether you're stuck with a broken garage door spring or opener failure, we'll get you back up and running fast." },
+  { q: "What garage door brands do you service?", a: "We service all major garage door brands including LiftMaster, Chamberlain, Genie, Craftsman, and more. Our technicians are trained on all residential and commercial garage door systems." },
+  { q: "How long does garage door installation take?", a: "Most garage door installations are completed in 2-4 hours, depending on the type of door and complexity. We'll provide an accurate timeline during your free estimate." },
+  { q: "What payments do you accept for garage door services?", a: "We accept major credit cards, checks, and offer financing options on garage door installations and major repairs." },
 ];
 
 const FAQ = () => {

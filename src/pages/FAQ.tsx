@@ -20,6 +20,7 @@ const FAQ = () => {
   return (
     <div>
       <Seo title={`FAQ | ${siteConfig.business.name}`} description={`Answers to common locksmith questions in ${siteConfig.business.hqAddress.city}.`} canonical="/faq" />
+      <Seo title={`FAQ | ${siteConfig.business.name}`} description={`Answers to common garage door questions in ${siteConfig.business.hqAddress.city}, Bergen County, and Hudson County.`} canonical="/faq" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
@@ -30,8 +31,8 @@ const FAQ = () => {
             <Link to="/">Home</Link> / <span className="text-foreground">FAQ</span>
           </nav>
           <header className="mt-4 text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Frequently Asked Questions</h1>
-            <p className="mt-3 text-muted-foreground">Everything you need to know about our services and process.</p>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Garage Door FAQ</h1>
+            <p className="mt-3 text-muted-foreground">Everything you need to know about our garage door services, repairs, and installation process.</p>
           </header>
         </section>
         <FAQSection />

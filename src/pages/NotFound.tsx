@@ -15,14 +15,14 @@ const NotFound = () => {
       <main id="content">
         <section className="container py-20 text-center">
           <p className="text-sm text-muted-foreground">Error 404</p>
-          <h1 className="mt-2 text-3xl md:text-4xl font-extrabold">Page not found</h1>
-          <p className="mt-3 text-muted-foreground">Sorry, we couldn’t find the page you’re looking for.</p>
+          <h1 className="mt-2 text-3xl md:text-4xl font-extrabold">Garage Door Service Page Not Found</h1>
+          <p className="mt-3 text-muted-foreground">Sorry, we couldn't find that page. Need garage door service? We're here to help!</p>
           <div className="mt-6 flex items-center justify-center gap-3">
             <Button asChild>
               <Link to="/">Go back home</Link>
             </Button>
             <Button asChild variant="outline">
-              <Link to="/contact">Contact support</Link>
+              <Link to="/contact">Call for Garage Door Service</Link>
             </Button>
           </div>
         </section>

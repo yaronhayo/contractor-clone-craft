@@ -37,6 +37,7 @@ const CityServiceLanding = ({ slug, area, locationId }: CityServiceLandingProps)
   return (
     <div>
       <Seo title={`${area} | Locksmith Service Area`} description={`Locksmith services available in ${area}. Get a free estimate today.`} canonical={canonical} />
+      <Seo title={`Garage Door Service in ${area} | ${siteConfig.business.name}`} description={`Professional garage door repair and installation in ${area}. 24/7 emergency service available.`} canonical={canonical} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
@@ -48,28 +49,33 @@ const CityServiceLanding = ({ slug, area, locationId }: CityServiceLandingProps)
           </nav>
 
           <header className="mt-4">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Locksmith Services in {area}</h1>
-            <p className="mt-3 text-muted-foreground max-w-3xl">Proudly serving homeowners and businesses in {area}. 24/7 lockout help, rekeys, car keys, smart locks, and more.</p>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Garage Door Services in {area}</h1>
+            <p className="mt-3 text-muted-foreground max-w-3xl">Proudly serving homeowners and businesses in {area}. 24/7 emergency garage door repair, spring replacement, opener service, and professional installation.</p>
           </header>
 
           <section className="prose prose-neutral dark:prose-invert max-w-none mt-8">
-            <h2>Locksmith Services Available in {area}</h2>
+            <h2>Professional Garage Door Services in {area}</h2>
             <ul>
-              <li>Emergency lockout assistance</li>
-              <li>Lock rekeying and repair</li>
-              <li>Car key replacement and key fobs</li>
+              <li>24/7 emergency garage door repair</li>
+              <li>Garage door spring repair and replacement</li>
+              <li>Garage door opener installation and repair</li>
+              <li>New garage door installation with quality doors</li>
+              <li>Roller replacement and track repair</li>
+              <li>Commercial garage door service</li>
             </ul>
 
-            <h3>Why Locals Choose Us</h3>
+            <h3>Why {area} Residents Choose Pro Line Garage Experts</h3>
             <ul>
-              <li>On‑time, friendly technicians</li>
-              <li>Transparent pricing</li>
-              <li>Licensed and insured</li>
+              <li>Certified garage door technicians</li>
+              <li>Fast response times in {area}</li>
+              <li>Transparent, upfront pricing</li>
+              <li>Licensed and insured for all garage door work</li>
+              <li>Quality parts and professional installation</li>
             </ul>
           </section>
 
           <section className="mt-10">
-            <h2 className="text-xl font-bold">Popular services in {area}</h2>
+            <h2 className="text-xl font-bold">Popular Garage Door Services in {area}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
               {siteConfig.taxonomy.services.slice(0,3).map((s) => (
                 <Link key={s.slug} to={siteConfig.routes.individualService(s.categorySlug, s.slug)} className="rounded-md border p-4 hover-scale">

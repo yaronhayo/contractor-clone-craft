@@ -103,11 +103,14 @@ const CityServiceDetail = () => {
           )}
 
           <section className="prose prose-neutral dark:prose-invert max-w-none mt-8">
-            <h2>What We Offer in {areaName}</h2>
+            <h2>Garage Door Services in {areaName}</h2>
             <ul>
-              <li>Fast, friendly, and professional response</li>
-              <li>Licensed and insured technicians</li>
-              <li>Transparent pricing—no surprises</li>
+              <li>24/7 emergency garage door repair service</li>
+              <li>Professional garage door installation with quality doors</li>
+              <li>Spring repair and replacement for all garage door types</li>
+              <li>Garage door opener repair and programming</li>
+              <li>Licensed and insured garage door specialists</li>
+              <li>Transparent pricing with no hidden fees</li>
             </ul>
           </section>
 

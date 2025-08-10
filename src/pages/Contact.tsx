@@ -53,8 +53,8 @@ const Contact = () => {
         {/* Hero */}
         <section className="container py-14 md:py-20 animate-fade-in">
           <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-extrabold">Let’s Talk About Your Project</h1>
-            <p className="mt-4 text-muted-foreground">Fast, friendly help from a local team—request a free estimate or reach us directly.</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold">Get Expert Garage Door Service Today</h1>
+            <p className="mt-4 text-muted-foreground">Fast, professional garage door repair and installation—request a free estimate or call us directly for emergency service.</p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild>
                 <a href={telHref} aria-label="Call us now" onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "contact_hero", phone }); } catch {} }}><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call Now</a>
@@ -79,7 +79,7 @@ const Contact = () => {
             </InfoCard>
             <InfoCard icon={MapPin} title="Address">
               <p>{siteConfig.business.hqAddress.line1}, {siteConfig.business.hqAddress.city}, {siteConfig.business.hqAddress.state} {siteConfig.business.hqAddress.postalCode}</p>
-              <p>Serving {siteConfig.locations[0]?.address.city}, {siteConfig.locations[0]?.address.state} and surrounding areas</p>
+              <p>Serving Bergen County, Hudson County, and surrounding NJ areas</p>
             </InfoCard>
             <InfoCard icon={Clock} title="Hours">
               <p>Mon–Fri: 8:00AM – 5:00PM</p>
@@ -91,8 +91,8 @@ const Contact = () => {
         {/* Estimate Form */}
         <section className="container pb-4">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-2xl md:text-3xl font-extrabold">Request a Free Estimate</h2>
-            <p className="mt-2 text-muted-foreground">Tell us about your project and we’ll follow up with a clear, no‑obligation quote.</p>
+            <h2 className="text-2xl md:text-3xl font-extrabold">Get Your Free Garage Door Estimate</h2>
+            <p className="mt-2 text-muted-foreground">Tell us about your garage door needs and we'll provide a clear, no‑obligation quote for repair or installation.</p>
           </div>
           <EstimateForm />
         </section>
@@ -103,14 +103,14 @@ const Contact = () => {
         {/* CTA */}
         <section className="container pb-16">
           <div className="rounded-lg border p-6 md:p-10 text-center bg-card">
-            <h2 className="text-xl md:text-2xl font-bold">Prefer to talk?</h2>
-            <p className="mt-2 text-muted-foreground">Give us a quick call and we’ll answer your questions on the spot.</p>
+            <h2 className="text-xl md:text-2xl font-bold">Need Emergency Garage Door Service?</h2>
+            <p className="mt-2 text-muted-foreground">Call us now for 24/7 emergency garage door repair—we'll get you back up and running fast.</p>
             <div className="mt-4 flex items-center justify-center gap-3">
               <Button asChild>
                 <a href={telHref} onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "contact_cta", phone }); } catch {} }}><Phone className="h-4 w-4 mr-2" aria-hidden="true" />Call {phone}</a>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/services">Explore Services<ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" /></Link>
+                <Link to="/services">View Garage Door Services<ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" /></Link>
               </Button>
             </div>
           </div>

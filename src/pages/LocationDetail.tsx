@@ -72,6 +72,7 @@ const LocationDetail = () => {
   return (
     <div>
       <Seo title={title} description={`Visit or contact ${location.name}. View address, phone, and service coverage.`} canonical={siteConfig.routes.locationDetail(location.slug)} />
+      <Seo title={title} description={`Visit or contact ${location.name} for garage door services. Professional repair, installation, and emergency service in Edison and surrounding NJ areas.`} canonical={siteConfig.routes.locationDetail(location.slug)} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(locationLd)}</script>
@@ -85,7 +86,7 @@ const LocationDetail = () => {
 
           <header className="mt-4">
             <h1 className="text-3xl md:text-4xl font-extrabold">{location.name}</h1>
-            <p className="mt-3 text-muted-foreground max-w-3xl">Serving {location.address.city}, {location.address.state} and nearby areas.</p>
+            <p className="mt-3 text-muted-foreground max-w-3xl">Professional garage door services in {location.address.city}, {location.address.state} and surrounding Bergen County, Hudson County areas.</p>
           </header>
 
           <div className="grid lg:grid-cols-3 gap-6 mt-8">

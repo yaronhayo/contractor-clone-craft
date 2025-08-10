@@ -28,6 +28,7 @@ const CityHub = () => {
   return (
     <div>
       <Seo title={`Locksmith in ${areaName}`} description={`Your trusted locksmith in ${areaName}. Fast response for lockouts, rekeys, car keys, and smart locks.`} canonical={canonical} />
+      <Seo title={`Garage Door Service in ${areaName} | ${siteConfig.business.name}`} description={`Professional garage door repair and installation in ${areaName}. 24/7 emergency service, spring repair, opener service, and new door installation.`} canonical={canonical} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
@@ -39,12 +40,12 @@ const CityHub = () => {
           </nav>
 
           <header className="mt-4">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Locksmith in {areaName}</h1>
-            <p className="mt-3 text-muted-foreground max-w-3xl">Licensed, insured locksmiths serving {areaName}. 24/7 emergency lockouts, rekeys, hardware installs, and car keys.</p>
+            <h1 className="text-3xl md:text-4xl font-extrabold">Garage Door Service in {areaName}</h1>
+            <p className="mt-3 text-muted-foreground max-w-3xl">Licensed, insured garage door experts serving {areaName}. 24/7 emergency repair, spring replacement, opener service, and professional installation.</p>
           </header>
 
           <section className="mt-8">
-            <h2 className="text-xl font-bold">Popular Services in {areaName}</h2>
+            <h2 className="text-xl font-bold">Popular Garage Door Services in {areaName}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
               {siteConfig.taxonomy.services.map((s) => (
                 <Link key={s.slug} to={siteConfig.routes.serviceCity(s.slug, slug || "")} className="rounded-md border p-4 hover-scale">

@@ -21,9 +21,9 @@ const toTitle = (slug?: string) =>
   (slug || "").split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 
 const related = [
-  { title: "Project Planning Checklist", slug: "project-planning-checklist", image: service1 },
-  { title: "Budgeting for Locksmith Services", slug: "budgeting-for-locksmith-services", image: service2 },
-  { title: "Top 7 Questions to Ask", slug: "top-7-questions", image: heroHouse },
+  { title: "Garage Door Maintenance Checklist", slug: "garage-door-maintenance-checklist", image: service1 },
+  { title: "Signs Your Garage Door Spring Needs Replacement", slug: "garage-door-spring-replacement", image: service2 },
+  { title: "Choosing the Right Garage Door for Your Home", slug: "choosing-right-garage-door", image: heroHouse },
 ];
 
 const BlogPost = () => {
@@ -161,31 +161,33 @@ const BlogPost = () => {
             <div className="lg:col-span-8">
               <section className="prose prose-neutral dark:prose-invert max-w-none">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-                  This is a sample article page generated for your template. Replace with your content.
+                  Proper garage door maintenance can extend the life of your garage door system and prevent costly emergency repairs. Understanding the basics of garage door care helps homeowners keep their doors operating safely and efficiently.
                 </p>
                 <blockquote>
-                  "Quality craftsmanship and clear communication are the foundation of every successful project."
+                  "Regular garage door maintenance and professional service are essential for safe, reliable operation and long-term value."
                 </blockquote>
                 <h2 id="introduction">Introduction</h2>
                 <p>
-                  Start with the problem, clarify the outcome, and help readers understand the scope before they begin.
+                  Understanding your garage door system helps you identify potential issues early and know when to call a professional for service.
                 </p>
                 <div className="rounded-lg border p-4 bg-card">
                   <strong className="block">Pro tip</strong>
-                  <p className="text-sm text-muted-foreground mt-1">Compare quotes with the same scope and materials to avoid surprises.</p>
+                  <p className="text-sm text-muted-foreground mt-1">Schedule annual garage door maintenance to catch small issues before they become expensive repairs.</p>
                 </div>
-                <h2 id="benefits">Benefits</h2>
+                <h2 id="benefits">Benefits of Professional Garage Door Service</h2>
                 <ul>
-                  <li>Understand the basics of choosing the right contractor</li>
-                  <li>Compare quotes with apples‑to‑apples scopes</li>
-                  <li>Check licensing, insurance, and reviews</li>
+                  <li>Extended garage door lifespan with proper maintenance</li>
+                  <li>Improved safety with professional spring and opener service</li>
+                  <li>Better home security with properly functioning garage doors</li>
+                  <li>Avoid costly emergency repairs with preventive care</li>
                 </ul>
-                <h2 id="steps">Steps</h2>
+                <h2 id="steps">When to Call a Garage Door Professional</h2>
                 <ol>
-                  <li>Define your scope and budget</li>
-                  <li>Shortlist providers with proven reviews</li>
-                  <li>Verify credentials and sign a clear contract</li>
+                  <li>Garage door won't open or close properly</li>
+                  <li>Strange noises during operation (grinding, squeaking)</li>
+                  <li>Visible spring damage or wear</li>
+                  <li>Garage door opener malfunctions</li>
+                  <li>Annual maintenance and safety inspection</li>
                 </ol>
               </section>
 

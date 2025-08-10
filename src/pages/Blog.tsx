@@ -16,17 +16,17 @@ import { blogListQuery } from "@/lib/sanity/queries";
 import { siteConfig } from "@/config/site-config";
 import { Helmet } from "react-helmet-async";
 
-const categories = ["How‑To", "Planning", "Costs", "Maintenance", "Inspiration"];
+const categories = ["Maintenance", "Repair Tips", "Installation", "Safety", "Troubleshooting"];
 
 const fallbackPosts = Array.from({ length: 9 }).map((_, i) => {
   const images = [heroHouse, service1, service2];
   const img = images[i % images.length];
   return {
-    title: `How to Choose the Right Locksmith #${i + 1}`,
-    excerpt: "Practical tips to evaluate providers, compare quotes, and avoid common pitfalls.",
+    title: `Garage Door Maintenance Tips #${i + 1}`,
+    excerpt: "Essential maintenance tips to keep your garage door running smoothly and prevent costly repairs.",
     date: "2025-01-01",
     readTime: `${8 + (i % 4)} min read`,
-    slug: `choose-right-locksmith-${i + 1}`,
+    slug: `garage-door-maintenance-tips-${i + 1}`,
     category: categories[i % categories.length],
     image: img,
   };
@@ -66,6 +66,7 @@ const Blog = () => {
   return (
     <div>
       <Seo title="Blog | Locksmith Tips & Guides" description="Explore expert locksmith tips, how‑tos, and planning guides for local homeowners." canonical="/blog" />
+      <Seo title="Blog | Garage Door Tips & Guides" description="Expert garage door maintenance tips, repair guides, and installation advice for homeowners in Edison, Bergen County, and Hudson County." canonical="/blog" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>
@@ -74,8 +75,8 @@ const Blog = () => {
         {/* Hero */}
         <section className="container py-14 md:py-20 animate-fade-in">
           <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-extrabold">Expert Locksmith Tips & Guides</h1>
-            <p className="mt-4 text-muted-foreground">Learn from our team—clear, practical advice to keep your property secure and your day moving.</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold">Garage Door Tips & Expert Guides</h1>
+            <p className="mt-4 text-muted-foreground">Learn from our garage door experts—practical maintenance tips, repair guides, and installation advice to keep your garage door running smoothly.</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               {categories.map((c) => (
                 <Badge key={c} variant="secondary" className="text-xs">{c}</Badge>
@@ -139,14 +140,14 @@ const Blog = () => {
         {/* CTA */}
         <section className="container pb-20">
           <div className="rounded-lg border p-6 md:p-10 text-center bg-card">
-            <h2 className="text-xl md:text-2xl font-bold">Ready to start your project?</h2>
-            <p className="mt-2 text-muted-foreground">Get a fast, no‑obligation estimate from our friendly team.</p>
+            <h2 className="text-xl md:text-2xl font-bold">Need Garage Door Service?</h2>
+            <p className="mt-2 text-muted-foreground">Get a fast, no‑obligation garage door estimate from our certified technicians.</p>
             <div className="mt-4 flex items-center justify-center gap-3">
               <Button asChild>
-                <Link to="/contact">Get Free Estimate</Link>
+                <Link to="/contact">Get Free Garage Door Estimate</Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/services"><Tag className="h-4 w-4 mr-1" aria-hidden="true" />View Services</Link>
+                <Link to="/services"><Tag className="h-4 w-4 mr-1" aria-hidden="true" />View Garage Door Services</Link>
               </Button>
             </div>
           </div>

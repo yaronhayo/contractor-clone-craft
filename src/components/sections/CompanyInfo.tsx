@@ -16,6 +16,7 @@ const CompanyInfo = () => {
     postalCode: data?.address?.postalCode || siteConfig.business.hqAddress.postalCode,
   };
   const description = data?.defaultDescription || siteConfig.seo.defaultDescription;
+  const garageDescription = data?.defaultDescription || "Professional garage door installation, repair, and emergency services in Edison, Bergen County, Hudson County, and surrounding NJ areas. Licensed, insured, and available 24/7.";
 
   const telHref = `tel:${(phone || "").replace(/[^+\d]/g, "")}`;
   const mailHref = `mailto:${email}`;
@@ -24,9 +25,9 @@ const CompanyInfo = () => {
     <section id="contact" className="container py-14 md:py-20">
       <div className="grid lg:grid-cols-3 gap-8">
         <article className="lg:col-span-1">
-          <h3 className="text-xl font-bold mb-2">About {businessName}</h3>
+          <h3 className="text-xl font-bold mb-2">About {businessName} - Garage Door Experts</h3>
           <p className="text-muted-foreground">
-            {description}
+            {garageDescription}
           </p>
         </article>
         <article className="lg:col-span-1">

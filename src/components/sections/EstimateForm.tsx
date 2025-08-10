@@ -125,8 +125,8 @@ const EstimateForm = () => {
   return (
     <section id="estimate" className="container py-14 md:py-20">
       <header className="text-center max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-extrabold">Get A Free Estimate</h2>
-        <p className="mt-2 text-muted-foreground">Fill out the quick form below to schedule a no-pressure, no-obligation quote.</p>
+        <h2 className="text-2xl md:text-3xl font-extrabold">Get Your Free Garage Door Estimate</h2>
+        <p className="mt-2 text-muted-foreground">Fill out the quick form below to schedule a no-pressure, no-obligation garage door quote.</p>
         <p className="mt-2 font-semibold">Need to contact us right away? <a
           href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`}
           className="underline"
@@ -147,7 +147,7 @@ const EstimateForm = () => {
           <input id="company" type="text" autoComplete="off" tabIndex={-1} value={hp} onChange={(e) => setHp(e.target.value)} />
         </div>
         <div className="space-y-4">
-          <label className="block text-sm font-medium">Service address *</label>
+          <label className="block text-sm font-medium">Garage door service address *</label>
           {mapsLoaded ? (
             <Autocomplete
               onLoad={(ac) => (autocompleteRef.current = ac)}
@@ -163,7 +163,7 @@ const EstimateForm = () => {
             <Input required placeholder="123 Main St, City, ST" value={address} onChange={(e) => setAddress(e.target.value)} />
           )}
 
-          <label className="block text-sm font-medium mt-4">What type of service do you need? *</label>
+          <label className="block text-sm font-medium mt-4">What type of garage door service do you need? *</label>
           <Select value={service} onValueChange={setService}>
             <SelectTrigger>
               <SelectValue placeholder="Select a service" />
@@ -203,8 +203,8 @@ const EstimateForm = () => {
             <Input required type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div>
-            <label className="block text-sm font-medium">Short description of what you need</label>
-            <Textarea rows={5} placeholder="Tell us more about your project" value={message} onChange={(e) => setMessage(e.target.value)} />
+            <label className="block text-sm font-medium">Describe your garage door issue or needs</label>
+            <Textarea rows={5} placeholder="Tell us about your garage door repair or installation needs" value={message} onChange={(e) => setMessage(e.target.value)} />
           </div>
           <div className="flex items-start gap-2">
             <Checkbox id="consent" checked={consent} onCheckedChange={(v) => setConsent(Boolean(v))} />
@@ -213,6 +213,7 @@ const EstimateForm = () => {
             </label>
           </div>
           <Button type="submit" className="mt-2">Request Free Estimate</Button>
+          <Button type="submit" className="mt-2">Request Free Garage Door Estimate</Button>
         </div>
       </form>
     </section>

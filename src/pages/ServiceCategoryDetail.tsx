@@ -12,7 +12,8 @@ const ServiceCategoryDetail = () => {
 
   const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
   const title = category ? `${category.name} Locksmith Services | ${siteConfig.business.name}` : `Services | ${siteConfig.business.name}`;
-  const description = category?.description || `Explore ${category?.name || "locksmith"} services offered by ${siteConfig.business.name}.`;
+  const title = category ? `${category.name} Services in Edison, NJ | ${siteConfig.business.name}` : `Garage Door Services | ${siteConfig.business.name}`;
+  const description = category?.description || `Expert ${category?.name || "garage door"} services in Edison, Bergen County, Hudson County, and surrounding NJ areas.`;
 
   const breadcrumbLd = {
     "@context": "https://schema.org",

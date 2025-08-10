@@ -42,6 +42,7 @@ const About = () => {
   return (
     <div>
       <Seo title={`About ${siteConfig.business.name}`} description={`Learn about our locksmith team serving ${siteConfig.business.hqAddress.city}—licensed, insured, and trusted.`} canonical="/about" />
+      <Seo title={`About ${siteConfig.business.name}`} description={`Learn about our garage door experts serving Edison, Bergen County, Hudson County—licensed, insured, and trusted for all garage door needs.`} canonical="/about" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -57,14 +58,14 @@ const About = () => {
         {/* Hero */}
         <section className="container py-16 md:py-24 animate-fade-in">
           <header className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-5xl font-extrabold">About Our Garage Door Company</h1>
-            <p className="mt-4 text-muted-foreground">We deliver reliable garage door services in {siteConfig.business.hqAddress.city} with honesty, craftsmanship, and care.</p>
+            <h1 className="text-3xl md:text-5xl font-extrabold">About Pro Line Garage Experts</h1>
+            <p className="mt-4 text-muted-foreground">We deliver expert garage door installation, repair, and emergency services across Edison, Bergen County, Hudson County with professional craftsmanship and 24/7 availability.</p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild>
-                <Link to="/contact">Get Your Free Estimate</Link>
+                <Link to="/contact">Get Your Free Garage Door Estimate</Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/services">Explore Services</Link>
+                <Link to="/services">Explore Garage Door Services</Link>
               </Button>
             </div>
           </header>
@@ -73,23 +74,23 @@ const About = () => {
         {/* Stats */}
         <section className="container py-8 md:py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Stat value="10+" label="Years in Business" />
-            <Stat value="500+" label="Projects Completed" />
+            <Stat value="10+" label="Years Serving NJ" />
+            <Stat value="500+" label="Garage Doors Serviced" />
             <Stat value="4.9/5" label="Average Rating" />
-            <Stat value="100%" label="Satisfaction Guarantee" />
+            <Stat value="24/7" label="Emergency Service" />
           </div>
         </section>
 
         {/* Values */}
         <section className="container py-14 md:py-20">
           <header className="text-center max-w-2xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold">Our Mission & Values</h2>
-            <p className="mt-3 text-muted-foreground">We combine modern tools with proven methods to deliver reliable, beautiful results—every time.</p>
+            <h2 className="text-2xl md:text-3xl font-extrabold">Our Garage Door Service Mission</h2>
+            <p className="mt-3 text-muted-foreground">We combine modern garage door technology with proven installation and repair methods to deliver safe, reliable operation—every time.</p>
           </header>
           <div className="grid md:grid-cols-3 gap-6 mt-10">
             <ValueItem icon={ShieldCheck} title="Quality First" desc="Certified technicians, premium materials, and detailed workmanship on every job." />
-            <ValueItem icon={Sparkles} title="Clean & Respectful" desc="We protect your property, communicate clearly, and leave spaces spotless." />
-            <ValueItem icon={Clock} title="On-Time & On-Budget" desc="Transparent pricing and reliable scheduling—no surprises, just results." />
+            <ValueItem icon={Sparkles} title="Safety First" desc="All garage door work follows strict safety protocols with proper spring handling and opener installation." />
+            <ValueItem icon={Clock} title="24/7 Available" desc="Emergency garage door repair available around the clock—we're here when you need us most." />
           </div>
         </section>
 
@@ -98,10 +99,10 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="h-full">
               <CardHeader>
-                <CardTitle className="text-lg">Licensing & Insurance</CardTitle>
+                <CardTitle className="text-lg">Licensed Garage Door Experts</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-muted-foreground">
-                Licensed, bonded, and insured in {siteConfig.business.hqAddress.state}. Fully certified garage door technicians. COI available on request.
+                Licensed, bonded, and insured garage door specialists in {siteConfig.business.hqAddress.state}. Certified technicians trained on all major garage door brands and systems.
               </CardContent>
             </Card>
             <Card className="h-full">
@@ -126,21 +127,22 @@ const About = () => {
         <section className="container py-14 md:py-20">
           <div className="grid md:grid-cols-3 gap-10">
             <article className="md:col-span-2 space-y-4 text-muted-foreground">
-              <h2 className="text-xl md:text-2xl font-bold text-foreground">Our Story</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-foreground">Our Garage Door Service Story</h2>
               <p>
-                Since day one, our focus has been helping homeowners and businesses with dependable garage door services. From the first call to the final installation or repair, we communicate clearly and treat your property with respect.
+                Since day one, our focus has been helping homeowners and businesses in Edison, Bergen County, and Hudson County with dependable garage door services. From emergency repairs to new installations, we communicate clearly and deliver professional results.
               </p>
               <p>
-                Our certified garage door technicians undergo ongoing training to ensure your job is done safely, on time, and on budget.
+                Our certified garage door technicians undergo ongoing training on the latest garage door technology, safety protocols, and installation techniques to ensure every job is completed safely, on time, and on budget.
               </p>
             </article>
             <aside className="rounded-lg border p-6 bg-card">
               <h3 className="font-semibold flex items-center gap-2"><HandshakeIcon className="h-5 w-5 text-primary" aria-hidden="true" /> Why Choose Us</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                <li>• Licensed and insured</li>
-                <li>• Transparent pricing</li>
-                <li>• Friendly, on-time crew</li>
-                <li>• Top-rated local reviews</li>
+                <li>• Licensed garage door specialists</li>
+                <li>• 24/7 emergency garage door service</li>
+                <li>• All major garage door brands serviced</li>
+                <li>• Transparent, upfront pricing</li>
+                <li>• Top-rated in Bergen & Hudson counties</li>
               </ul>
             </aside>
           </div>
@@ -150,15 +152,17 @@ const About = () => {
               <h3 className="font-semibold">Milestones</h3>
               <ol className="mt-4 space-y-4 border-l pl-4">
                 <TimelineItem year="2015" title={`Founded in ${siteConfig.business.hqAddress.city}`} text="Started with a mission to raise the bar for local locksmith services." />
-                <TimelineItem year="2018" title="Team Expansion" text="Grew our certified locksmith crew and added new service offerings." />
-                <TimelineItem year="2022" title="500th Project" text="A major milestone—earning consistent 5-star reviews from clients." />
+                <TimelineItem year="2015" title={`Founded in ${siteConfig.business.hqAddress.city}`} text="Started with a mission to provide the best garage door service in New Jersey." />
+                <TimelineItem year="2018" title="Service Area Expansion" text="Extended garage door service coverage to Bergen County and Hudson County." />
+                <TimelineItem year="2022" title="500th Garage Door" text="A major milestone—500 garage doors serviced with consistent 5-star reviews." />
               </ol>
             </div>
             <div>
               <h3 className="font-semibold">Credentials</h3>
               <div className="mt-4 flex flex-wrap gap-2">
-                <Badge variant="secondary">Licensed & Insured</Badge>
-                <Badge variant="secondary">Background-Checked Crew</Badge>
+                <Badge variant="secondary">Licensed Garage Door Specialists</Badge>
+                <Badge variant="secondary">24/7 Emergency Service</Badge>
+                <Badge variant="secondary">All Brands Serviced</Badge>
                 <Badge variant="secondary">Local & Family-Owned</Badge>
                 <Badge variant="secondary">Satisfaction Guarantee</Badge>
               </div>

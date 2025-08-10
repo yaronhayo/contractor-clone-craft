@@ -1,5 +1,5 @@
 const FeaturesBar = () => {
-  const items = ["Feature", "Feature", "Feature"];
+  const items = ["24/7 Emergency Service", "Licensed & Insured", "All Brands Serviced"];
   return (
     <section aria-label="Features quick bar" className="bg-primary text-primary-foreground shadow">
       <div className="container flex flex-col md:flex-row items-center justify-between">
