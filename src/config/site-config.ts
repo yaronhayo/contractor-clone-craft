@@ -216,32 +216,32 @@ function mergeDeep<T>(target: T, source: any): T {
 // Configuration for Pro Line Garage Experts
 const baseConfig: SiteConfig = {
   business: {
-    name: "Pro Line Garage Experts",
-    legalName: "Pro Line Garage Experts LLC",
-    phone: "(732) 555-0100",
-    email: "info@prolinegaragenj.com",
-    siteUrl: "https://www.prolinegaragenj.com",
+    name: "ez2fix",
+    legalName: "ez2fix LLC",
+    phone: "(201) 554-6769",
+    email: "info@ez2fix.com",
+    siteUrl: "https://www.ez2fix.com",
     hqAddress: {
       line1: "123 Main Street",
-      city: "Edison",
+      city: "Elmwood Park",
       state: "NJ",
-      postalCode: "08817",
+      postalCode: "07407",
       country: "US",
     },
-    geo: { lat: 40.5187, lng: -74.4121 },
+    geo: { lat: 40.9026, lng: -74.1218 },
     hours: {
-      mon: "7:00AM – 11:00PM",
-      tue: "7:00AM – 11:00PM",
-      wed: "7:00AM – 11:00PM",
-      thu: "7:00AM – 11:00PM",
-      fri: "7:00AM – 11:00PM",
-      sat: "7:00AM – 11:00PM",
-      sun: "7:00AM – 11:00PM",
+      mon: "24 Hours",
+      tue: "24 Hours",
+      wed: "24 Hours",
+      thu: "24 Hours",
+      fri: "24 Hours",
+      sat: "24 Hours",
+      sun: "24 Hours",
     },
     social: {
-      facebook: "https://facebook.com/prolinegaragenj",
-      instagram: "https://instagram.com/prolinegaragenj",
-      googleBusiness: "https://g.page/prolinegaragenj",
+      facebook: "https://facebook.com/ez2fix",
+      instagram: "https://instagram.com/ez2fix",
+      googleBusiness: "https://g.page/ez2fix",
     },
     branding: {
       colors: {
@@ -251,22 +251,22 @@ const baseConfig: SiteConfig = {
       },
       logos: {
         light: {
-          src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=400",
+          src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Logo.png",
           width: 200,
           height: 48,
-          alt: "Pro Line Garage Experts Logo",
+          alt: "ez2fix Logo",
         },
         dark: {
-          src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=400",
+          src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Logo.png",
           width: 200,
           height: 48,
-          alt: "Pro Line Garage Experts Logo",
+          alt: "ez2fix Logo",
         },
         mark: {
-          src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=100",
+          src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Favicon.png",
           width: 48,
           height: 48,
-          alt: "Pro Line Garage Experts Logo Mark",
+          alt: "ez2fix Logo Mark",
         },
       },
     },
@@ -334,26 +334,26 @@ const baseConfig: SiteConfig = {
   locations: [
     {
       id: "loc-edison",
-      name: "Pro Line Garage Experts Edison",
-      slug: "pro-line-garage-experts-edison-nj",
-      phone: "(732) 555-0100",
-      email: "edison@prolinegaragenj.com",
+      name: "ez2fix Elmwood Park",
+      slug: "ez2fix-elmwood-park-nj",
+      phone: "(201) 554-6769",
+      email: "info@ez2fix.com",
       address: {
         line1: "123 Main Street",
-        city: "Edison",
+        city: "Elmwood Park",
         state: "NJ",
-        postalCode: "08817",
+        postalCode: "07407",
         country: "US",
       },
-      geo: { lat: 40.5187, lng: -74.4121 },
+      geo: { lat: 40.9026, lng: -74.1218 },
       hours: {
-        mon: "7:00AM – 11:00PM",
-        tue: "7:00AM – 11:00PM",
-        wed: "7:00AM – 11:00PM",
-        thu: "7:00AM – 11:00PM",
-        fri: "7:00AM – 11:00PM",
-        sat: "7:00AM – 11:00PM",
-        sun: "7:00AM – 11:00PM",
+        mon: "24 Hours",
+        tue: "24 Hours",
+        wed: "24 Hours",
+        thu: "24 Hours",
+        fri: "24 Hours",
+        sat: "24 Hours",
+        sun: "24 Hours",
       },
       isPrimary: true,
       coverageRadiusMiles: 50,
@@ -390,6 +390,7 @@ const baseConfig: SiteConfig = {
         { name: "Weehawken", state: "NJ", slug: "weehawken-nj", center: { lat: 40.7698, lng: -74.0198 } },
         
         // Edison and surrounding Middlesex County
+        { name: "Elmwood Park", state: "NJ", slug: "elmwood-park-nj", center: { lat: 40.9026, lng: -74.1218 }, neighborhoods: ["Downtown", "East Elmwood Park"] },
         { name: "Edison", state: "NJ", slug: "edison-nj", center: { lat: 40.5187, lng: -74.4121 }, neighborhoods: ["Menlo Park", "Clara Barton", "Oak Tree"] },
         { name: "Woodbridge", state: "NJ", slug: "woodbridge-nj", center: { lat: 40.5576, lng: -74.2846 } },
         { name: "New Brunswick", state: "NJ", slug: "new-brunswick-nj", center: { lat: 40.4862, lng: -74.4518 } },
@@ -408,15 +409,15 @@ const baseConfig: SiteConfig = {
     serviceAreaDetail: (areaSlug: string) => `/service-areas/${areaSlug}`,
   },
   seo: {
-    defaultTitle: "Pro Line Garage Experts — Professional Garage Door Service in Edison, NJ",
+    defaultTitle: "ez2fix — Professional Garage Door Service in Elmwood Park, NJ",
     defaultDescription:
-      "Professional garage door installation, repair, and emergency services in Edison, NJ. Serving Bergen and Hudson counties with 24/7 availability.",
-    siteUrl: "https://www.prolinegaragenj.com",
+      "Professional garage door installation, repair, and emergency services in Elmwood Park, NJ. Serving Bergen and Hudson counties with 24/7 availability.",
+    siteUrl: "https://www.ez2fix.com",
     image: {
       src: "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 630,
-      alt: "Pro Line Garage Experts – quality garage door service",
+      alt: "ez2fix – quality garage door service",
     },
     templates: {
       service: "{{service.name}} | {{business.name}}",
@@ -428,7 +429,7 @@ const baseConfig: SiteConfig = {
   integrations: {
     googleMaps: {
       apiKey: "", // set per-site in Vercel Project Environment
-      defaultCenter: { lat: 40.5187, lng: -74.4121 },
+      defaultCenter: { lat: 40.9026, lng: -74.1218 },
       defaultZoom: 11,
     },
     recaptcha: {
@@ -440,9 +441,9 @@ const baseConfig: SiteConfig = {
       dataLayerName: "dataLayer",
     },
     resend: {
-      fromEmail: "no-reply@prolinegaragenj.com",
-      replyToEmail: "info@prolinegaragenj.com",
-      brand: "Pro Line Garage Experts",
+      fromEmail: "no-reply@ez2fix.com",
+      replyToEmail: "info@ez2fix.com",
+      brand: "ez2fix",
       templates: {
         contactForm: "resend_template_contact",
         estimateRequest: "resend_template_estimate",
@@ -460,7 +461,7 @@ const baseConfig: SiteConfig = {
       profileUrl: "https://www.pexels.com/",
     },
     vercel: {
-      projectName: "pro-line-garage-experts",
+      projectName: "ez2fix",
     },
   },
 };
