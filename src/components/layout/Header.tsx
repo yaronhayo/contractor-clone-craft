@@ -29,38 +29,19 @@ export const Header = () => {
 
         <ul className="hidden md:flex items-center gap-6 text-sm">
           <li>
-            <Link to="/about" className="hover:text-primary transition-colors">About</Link>
-          </li>
-          <li>
-            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-          </li>
-          <li>
-            <Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link>
-          </li>
-          <li>
-            <Link to="/locations" className="hover:text-primary transition-colors">Locations</Link>
-          </li>
-          <li>
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-1 hover:text-primary transition-colors">
                 Services <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="z-50 bg-background border shadow-md" sideOffset={6}>
-                <DropdownMenuItem asChild>
-                  <Link to={siteConfig.routes.individualService("emergency-locksmith", "emergency-locksmith")}>Emergency Locksmith (24/7)</Link>
-                </DropdownMenuItem>
-                {siteConfig.taxonomy.services.slice(0, 6).map((s) => (
-                  <DropdownMenuItem asChild key={s.slug}>
-                    <Link to={siteConfig.routes.individualService(s.categorySlug, s.slug)}>{s.name}</Link>
-                  </DropdownMenuItem>
-                ))}
-                <DropdownMenuItem asChild><Link to={siteConfig.routes.servicesIndex}>All services</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/service-categories">Browse categories</Link></DropdownMenuItem>
                 {siteConfig.taxonomy.categories.map((c) => (
                   <DropdownMenuItem asChild key={c.slug}>
                     <Link to={siteConfig.routes.serviceCategory(c.slug)}>{c.name}</Link>
                   </DropdownMenuItem>
                 ))}
+                <DropdownMenuItem asChild>
+                  <Link to={siteConfig.routes.servicesIndex}>View All Services</Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
@@ -77,10 +58,18 @@ export const Header = () => {
                     </Link>
                   </DropdownMenuItem>
                 ))}
-                <DropdownMenuItem asChild><Link to="/service-areas">All areas</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/city">Cities index</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-areas">View All Service Areas</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+          </li>
+          <li>
+            <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
+          </li>
+          <li>
+            <Link to="/reviews" className="hover:text-primary transition-colors">Reviews</Link>
+          </li>
+          <li>
+            <Link to="/about" className="hover:text-primary transition-colors">About</Link>
           </li>
           <li>
             <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
