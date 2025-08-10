@@ -16,7 +16,7 @@ const ReviewCard = ({ rating, text, author, location, service }: {
     <CardContent className="p-6">
       <div className="flex items-center gap-1 mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} className={`h-4 w-4 ${i < rating ? 'text-yellow-500 fill-current' : 'text-gray-300'}`} />
+          <Star key={i} className={`h-4 w-4 ${i < rating ? 'text-primary fill-current' : 'text-muted-foreground'}`} />
         ))}
       </div>
       <Quote className="h-6 w-6 text-primary/30 mb-3" />
@@ -82,7 +82,7 @@ const ReviewsTeaser = () => {
       
       <div className="relative container">
         <header className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Star className="h-4 w-4 fill-current" />
             Customer Reviews
           </div>
@@ -102,7 +102,7 @@ const ReviewsTeaser = () => {
               <div className="text-4xl font-extrabold text-primary mb-1">4.9</div>
               <div className="flex items-center gap-1 mb-1">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />
+                  <Star key={i} className="h-5 w-5 text-primary fill-current" />
                 ))}
               </div>
               <div className="text-sm text-muted-foreground">Average Rating</div>
