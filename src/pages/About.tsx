@@ -76,7 +76,7 @@ const About = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Stat value="10+" label="Years Serving NJ" />
             <Stat value="500+" label="Garage Doors Serviced" />
-            <Stat value="4.9/5" label="Average Rating" />
+            <Stat value="5.0/5" label="Average Rating" />
             <Stat value="24/7" label="Emergency Service" />
           </div>
         </section>

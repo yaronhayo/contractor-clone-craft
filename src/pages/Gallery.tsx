@@ -100,7 +100,7 @@ const Gallery = () => {
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
             <Stat value={`${allImages.length}+`} label="Recent Projects" />
             <Stat value="10+" label="Years of Garage Door Service" />
-            <Stat value="4.9/5" label="Average Rating" />
+            <Stat value="5.0/5" label="Average Rating" />
             <Stat value="24/7" label="Emergency Service Available" />
           </div>
         </section>

@@ -114,8 +114,8 @@ const Hero = () => {
           </div>
           </div>
 
-          {/* Quick Booking Form */}
-          <div className="animate-fade-in">
+          {/* Quick Booking Form - Lifted up for better alignment */}
+          <div className="animate-fade-in -mt-8 lg:-mt-12">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
               <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Quick Garage Door Service Request</h3>
               <form className="space-y-4">
@@ -139,6 +139,17 @@ const Hero = () => {
                   required
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 />
+                <select 
+                  required
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
+                >
+                  <option value="">When do you need service?</option>
+                  <option value="ASAP">ASAP</option>
+                  <option value="Today If Possible">Today If Possible</option>
+                  <option value="Within the next few days">Within the next few days</option>
+                  <option value="Within the next few weeks">Within the next few weeks</option>
+                  <option value="Not sure">Not sure</option>
+                </select>
                 <select 
                   required
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
