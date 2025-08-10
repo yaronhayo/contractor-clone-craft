@@ -24,6 +24,7 @@ This project does not use a traditional .env file. Configure publishable keys in
 - RESEND_API_KEY (used by api/send-email.ts)
 - EMAIL_FROM (e.g., "Your Brand <no-reply@yourdomain.com>")
 - EMAIL_TO (recipient for leads)
+- RECAPTCHA_SECRET (optional; enables server-side verification for reCAPTCHA v2 Invisible)
 
 3) How to wire Sanity
 - Go to /setup and enter your Sanity Project ID, dataset, and API version. The app will read content via @sanity/client. If not configured or if a query fails, pages safely fall back to site-config content.

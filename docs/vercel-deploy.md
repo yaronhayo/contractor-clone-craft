@@ -12,6 +12,7 @@ This starter is optimized for Vercel. Use this guide for every locksmith site yo
 - RESEND_API_KEY: Your Resend API key
 - EMAIL_FROM: e.g., "Your Brand <no-reply@yourdomain.com>"
 - EMAIL_TO: Destination inbox for leads
+- RECAPTCHA_SECRET (optional): Enables server-side verification for reCAPTCHA v2 Invisible
 
 3) Deploy and configure the app
 - Visit https://your-domain/setup

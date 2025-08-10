@@ -14,7 +14,7 @@ Set these variables per project (environment):
 - `EMAIL_FROM` — Sender, e.g. `Your Brand <no-reply@yourdomain.com>`
 - `EMAIL_TO` — Where to receive leads, e.g. `leads@yourbrand.com`
 
-Optionally, set `RECAPTCHA_SECRET` in your function and verify tokens server-side (not enabled by default in this starter).
+Optionally, set `RECAPTCHA_SECRET` in your hosting environment. If set, `/api/send-email` will require and verify a valid reCAPTCHA v2 Invisible token for non-test submissions.
 
 ## Resend domain and sending
 - Verify your sending domain in Resend for best deliverability

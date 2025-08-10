@@ -37,6 +37,7 @@ export default async function handler(req: any, res: any) {
     utmCampaign,
     utmTerm,
     utmContent,
+    recaptchaToken,
     honeypot,
     company,
   } = body || {};
@@ -47,6 +48,39 @@ export default async function handler(req: any, res: any) {
     res.status(200).json({ ok: true });
     return;
   }
+
+  // Optional server-side reCAPTCHA verification (v2 Invisible)
+  const recaptchaSecret = process.env.RECAPTCHA_SECRET;
+  if (recaptchaSecret && type !== "test") {
+    const token = (recaptchaToken || "").toString().trim();
+    if (!token) {
+      res.status(400).json({ error: "Missing reCAPTCHA token" });
+      return;
+    }
+    try {
+      const ipHeader = (req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "").toString();
+      const remoteip = ipHeader.split(",")[0].trim();
+      const params = new URLSearchParams();
+      params.set("secret", recaptchaSecret);
+      params.set("response", token);
+      if (remoteip) params.set("remoteip", remoteip);
+
+      const verifyResp = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: params.toString(),
+      });
+      const verify = await verifyResp.json();
+      if (!verify?.success) {
+        res.status(400).json({ error: "reCAPTCHA verification failed" });
+        return;
+      }
+    } catch (e) {
+      res.status(500).json({ error: "reCAPTCHA verification error" });
+      return;
+    }
+  }
+
   const subjectBase = type === "estimate_request" ? "New Estimate Request" : "New Form Submission";
   const subject = `${subjectBase}${name ? ` from ${name}` : ""}`;
 
