@@ -4,6 +4,7 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 import { ChevronDown } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 import MobileNav from "@/components/layout/MobileNav";
+import { useCallTracking } from "@/hooks/useCallTracking";
 // cleaned unused navItems
 
 export const Header = () => {
@@ -86,9 +87,11 @@ export const Header = () => {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="rounded-full">
-            <a href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`} aria-label={`Call ${siteConfig.business.name}`} onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "header", phone: siteConfig.business.phone }); } catch {} }}>Call {siteConfig.business.phone}</a>
-          </Button>
+          {(() => { const { phone, telHref } = useCallTracking(siteConfig.business.phone); return (
+            <Button asChild size="sm" className="rounded-full">
+              <a href={telHref} aria-label={`Call ${siteConfig.business.name}`} onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "header", phone }); } catch {} }}>Call {phone}</a>
+            </Button>
+          ); })()}
         </div>
       </nav>
     </header>

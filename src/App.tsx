@@ -32,6 +32,13 @@ const CityServiceDetail = lazy(() => import("./pages/CityServiceDetail"));
 const ServiceCategoryDetail = lazy(() => import("./pages/ServiceCategoryDetail"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const Reviews = lazy(() => import("./pages/Reviews"));
+// New "Locksmith in" and "Locksmith near" pages
+const LocksmithInIndex = lazy(() => import("./pages/LocksmithInIndex"));
+const LocksmithInState = lazy(() => import("./pages/LocksmithInState"));
+const LocksmithInCounty = lazy(() => import("./pages/LocksmithInCounty"));
+const LocksmithInCity = lazy(() => import("./pages/LocksmithInCity"));
+const LocksmithInNeighborhood = lazy(() => import("./pages/LocksmithInNeighborhood"));
+const LocksmithNear = lazy(() => import("./pages/LocksmithNear"));
 
 const queryClient = new QueryClient();
 
@@ -62,6 +69,15 @@ const App = () => (
               <Route path="/locations/:slug" element={<LocationDetail />} />
               <Route path="/city/:slug" element={<CityHub />} />
               <Route path="/service-categories" element={<ServiceCategories />} />
+              
+              {/* Locksmith in hierarchy */}
+              <Route path="/locksmith-in" element={<LocksmithInIndex />} />
+              <Route path="/locksmith-in/:state" element={<LocksmithInState />} />
+              <Route path="/locksmith-in/:state/counties/:county" element={<LocksmithInCounty />} />
+              <Route path="/locksmith-in/:state/:city" element={<LocksmithInCity />} />
+              <Route path="/locksmith-in/:state/:city/:neighborhood" element={<LocksmithInNeighborhood />} />
+              {/* Locksmith near */}
+              <Route path="/locksmith-near/:slug" element={<LocksmithNear />} />
               
               <Route path="/faq" element={<FAQ />} />
               <Route path="/reviews" element={<Reviews />} />

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Helmet } from "react-helmet-async";
 import { useToast } from "@/components/ui/use-toast";
+import { Switch } from "@/components/ui/switch";
 
 const StatusBadge = ({ ok }: { ok: boolean }) => (
   <Badge variant={ok ? "default" : "secondary"}>{ok ? "Configured" : "Missing"}</Badge>
@@ -74,6 +75,7 @@ const Setup = () => {
     sanityProjectId: siteConfig.integrations.sanity?.projectId || "",
     sanityDataset: siteConfig.integrations.sanity?.dataset || "production",
     sanityApiVersion: siteConfig.integrations.sanity?.apiVersion || "2024-10-01",
+    sanityUseCdn: typeof siteConfig.integrations.sanity?.useCdn === "boolean" ? Boolean(siteConfig.integrations.sanity?.useCdn) : true,
     // Freepik
     freepikAttribution: siteConfig.integrations.freepik?.defaultAttribution || "",
     freepikProfileUrl: siteConfig.integrations.freepik?.profileUrl || "",
@@ -141,7 +143,7 @@ const Setup = () => {
         },
         gtm: { containerId: form.gtmContainerId || undefined, dataLayerName: form.gtmDataLayerName || undefined },
         recaptcha: { version: "v2-invisible", siteKey: form.recaptchaSiteKey || undefined },
-        sanity: { projectId: form.sanityProjectId || undefined, dataset: form.sanityDataset || undefined, apiVersion: form.sanityApiVersion || undefined },
+        sanity: { projectId: form.sanityProjectId || undefined, dataset: form.sanityDataset || undefined, apiVersion: form.sanityApiVersion || undefined, useCdn: form.sanityUseCdn },
         freepik: { defaultAttribution: form.freepikAttribution || undefined, profileUrl: form.freepikProfileUrl || undefined },
       },
     };
