@@ -89,29 +89,6 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Key Benefits - Horizontal Layout */}
-          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 animate-fade-in">
-            <div className="flex items-center gap-2 text-sm text-white">
-              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
-              <span>Same day service</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-white">
-              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
-              <span>10 year warranty</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-white">
-              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
-              <span>Licensed NJ contractor</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-white">
-              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
-              <span>10% senior discount</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-white">
-              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
-              <span>Free estimate</span>
-            </div>
-          </div>
           </div>
 
           {/* Quick Booking Form - Lifted up for better alignment */}
@@ -171,6 +148,30 @@ const Hero = () => {
               <p className="text-xs text-gray-600 text-center mt-3">
                 Free on-site estimate • 10 year warranty • Same day service • 10% senior discount
               </p>
+            </div>
+
+            {/* Key Benefits - Horizontal Layout */}
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 animate-fade-in">
+              <div className="flex items-center gap-2 text-sm text-white">
+                <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                <span>Same day service</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white">
+                <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                <span>10 year warranty</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white">
+                <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                <span>Licensed NJ contractor</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white">
+                <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                <span>10% senior discount</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white">
+                <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                <span>Free estimate</span>
+              </div>
             </div>
           </div>
         </div>
