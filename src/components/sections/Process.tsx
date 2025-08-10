@@ -123,10 +123,6 @@ const Process = () => {
               <div className="text-sm opacity-90">On-Site Estimate</div>
             </div>
           </div>
-      </div>
-    </section>
-  );
-};
 
           <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-bold" asChild>
             <a 
@@ -142,4 +138,9 @@ const Process = () => {
             </a>
           </Button>
         </div>
+      </div>
+    </section>
+  );
+};
+
 export default Process;
