@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Helmet } from "react-helmet-async";
 import { useToast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
+import LocationsImporter from "@/components/setup/LocationsImporter";
 
 const StatusBadge = ({ ok }: { ok: boolean }) => (
   <Badge variant={ok ? "default" : "secondary"}>{ok ? "Configured" : "Missing"}</Badge>
@@ -588,6 +589,11 @@ const Setup = () => {
                 <p className="text-xs text-muted-foreground">Tip: Keep a backup. Each location requires id, name, slug, phone, address, geo, hours, and serviceAreas[].</p>
               </CardContent>
             </Card>
+
+            <LocationsImporter
+              existingLocations={(() => { try { return JSON.parse(form.locationsJson || "[]"); } catch { return []; } })()}
+              onMerge={(locs) => setForm((f) => ({ ...f, locationsJson: JSON.stringify(locs, null, 2) }))}
+            />
 
             <div className="flex items-center gap-3">
               <Button type="submit">Save changes</Button>
