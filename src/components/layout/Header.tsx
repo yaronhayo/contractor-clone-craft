@@ -52,6 +52,7 @@ export const Header = () => {
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuItem asChild><Link to={siteConfig.routes.servicesIndex}>All services</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/service-categories">Browse categories</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </li>

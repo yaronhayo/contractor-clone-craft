@@ -24,6 +24,7 @@ const Locations = lazy(() => import("./pages/Locations"));
 const Setup = lazy(() => import("./pages/Setup"));
 const LocationDetail = lazy(() => import("./pages/LocationDetail"));
 const ServiceCategories = lazy(() => import("./pages/ServiceCategories"));
+const CityHub = lazy(() => import("./pages/CityHub"));
 
 const queryClient = new QueryClient();
 
@@ -49,11 +50,12 @@ const App = () => (
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/locations" element={<Locations />} />
               <Route path="/locations/:slug" element={<LocationDetail />} />
+              <Route path="/city/:slug" element={<CityHub />} />
+              <Route path="/service-categories" element={<ServiceCategories />} />
               <Route path="/setup" element={<Setup />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<Terms />} />
-              <Route path="/service-categories" element={<ServiceCategories />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
