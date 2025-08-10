@@ -99,6 +99,26 @@ const CityServiceDetail = () => {
             </div>
           </section>
 
+          {area && (
+            <section className="mt-10">
+              <h2 className="text-xl font-bold">Nearby Cities</h2>
+              <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+                {siteConfig.locations
+                  .find((l) => l.id === locationId)!
+                  .serviceAreas.filter((a) => a.slug !== citySlug)
+                  .slice(0, 6)
+                  .map((a) => (
+                    <li key={a.slug}>
+                      <Link to={siteConfig.routes.serviceCity(service.slug, a.slug)} className="story-link">
+                        {a.name}, {a.state}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </section>
+          )}
+
+
           <section className="mt-10">
             <h2 className="text-xl font-bold mb-3">Coverage Map</h2>
             <MapsProvider>
