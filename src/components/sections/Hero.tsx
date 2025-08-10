@@ -120,10 +120,12 @@ const Hero = () => {
               <Clock className="h-5 w-5 animate-pulse" />
               <div>
                 <p className="font-semibold">Emergency Garage Door Service Available 24/7</p>
-              <p className="text-sm opacity-90">Stuck with a broken garage door or spring? Call now for immediate assistance in Elmwood Park and surrounding areas!</p>
+                <p className="text-sm opacity-90">Stuck with a broken garage door or spring? Call now for immediate assistance in Elmwood Park and surrounding areas!</p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Floating Stats */}
@@ -136,9 +138,3 @@ const Hero = () => {
     </section>
   );
 };
-
-export default Hero;
-  )
-}
-  )
-}
