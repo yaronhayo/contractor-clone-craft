@@ -216,7 +216,6 @@ const ServicesHub = () => {
       <Header />
       <main id="content">
         {/* Hero Section */}
-        name: "All Garage Door Services",
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(234,158,37,0.15),transparent)]" />
           <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
