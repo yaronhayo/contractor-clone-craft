@@ -6,9 +6,9 @@ import { Link, useParams } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
 
 const ServiceDetail = () => {
-  const { slug } = useParams();
+  const { categorySlug, slug } = useParams();
   const service = siteConfig.taxonomy.services.find((s) => s.slug === slug) ?? siteConfig.taxonomy.services[0];
-  const category = siteConfig.taxonomy.categories.find((c) => c.slug === service.categorySlug);
+  const category = siteConfig.taxonomy.categories.find((c) => c.slug === (categorySlug || service.categorySlug));
 
   const serviceLd = {
     "@context": "https://schema.org",
@@ -46,12 +46,12 @@ const ServiceDetail = () => {
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
       { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}${siteConfig.routes.servicesIndex}` },
       ...(category ? [{ "@type": "ListItem", position: 3, name: category.name, item: `${siteUrl}${siteConfig.routes.serviceCategory(category.slug)}` }] : []),
-      { "@type": "ListItem", position: category ? 4 : 3, name: service.name, item: `${siteUrl}${siteConfig.routes.individualService(service.slug)}` },
+      { "@type": "ListItem", position: category ? 4 : 3, name: service.name, item: `${siteUrl}${siteConfig.routes.individualService(category?.slug || service.categorySlug, service.slug)}` },
     ],
   };
   return (
     <div>
-      <Seo title={`${service.name} | ${siteConfig.business.name}`} description={service.shortDescription || `Learn about ${service.name}. Get a free estimate today.`} canonical={siteConfig.routes.individualService(service.slug)} />
+      <Seo title={`${service.name} | ${siteConfig.business.name}`} description={service.shortDescription || `Learn about ${service.name}. Get a free estimate today.`} canonical={siteConfig.routes.individualService(category?.slug || service.categorySlug, service.slug)} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(serviceLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
@@ -117,7 +117,7 @@ const ServiceDetail = () => {
                 .filter((s) => s.categorySlug === service.categorySlug && s.slug !== service.slug)
                 .slice(0, 3)
                 .map((s) => (
-                  <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-md border p-4 hover-scale">
+                  <Link key={s.slug} to={siteConfig.routes.individualService(s.categorySlug, s.slug)} className="rounded-md border p-4 hover-scale">
                     <span className="font-medium">{s.name}</span>
                     <span className="block text-sm text-muted-foreground mt-1">{s.shortDescription || "Learn more"}</span>
                   </Link>

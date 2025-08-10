@@ -16,7 +16,8 @@ const Services = () => {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {items.map((s) => {
-          const to = siteConfig.routes.individualService(s.slug);
+          const categorySlug = siteConfig.taxonomy.services.find(ts => ts.slug === s.slug)?.categorySlug || siteConfig.taxonomy.categories[0]?.slug || "emergency-locksmith";
+          const to = siteConfig.routes.individualService(categorySlug, s.slug);
           const imgSrc = s.imageUrl || siteConfig.media.serviceCardDefault?.src || "";
           const alt = `${s.name} photo`;
           return (

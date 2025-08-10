@@ -23,7 +23,7 @@ const ServicesHub = () => {
       "@type": "ListItem",
       position: i + 1,
       name: s.name,
-      url: `${siteUrl}${siteConfig.routes.individualService(s.slug)}`,
+      url: `${siteUrl}${siteConfig.routes.individualService(s.categorySlug, s.slug)}`,
     })),
   };
 
@@ -59,7 +59,7 @@ const ServicesHub = () => {
             {siteConfig.taxonomy.services.map((s) => {
               const img = s.images?.[0] || siteConfig.media.serviceCardDefault;
               return (
-                <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-lg overflow-hidden border bg-card block hover-scale">
+                <Link key={s.slug} to={siteConfig.routes.individualService(s.categorySlug, s.slug)} className="rounded-lg overflow-hidden border bg-card block hover-scale">
                   {img && (
                     <img src={img.src} alt={img.alt || `${s.name} photo`} width={img.width} height={img.height} className="w-full h-48 object-cover" loading="lazy" />
                   )}

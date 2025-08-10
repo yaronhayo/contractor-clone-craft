@@ -47,11 +47,11 @@ export const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="z-50 bg-background border shadow-md" sideOffset={6}>
                 <DropdownMenuItem asChild>
-                  <Link to={siteConfig.routes.individualService("emergency-locksmith")}>Emergency Locksmith (24/7)</Link>
+                  <Link to={siteConfig.routes.individualService("emergency-locksmith", "emergency-locksmith")}>Emergency Locksmith (24/7)</Link>
                 </DropdownMenuItem>
                 {siteConfig.taxonomy.services.slice(0, 6).map((s) => (
                   <DropdownMenuItem asChild key={s.slug}>
-                    <Link to={siteConfig.routes.individualService(s.slug)}>{s.name}</Link>
+                    <Link to={siteConfig.routes.individualService(s.categorySlug, s.slug)}>{s.name}</Link>
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuItem asChild><Link to={siteConfig.routes.servicesIndex}>All services</Link></DropdownMenuItem>

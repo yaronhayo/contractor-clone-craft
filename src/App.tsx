@@ -51,8 +51,8 @@ const App = () => (
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/services" element={<ServicesHub />} />
               <Route path="/services/:serviceSlug-:citySlug" element={<CityServiceDetail />} />
-              <Route path="/services/:slug" element={<ServiceDetail />} />
-              <Route path="/service-areas" element={<ServiceAreasHub />} />
+              <Route path="/services/:categorySlug" element={<ServiceCategoryDetail />} />
+              <Route path="/services/:categorySlug/:slug" element={<ServiceDetail />} />
               <Route path="/service-areas/:slug" element={<ServiceAreaDetail />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/locations" element={<Locations />} />
@@ -60,7 +60,7 @@ const App = () => (
               <Route path="/locations/:slug" element={<LocationDetail />} />
               <Route path="/city/:slug" element={<CityHub />} />
               <Route path="/service-categories" element={<ServiceCategories />} />
-              <Route path="/services/category/:slug" element={<ServiceCategoryDetail />} />
+              
               <Route path="/setup" element={<Setup />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -72,7 +72,7 @@ const CityServiceLanding = ({ slug, area, locationId }: CityServiceLandingProps)
             <h2 className="text-xl font-bold">Popular services in {area}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
               {siteConfig.taxonomy.services.slice(0,3).map((s) => (
-                <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-md border p-4 hover-scale">
+                <Link key={s.slug} to={siteConfig.routes.individualService(s.categorySlug, s.slug)} className="rounded-md border p-4 hover-scale">
                   <span className="font-medium">{s.name}</span>
                   <span className="block text-sm text-muted-foreground mt-1">{s.shortDescription || "Learn more"}</span>
                 </Link>

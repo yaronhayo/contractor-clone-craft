@@ -6,9 +6,9 @@ import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const ServiceCategoryDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const category = siteConfig.taxonomy.categories.find((c) => c.slug === slug);
-  const services = siteConfig.taxonomy.services.filter((s) => s.categorySlug === slug);
+  const { categorySlug } = useParams<{ categorySlug: string }>();
+  const category = siteConfig.taxonomy.categories.find((c) => c.slug === categorySlug);
+  const services = siteConfig.taxonomy.services.filter((s) => s.categorySlug === categorySlug);
 
   const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
   const title = category ? `${category.name} Locksmith Services | ${siteConfig.business.name}` : `Services | ${siteConfig.business.name}`;
@@ -20,7 +20,7 @@ const ServiceCategoryDetail = () => {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
       { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}${siteConfig.routes.servicesIndex}` },
-      { "@type": "ListItem", position: 3, name: category?.name || "Category", item: `${siteUrl}${siteConfig.routes.serviceCategory(slug || "")}` },
+      { "@type": "ListItem", position: 3, name: category?.name || "Category", item: `${siteUrl}${siteConfig.routes.serviceCategory(categorySlug || "")}` },
     ],
   };
 
@@ -32,13 +32,13 @@ const ServiceCategoryDetail = () => {
       "@type": "ListItem",
       position: i + 1,
       name: s.name,
-      url: `${siteUrl}${siteConfig.routes.individualService(s.slug)}`,
+      url: `${siteUrl}${siteConfig.routes.individualService(s.categorySlug, s.slug)}`,
     })),
   };
 
   return (
     <div>
-      <Seo title={title} description={description} canonical={siteConfig.routes.serviceCategory(slug || "")} />
+      <Seo title={title} description={description} canonical={siteConfig.routes.serviceCategory(categorySlug || "")} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
@@ -55,7 +55,7 @@ const ServiceCategoryDetail = () => {
             {services.map((s) => {
               const img = s.images?.[0] || siteConfig.media.serviceCardDefault;
               return (
-                <Link key={s.slug} to={siteConfig.routes.individualService(s.slug)} className="rounded-lg overflow-hidden border bg-card block hover-scale">
+                <Link key={s.slug} to={siteConfig.routes.individualService(s.categorySlug, s.slug)} className="rounded-lg overflow-hidden border bg-card block hover-scale">
                   {img && (
                     <img
                       src={img.src}

@@ -24,7 +24,7 @@ const Footer = () => {
             <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2 text-sm">
               {siteConfig.taxonomy.services.slice(0,8).map((s) => (
                 <li key={s.slug}>
-                  <Link to={siteConfig.routes.individualService(s.slug)} className="hover:text-primary">
+                  <Link to={siteConfig.routes.individualService(s.categorySlug, s.slug)} className="hover:text-primary">
                     {s.name}
                   </Link>
                 </li>

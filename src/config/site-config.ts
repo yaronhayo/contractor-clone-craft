@@ -105,8 +105,8 @@ export type Location = {
 
 export type RouteTemplates = {
   servicesIndex: string; // "/services"
-  serviceCategory: (categorySlug: string) => string; // "/automotive-locksmith"
-  individualService: (serviceSlug: string) => string; // "/car-key-replacement"
+  serviceCategory: (categorySlug: string) => string; // "/services/automotive-locksmith"
+  individualService: (categorySlug: string, serviceSlug: string) => string; // "/services/automotive-locksmith/car-key-replacement"
   serviceCity: (serviceSlug: string, citySlug: string) => string; // "/car-key-replacement-san-antonio-tx"
   locationsIndex: string; // "/locations"
   locationDetail: (locationSlug: string) => string; // "/locations/locksmith-san-antonio-tx"
@@ -396,8 +396,8 @@ const baseConfig: SiteConfig = {
   ],
   routes: {
     servicesIndex: "/services",
-    serviceCategory: (categorySlug: string) => `/services/category/${categorySlug}`,
-    individualService: (serviceSlug: string) => `/services/${serviceSlug}`,
+    serviceCategory: (categorySlug: string) => `/services/${categorySlug}`,
+    individualService: (categorySlug: string, serviceSlug: string) => `/services/${categorySlug}/${serviceSlug}`,
     serviceCity: (serviceSlug: string, citySlug: string) => `/services/${serviceSlug}-${citySlug}`,
     locationsIndex: "/locations",
     locationDetail: (locationSlug: string) => `/locations/${locationSlug}`,
