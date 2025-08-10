@@ -216,11 +216,11 @@ function mergeDeep<T>(target: T, source: any): T {
 // Configuration for Pro Line Garage Experts
 const baseConfig: SiteConfig = {
   business: {
-    name: "First Class Locksmith",
+    name: "ez2fix",
     legalName: "ez2fix LLC",
-    phone: "(551) 250-5665",
-    email: "support@firstclasslocksmithnj.com",
-    siteUrl: "https://firstclasslocksmithnj.com",
+    phone: "(201) 554-6769",
+    email: "support@ez2fix.com",
+    siteUrl: "https://ez2fix.com",
     hqAddress: {
       line1: "123 Main Street",
       city: "Elmwood Park",
@@ -340,10 +340,10 @@ const baseConfig: SiteConfig = {
   locations: [
     {
       id: "loc-elmwood-park",
-      name: "First Class Locksmith Elmwood Park",
-      slug: "first-class-locksmith-elmwood-park-nj",
-      phone: "(551) 250-5665",
-      email: "support@firstclasslocksmithnj.com",
+      name: "ez2fix Elmwood Park",
+      slug: "ez2fix-elmwood-park-nj",
+      phone: "(201) 554-6769",
+      email: "support@ez2fix.com",
       address: {
         line1: "123 Main Street",
         city: "Elmwood Park",
