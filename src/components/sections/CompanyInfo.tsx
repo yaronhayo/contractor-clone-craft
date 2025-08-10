@@ -17,6 +17,9 @@ const CompanyInfo = () => {
   };
   const description = data?.defaultDescription || siteConfig.seo.defaultDescription;
 
+  const telHref = `tel:${(phone || "").replace(/[^+\d]/g, "")}`;
+  const mailHref = `mailto:${email}`;
+
   return (
     <section id="contact" className="container py-14 md:py-20">
       <div className="grid lg:grid-cols-3 gap-8">
@@ -29,8 +32,12 @@ const CompanyInfo = () => {
         <article className="lg:col-span-1">
           <h3 className="text-xl font-bold mb-2">Contact Us</h3>
             <ul className="space-y-1 text-sm">
-              <li>Email: {email}</li>
-              <li>Phone: {phone}</li>
+              <li>Email: <a href={mailHref} className="story-link" aria-label={`Email ${businessName}`}
+                onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "email_click", source: "company_info", email }); } catch {} }}
+              >{email}</a></li>
+              <li>Phone: <a href={telHref} className="story-link" aria-label={`Call ${businessName}`}
+                onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "company_info", phone }); } catch {} }}
+              >{phone}</a></li>
               <li>Address: {address.line1}, {address.city}, {address.state} {address.postalCode}</li>
             </ul>
           <div className="mt-4">
