@@ -48,6 +48,15 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
         addressCountry: siteConfig.business.hqAddress.country || "US",
       },
       areaServed: cities,
+      openingHours: [
+        `Mon ${siteConfig.business.hours.mon}`,
+        `Tue ${siteConfig.business.hours.tue}`,
+        `Wed ${siteConfig.business.hours.wed}`,
+        `Thu ${siteConfig.business.hours.thu}`,
+        `Fri ${siteConfig.business.hours.fri}`,
+        `Sat ${siteConfig.business.hours.sat}`,
+        `Sun ${siteConfig.business.hours.sun}`,
+      ],
       contactPoint: [
         {
           "@type": "ContactPoint",
