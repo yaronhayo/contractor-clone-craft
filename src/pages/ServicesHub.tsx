@@ -65,7 +65,7 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
           
           {/* Emergency Badge */}
-          {service.slug.includes('emergency') && (
+          {String(service.slug).includes('emergency') && (
             <div className="absolute top-4 left-4 z-10">
               <div className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse shadow-lg">
                 24/7 Available
