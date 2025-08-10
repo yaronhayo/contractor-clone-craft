@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
+import { Wrench, MapPin, Building2, Map as MapIcon, HelpCircle, Star, Info, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -22,12 +23,54 @@ const Footer = () => {
           <section aria-labelledby="quick-links-heading">
             <h2 id="quick-links-heading" className="text-sm font-semibold tracking-wide text-muted-foreground">Quick links</h2>
             <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2 text-sm">
-              <li><Link to={siteConfig.routes.servicesIndex} className="hover:text-primary">Services</Link></li>
-              <li><Link to="/service-areas" className="hover:text-primary">Service Areas</Link></li>
-              <li><Link to="/faq" className="hover:text-primary">FAQ</Link></li>
-              <li><Link to="/reviews" className="hover:text-primary">Reviews</Link></li>
-              <li><Link to="/about" className="hover:text-primary">About</Link></li>
-              <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
+              <li>
+                <Link to={siteConfig.routes.servicesIndex} className="flex items-center gap-2 hover:text-primary">
+                  <Wrench className="h-4 w-4" aria-hidden="true" />
+                  <span>Services</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/cities" className="flex items-center gap-2 hover:text-primary">
+                  <Building2 className="h-4 w-4" aria-hidden="true" />
+                  <span>Cities</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/service-areas" className="flex items-center gap-2 hover:text-primary">
+                  <MapPin className="h-4 w-4" aria-hidden="true" />
+                  <span>Service Areas</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/locations" className="flex items-center gap-2 hover:text-primary">
+                  <MapIcon className="h-4 w-4" aria-hidden="true" />
+                  <span>Locations</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/reviews" className="flex items-center gap-2 hover:text-primary">
+                  <Star className="h-4 w-4" aria-hidden="true" />
+                  <span>Reviews</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="flex items-center gap-2 hover:text-primary">
+                  <HelpCircle className="h-4 w-4" aria-hidden="true" />
+                  <span>FAQ</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="flex items-center gap-2 hover:text-primary">
+                  <Info className="h-4 w-4" aria-hidden="true" />
+                  <span>About</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="flex items-center gap-2 hover:text-primary">
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  <span>Contact</span>
+                </Link>
+              </li>
             </ul>
           </section>
 

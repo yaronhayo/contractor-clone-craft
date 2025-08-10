@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Wrench, MapPin, Building2, Map as MapIcon, HelpCircle, Star, Info, Phone } from "lucide-react";
 
 const MobileNav = () => {
   const areas = Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values());
@@ -28,7 +29,10 @@ const MobileNav = () => {
               ))}
               <li>
                 <SheetClose asChild>
-                  <Link to={siteConfig.routes.servicesIndex} className="hover:text-primary">View All Services</Link>
+                  <Link to={siteConfig.routes.servicesIndex} className="flex items-center gap-2 hover:text-primary">
+                    <Wrench className="h-4 w-4" aria-hidden="true" />
+                    <span>View All Services</span>
+                  </Link>
                 </SheetClose>
               </li>
             </ul>
@@ -46,17 +50,80 @@ const MobileNav = () => {
               ))}
               <li>
                 <SheetClose asChild>
-                  <Link to="/service-areas" className="hover:text-primary">View All Service Areas</Link>
+                  <Link to="/service-areas" className="flex items-center gap-2 hover:text-primary">
+                    <MapPin className="h-4 w-4" aria-hidden="true" />
+                    <span>View All Service Areas</span>
+                  </Link>
                 </SheetClose>
               </li>
             </ul>
           </div>
 
           <ul className="space-y-3">
-            <li><SheetClose asChild><Link to="/faq" className="hover:text-primary">FAQ</Link></SheetClose></li>
-            <li><SheetClose asChild><Link to="/reviews" className="hover:text-primary">Reviews</Link></SheetClose></li>
-            <li><SheetClose asChild><Link to="/about" className="hover:text-primary">About</Link></SheetClose></li>
-            <li><SheetClose asChild><Link to="/contact" className="hover:text-primary">Contact</Link></SheetClose></li>
+            <li>
+              <SheetClose asChild>
+                <Link to={siteConfig.routes.servicesIndex} className="flex items-center gap-2 hover:text-primary">
+                  <Wrench className="h-4 w-4" aria-hidden="true" />
+                  <span>Services</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link to="/cities" className="flex items-center gap-2 hover:text-primary">
+                  <Building2 className="h-4 w-4" aria-hidden="true" />
+                  <span>Cities</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link to="/service-areas" className="flex items-center gap-2 hover:text-primary">
+                  <MapPin className="h-4 w-4" aria-hidden="true" />
+                  <span>Service Areas</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link to="/locations" className="flex items-center gap-2 hover:text-primary">
+                  <MapIcon className="h-4 w-4" aria-hidden="true" />
+                  <span>Locations</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link to="/reviews" className="flex items-center gap-2 hover:text-primary">
+                  <Star className="h-4 w-4" aria-hidden="true" />
+                  <span>Reviews</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link to="/faq" className="flex items-center gap-2 hover:text-primary">
+                  <HelpCircle className="h-4 w-4" aria-hidden="true" />
+                  <span>FAQ</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link to="/about" className="flex items-center gap-2 hover:text-primary">
+                  <Info className="h-4 w-4" aria-hidden="true" />
+                  <span>About</span>
+                </Link>
+              </SheetClose>
+            </li>
+            <li>
+              <SheetClose asChild>
+                <Link to="/contact" className="flex items-center gap-2 hover:text-primary">
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  <span>Contact</span>
+                </Link>
+              </SheetClose>
+            </li>
           </ul>
         </nav>
       </SheetContent>
