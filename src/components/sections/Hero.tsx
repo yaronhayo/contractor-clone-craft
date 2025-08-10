@@ -15,26 +15,20 @@ const Hero = () => {
   const fallbackTitle = `${siteConfig.business.name} — Expert Garage Door Service ${city && state ? `in ${city}, ${state}` : ""}`;
   const heroTitle = data?.heroTitle?.trim() ? data?.heroTitle : fallbackTitle;
   const heroDescription = data?.heroDescription?.trim() ? data?.heroDescription : siteConfig.seo.defaultDescription;
-  const heroSrc = data?.heroImageUrl || siteConfig.media.hero?.src || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
-  const heroAlt = siteConfig.media.hero?.alt || `${siteConfig.business.name} hero image`;
+  const heroVideoSrc = "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/ez2fix-hero-background.mp4";
 
   return (
     <section aria-label="Hero" className="relative min-h-[85vh] flex items-center">
-      <Helmet>
-        <link rel="preload" as="image" href={heroSrc} />
-      </Helmet>
       
-      {/* Background Image with Enhanced Overlay */}
+      {/* Background Video with Enhanced Overlay */}
       <div className="absolute inset-0">
-        <img 
-          src={heroSrc} 
-          alt={heroAlt} 
-          width={siteConfig.media.hero?.width || 1600} 
-          height={siteConfig.media.hero?.height || 900} 
-          className="w-full h-full object-cover" 
-          loading="eager" 
-          decoding="async" 
-          fetchPriority="high" 
+        <video 
+          src={heroVideoSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/75 to-background/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/40" />
