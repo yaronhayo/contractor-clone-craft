@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site-config";
 import { useQuery } from "@tanstack/react-query";
 import { getServices, fallbackServiceItems } from "@/lib/cms";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Wrench, Clock, Shield } from "lucide-react";
+import { ArrowRight, Wrench, Clock, Shield, CheckCircle2 } from "lucide-react";
 
 const Services = () => {
   const { data } = useQuery({ queryKey: ["services"], queryFn: getServices, staleTime: 60_000 });
