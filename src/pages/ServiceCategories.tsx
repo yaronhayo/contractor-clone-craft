@@ -41,10 +41,17 @@ const ServiceCategories = () => {
               const catServices = services.filter((s) => s.categorySlug === cat.slug);
               return (
                 <section key={cat.slug} className="rounded-lg border p-4 md:p-6">
-                  <h2 className="text-xl md:text-2xl font-bold">{cat.name}</h2>
-                  {cat.description && (
-                    <p className="text-sm text-muted-foreground mt-1 max-w-3xl">{cat.description}</p>
-                  )}
+                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
+                    <div>
+                      <h2 className="text-xl md:text-2xl font-bold">{cat.name}</h2>
+                      {cat.description && (
+                        <p className="text-sm text-muted-foreground mt-1 max-w-3xl">{cat.description}</p>
+                      )}
+                    </div>
+                    <div>
+                      <Link to={siteConfig.routes.serviceCategory(cat.slug)} className="story-link">View all {cat.name} services</Link>
+                    </div>
+                  </div>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
                     {catServices.map((s) => {
                       const img = s.images?.[0] || siteConfig.media.serviceCardDefault;

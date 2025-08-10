@@ -302,43 +302,53 @@ const baseConfig: SiteConfig = {
   taxonomy: {
     categories: [
       {
-        slug: "automotive-locksmith",
-        name: "Automotive Locksmith",
-        description: "Car key replacement, key programming, lockouts, ignitions.",
+        slug: "emergency-locksmith",
+        name: "Emergency Locksmith",
+        description: "Urgent lockout services for cars, homes, businesses, and storage units—fast, damage-free entry.",
       },
       {
         slug: "residential-locksmith",
         name: "Residential Locksmith",
-        description: "Home lockouts, rekeying, smart lock installs.",
+        description: "Home security: rekeys, repairs, replacements, and gate locks.",
+      },
+      {
+        slug: "commercial-locksmith",
+        name: "Commercial Locksmith",
+        description: "Business security: master key systems, access control, exit devices, and more.",
+      },
+      {
+        slug: "automotive-locksmith",
+        name: "Automotive Locksmith",
+        description: "Car key replacement, key fob programming, lockouts, and ignition repair.",
       },
     ],
     services: [
-      {
-        slug: "car-key-replacement",
-        name: "Car Key Replacement",
-        categorySlug: "automotive-locksmith",
-        shortDescription: "On-site replacement and programming for lost or broken car keys.",
-        images: [
-          {
-            src: "/src/assets/service-1.jpg",
-            width: 1200,
-            height: 800,
-            alt: "Car key replacement service van",
-          },
-        ],
-      },
-      {
-        slug: "house-lockout",
-        name: "House Lockout",
-        categorySlug: "residential-locksmith",
-        shortDescription: "Emergency home lockout assistance, damage-free entry.",
-      },
-      {
-        slug: "emergency-locksmith",
-        name: "Emergency Locksmith",
-        categorySlug: "residential-locksmith",
-        shortDescription: "24/7 emergency lockout assistance for homes, cars, and businesses.",
-      },
+      // Emergency Locksmith
+      { slug: "car-lockout", name: "Car Lockout", categorySlug: "emergency-locksmith", shortDescription: "24/7 car lockout assistance—quick, damage-free entry." },
+      { slug: "house-lockout", name: "House Lockout", categorySlug: "emergency-locksmith", shortDescription: "Locked out of your home? We’ll get you back inside safely." },
+      { slug: "business-lockout", name: "Business Lockout", categorySlug: "emergency-locksmith", shortDescription: "Emergency entry for offices, shops, and industrial properties." },
+      { slug: "storage-unit-lockout", name: "Storage Unit Lockout", categorySlug: "emergency-locksmith", shortDescription: "Fast access to storage units without damage." },
+
+      // Residential Locksmith
+      { slug: "residential-lock-replacement", name: "Lock Replacement (Residential)", categorySlug: "residential-locksmith", shortDescription: "Replace worn or damaged home locks with secure hardware." },
+      { slug: "lock-rekey", name: "Lock Rekey", categorySlug: "residential-locksmith", shortDescription: "Rekey your existing locks to work with new keys." },
+      { slug: "lock-repair", name: "Lock Repair", categorySlug: "residential-locksmith", shortDescription: "Fix sticking, broken, or misaligned locks at your home." },
+      { slug: "gate-locks", name: "Gate Locks", categorySlug: "residential-locksmith", shortDescription: "Install and service secure locks for gates and outdoor entries." },
+
+      // Commercial Locksmith
+      { slug: "commercial-lock-replacement", name: "Lock Replacement (Commercial)", categorySlug: "commercial-locksmith", shortDescription: "Upgrade or replace commercial-grade locks for your business." },
+      { slug: "master-key-systems", name: "Master Key Systems", categorySlug: "commercial-locksmith", shortDescription: "Tiered access control with master and user-level keys." },
+      { slug: "access-control", name: "Access Control", categorySlug: "commercial-locksmith", shortDescription: "Keypads, card readers, and smart access solutions." },
+      { slug: "emergency-exit-devices", name: "Emergency Exit Devices", categorySlug: "commercial-locksmith", shortDescription: "Panic bars and fire exit hardware installation and service." },
+
+      // Automotive Locksmith
+      { slug: "car-key-replacement", name: "Car Key Replacement", categorySlug: "automotive-locksmith", shortDescription: "On-site replacement and programming for lost or broken car keys." },
+      { slug: "key-fob-programming", name: "Key Fob Programming", categorySlug: "automotive-locksmith", shortDescription: "Program new or existing fobs and remotes for your vehicle." },
+      { slug: "car-key-duplicate", name: "Car Key Duplicate", categorySlug: "automotive-locksmith", shortDescription: "Cut and program spare keys to avoid emergencies." },
+      { slug: "ignition-repair", name: "Ignition Repair", categorySlug: "automotive-locksmith", shortDescription: "Repair or replace faulty ignitions and key cylinders." },
+
+      // General catch-all service (optional existing)
+      { slug: "emergency-locksmith", name: "Emergency Locksmith", categorySlug: "emergency-locksmith", shortDescription: "24/7 emergency locksmith services for homes, cars, and businesses." },
     ],
   },
   locations: [
@@ -386,7 +396,7 @@ const baseConfig: SiteConfig = {
   ],
   routes: {
     servicesIndex: "/services",
-    serviceCategory: (categorySlug: string) => `/services/${categorySlug}`,
+    serviceCategory: (categorySlug: string) => `/services/category/${categorySlug}`,
     individualService: (serviceSlug: string) => `/services/${serviceSlug}`,
     serviceCity: (serviceSlug: string, citySlug: string) => `/services/${serviceSlug}-${citySlug}`,
     locationsIndex: "/locations",
