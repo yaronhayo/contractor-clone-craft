@@ -176,31 +176,31 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/about" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <Info className="h-4 w-4" />
+                  <Info className="h-4 w-4 text-primary" />
                   <span className="text-gray-300">About Us</span>
                 </Link>
               </li>
               <li>
                 <Link to="/faq" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <HelpCircle className="h-4 w-4" />
+                  <HelpCircle className="h-4 w-4 text-primary" />
                   <span className="text-gray-300">FAQ</span>
                 </Link>
               </li>
               <li>
                 <Link to="/reviews" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <Star className="h-4 w-4" />
+                  <Star className="h-4 w-4 text-primary" />
                   <span className="text-gray-300">Reviews</span>
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <Phone className="h-4 w-4" />
+                  <Phone className="h-4 w-4 text-primary" />
                   <span className="text-gray-300">Contact</span>
                 </Link>
               </li>
               <li>
                 <Link to="/locations" className="flex items-center gap-2 hover:text-primary transition-colors">
-                  <MapIcon className="h-4 w-4" />
+                  <MapIcon className="h-4 w-4 text-primary" />
                   <span className="text-gray-300">Locations</span>
                 </Link>
               </li>
