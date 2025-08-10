@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site-config";
 const ServiceDetail = () => {
   const { slug } = useParams();
   const service = siteConfig.taxonomy.services.find((s) => s.slug === slug) ?? siteConfig.taxonomy.services[0];
+  const category = siteConfig.taxonomy.categories.find((c) => c.slug === service.categorySlug);
 
   const serviceLd = {
     "@context": "https://schema.org",
@@ -44,7 +45,8 @@ const ServiceDetail = () => {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
       { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}${siteConfig.routes.servicesIndex}` },
-      { "@type": "ListItem", position: 3, name: service.name, item: `${siteUrl}${siteConfig.routes.individualService(service.slug)}` },
+      ...(category ? [{ "@type": "ListItem", position: 3, name: category.name, item: `${siteUrl}${siteConfig.routes.serviceCategory(category.slug)}` }] : []),
+      { "@type": "ListItem", position: category ? 4 : 3, name: service.name, item: `${siteUrl}${siteConfig.routes.individualService(service.slug)}` },
     ],
   };
   return (
@@ -58,7 +60,7 @@ const ServiceDetail = () => {
       <main id="content">
         <article className="container py-14 md:py-20">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-            <Link to="/">Home</Link> / <Link to={siteConfig.routes.servicesIndex}>Services</Link> / <span className="text-foreground">{service.name}</span>
+            <Link to="/">Home</Link> / <Link to={siteConfig.routes.servicesIndex}>Services</Link> {category ? <>/ <Link to={siteConfig.routes.serviceCategory(category.slug)}>{category.name}</Link></> : null} / <span className="text-foreground">{service.name}</span>
           </nav>
 
           <header className="mt-4">
