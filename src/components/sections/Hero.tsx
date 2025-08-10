@@ -56,14 +56,14 @@ const Hero = () => {
 
           <h1 id="content" className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight animate-fade-in">
             <span className="text-white">
-              24/7 Emergency Locksmith
+              24/7 Emergency Garage Door Service
             </span>
             <br />
             <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">in {city}, {state}</span>
           </h1>
           
           <p className="mt-4 text-base md:text-lg text-white/90 leading-relaxed animate-fade-in">
-            Car lockouts, house lockouts, lock repair, and key replacement. Available 24/7 across Bergen and Hudson Counties. 
+            Garage door repair, spring replacement, opener service, and installation. Available 24/7 across Bergen and Hudson Counties. 
             <strong className="text-yellow-400"> 15-minute response guaranteed.</strong>
           </p>
 
@@ -71,15 +71,15 @@ const Hero = () => {
           <div className="mt-6 grid grid-cols-1 gap-2 animate-fade-in">
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>15-minute emergency lockout response</span>
+              <span>15-minute emergency garage door response</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Residential, commercial & automotive locks</span>
+              <span>Residential, commercial & industrial garage doors</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Licensed NJ locksmith with 10+ years experience</span>
+              <span>Licensed NJ garage door specialist with 10+ years experience</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
@@ -113,7 +113,7 @@ const Hero = () => {
           {/* Quick Booking Form */}
           <div className="animate-fade-in">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
-              <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Quick Locksmith Service Request</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Quick Garage Door Service Request</h3>
               <form className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input 
@@ -131,7 +131,7 @@ const Hero = () => {
                 </div>
                 <input 
                   type="text" 
-                  placeholder="Service Address (Elmwood Park, NJ)" 
+                  placeholder="Service Address (Englewood, NJ)" 
                   required
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 />
@@ -139,18 +139,18 @@ const Hero = () => {
                   required
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 >
-                  <option value="">Select Locksmith Service</option>
-                  <option value="car-lockout">Car Lockout (Emergency)</option>
-                  <option value="house-lockout">House Lockout (Emergency)</option>
-                  <option value="lock-replacement">Lock Replacement</option>
-                  <option value="lock-rekey">Lock Rekey</option>
-                  <option value="key-replacement">Key Replacement</option>
+                  <option value="">Select Garage Door Service</option>
+                  <option value="garage-door-emergency">Garage Door Emergency</option>
+                  <option value="spring-replacement">Spring Replacement</option>
+                  <option value="garage-door-installation">Garage Door Installation</option>
+                  <option value="opener-repair">Opener Repair</option>
+                  <option value="garage-door-repair">Garage Door Repair</option>
                 </select>
                 <Button 
                   className="w-full text-base py-3 rounded-lg bg-gradient-to-r from-primary to-orange-500 hover:from-primary/90 hover:to-orange-500/90 shadow-lg hover:shadow-xl transition-all duration-300"
                   type="submit"
                 >
-                  Request Locksmith Service
+                  Request Garage Door Service
                 </Button>
               </form>
               <p className="text-xs text-gray-600 text-center mt-3">
@@ -165,7 +165,7 @@ const Hero = () => {
       <div className="absolute bottom-8 right-8 hidden lg:block animate-slide-in-right">
         <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-lg p-4 shadow-lg">
           <div className="text-2xl font-bold text-primary">24/7</div>
-          <div className="text-sm text-gray-600">Emergency Service</div>
+          <div className="text-sm text-gray-600">Emergency Garage Door</div>
         </div>
       </div>
     </section>

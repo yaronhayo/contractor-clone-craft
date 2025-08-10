@@ -17,7 +17,7 @@ const FeaturesBar = () => {
   const features = [
     { icon: Clock, text: "24/7 Emergency Service", highlight: true },
     { icon: Shield, text: "Licensed & Insured" },
-    { icon: Wrench, text: "All Lock Types Serviced" },
+    { icon: Wrench, text: "All Garage Door Brands" },
     { icon: Star, text: "4.9/5 Customer Rating" },
     { icon: CheckCircle2, text: "Satisfaction Guaranteed" },
   ];

@@ -216,19 +216,19 @@ function mergeDeep<T>(target: T, source: any): T {
 // Configuration for Pro Line Garage Experts
 const baseConfig: SiteConfig = {
   business: {
-    name: "ez2fix",
-    legalName: "ez2fix LLC",
-    phone: "(201) 554-6769",
-    email: "info@ez2fix.com",
-    siteUrl: "https://www.ez2fix.com",
+    name: "First Class Locksmith",
+    legalName: "First Class Locksmith LLC",
+    phone: "(551) 250-5665",
+    email: "support@firstclasslocksmithnj.com",
+    siteUrl: "https://firstclasslocksmithnj.com",
     hqAddress: {
       line1: "123 Main Street",
-      city: "Elmwood Park",
+      city: "Englewood",
       state: "NJ",
-      postalCode: "07407",
+      postalCode: "07631",
       country: "US",
     },
-    geo: { lat: 40.9026, lng: -74.1218 },
+    geo: { lat: 40.8929, lng: -73.9726 },
     hours: {
       mon: "24 Hours",
       tue: "24 Hours",
@@ -239,9 +239,9 @@ const baseConfig: SiteConfig = {
       sun: "24 Hours",
     },
     social: {
-      facebook: "https://facebook.com/ez2fix",
-      instagram: "https://instagram.com/ez2fix",
-      googleBusiness: "https://g.page/ez2fix",
+      facebook: "https://facebook.com/firstclasslocksmithnj",
+      instagram: "https://instagram.com/firstclasslocksmithnj",
+      googleBusiness: "https://g.page/firstclasslocksmithnj",
     },
     branding: {
       colors: {
@@ -254,29 +254,29 @@ const baseConfig: SiteConfig = {
           src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Logo.png",
           width: 200,
           height: 48,
-          alt: "ez2fix Logo",
+          alt: "First Class Locksmith Logo",
         },
         dark: {
           src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Logo.png",
           width: 200,
           height: 48,
-          alt: "ez2fix Logo",
+          alt: "First Class Locksmith Logo",
         },
         mark: {
           src: "https://mtbgayqzjrxjjmsjikcg.supabase.co/storage/v1/object/public/first-class-locksmith//First%20Class%20Locksmith%20Favicon.png",
           width: 48,
           height: 48,
-          alt: "ez2fix Logo Mark",
+          alt: "First Class Locksmith Logo Mark",
         },
       },
     },
   },
   media: {
     hero: {
-      src: "https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      src: "https://images.pexels.com/photos/1077735/pexels-photo-1077735.jpeg?auto=compress&cs=tinysrgb&w=1600",
       width: 1600,
       height: 900,
-      alt: "Professional locksmith services - locks and keys",
+      alt: "Professional garage door installation and repair services",
       credit: {
         source: "Other",
         author: "Pexels",
@@ -285,61 +285,61 @@ const baseConfig: SiteConfig = {
       },
     },
     serviceCardDefault: {
-      src: "https://images.pexels.com/photos/5691629/pexels-photo-5691629.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      src: "https://images.pexels.com/photos/1077735/pexels-photo-1077735.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 800,
-      alt: "Professional locksmith service",
+      alt: "Professional garage door service",
     },
     gallery: [
       {
-        src: "https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        src: "https://images.pexels.com/photos/1077735/pexels-photo-1077735.jpeg?auto=compress&cs=tinysrgb&w=1200",
         width: 1200,
         height: 800,
-        alt: "Locksmith services - security and access",
+        alt: "Garage door services - installation and repair",
       },
     ],
   },
   taxonomy: {
     categories: [
       {
-        slug: "emergency-locksmith",
-        name: "Emergency Locksmith",
-        description: "24/7 emergency locksmith service—fast response when you're locked out.",
+        slug: "emergency-garage-door",
+        name: "Emergency Garage Door",
+        description: "24/7 emergency garage door repair—fast response when your door won't open.",
       },
       {
-        slug: "residential-locksmith",
-        name: "Residential Locksmith",
-        description: "Complete residential locksmith services including lock installation and repair.",
+        slug: "residential-garage-door",
+        name: "Residential Garage Door",
+        description: "Complete residential garage door services including installation and repair.",
       },
       {
-        slug: "commercial-locksmith",
-        name: "Commercial Locksmith",
-        description: "Professional commercial locksmith services for businesses and offices.",
+        slug: "commercial-garage-door",
+        name: "Commercial Garage Door",
+        description: "Professional commercial garage door services for businesses and warehouses.",
       },
       {
-        slug: "automotive-locksmith",
-        name: "Automotive Locksmith",
-        description: "Car lockout, key replacement, and automotive locksmith services.",
+        slug: "garage-door-maintenance",
+        name: "Garage Door Maintenance",
+        description: "Preventive maintenance and tune-ups to keep your garage door running smoothly.",
       },
     ],
     services: [
-      // Emergency Locksmith
-      { slug: "car-lockout", name: "Car Lockout", categorySlug: "emergency-locksmith", shortDescription: "Fast car lockout service—get back in your vehicle quickly and safely." },
-      { slug: "house-lockout", name: "House Lockout", categorySlug: "emergency-locksmith", shortDescription: "Locked out of your home? 24/7 residential lockout service available." },
-      { slug: "business-lockout", name: "Business Lockout", categorySlug: "emergency-locksmith", shortDescription: "Commercial lockout service to get your business accessible again." },
+      // Emergency Garage Door
+      { slug: "garage-door-emergency", name: "Garage Door Emergency", categorySlug: "emergency-garage-door", shortDescription: "24/7 emergency garage door repair—get your door working again fast." },
+      { slug: "spring-replacement", name: "Spring Replacement", categorySlug: "emergency-garage-door", shortDescription: "Emergency garage door spring replacement and repair service." },
+      { slug: "opener-repair", name: "Opener Repair", categorySlug: "emergency-garage-door", shortDescription: "Garage door opener repair and troubleshooting service." },
       
-      // Residential Locksmith  
-      { slug: "lock-replacement", name: "Lock Replacement", categorySlug: "residential-locksmith", shortDescription: "Professional lock replacement for enhanced home security." },
-      { slug: "lock-rekey", name: "Lock Rekey", categorySlug: "residential-locksmith", shortDescription: "Rekey existing locks for new keys—cost-effective security solution." },
-      { slug: "lock-repair", name: "Lock Repair", categorySlug: "residential-locksmith", shortDescription: "Expert lock repair to restore proper function and security." },
+      // Residential Garage Door
+      { slug: "garage-door-installation", name: "Garage Door Installation", categorySlug: "residential-garage-door", shortDescription: "Professional garage door installation with quality doors and expert service." },
+      { slug: "garage-door-replacement", name: "Garage Door Replacement", categorySlug: "residential-garage-door", shortDescription: "Complete garage door replacement with modern, energy-efficient doors." },
+      { slug: "garage-door-repair", name: "Garage Door Repair", categorySlug: "residential-garage-door", shortDescription: "Expert garage door repair to restore proper function and safety." },
       
-      // Commercial Locksmith
-      { slug: "master-key-systems", name: "Master Key Systems", categorySlug: "commercial-locksmith", shortDescription: "Custom master key systems for businesses and property managers." },
-      { slug: "access-control", name: "Access Control", categorySlug: "commercial-locksmith", shortDescription: "Modern access control systems for enhanced business security." },
+      // Commercial Garage Door
+      { slug: "commercial-garage-doors", name: "Commercial Garage Doors", categorySlug: "commercial-garage-door", shortDescription: "Heavy-duty commercial garage doors for warehouses and businesses." },
+      { slug: "overhead-door-service", name: "Overhead Door Service", categorySlug: "commercial-garage-door", shortDescription: "Professional overhead door installation and repair for commercial properties." },
       
-      // Automotive Locksmith
-      { slug: "car-key-replacement", name: "Car Key Replacement", categorySlug: "automotive-locksmith", shortDescription: "Professional car key replacement for all vehicle makes and models." },
-      { slug: "key-fob-programming", name: "Key Fob Programming", categorySlug: "automotive-locksmith", shortDescription: "Expert key fob programming and replacement services." },
+      // Garage Door Maintenance
+      { slug: "preventive-maintenance", name: "Preventive Maintenance", categorySlug: "garage-door-maintenance", shortDescription: "Regular maintenance to prevent costly garage door repairs and extend life." },
+      { slug: "safety-inspection", name: "Safety Inspection", categorySlug: "garage-door-maintenance", shortDescription: "Comprehensive garage door safety inspections and tune-ups." },
 
     ],
   },
@@ -401,12 +401,6 @@ const baseConfig: SiteConfig = {
         { name: "Secaucus", state: "NJ", slug: "secaucus-nj", center: { lat: 40.7896, lng: -74.0565 } },
         { name: "Weehawken", state: "NJ", slug: "weehawken-nj", center: { lat: 40.7698, lng: -74.0198 } },
         
-        // Edison and surrounding Middlesex County
-        { name: "Elmwood Park", state: "NJ", slug: "elmwood-park-nj", center: { lat: 40.9026, lng: -74.1218 }, neighborhoods: ["Downtown", "East Elmwood Park"] },
-        { name: "Edison", state: "NJ", slug: "edison-nj", center: { lat: 40.5187, lng: -74.4121 }, neighborhoods: ["Menlo Park", "Clara Barton", "Oak Tree"] },
-        { name: "Woodbridge", state: "NJ", slug: "woodbridge-nj", center: { lat: 40.5576, lng: -74.2846 } },
-        { name: "New Brunswick", state: "NJ", slug: "new-brunswick-nj", center: { lat: 40.4862, lng: -74.4518 } },
-        { name: "Perth Amboy", state: "NJ", slug: "perth-amboy-nj", center: { lat: 40.5065, lng: -74.2654 } },
       ],
     },
   ],
@@ -421,15 +415,15 @@ const baseConfig: SiteConfig = {
     serviceAreaDetail: (areaSlug: string) => `/service-areas/${areaSlug}`,
   },
   seo: {
-    defaultTitle: "ez2fix — 24/7 Locksmith Service in Elmwood Park, NJ | Emergency Lockouts",
+    defaultTitle: "First Class Locksmith — 24/7 Garage Door Service in Englewood, NJ | Emergency Repair",
     defaultDescription:
-      "24/7 emergency locksmith service in Elmwood Park, NJ. Car lockouts, house lockouts, lock repair, key replacement. Fast response across Bergen and Hudson counties.",
-    siteUrl: "https://www.ez2fix.com",
+      "24/7 emergency garage door service in Englewood, NJ. Spring repair, opener service, installation, and emergency repairs. Fast response across Bergen and Hudson counties.",
+    siteUrl: "https://firstclasslocksmithnj.com",
     image: {
       src: "https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 630,
-      alt: "ez2fix – quality locksmith service",
+      alt: "First Class Locksmith – quality garage door service",
     },
     templates: {
       service: "{{service.name}} | {{business.name}}",
@@ -441,7 +435,7 @@ const baseConfig: SiteConfig = {
   integrations: {
     googleMaps: {
       apiKey: "", // set per-site in Vercel Project Environment
-      defaultCenter: { lat: 40.9026, lng: -74.1218 },
+      defaultCenter: { lat: 40.8929, lng: -73.9726 },
       defaultZoom: 11,
     },
     recaptcha: {
@@ -453,9 +447,9 @@ const baseConfig: SiteConfig = {
       dataLayerName: "dataLayer",
     },
     resend: {
-      fromEmail: "no-reply@ez2fix.com",
-      replyToEmail: "info@ez2fix.com",
-      brand: "ez2fix",
+      fromEmail: "no-reply@firstclasslocksmithnj.com",
+      replyToEmail: "support@firstclasslocksmithnj.com",
+      brand: "First Class Locksmith",
       templates: {
         contactForm: "resend_template_contact",
         estimateRequest: "resend_template_estimate",
@@ -473,7 +467,7 @@ const baseConfig: SiteConfig = {
       profileUrl: "https://www.pexels.com/",
     },
     vercel: {
-      projectName: "ez2fix",
+      projectName: "first-class-locksmith",
     },
   },
 };
