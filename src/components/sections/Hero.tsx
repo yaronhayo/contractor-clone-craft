@@ -9,8 +9,8 @@ const Hero = () => {
   const { data } = useQuery({ queryKey: ["homepage"], queryFn: getHomepageContent, staleTime: 60_000 });
 
   const primaryLoc = siteConfig.locations.find((l) => l.isPrimary) || siteConfig.locations[0];
-  const city = primaryLoc?.address.city;
-  const state = primaryLoc?.address.state;
+  const city = primaryLoc?.address?.city || "";
+  const state = primaryLoc?.address?.state || "";
 
   const fallbackTitle = `${siteConfig.business.name} — Expert Garage Door Repair ${city && state ? `in ${city}, ${state}` : ""}`;
   const heroTitle = data?.heroTitle?.trim() ? data?.heroTitle : fallbackTitle;
