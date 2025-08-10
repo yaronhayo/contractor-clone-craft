@@ -8,44 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 45 20% 98%;
-    --foreground: 0 0% 12%;
+    --background: 60 25% 93%; /* #F3F3E6 */
+    --foreground: 38 23% 9%; /* #1D1912 */
 
-    --card: 45 25% 96%;
-    --card-foreground: 0 0% 12%;
+    --card: 60 25% 93%; /* #F3F3E6 */
+    --card-foreground: 38 23% 9%; /* #1D1912 */
 
-    --popover: 45 25% 96%;
-    --popover-foreground: 0 0% 12%;
+    --popover: 60 25% 93%; /* #F3F3E6 */
+    --popover-foreground: 38 23% 9%; /* #1D1912 */
 
-    --primary: 39 85% 55%;
-    --primary-foreground: 45 25% 96%;
+    --primary: 42 63% 53%; /* #D2A63C */
+    --primary-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --secondary: 45 15% 92%;
-    --secondary-foreground: 0 0% 12%;
+    --secondary: 38 67% 44%; /* #BB8525 */
+    --secondary-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --muted: 45 15% 92%;
-    --muted-foreground: 0 0% 35%;
+    --muted: 38 67% 44%; /* #BB8525 */
+    --muted-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --accent: 39 85% 55%;
-    --accent-foreground: 45 25% 96%;
+    --accent: 46 81% 65%; /* #EECD5C */
+    --accent-foreground: 38 23% 9%; /* #1D1912 */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 45 25% 96%;
+    --destructive: 42 63% 53%; /* #D2A63C - using primary for destructive */
+    --destructive-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --border: 45 12% 85%;
-    --input: 45 12% 85%;
-    --ring: 39 85% 55%;
+    --border: 38 67% 44%; /* #BB8525 */
+    --input: 38 67% 44%; /* #BB8525 */
+    --ring: 42 63% 53%; /* #D2A63C */
 
     --radius: 0.75rem;
 
-    --sidebar-background: 45 20% 98%;
-
-    --sidebar-foreground: 0 0% 15%;
-
-    --sidebar-primary: 0 0% 10%;
-
-    --sidebar-primary-foreground: 45 20% 98%;
-
+    --sidebar-background: 60 25% 93%; /* #F3F3E6 */
+    --sidebar-foreground: 38 23% 9%; /* #1D1912 */
+    --sidebar-primary: 42 63% 53%; /* #D2A63C */
+    --sidebar-primary-foreground: 60 25% 93%; /* #F3F3E6 */
+    --sidebar-accent: 46 81% 65%; /* #EECD5C */
+    --sidebar-accent-foreground: 38 23% 9%; /* #1D1912 */
+    --sidebar-border: 38 67% 44%; /* #BB8525 */
+    --sidebar-ring: 42 63% 53%; /* #D2A63C */
     --sidebar-accent: 45 15% 90%;
 
     --sidebar-accent-foreground: 0 0% 10%;
@@ -56,41 +56,41 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 45 20% 98%;
+    --background: 38 23% 9%; /* #1D1912 */
+    --foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --card: 0 0% 12%;
-    --card-foreground: 45 20% 98%;
+    --card: 38 23% 9%; /* #1D1912 */
+    --card-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 45 20% 98%;
+    --popover: 38 23% 9%; /* #1D1912 */
+    --popover-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --primary: 39 85% 55%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 42 63% 53%; /* #D2A63C */
+    --primary-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 45 20% 98%;
+    --secondary: 38 67% 44%; /* #BB8525 */
+    --secondary-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 45 10% 70%;
+    --muted: 38 67% 44%; /* #BB8525 */
+    --muted-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --accent: 39 85% 55%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 46 81% 65%; /* #EECD5C */
+    --accent-foreground: 38 23% 9%; /* #1D1912 */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 45 20% 98%;
+    --destructive: 42 63% 53%; /* #D2A63C */
+    --destructive-foreground: 60 25% 93%; /* #F3F3E6 */
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 39 85% 55%;
-    --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 45 20% 98%;
-    --sidebar-primary: 39 85% 55%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 45 20% 98%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 39 85% 55%;
+    --border: 38 67% 44%; /* #BB8525 */
+    --input: 38 67% 44%; /* #BB8525 */
+    --ring: 42 63% 53%; /* #D2A63C */
+    --sidebar-background: 38 23% 9%; /* #1D1912 */
+    --sidebar-foreground: 60 25% 93%; /* #F3F3E6 */
+    --sidebar-primary: 42 63% 53%; /* #D2A63C */
+    --sidebar-primary-foreground: 60 25% 93%; /* #F3F3E6 */
+    --sidebar-accent: 46 81% 65%; /* #EECD5C */
+    --sidebar-accent-foreground: 38 23% 9%; /* #1D1912 */
+    --sidebar-border: 38 67% 44%; /* #BB8525 */
+    --sidebar-ring: 42 63% 53%; /* #D2A63C */
   }
 }
 

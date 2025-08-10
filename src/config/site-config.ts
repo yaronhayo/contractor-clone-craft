@@ -245,9 +245,9 @@ const baseConfig: SiteConfig = {
     },
     branding: {
       colors: {
-        primary: "39 85% 55%", // Golden orange from palette
-        secondary: "0 0% 12%", // Dark charcoal from palette 
-        accent: "45 20% 95%", // Light cream from palette
+        primary: "42 63% 53%", // #D2A63C
+        secondary: "38 23% 9%", // #1D1912  
+        accent: "46 81% 65%", // #EECD5C
       },
       logos: {
         light: {
