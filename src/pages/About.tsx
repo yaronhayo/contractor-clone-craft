@@ -93,7 +93,36 @@ const About = () => {
           </div>
         </section>
 
-        {/* Story / Timeline */}
+        {/* Licensing & Guarantees (E-E-A-T) */}
+        <section className="container py-10 md:py-14">
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle className="text-lg">Licensing & Insurance</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">
+                Licensed, bonded, and insured in {siteConfig.business.hqAddress.state}. License #: 123456 (replace). COI available on request.
+              </CardContent>
+            </Card>
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle className="text-lg">Hours & Response</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">
+                Mon–Fri {siteConfig.business.hours.mon} • Sat {siteConfig.business.hours.sat} • Sun {siteConfig.business.hours.sun}. Emergency response available.
+              </CardContent>
+            </Card>
+            <Card className="h-full">
+              <CardHeader>
+                <CardTitle className="text-lg">Satisfaction Guarantee</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">
+                100% satisfaction guarantee on workmanship. Parts warrantied per manufacturer.
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         <section className="container py-14 md:py-20">
           <div className="grid md:grid-cols-3 gap-10">
             <article className="md:col-span-2 space-y-4 text-muted-foreground">

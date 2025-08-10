@@ -27,6 +27,7 @@ const ServicesHub = () => {
           <header className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-extrabold">Locksmith Services in {siteConfig.business.hqAddress.city}</h1>
             <p className="mt-3 text-muted-foreground">Professional, reliable, and tailored to your security needs.</p>
+            <p className="mt-2 text-sm"><Link to="/service-categories" className="story-link">Browse by category</Link></p>
           </header>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">

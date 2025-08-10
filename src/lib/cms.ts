@@ -1,6 +1,6 @@
 import { getSanityClient } from "./sanity/client";
 import { siteConfig } from "@/config/site-config";
-import { faqsQuery, homepageQuery, servicesQuery, siteSettingsQuery } from "./sanity/queries";
+import { faqsQuery, homepageQuery, servicesQuery, siteSettingsQuery, serviceCategoriesQuery, locationsQuery } from "./sanity/queries";
 
 export type HomepageContent = {
   heroTitle?: string;
@@ -17,6 +17,24 @@ export type CMSService = {
   slug: string;
   shortDescription?: string;
   imageUrl?: string;
+};
+
+export type CMSServiceCategory = {
+  _id?: string;
+  name: string;
+  slug: string;
+  description?: string;
+  imageUrl?: string;
+};
+
+export type CMSLocation = {
+  _id?: string;
+  name: string;
+  slug: string;
+  phone?: string;
+  email?: string;
+  address?: { line1?: string; city?: string; state?: string; postalCode?: string };
+  geo?: { lat: number; lng: number };
 };
 
 export type CMSSiteSettings = {
@@ -69,6 +87,28 @@ export async function getServices(): Promise<CMSService[]> {
   try {
     const data = await client.fetch<CMSService[]>(servicesQuery);
     return Array.isArray(data) ? data.filter((s): s is CMSService => Boolean(s?.name && s?.slug)) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getServiceCategories(): Promise<CMSServiceCategory[]> {
+  if (!isSanityConfigured()) return [];
+  const client = getSanityClient();
+  try {
+    const data = await client.fetch<CMSServiceCategory[]>(serviceCategoriesQuery);
+    return Array.isArray(data) ? data.filter((c): c is CMSServiceCategory => Boolean(c?.name && c?.slug)) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getLocations(): Promise<CMSLocation[]> {
+  if (!isSanityConfigured()) return [];
+  const client = getSanityClient();
+  try {
+    const data = await client.fetch<CMSLocation[]>(locationsQuery);
+    return Array.isArray(data) ? data.filter((l): l is CMSLocation => Boolean(l?.name && l?.slug)) : [];
   } catch {
     return [];
   }

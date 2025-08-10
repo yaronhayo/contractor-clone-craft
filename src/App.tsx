@@ -23,6 +23,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const Locations = lazy(() => import("./pages/Locations"));
 const Setup = lazy(() => import("./pages/Setup"));
 const LocationDetail = lazy(() => import("./pages/LocationDetail"));
+const ServiceCategories = lazy(() => import("./pages/ServiceCategories"));
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/service-categories" element={<ServiceCategories />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

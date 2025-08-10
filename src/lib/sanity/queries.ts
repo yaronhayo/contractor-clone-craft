@@ -49,3 +49,30 @@ export const siteSettingsQuery = `*[_type == "siteSettings"][0]{
     "postalCode": coalesce(address.postalCode, "")
   }
 }`;
+
+export const serviceCategoriesQuery = `*[_type == "serviceCategory"] | order(name asc){
+  _id,
+  name,
+  "slug": slug.current,
+  description,
+  "imageUrl": coalesce(image.asset->url, "")
+}`;
+
+export const locationsQuery = `*[_type == "location"] | order(name asc){
+  _id,
+  name,
+  "slug": slug.current,
+  phone,
+  email,
+  "address": {
+    "line1": coalesce(address.line1, ""),
+    "city": coalesce(address.city, ""),
+    "state": coalesce(address.state, ""),
+    "postalCode": coalesce(address.postalCode, ""),
+  },
+  "geo": {
+    "lat": coalesce(geo.lat, 0),
+    "lng": coalesce(geo.lng, 0)
+  }
+}`;
+
