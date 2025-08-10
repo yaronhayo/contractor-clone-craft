@@ -15,8 +15,13 @@ const Hero = () => {
   const fallbackTitle = `${siteConfig.business.name} — Expert Garage Door Repair ${city && state ? `in ${city}, ${state}` : ""}`;
   const heroTitle = data?.heroTitle?.trim() ? data?.heroTitle : fallbackTitle;
   const heroDescription = data?.heroDescription?.trim() ? data?.heroDescription : siteConfig.seo.defaultDescription;
-  const heroSrc = data?.heroImageUrl || siteConfig.media.hero?.src || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
-  const heroAlt = siteConfig.media.hero?.alt || `${siteConfig.business.name} garage door repair service`;
+  
+  // Robust fallback for media hero properties
+  const mediaHero = siteConfig.media.hero || {};
+  const heroSrc = data?.heroImageUrl || mediaHero.src || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
+  const heroAlt = mediaHero.alt || `${siteConfig.business.name} garage door repair service`;
+  const heroWidth = mediaHero.width || 1600;
+  const heroHeight = mediaHero.height || 900;
 
   return (
     <section aria-label="Hero" className="relative min-h-[85vh] flex items-center">
@@ -29,8 +34,8 @@ const Hero = () => {
         <img 
           src={heroSrc} 
           alt={heroAlt} 
-          width={siteConfig.media.hero?.width || 1600} 
-          height={siteConfig.media.hero?.height || 900} 
+          width={heroWidth} 
+          height={heroHeight} 
           className="w-full h-full object-cover" 
           loading="eager" 
           decoding="async" 
