@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Wrench, Clock, Shield, CheckCircle2, Star, Phone, Zap, Award, Settings, AlertTriangle, MapPin } from "lucide-react";
+import { ArrowRight, Wrench, Clock, Shield, CheckCircle2, Star, Phone, Zap, Award, Settings, AlertTriangle, MapPin, HelpCircle, Calculator } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 
 const ServiceCard = ({ service, index }: { service: any; index: number }) => {
   const categorySlug = siteConfig.taxonomy.services.find(ts => ts.slug === service.slug)?.categorySlug || siteConfig.taxonomy.categories[0]?.slug || "garage-door-repair";
@@ -275,30 +280,6 @@ const ServicesHub = () => {
           </div>
         </section>
 
-        {/* Service Categories Section */}
-        <section className="relative py-16 md:py-24 bg-gray-50">
-          <div className="container">
-            <header className="text-center max-w-4xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                <Wrench className="h-4 w-4" />
-                Service Categories
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-                Browse by Service Type
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                Choose from our specialized locksmith service categories for faster navigation to exactly what you need.
-              </p>
-            </header>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {siteConfig.taxonomy.categories.map((category, index) => (
-                <CategoryCard key={category.slug} category={category} index={index} />
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* All Services Section */}
         <section className="container py-16 md:py-24">
           <header className="text-center max-w-4xl mx-auto mb-16">
@@ -319,6 +300,402 @@ const ServicesHub = () => {
             {siteConfig.taxonomy.services.map((service, index) => (
               <ServiceCard key={service.slug} service={service} index={index} />
             ))}
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="relative py-16 md:py-24 bg-gray-50 overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(234,158,37,0.1),transparent)]" />
+          
+          <div className="relative container">
+            <header className="text-center max-w-4xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <Wrench className="h-4 w-4" />
+                Our Process
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                How Our Locksmith Service Works
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                From emergency lockouts to security upgrades, our streamlined process ensures fast, professional service every time.
+              </p>
+            </header>
+
+            <div className="grid md:grid-cols-4 gap-8">
+              {[
+                {
+                  number: "01",
+                  icon: Phone,
+                  title: "Contact Us",
+                  description: "Call us or submit a request online. We're available 24/7 for emergency lockouts and scheduled service.",
+                  time: "Immediate response"
+                },
+                {
+                  number: "02", 
+                  icon: Clock,
+                  title: "Quick Response",
+                  description: "Our technician arrives within 15-30 minutes for emergencies, or at your scheduled appointment time.",
+                  time: "15-30 minutes"
+                },
+                {
+                  number: "03",
+                  icon: Wrench,
+                  title: "Expert Service",
+                  description: "Licensed locksmith performs the work using quality tools and parts. Clear communication throughout.",
+                  time: "30-60 minutes"
+                },
+                {
+                  number: "04",
+                  icon: CheckCircle2,
+                  title: "Quality Assured",
+                  description: "Test all locks and keys, clean up completely, and ensure you're 100% satisfied before we leave.",
+                  time: "Satisfaction guaranteed"
+                }
+              ].map((step, index) => (
+                <div key={index} className={`relative group animate-fade-in`} style={{ animationDelay: `${index * 150}ms` }}>
+                  <div className="bg-background border-2 rounded-2xl p-6 h-full hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
+                    {/* Step Number Badge */}
+                    <div className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-sm mb-4">
+                      {step.number}
+                    </div>
+                    
+                    {/* Icon */}
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                      <step.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    
+                    {/* Content */}
+                    <h3 className="text-lg font-bold mb-3">{step.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{step.description}</p>
+                    
+                    {/* Time Indicator */}
+                    <div className="inline-flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full text-xs">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                      <span className="font-medium text-gray-700">{step.time}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services FAQ Section */}
+        <section className="container py-16 md:py-24">
+          <header className="text-center max-w-4xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <HelpCircle className="h-4 w-4" />
+              Frequently Asked Questions
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+              Locksmith Service Questions
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              Common questions about our locksmith services, pricing, and coverage areas.
+            </p>
+          </header>
+
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {[
+                {
+                  q: "What areas do you serve for locksmith services?",
+                  a: "We serve Englewood, Fort Lee, Tenafly, Bergenfield, Cliffside Park, Ridgefield Park, Ridgefield, Cresskill, and surrounding Bergen County areas. Emergency service available 24/7."
+                },
+                {
+                  q: "How quickly can you respond to emergency lockouts?",
+                  a: "For emergency lockouts, we typically arrive within 15-30 minutes. Our mobile units are strategically positioned across Bergen County for rapid response."
+                },
+                {
+                  q: "Do you provide free estimates for locksmith services?",
+                  a: "Yes, we provide free, no-obligation estimates for all non-emergency locksmith services. Emergency lockout service has transparent, upfront pricing."
+                },
+                {
+                  q: "Are your locksmiths licensed and insured?",
+                  a: "Absolutely. All our locksmiths are fully licensed (NJ License #13VH13578200), bonded, and insured for your complete peace of mind."
+                },
+                {
+                  q: "What types of locks and security systems do you work with?",
+                  a: "We service all types of locks including traditional deadbolts, smart locks, high-security locks, automotive locks, and commercial access control systems."
+                },
+                {
+                  q: "Do you offer 24/7 emergency locksmith service?",
+                  a: "Yes, we provide 24/7 emergency locksmith service for lockouts, break-ins, and urgent security needs throughout our service area."
+                }
+              ].map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg px-4">
+                  <AccordionTrigger className="text-left font-semibold hover:text-primary transition-colors">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button size="lg" variant="outline" className="rounded-full px-8 border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
+              <Link to="/faq">
+                View All FAQs <ArrowRight className="h-4 w-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </section>
+
+        {/* Services Reviews Section */}
+        <section className="relative py-16 md:py-24 bg-gray-50 overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(234,158,37,0.1),transparent)]" />
+          
+          <div className="relative container">
+            <header className="text-center max-w-4xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <Star className="h-4 w-4 fill-current" />
+                Customer Reviews
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                What Our Customers Say
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                Real reviews from satisfied customers across Englewood, Fort Lee, and surrounding areas.
+              </p>
+            </header>
+
+            {/* Overall Rating Display */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-6 bg-background/80 backdrop-blur-sm border-2 border-primary/20 rounded-2xl p-8 shadow-lg">
+                <div className="text-center">
+                  <div className="text-4xl font-extrabold text-primary mb-1">5.0</div>
+                  <div className="flex items-center gap-1 mb-1 justify-center">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-primary fill-current" />
+                    ))}
+                  </div>
+                  <div className="text-sm text-muted-foreground">Average Rating</div>
+                </div>
+                <div className="h-12 w-px bg-border" />
+                <div className="text-center">
+                  <div className="text-4xl font-extrabold text-primary mb-1">500+</div>
+                  <div className="text-sm text-muted-foreground">Satisfied Customers</div>
+                </div>
+                <div className="h-12 w-px bg-border" />
+                <div className="text-center">
+                  <div className="text-4xl font-extrabold text-primary mb-1">24/7</div>
+                  <div className="text-sm text-muted-foreground">Emergency Available</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Reviews Grid */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {[
+                {
+                  rating: 5,
+                  text: "Locked out of my car at 2am - they arrived in 20 minutes and had me back in without any damage. Professional and fairly priced!",
+                  author: "Michael R.",
+                  location: "Englewood, NJ",
+                  service: "Car Lockout"
+                },
+                {
+                  rating: 5,
+                  text: "Rekeyed all our locks after moving in. Arrived on time, explained everything clearly, and left the place spotless. Highly recommend!",
+                  author: "Sarah L.",
+                  location: "Fort Lee, NJ", 
+                  service: "Lock Rekey"
+                },
+                {
+                  rating: 5,
+                  text: "Lost my car keys and needed new ones programmed. They came to my location and had everything working in 30 minutes. Great service!",
+                  author: "David K.",
+                  location: "Tenafly, NJ",
+                  service: "Car Key Replacement"
+                }
+              ].map((review, index) => (
+                <div key={index} className={`group animate-fade-in`} style={{ animationDelay: `${index * 200}ms` }}>
+                  <div className="bg-background border-2 rounded-2xl p-6 h-full hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
+                    <div className="flex items-center gap-1 mb-4">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} className="h-4 w-4 text-primary fill-current" />
+                      ))}
+                    </div>
+                    <blockquote className="text-muted-foreground mb-4 leading-relaxed group-hover:text-foreground/80 transition-colors">
+                      "{review.text}"
+                    </blockquote>
+                    <div className="border-t pt-4">
+                      <cite className="font-semibold text-foreground not-italic">{review.author}</cite>
+                      <div className="text-sm text-muted-foreground">{review.location} • {review.service}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Button size="lg" variant="outline" className="rounded-full px-8 border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
+                <Link to="/reviews">
+                  Read All Reviews <Star className="h-4 w-4 ml-2 fill-current" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Booking Form Section */}
+        <section className="relative py-16 md:py-24 bg-gradient-to-b from-background to-primary/5">
+          <div className="container">
+            <header className="text-center max-w-4xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <Calculator className="h-4 w-4" />
+                Book Your Service
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                Schedule Your Locksmith Service
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                Ready to get started? Fill out our quick booking form and we'll contact you within 15 minutes during business hours.
+              </p>
+            </header>
+
+            <div className="max-w-2xl mx-auto">
+              <div className="bg-background border-2 border-primary/20 rounded-2xl p-8 shadow-lg">
+                <form className="space-y-6">
+                  {/* Contact Info Grid */}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-foreground">Your Name *</label>
+                      <Input 
+                        required 
+                        placeholder="Enter your full name" 
+                        className="h-12 text-base"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-foreground">Phone Number *</label>
+                      <Input 
+                        required 
+                        type="tel" 
+                        placeholder="(551) 250-5665" 
+                        className="h-12 text-base"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-foreground">Email Address *</label>
+                    <Input 
+                      required 
+                      type="email" 
+                      placeholder="you@example.com" 
+                      className="h-12 text-base"
+                    />
+                  </div>
+
+                  {/* Service Address */}
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                      <MapPin className="h-4 w-4 text-primary" />
+                      Service Address *
+                    </label>
+                    <Input 
+                      required 
+                      placeholder="123 Main St, Englewood, NJ 07631" 
+                      className="h-12 text-base"
+                    />
+                  </div>
+
+                  {/* Service Type */}
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                      <Wrench className="h-4 w-4 text-primary" />
+                      What locksmith service do you need? *
+                    </label>
+                    <Select>
+                      <SelectTrigger className="h-12 text-base">
+                        <SelectValue placeholder="Select your locksmith service" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {siteConfig.taxonomy.services.map((s) => (
+                          <SelectItem key={s.slug} value={s.name}>{s.name}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Timeframe */}
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                      <Clock className="h-4 w-4 text-primary" />
+                      When do you need service? *
+                    </label>
+                    <Select>
+                      <SelectTrigger className="h-12 text-base">
+                        <SelectValue placeholder="Select your preferred timeframe" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="ASAP">ASAP (Emergency)</SelectItem>
+                        <SelectItem value="Today If Possible">Today If Possible</SelectItem>
+                        <SelectItem value="Within the next few days">Within the next few days</SelectItem>
+                        <SelectItem value="Within the next few weeks">Within the next few weeks</SelectItem>
+                        <SelectItem value="Not sure">Not sure</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-foreground">
+                      Describe your locksmith needs
+                    </label>
+                    <Textarea 
+                      rows={4} 
+                      placeholder="Tell us about your lock issue, security upgrade needs, or any specific requirements..."
+                      className="text-base"
+                    />
+                  </div>
+
+                  {/* Consent Checkbox */}
+                  <div className="flex items-start gap-3 p-4 bg-muted/30 rounded-lg">
+                    <Checkbox id="consent" />
+                    <label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed">
+                      I agree to the <Link to="/privacy-policy" className="text-primary underline hover:no-underline">Privacy Policy</Link> and 
+                      consent to being contacted about locksmith services.
+                    </label>
+                  </div>
+
+                  {/* Submit Button */}
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full h-14 text-lg font-semibold rounded-xl"
+                  >
+                    Book My Locksmith Service
+                  </Button>
+
+                  {/* Quick Contact Alternative */}
+                  <div className="text-center border-t pt-6">
+                    <p className="text-sm text-muted-foreground mb-3">Need immediate assistance?</p>
+                    <Button size="lg" variant="outline" className="rounded-full px-8 border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
+                      <a
+                        href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
+                        onClick={() => {
+                          try {
+                            (window as any).dataLayer = (window as any).dataLayer || [];
+                            (window as any).dataLayer.push({ event: "phone_click", source: "services_booking_form", phone: siteConfig.business.phone });
+                          } catch {}
+                        }}
+                      >
+                        <Phone className="h-5 w-5 mr-2" />
+                        Call {siteConfig.business.phone}
+                      </a>
+                    </Button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </section>
 
