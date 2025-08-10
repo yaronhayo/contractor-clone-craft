@@ -8,88 +8,43 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 60 25% 93%; /* #F3F3E6 */
-    --foreground: 38 23% 9%; /* #1D1912 */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 0%; /* #000000 */
 
-    --card: 60 25% 93%; /* #F3F3E6 */
-    --card-foreground: 38 23% 9%; /* #1D1912 */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 0%; /* #000000 */
 
-    --popover: 60 25% 93%; /* #F3F3E6 */
-    --popover-foreground: 38 23% 9%; /* #1D1912 */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 0 0% 0%; /* #000000 */
 
     --primary: 42 63% 53%; /* #D2A63C */
-    --primary-foreground: 60 25% 93%; /* #F3F3E6 */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
 
     --secondary: 38 67% 44%; /* #BB8525 */
-    --secondary-foreground: 60 25% 93%; /* #F3F3E6 */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --muted: 38 67% 44%; /* #BB8525 */
-    --muted-foreground: 60 25% 93%; /* #F3F3E6 */
+    --muted: 0 0% 95%; /* #F2F2F2 */
+    --muted-foreground: 0 0% 40%; /* #666666 */
 
     --accent: 46 81% 65%; /* #EECD5C */
-    --accent-foreground: 38 23% 9%; /* #1D1912 */
+    --accent-foreground: 0 0% 0%; /* #000000 */
 
     --destructive: 42 63% 53%; /* #D2A63C - using primary for destructive */
-    --destructive-foreground: 60 25% 93%; /* #F3F3E6 */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --border: 38 67% 44%; /* #BB8525 */
-    --input: 38 67% 44%; /* #BB8525 */
+    --border: 0 0% 90%; /* #E5E5E5 */
+    --input: 0 0% 95%; /* #F2F2F2 */
     --ring: 42 63% 53%; /* #D2A63C */
 
     --radius: 0.75rem;
 
-    --sidebar-background: 60 25% 93%; /* #F3F3E6 */
-    --sidebar-foreground: 38 23% 9%; /* #1D1912 */
+    --sidebar-background: 0 0% 100%; /* #FFFFFF */
+    --sidebar-foreground: 0 0% 0%; /* #000000 */
     --sidebar-primary: 42 63% 53%; /* #D2A63C */
-    --sidebar-primary-foreground: 60 25% 93%; /* #F3F3E6 */
+    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
     --sidebar-accent: 46 81% 65%; /* #EECD5C */
-    --sidebar-accent-foreground: 38 23% 9%; /* #1D1912 */
-    --sidebar-border: 38 67% 44%; /* #BB8525 */
-    --sidebar-ring: 42 63% 53%; /* #D2A63C */
-    --sidebar-accent: 45 15% 90%;
-
-    --sidebar-accent-foreground: 0 0% 10%;
-
-    --sidebar-border: 45 12% 85%;
-
-    --sidebar-ring: 39 85% 55%;
-  }
-
-  .dark {
-    --background: 38 23% 9%; /* #1D1912 */
-    --foreground: 60 25% 93%; /* #F3F3E6 */
-
-    --card: 38 23% 9%; /* #1D1912 */
-    --card-foreground: 60 25% 93%; /* #F3F3E6 */
-
-    --popover: 38 23% 9%; /* #1D1912 */
-    --popover-foreground: 60 25% 93%; /* #F3F3E6 */
-
-    --primary: 42 63% 53%; /* #D2A63C */
-    --primary-foreground: 60 25% 93%; /* #F3F3E6 */
-
-    --secondary: 38 67% 44%; /* #BB8525 */
-    --secondary-foreground: 60 25% 93%; /* #F3F3E6 */
-
-    --muted: 38 67% 44%; /* #BB8525 */
-    --muted-foreground: 60 25% 93%; /* #F3F3E6 */
-
-    --accent: 46 81% 65%; /* #EECD5C */
-    --accent-foreground: 38 23% 9%; /* #1D1912 */
-
-    --destructive: 42 63% 53%; /* #D2A63C */
-    --destructive-foreground: 60 25% 93%; /* #F3F3E6 */
-
-    --border: 38 67% 44%; /* #BB8525 */
-    --input: 38 67% 44%; /* #BB8525 */
-    --ring: 42 63% 53%; /* #D2A63C */
-    --sidebar-background: 38 23% 9%; /* #1D1912 */
-    --sidebar-foreground: 60 25% 93%; /* #F3F3E6 */
-    --sidebar-primary: 42 63% 53%; /* #D2A63C */
-    --sidebar-primary-foreground: 60 25% 93%; /* #F3F3E6 */
-    --sidebar-accent: 46 81% 65%; /* #EECD5C */
-    --sidebar-accent-foreground: 38 23% 9%; /* #1D1912 */
-    --sidebar-border: 38 67% 44%; /* #BB8525 */
+    --sidebar-accent-foreground: 0 0% 0%; /* #000000 */
+    --sidebar-border: 0 0% 90%; /* #E5E5E5 */
     --sidebar-ring: 42 63% 53%; /* #D2A63C */
   }
 }

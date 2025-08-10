@@ -7,7 +7,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { Suspense, lazy } from "react";
 import GTM from "@/components/integrations/GTM";
 import PageViewTracker from "@/components/integrations/PageViewTracker";
-import { ThemeProvider } from "next-themes";
 
 import MobileCallBar from "@/components/layout/MobileCallBar";
 import Index from "./pages/Index";
@@ -47,8 +46,7 @@ const App = () => (
   <HelmetProvider>
     <GTM />
     
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -94,8 +92,7 @@ const App = () => (
         </BrowserRouter>
         <MobileCallBar />
       </TooltipProvider>
-      </QueryClientProvider>
-    </ThemeProvider>
+    </QueryClientProvider>
     
   </HelmetProvider>
 );
