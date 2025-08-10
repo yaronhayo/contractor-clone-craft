@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet-async";
 import { useToast } from "@/components/ui/use-toast";
 import { Switch } from "@/components/ui/switch";
 import LocationsImporter from "@/components/setup/LocationsImporter";
+import LocationsSheetsSync from "@/components/setup/LocationsSheetsSync";
 
 const StatusBadge = ({ ok }: { ok: boolean }) => (
   <Badge variant={ok ? "default" : "secondary"}>{ok ? "Configured" : "Missing"}</Badge>
@@ -591,6 +592,11 @@ const Setup = () => {
             </Card>
 
             <LocationsImporter
+              existingLocations={(() => { try { return JSON.parse(form.locationsJson || "[]"); } catch { return []; } })()}
+              onMerge={(locs) => setForm((f) => ({ ...f, locationsJson: JSON.stringify(locs, null, 2) }))}
+            />
+
+            <LocationsSheetsSync
               existingLocations={(() => { try { return JSON.parse(form.locationsJson || "[]"); } catch { return []; } })()}
               onMerge={(locs) => setForm((f) => ({ ...f, locationsJson: JSON.stringify(locs, null, 2) }))}
             />
