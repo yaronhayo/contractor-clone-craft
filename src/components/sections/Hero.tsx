@@ -9,25 +9,19 @@ const Hero = () => {
   const { data } = useQuery({ queryKey: ["homepage"], queryFn: getHomepageContent, staleTime: 60_000 });
 
   const primaryLoc = siteConfig.locations.find((l) => l.isPrimary) || siteConfig.locations[0];
-  const city = primaryLoc?.address?.city || "";
-  const state = primaryLoc?.address?.state || "";
+  const city = primaryLoc?.address.city;
+  const state = primaryLoc?.address.state;
 
-  const fallbackTitle = `${siteConfig.business.name} — Expert Garage Door Repair ${city && state ? `in ${city}, ${state}` : ""}`;
+  const fallbackTitle = `${siteConfig.business.name} — Expert Garage Door Service ${city && state ? `in ${city}, ${state}` : ""}`;
   const heroTitle = data?.heroTitle?.trim() ? data?.heroTitle : fallbackTitle;
   const heroDescription = data?.heroDescription?.trim() ? data?.heroDescription : siteConfig.seo.defaultDescription;
-  
-  // Robust fallback for media hero properties
-  const mediaHero = siteConfig.media.hero || {};
-  const heroSrc = (data?.heroImageUrl || '').toString() || (mediaHero.src || '').toString() || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
-  const heroAlt = mediaHero.alt || `${siteConfig.business.name} garage door repair service`;
-  const heroWidth = mediaHero.width || 1600;
-  const heroHeight = mediaHero.height || 900;
-  const preloadHref = (mediaHero.src || '').toString() || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
+  const heroSrc = data?.heroImageUrl || siteConfig.media.hero?.src || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600";
+  const heroAlt = siteConfig.media.hero?.alt || `${siteConfig.business.name} hero image`;
 
   return (
     <section aria-label="Hero" className="relative min-h-[85vh] flex items-center">
       <Helmet>
-        <link rel="preload" as="image" href={preloadHref} />
+        <link rel="preload" as="image" href={heroSrc} />
       </Helmet>
       
       {/* Background Image with Enhanced Overlay */}
@@ -35,8 +29,8 @@ const Hero = () => {
         <img 
           src={heroSrc} 
           alt={heroAlt} 
-          width={heroWidth} 
-          height={heroHeight} 
+          width={siteConfig.media.hero?.width || 1600} 
+          height={siteConfig.media.hero?.height || 900} 
           className="w-full h-full object-cover" 
           loading="eager" 
           decoding="async" 
@@ -67,34 +61,34 @@ const Hero = () => {
 
           <h1 id="content" className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight animate-fade-in">
             <span className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-              Expert Garage Door Repair
+              Expert Garage Door Service
             </span>
             <br />
             <span className="text-primary">in {city}, {state}</span>
           </h1>
           
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-in">
-            Emergency garage door repair, spring repair, and professional installations with 24/7 service in Elmwood Park and Montclair. 
-            <strong className="text-foreground"> Same-day service • 10-year warranty • Free estimates.</strong>
+            Emergency repairs, professional installations, and 24/7 service across Bergen and Hudson Counties. 
+            <strong className="text-foreground"> Fast response guaranteed.</strong>
           </p>
 
           {/* Key Benefits */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl animate-fade-in">
             <div className="flex items-center gap-3 text-sm">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Same-day garage door repair service</span>
+              <span>Same-day emergency garage door repair</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>10-year warranty on all repairs</span>
+              <span>All major garage door brands serviced</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Licensed NJ professionals (License #13VH13553300)</span>
+              <span>Licensed professionals with 10+ years experience</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>10% senior discount + free on-site estimates</span>
+              <span>Transparent pricing with no hidden fees</span>
             </div>
           </div>
 
@@ -126,21 +120,22 @@ const Hero = () => {
               <Clock className="h-5 w-5 animate-pulse" />
               <div>
                 <p className="font-semibold">Emergency Garage Door Service Available 24/7</p>
-                <p className="text-sm opacity-90">Stuck with a broken garage door or spring? Call now for immediate assistance in Elmwood Park and surrounding areas!</p>
+                <p className="text-sm opacity-90">Stuck with a broken garage door? Call now for immediate assistance!</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
 
       {/* Floating Stats */}
       <div className="absolute bottom-8 right-8 hidden lg:block animate-slide-in-right">
         <div className="bg-background/95 backdrop-blur-sm border rounded-lg p-4 shadow-lg">
-          <div className="text-2xl font-bold text-primary">1000+</div>
-          <div className="text-sm text-muted-foreground">Garage Doors Repaired</div>
+          <div className="text-2xl font-bold text-primary">500+</div>
+          <div className="text-sm text-muted-foreground">Garage Doors Serviced</div>
         </div>
       </div>
     </section>
   );
 };
+
+export default Hero;

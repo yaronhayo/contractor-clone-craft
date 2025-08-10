@@ -38,14 +38,14 @@ const Welcome = () => {
         <header className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Star className="h-4 w-4 fill-current" />
-            Welcome to ez2fix
+            Welcome to Pro Line Garage Experts
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-            Elmwood Park's Most Trusted Garage Door Repair Experts
+            Edison's Most Trusted Garage Door Experts
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            For over 10 years, we've been the go-to garage door repair specialists for homeowners and businesses 
-            across Elmwood Park, Montclair, and surrounding areas. Our commitment to excellence shows in every repair.
+            For over 10 years, we've been the go-to garage door specialists for homeowners and businesses 
+            across Edison, Bergen County, and Hudson County. Our commitment to excellence shows in every project.
           </p>
           
           {/* Quick Contact */}
@@ -66,7 +66,7 @@ const Welcome = () => {
               </a>
             </Button>
             <p className="text-sm text-muted-foreground">
-              Available 24/7 for Emergency Garage Door Repair
+              Available 7 days a week, 7AM - 11PM
             </p>
           </div>
         </header>
@@ -76,20 +76,20 @@ const Welcome = () => {
           <FeatureCard 
             icon={Shield} 
             title="Licensed & Insured" 
-            description="Fully licensed garage door repair specialists with comprehensive insurance coverage. Your property and investment are completely protected."
-            stats="NJ License #13VH13553300"
+            description="Fully licensed garage door specialists with comprehensive insurance coverage. Your property and investment are completely protected."
+            stats="NJ License #13VH13578200"
           />
           <FeatureCard 
             icon={Clock} 
             title="24/7 Emergency Service" 
-            description="Garage door emergencies happen at the worst times. That's why we're available around the clock for urgent garage door repair and spring repair."
+            description="Garage door emergencies happen at the worst times. That's why we're available around the clock for urgent repairs and lockouts."
             stats="24/7"
           />
           <FeatureCard 
             icon={Award} 
-            title="10-Year Warranty" 
-            description="All garage door repairs come with our industry-leading 10-year warranty. Plus, seniors save 10% on all services."
-            stats="10 Years"
+            title="Proven Excellence" 
+            description="Over 500 garage doors serviced with consistent 5-star reviews. Our track record speaks for itself across Bergen and Hudson Counties."
+            stats="500+"
           />
         </div>
 
@@ -97,10 +97,10 @@ const Welcome = () => {
         <div className="bg-gradient-to-r from-background via-muted/10 to-background border rounded-2xl p-8 md:p-12">
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Trusted by Homeowners Across Elmwood Park & Montclair
+              Trusted by Homeowners Across New Jersey
             </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our commitment to quality garage door repair has earned us the trust of hundreds of families and businesses.
+              Our commitment to quality garage door service has earned us the trust of hundreds of families and businesses.
             </p>
           </div>
           
@@ -113,21 +113,21 @@ const Welcome = () => {
             </div>
             <div className="group">
               <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
-                1000+
+                250+
               </div>
-              <div className="text-sm text-muted-foreground">Garage Doors Repaired</div>
+              <div className="text-sm text-muted-foreground">Happy Customers</div>
             </div>
             <div className="group">
               <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
-                Same Day
+                15min
               </div>
-              <div className="text-sm text-muted-foreground">Service Available</div>
+              <div className="text-sm text-muted-foreground">Average Response</div>
             </div>
             <div className="group">
               <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
-                10 Years
+                100%
               </div>
-              <div className="text-sm text-muted-foreground">Warranty Coverage</div>
+              <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
             </div>
           </div>
         </div>

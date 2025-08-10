@@ -43,38 +43,38 @@ const Questions = () => {
   const problems = [
     {
       icon: AlertTriangle,
-      title: "Garage Door Won't Open in Elmwood Park?",
-      description: "Stuck with a garage door that won't budge? Our emergency garage door repair technicians are available 24/7 in Elmwood Park and Montclair to get you back up and running fast.",
+      title: "Garage Door Won't Open?",
+      description: "Stuck with a garage door that won't budge? Our emergency technicians are available 24/7 to get you back up and running fast.",
       urgency: "high" as const
     },
     {
       icon: Wrench,
-      title: "Garage Door Spring Repair Needed?",
-      description: "Garage door springs under high tension require professional garage door spring repair. Don't risk injury—call our certified technicians in Elmwood Park for same-day service.",
+      title: "Broken Springs or Cables?",
+      description: "Garage door springs and cables under high tension require professional repair. Don't risk injury—call our certified technicians.",
       urgency: "high" as const
     },
     {
       icon: Clock,
       title: "Opener Making Strange Noises?",
-      description: "Grinding, squeaking, or clicking sounds often indicate worn components. Early garage door repair intervention prevents costly emergency repairs.",
+      description: "Grinding, squeaking, or clicking sounds often indicate worn components. Early intervention prevents costly emergency repairs.",
       urgency: "medium" as const
     },
     {
       icon: Wrench,
       title: "Need a New Garage Door?",
-      description: "Upgrade to a modern, energy-efficient garage door with professional installation and our 10-year warranty coverage in Elmwood Park.",
+      description: "Upgrade to a modern, energy-efficient garage door with professional installation and manufacturer warranty coverage.",
       urgency: "low" as const
     },
     {
       icon: AlertTriangle,
       title: "Door Off Track or Damaged?",
-      description: "A garage door off its tracks is dangerous and can cause property damage. Our Elmwood Park experts safely realign and repair track systems with same-day service.",
+      description: "A garage door off its tracks is dangerous and can cause property damage. Our experts safely realign and repair track systems.",
       urgency: "high" as const
     },
     {
       icon: Clock,
       title: "Looking for Preventive Maintenance?",
-      description: "Regular garage door maintenance extends equipment life and prevents unexpected breakdowns. Schedule annual service today with our 10-year warranty protection.",
+      description: "Regular garage door maintenance extends equipment life and prevents unexpected breakdowns. Schedule annual service today.",
       urgency: "low" as const
     }
   ];
@@ -88,11 +88,11 @@ const Questions = () => {
             Common Garage Door Problems
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-            Garage Door Repair Problems in {siteConfig.business.hqAddress.city}?
+            Garage Door Problems in {siteConfig.business.hqAddress.city}?
           </h2>
           <p className="mt-6 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Don't let garage door issues disrupt your day. Our experienced garage door repair technicians handle everything from 
-            emergency spring repairs to scheduled maintenance across Elmwood Park, Montclair, and surrounding areas.
+            Don't let garage door issues disrupt your day. Our experienced technicians handle everything from 
+            emergency repairs to scheduled maintenance across Bergen and Hudson Counties.
           </p>
         </header>
 
@@ -108,8 +108,8 @@ const Questions = () => {
         <div className="text-center">
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl p-8 shadow-lg">
             <div className="text-center sm:text-left">
-              <h3 className="text-2xl font-bold mb-2">Emergency Garage Door Repair?</h3>
-              <p className="opacity-90">Available 24/7 across Elmwood Park, Montclair & surrounding areas</p>
+              <h3 className="text-2xl font-bold mb-2">Emergency Garage Door Service?</h3>
+              <p className="opacity-90">Available 24/7 across Edison, Bergen County & Hudson County</p>
             </div>
             <Button size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100 rounded-full px-8" asChild>
               <a 

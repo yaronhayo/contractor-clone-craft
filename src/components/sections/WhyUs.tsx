@@ -40,38 +40,38 @@ const WhyUs = () => {
     {
       icon: Shield,
       title: "Licensed & Insured",
-      description: "Fully licensed garage door repair specialists with comprehensive insurance coverage for your complete peace of mind and protection.",
-      highlight: "NJ License #13VH13553300"
+      description: "Fully licensed garage door specialists with comprehensive insurance coverage for your complete peace of mind and protection.",
+      highlight: "NJ Licensed"
     },
     {
       icon: Clock,
       title: "24/7 Emergency Service",
-      description: "Garage door emergencies don't wait for business hours. Our certified technicians are available around the clock for urgent garage door repair.",
+      description: "Garage door emergencies don't wait for business hours. Our certified technicians are available around the clock for urgent repairs.",
       highlight: "Always Available"
     },
     {
       icon: Award,
-      title: "10-Year Warranty",
-      description: "Industry-leading 10-year warranty on all garage door repairs. We stand behind our work with the longest warranty in the industry.",
-      highlight: "10-Year Coverage"
+      title: "10+ Years Experience",
+      description: "Over a decade of garage door expertise serving Edison, Bergen County, and Hudson County with consistent excellence and reliability.",
+      highlight: "Proven Track Record"
     },
     {
       icon: Users,
       title: "Local & Trusted",
-      description: "Family-owned business with deep community roots in Elmwood Park. We're your neighbors, committed to building long-term relationships through quality garage door repair.",
+      description: "Family-owned business with deep community roots. We're your neighbors, committed to building long-term relationships through quality service.",
       highlight: "Community Focused"
     },
     {
       icon: CheckCircle2,
-      title: "Same-Day Service",
-      description: "Need garage door repair today? We offer same-day service throughout Elmwood Park, Montclair, and surrounding areas.",
-      highlight: "Same Day Available"
+      title: "All Brands Serviced",
+      description: "From LiftMaster to Chamberlain, Genie to Craftsman—our technicians are trained and certified on all major garage door brands.",
+      highlight: "Universal Expertise"
     },
     {
       icon: Star,
-      title: "Senior Discounts",
-      description: "We offer 10% senior discounts on all garage door repair services. Plus, all estimates are completely free with no obligation.",
-      highlight: "10% Senior Discount"
+      title: "Satisfaction Guaranteed",
+      description: "100% satisfaction guarantee on all garage door work. If you're not completely happy, we'll make it right—no questions asked.",
+      highlight: "Money Back Guarantee"
     }
   ];
 
@@ -85,23 +85,23 @@ const WhyUs = () => {
         <header className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Star className="h-4 w-4 fill-current" />
-            Why Choose ez2fix
+            Why Choose Pro Line Garage Experts
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-            Elmwood Park's Premier Garage Door Repair Company
+            Edison's Premier Garage Door Service Company
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            When you choose ez2fix, you're choosing expertise, reliability, and a commitment to excellence 
-            that has made us the most trusted garage door repair service in Elmwood Park, Montclair, and surrounding areas.
+            When you choose Pro Line Garage Experts, you're choosing expertise, reliability, and a commitment to excellence 
+            that has made us the most trusted garage door service in Bergen and Hudson Counties.
           </p>
         </header>
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          <StatCard number="1000+" label="Garage Doors Repaired" sublabel="Since 2015" />
-          <StatCard number="4.9★" label="Average Rating" sublabel="500+ Reviews" />
+          <StatCard number="500+" label="Garage Doors Serviced" sublabel="Since 2015" />
+          <StatCard number="4.9★" label="Average Rating" sublabel="250+ Reviews" />
           <StatCard number="24/7" label="Emergency Service" sublabel="Always Available" />
-          <StatCard number="10 Yr" label="Warranty Coverage" sublabel="On All Repairs" />
+          <StatCard number="10+" label="Years Experience" sublabel="Local Expertise" />
         </div>
 
         {/* Features Grid */}
@@ -117,15 +117,15 @@ const WhyUs = () => {
         <div className="text-center">
           <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-primary-foreground shadow-xl">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready for Professional Garage Door Repair?
+              Ready for Professional Garage Door Service?
             </h3>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Join hundreds of satisfied customers across Elmwood Park, Montclair, and surrounding areas. 
-              Get your free estimate today and experience the ez2fix difference.
+              Join hundreds of satisfied customers across Edison, Bergen County, and Hudson County. 
+              Get your free estimate today and experience the Pro Line difference.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-semibold" asChild>
-                <a href="#estimate">Get Free Garage Door Estimate</a>
+                <a href="#estimate">Get Free Estimate</a>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary rounded-full px-8 py-4 text-lg font-semibold" asChild>
                 <a 
