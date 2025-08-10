@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { PhoneCall } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { getHomepageContent } from "@/lib/cms";
+import { Helmet } from "react-helmet-async";
 
 const Hero = () => {
   const { data } = useQuery({ queryKey: ["homepage"], queryFn: getHomepageContent, staleTime: 60_000 });
@@ -19,6 +20,9 @@ const Hero = () => {
 
   return (
     <section aria-label="Hero" className="relative">
+      <Helmet>
+        <link rel="preload" as="image" href={heroSrc} />
+      </Helmet>
       <div className="absolute inset-0">
         <img src={heroSrc} alt={heroAlt} width={siteConfig.media.hero?.width || 1600} height={siteConfig.media.hero?.height || 900} className="w-full h-[70vh] md:h-[80vh] object-cover" loading="eager" decoding="async" fetchPriority="high" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/50 to-background/80" />
