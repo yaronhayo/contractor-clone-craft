@@ -15,6 +15,55 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
   const services = siteConfig.taxonomy.services || [];
   const cities = siteConfig.locations.map((l) => ({ "@type": "City", name: `${l.address.city}, ${l.address.state}` }));
 
+  // Build openingHoursSpecification from configured business hours
+  const openingHoursSpecification = (() => {
+    const dayMap: Record<string, string> = {
+      mon: "Monday",
+      tue: "Tuesday",
+      wed: "Wednesday",
+      thu: "Thursday",
+      fri: "Friday",
+      sat: "Saturday",
+      sun: "Sunday",
+    };
+    const hours = siteConfig.business.hours || {} as any;
+
+    const parseTime = (t: string) => {
+      const m = t.trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(AM|PM)$/i);
+      if (!m) return null;
+      let h = parseInt(m[1], 10);
+      const min = parseInt(m[2] || "0", 10);
+      const ampm = m[3].toUpperCase();
+      if (ampm === "AM") {
+        if (h === 12) h = 0;
+      } else {
+        if (h !== 12) h += 12;
+      }
+      const hh = String(h).padStart(2, "0");
+      const mm = String(min).padStart(2, "0");
+      return `${hh}:${mm}`;
+    };
+
+    const specs: any[] = [];
+    (Object.keys(dayMap) as Array<keyof typeof dayMap>).forEach((k) => {
+      const val = (hours as any)[k];
+      if (!val) return;
+      if (/closed/i.test(val)) return;
+      const parts = val.split(/[–-]/); // en dash or hyphen
+      if (parts.length !== 2) return;
+      const open = parseTime(parts[0]);
+      const close = parseTime(parts[1]);
+      if (!open || !close) return;
+      specs.push({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: `https://schema.org/${dayMap[k]}`,
+        opens: open,
+        closes: close,
+      });
+    });
+    return specs;
+  })();
+
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -48,15 +97,7 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
         addressCountry: siteConfig.business.hqAddress.country || "US",
       },
       areaServed: cities,
-      openingHours: [
-        `Mon ${siteConfig.business.hours.mon}`,
-        `Tue ${siteConfig.business.hours.tue}`,
-        `Wed ${siteConfig.business.hours.wed}`,
-        `Thu ${siteConfig.business.hours.thu}`,
-        `Fri ${siteConfig.business.hours.fri}`,
-        `Sat ${siteConfig.business.hours.sat}`,
-        `Sun ${siteConfig.business.hours.sun}`,
-      ],
+      openingHoursSpecification: openingHoursSpecification.length ? openingHoursSpecification : undefined,
       contactPoint: [
         {
           "@type": "ContactPoint",
