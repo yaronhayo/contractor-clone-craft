@@ -51,6 +51,11 @@ const CityServiceDetail = () => {
       ratingValue: "4.9",
       reviewCount: 250,
     },
+    potentialAction: {
+      "@type": "ContactAction",
+      target: `tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`,
+      name: `Call ${siteConfig.business.name}`,
+    },
   };
 
   const img = service.images?.[0] || siteConfig.media.serviceCardDefault;

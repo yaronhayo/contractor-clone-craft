@@ -30,6 +30,11 @@ const ServiceDetail = () => {
       ratingValue: "4.9",
       reviewCount: 250,
     },
+    potentialAction: {
+      "@type": "ContactAction",
+      target: `tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`,
+      name: `Call ${siteConfig.business.name}`,
+    },
   };
 
   const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
@@ -116,6 +121,21 @@ const ServiceDetail = () => {
                   </Link>
                 ))}
             </div>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="text-xl font-bold">Available in These Cities</h2>
+            <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+              {Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values())
+                .slice(0, 8)
+                .map((a) => (
+                  <li key={a.slug}>
+                    <Link to={siteConfig.routes.serviceCity(service.slug, a.slug)} className="story-link">
+                      {a.name}, {a.state}
+                    </Link>
+                  </li>
+                ))}
+            </ul>
           </section>
 
           <div className="mt-10">
