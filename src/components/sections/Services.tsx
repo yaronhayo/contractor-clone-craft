@@ -139,4 +139,4 @@ const Services = () => {
   );
 };
 
-export default Hero;
+export default Services;
