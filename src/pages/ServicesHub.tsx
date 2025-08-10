@@ -4,6 +4,179 @@ import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { siteConfig } from "@/config/site-config";
 import { Helmet } from "react-helmet-async";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Wrench, Clock, Shield, CheckCircle2, Star, Phone, Zap, Award, Settings, AlertTriangle, MapPin } from "lucide-react";
+
+const ServiceCard = ({ service, index }: { service: any; index: number }) => {
+  const categorySlug = siteConfig.taxonomy.services.find(ts => ts.slug === service.slug)?.categorySlug || siteConfig.taxonomy.categories[0]?.slug || "garage-door-repair";
+  const to = siteConfig.routes.individualService(categorySlug, service.slug);
+  const imgSrc = service.imageUrl || siteConfig.media.serviceCardDefault?.src || "";
+  
+  // Service icon mapping
+  const serviceIcons = {
+    "garage-door-spring-repair": Zap,
+    "garage-door-repair": Wrench,
+    "garage-door-installation": Award,
+    "garage-door-opener-repair": Settings,
+    "emergency-garage-door-repair": AlertTriangle,
+  };
+  
+  const ServiceIcon = serviceIcons[service.slug as keyof typeof serviceIcons] || Wrench;
+  
+  // Enhanced service features
+  const serviceFeatures = {
+    "garage-door-spring-repair": ["High-tension spring replacement", "Safety inspection included", "10 year warranty"],
+    "garage-door-repair": ["Track realignment", "Panel replacement", "Hardware upgrades"],
+    "garage-door-installation": ["Custom sizing & fitting", "Energy efficient options", "Free on-site estimate"],
+    "garage-door-opener-repair": ["All major brands serviced", "Remote programming", "Safety sensor testing"],
+    "emergency-garage-door-repair": ["15 minute response time", "Mobile repair units", "After-hours availability"],
+  };
+  
+  const features = serviceFeatures[service.slug as keyof typeof serviceFeatures] || ["Expert technicians", "Quality parts", "Satisfaction guaranteed"];
+  
+  return (
+    <article 
+      className={`group relative overflow-hidden rounded-2xl border-2 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl animate-fade-in bg-gradient-to-br from-background to-accent/5`}
+      style={{ animationDelay: `${index * 150}ms` }}
+    >
+      {/* Floating Icon */}
+      <div className="absolute top-6 right-6 w-12 h-12 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-xl flex items-center justify-center z-10 group-hover:bg-primary/20 transition-all duration-300">
+        <ServiceIcon className="h-6 w-6 text-primary" />
+      </div>
+      
+      <Link to={to} className="block">
+        {/* Service Image */}
+        <div className="relative overflow-hidden">
+          {imgSrc && (
+            <img 
+              src={imgSrc} 
+              alt={`${service.name} in ${siteConfig.business.hqAddress.city}`} 
+              width={siteConfig.media.serviceCardDefault?.width || 1200} 
+              height={siteConfig.media.serviceCardDefault?.height || 800} 
+              className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" 
+              loading="lazy" 
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+          
+          {/* Emergency Badge */}
+          {service.slug.includes('emergency') && (
+            <div className="absolute top-4 left-4 z-10">
+              <div className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse shadow-lg">
+                24/7 Available
+              </div>
+            </div>
+          )}
+          
+          {/* Bottom overlay with service type */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-foreground/90 to-transparent text-background">
+            <div className="text-sm font-semibold opacity-90">Professional Service</div>
+          </div>
+        </div>
+
+        {/* Service Content */}
+        <div className="p-8">
+          <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-200">
+            {service.name}
+          </h3>
+          <p className="text-muted-foreground mb-6 leading-relaxed">
+            {service.shortDescription || "Professional garage door service with expert technicians and quality parts."}
+          </p>
+          
+          {/* Service Features List */}
+          <ul className="space-y-2 mb-6">
+            {features.map((feature, i) => (
+              <li key={i} className="flex items-center gap-3 text-sm">
+                <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                <span className="text-muted-foreground">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          {/* CTA Section */}
+          <div className="border-t pt-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Star className="h-4 w-4 text-primary fill-current" />
+                <span className="text-sm font-semibold text-primary">Free Estimate</span>
+              </div>
+              <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all duration-200">
+                <span>Learn More</span>
+                <ArrowRight className="h-5 w-5" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Link>
+      
+      {/* Quick Call Button - appears on hover */}
+      <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+        <Button size="sm" className="rounded-full shadow-lg" asChild>
+          <a 
+            href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              try {
+                (window as any).dataLayer = (window as any).dataLayer || [];
+                (window as any).dataLayer.push({ 
+                  event: "phone_click", 
+                  source: "service_card", 
+                  service: service.name,
+                  phone: siteConfig.business.phone 
+                });
+              } catch {}
+            }}
+          >
+            <Phone className="h-4 w-4" />
+          </a>
+        </Button>
+      </div>
+    </article>
+  );
+};
+
+const CategoryCard = ({ category, index }: { category: any; index: number }) => {
+  const services = siteConfig.taxonomy.services.filter(s => s.categorySlug === category.slug);
+  const serviceCount = services.length;
+  
+  const categoryIcons = {
+    "garage-door-repair": Wrench,
+    "garage-door-installation": Award,
+    "garage-door-opener": Settings,
+    "emergency-repair": AlertTriangle,
+  };
+  
+  const CategoryIcon = categoryIcons[category.slug as keyof typeof categoryIcons] || Wrench;
+  
+  return (
+    <article 
+      className={`group relative animate-fade-in`}
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl transform group-hover:scale-105 transition-transform duration-300 opacity-0 group-hover:opacity-100" />
+      <Link to={siteConfig.routes.serviceCategory(category.slug)} className="block">
+        <div className="relative bg-background border-2 rounded-2xl p-8 h-full text-center hover:border-primary/30 transition-all duration-300 hover:shadow-lg">
+          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+            <CategoryIcon className="h-8 w-8 text-primary" />
+          </div>
+          <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-200">
+            {category.name}
+          </h3>
+          <p className="text-muted-foreground mb-4 leading-relaxed">
+            {category.description}
+          </p>
+          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-4">
+            <span>{serviceCount} Services Available</span>
+          </div>
+          <div className="flex items-center justify-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all duration-200">
+            <span>Explore Services</span>
+            <ArrowRight className="h-4 w-4" />
+          </div>
+        </div>
+      </Link>
+    </article>
+  );
+};
 
 const ServicesHub = () => {
   const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
@@ -29,67 +202,243 @@ const ServicesHub = () => {
 
   return (
     <div>
-      <Seo title="Locksmith Services" description={`Explore our full list of locksmith services available in ${siteConfig.business.hqAddress.city} and nearby areas.`} canonical="/services" />
+      <Seo title="Locksmith Services in Englewood NJ | All Services" description={`Complete locksmith services in Englewood, Fort Lee, Tenafly and surrounding areas. Emergency lockout, rekeys, car keys, and commercial services.`} canonical="/services" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>
       </Helmet>
       <Header />
       <main id="content">
-        <section className="container py-14 md:py-20">
-          <header className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-extrabold">Garage Door Services in {siteConfig.business.hqAddress.city}</h1>
-            <p className="mt-3 text-muted-foreground">Professional, reliable, and tailored to your security needs.</p>
-            <p className="mt-2 text-sm"><Link to="/service-categories" className="story-link">Browse by category</Link></p>
-          </header>
+        {/* Hero Section */}
+        <section className="relative py-16 md:py-24 bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(234,158,37,0.15),transparent)]" />
+          <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
+          
+          <div className="relative container">
+            <nav aria-label="Breadcrumb" className="text-sm text-gray-300 mb-8">
+              <Link to="/" className="hover:text-primary transition-colors">Home</Link> 
+              <span className="mx-2">/</span> 
+              <span className="text-white font-medium">All Services</span>
+            </nav>
+            
+            <header className="text-center max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <Wrench className="h-4 w-4" />
+                Professional Locksmith Services
+              </div>
+              <h1 className="text-3xl md:text-5xl font-extrabold text-white">
+                Complete Locksmith Services in Englewood, NJ
+              </h1>
+              <p className="mt-6 text-lg text-gray-300 leading-relaxed">
+                From emergency lockouts to security upgrades, our licensed locksmiths provide expert service 
+                across Englewood, Fort Lee, Tenafly, and surrounding Bergen County areas.
+              </p>
+              
+              {/* Trust Indicators */}
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <Star className="h-4 w-4 text-primary fill-current" />
+                  <span className="text-sm font-semibold">5.0/5 Rating</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <Shield className="h-4 w-4 text-green-400" />
+                  <span className="text-sm font-semibold">Licensed NJ #13VH13578200</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <Clock className="h-4 w-4 text-blue-400" />
+                  <span className="text-sm font-semibold">24/7 Emergency</span>
+                </div>
+              </div>
 
-          <section className="mt-10">
-            <h2 className="text-xl font-bold text-center">Browse by Category</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-              {siteConfig.taxonomy.categories.map((c) => (
-                <Link key={c.slug} to={siteConfig.routes.serviceCategory(c.slug)} className="rounded-md border p-4 hover-scale block text-center">
-                  <span className="font-medium">{c.name}</span>
-                  {c.description ? <span className="block text-sm text-muted-foreground mt-1">{c.description}</span> : null}
-                </Link>
+              {/* CTA Buttons */}
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button size="lg" className="rounded-full px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300" asChild>
+                  <a
+                    href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
+                    onClick={() => {
+                      try {
+                        (window as any).dataLayer = (window as any).dataLayer || [];
+                        (window as any).dataLayer.push({ event: "phone_click", source: "services_hero", phone: siteConfig.business.phone });
+                      } catch {}
+                    }}
+                  >
+                    <Phone className="h-5 w-5 mr-2" />
+                    Call {siteConfig.business.phone}
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="rounded-full px-8 py-4 text-lg font-bold border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300" asChild>
+                  <Link to="/contact">Get Free Estimate</Link>
+                </Button>
+              </div>
+            </header>
+          </div>
+        </section>
+
+        {/* Service Categories Section */}
+        <section className="relative py-16 md:py-24 bg-gray-50">
+          <div className="container">
+            <header className="text-center max-w-4xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <Wrench className="h-4 w-4" />
+                Service Categories
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                Browse by Service Type
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                Choose from our specialized locksmith service categories for faster navigation to exactly what you need.
+              </p>
+            </header>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {siteConfig.taxonomy.categories.map((category, index) => (
+                <CategoryCard key={category.slug} category={category} index={index} />
               ))}
             </div>
-          </section>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-            {siteConfig.taxonomy.services.map((s) => {
-              const img = s.images?.[0] || siteConfig.media.serviceCardDefault;
-              return (
-                <Link key={s.slug} to={siteConfig.routes.individualService(s.categorySlug, s.slug)} className="rounded-lg overflow-hidden border bg-card block hover-scale">
-                  {img && (
-                    <img src={img.src} alt={img.alt || `${s.name} photo`} width={img.width} height={img.height} className="w-full h-48 object-cover" loading="lazy" />
-                  )}
-                  <div className="p-4">
-                    <h2 className="font-semibold">{s.name}</h2>
-                    <p className="text-sm text-muted-foreground mt-1">{s.shortDescription || "Learn more about this service and what’s included"}</p>
-                  </div>
-                </Link>
-              );
-            })}
           </div>
+        </section>
 
-          {/* Popular city-service shortcuts for internal linking */}
-          <section className="mt-12">
-            <h2 className="text-xl font-bold">Popular in Top Cities</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-              {Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values()).slice(0,4).map((a) => (
-                <div key={a.slug} className="rounded-md border p-4">
-                  <div className="font-medium">{a.name}, {a.state}</div>
-                  <ul className="mt-2 space-y-1 text-sm">
-                    {siteConfig.taxonomy.services.slice(0,3).map((s) => (
-                      <li key={s.slug}>
-                        <Link to={siteConfig.routes.serviceCity(s.slug, a.slug)} className="story-link">{s.name} in {a.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
+        {/* All Services Section */}
+        <section className="container py-16 md:py-24">
+          <header className="text-center max-w-4xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <CheckCircle2 className="h-4 w-4" />
+              Complete Service List
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+              All Locksmith Services Available
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              Comprehensive locksmith solutions for residential, commercial, automotive, and emergency needs 
+              throughout Englewood and surrounding Bergen County areas.
+            </p>
+          </header>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {siteConfig.taxonomy.services.map((service, index) => (
+              <ServiceCard key={service.slug} service={service} index={index} />
+            ))}
+          </div>
+        </section>
+
+        {/* Popular City Services Section */}
+        <section className="relative py-16 md:py-24 bg-gradient-to-b from-gray-900 to-gray-800 text-white overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(234,158,37,0.1),transparent)]" />
+          
+          <div className="relative container">
+            <header className="text-center max-w-4xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <MapPin className="h-4 w-4" />
+                Popular in Your Area
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+                Locksmith Services in Top Cities
+              </h2>
+              <p className="mt-4 text-lg text-gray-300 leading-relaxed">
+                Quick access to our most requested locksmith services in the cities we serve across Bergen County.
+              </p>
+            </header>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values()).slice(0,4).map((area, index) => (
+                <div key={area.slug} className={`group animate-fade-in`} style={{ animationDelay: `${index * 100}ms` }}>
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
+                        <MapPin className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-white">{area.name}, {area.state}</h3>
+                        <div className="flex items-center gap-1 text-xs text-gray-300">
+                          <Star className="h-3 w-3 text-primary fill-current" />
+                          <span>5.0/5 rating</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <ul className="space-y-2">
+                      {siteConfig.taxonomy.services.slice(0,3).map((service) => (
+                        <li key={service.slug}>
+                          <Link 
+                            to={siteConfig.routes.serviceCity(service.slug, area.slug)} 
+                            className="block text-sm text-gray-300 hover:text-primary transition-colors p-2 rounded-lg hover:bg-white/10"
+                          >
+                            {service.name} in {area.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div className="mt-4 pt-4 border-t border-white/20">
+                      <Link 
+                        to={siteConfig.routes.serviceAreaDetail(area.slug)}
+                        className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-200 text-sm"
+                      >
+                        View All Services <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="container py-16 md:py-20">
+          <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-primary-foreground shadow-xl">
+            <div className="text-center">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                Ready for Professional Locksmith Service?
+              </h3>
+              <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+                Don't wait when you need locksmith service. Our expert technicians are standing by to help 
+                with any lock, key, or security need across Englewood and surrounding areas.
+              </p>
+              
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div className="bg-white/10 rounded-xl p-4">
+                  <div className="text-2xl font-bold mb-1">24/7</div>
+                  <div className="text-sm opacity-90">Emergency Service</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4">
+                  <div className="text-2xl font-bold mb-1">15min</div>
+                  <div className="text-sm opacity-90">Response Time</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4">
+                  <div className="text-2xl font-bold mb-1">5.0★</div>
+                  <div className="text-sm opacity-90">Customer Rating</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4">
+                  <div className="text-2xl font-bold mb-1">Free</div>
+                  <div className="text-sm opacity-90">Estimates</div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-bold shadow-lg" asChild>
+                  <a 
+                    href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
+                    onClick={() => {
+                      try {
+                        (window as any).dataLayer = (window as any).dataLayer || [];
+                        (window as any).dataLayer.push({ event: "phone_click", source: "services_cta", phone: siteConfig.business.phone });
+                      } catch {}
+                    }}
+                  >
+                    <Phone className="h-5 w-5 mr-2" />
+                    Call {siteConfig.business.phone}
+                  </a>
+                </Button>
+                <Button size="lg" className="bg-gray-900 text-white border-2 border-gray-900 hover:bg-gray-800 rounded-full px-8 py-4 text-lg font-bold" asChild>
+                  <Link to="/contact">Get Free Estimate</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
       <Footer />
