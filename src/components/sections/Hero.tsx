@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <section aria-label="Hero" className="relative min-h-[85vh] flex items-center">
       <Helmet>
-        <link rel="preload" as="image" href={heroSrc} />
+        <link rel="preload" as="image" href={siteConfig.media.hero?.src || "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600"} />
       </Helmet>
       
       {/* Background Image with Enhanced Overlay */}
