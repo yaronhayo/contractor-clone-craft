@@ -104,7 +104,7 @@ const WhyUs = () => {
             <div className="text-sm text-gray-400">Since 2015</div>
           </div>
           <div className="text-center group">
-            <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">4.9★</div>
+            <div className="text-4xl md:text-5xl font-extrabold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">5.0★</div>
             <div className="font-semibold text-white">Average Rating</div>
             <div className="text-sm text-gray-400">250+ Reviews</div>
           </div>

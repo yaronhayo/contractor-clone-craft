@@ -42,7 +42,7 @@ const Hero = () => {
           <div className="flex flex-wrap items-center gap-3 mb-4 animate-fade-in">
             <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
               <Star className="h-4 w-4 text-yellow-500 fill-current" />
-              <span className="text-sm font-semibold text-gray-900">4.9/5 Rating</span>
+              <span className="text-sm font-semibold text-gray-900">5.0/5 Rating</span>
             </div>
             <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
               <Shield className="h-4 w-4 text-green-600" />

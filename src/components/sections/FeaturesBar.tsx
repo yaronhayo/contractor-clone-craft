@@ -18,7 +18,7 @@ const FeaturesBar = () => {
     { icon: Clock, text: "Same Day Service", highlight: true },
     { icon: Shield, text: "Licensed NJ #13VH13578200" },
     { icon: Wrench, text: "All Garage Door Brands" },
-    { icon: Star, text: "4.9/5 Customer Rating" },
+    { icon: Star, text: "5.0/5 Customer Rating" },
     { icon: CheckCircle2, text: "10 Year Warranty" },
   ];
 

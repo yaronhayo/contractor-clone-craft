@@ -99,7 +99,7 @@ export default function ReviewsTeaser() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-6 bg-background/80 backdrop-blur-sm border rounded-2xl p-6 shadow-lg">
             <div className="text-center">
-              <div className="text-4xl font-extrabold text-primary mb-1">4.9</div>
+              <div className="text-4xl font-extrabold text-primary mb-1">5.0</div>
               <div className="flex items-center gap-1 mb-1">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-primary fill-current" />

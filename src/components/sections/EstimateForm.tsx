@@ -438,7 +438,7 @@ const EstimateForm = () => {
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold">
               <Star className="h-4 w-4 text-primary fill-current" />
-              <span>4.9/5 Customer Rating</span>
+              <span>5.0/5 Customer Rating</span>
             </div>
           </div>
         </div>

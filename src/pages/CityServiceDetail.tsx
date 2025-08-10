@@ -48,7 +48,7 @@ const CityServiceDetail = () => {
     areaServed: area ? [{ "@type": "City", name: areaName }] : undefined,
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
+      ratingValue: "5.0",
       reviewCount: 250,
     },
     potentialAction: {
