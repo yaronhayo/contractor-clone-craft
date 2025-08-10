@@ -19,6 +19,18 @@ const Footer = () => {
             </ul>
           </section>
 
+          <section aria-labelledby="quick-links-heading">
+            <h2 id="quick-links-heading" className="text-sm font-semibold tracking-wide text-muted-foreground">Quick links</h2>
+            <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2 text-sm">
+              <li><Link to={siteConfig.routes.servicesIndex} className="hover:text-primary">Services</Link></li>
+              <li><Link to="/service-areas" className="hover:text-primary">Service Areas</Link></li>
+              <li><Link to="/faq" className="hover:text-primary">FAQ</Link></li>
+              <li><Link to="/reviews" className="hover:text-primary">Reviews</Link></li>
+              <li><Link to="/about" className="hover:text-primary">About</Link></li>
+              <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
+            </ul>
+          </section>
+
           <section aria-labelledby="services-heading">
             <h2 id="services-heading" className="text-sm font-semibold tracking-wide text-muted-foreground">Top services</h2>
             <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2 text-sm">

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
+import MobileNav from "@/components/layout/MobileNav";
 // cleaned unused navItems
 
 export const Header = () => {
@@ -26,6 +27,14 @@ export const Header = () => {
           )}
           <span className="sr-only">Home</span>
         </Link>
+
+        {/* Mobile menu trigger */}
+        <div className="md:hidden">
+          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+          {/* @ts-ignore - component exists */}
+          <MobileNav />
+        </div>
+
 
         <ul className="hidden md:flex items-center gap-6 text-sm">
           <li>
