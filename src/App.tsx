@@ -25,6 +25,7 @@ const Setup = lazy(() => import("./pages/Setup"));
 const LocationDetail = lazy(() => import("./pages/LocationDetail"));
 const ServiceCategories = lazy(() => import("./pages/ServiceCategories"));
 const CityHub = lazy(() => import("./pages/CityHub"));
+const Cities = lazy(() => import("./pages/Cities"));
 const CityServiceDetail = lazy(() => import("./pages/CityServiceDetail"));
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ const App = () => (
               <Route path="/service-areas/:slug" element={<ServiceAreaDetail />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/locations" element={<Locations />} />
+              <Route path="/city" element={<Cities />} />
               <Route path="/locations/:slug" element={<LocationDetail />} />
               <Route path="/city/:slug" element={<CityHub />} />
               <Route path="/service-categories" element={<ServiceCategories />} />

@@ -70,6 +70,7 @@ export const Header = () => {
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuItem asChild><Link to="/service-areas">All areas</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/city">Cities index</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
