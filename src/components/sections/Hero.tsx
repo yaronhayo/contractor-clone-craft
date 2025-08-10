@@ -56,30 +56,30 @@ const Hero = () => {
 
           <h1 id="content" className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight animate-fade-in">
             <span className="text-white">
-              Expert Garage Door Service
+              24/7 Emergency Locksmith
             </span>
             <br />
-            <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">in {city}, {state}</span>
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">in {city}, {state}</span>
           </h1>
           
           <p className="mt-4 text-base md:text-lg text-white/90 leading-relaxed animate-fade-in">
-            Emergency repairs, professional installations, and 24/7 service across Bergen and Hudson Counties. 
-            <strong className="text-yellow-400"> Fast response guaranteed.</strong>
+            Car lockouts, house lockouts, lock repair, and key replacement. Available 24/7 across Bergen and Hudson Counties. 
+            <strong className="text-yellow-400"> 15-minute response guaranteed.</strong>
           </p>
 
           {/* Key Benefits */}
           <div className="mt-6 grid grid-cols-1 gap-2 animate-fade-in">
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Same-day emergency garage door repair</span>
+              <span>15-minute emergency lockout response</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>All major garage door brands serviced</span>
+              <span>Residential, commercial & automotive locks</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Licensed professionals with 10+ years experience</span>
+              <span>Licensed NJ locksmith with 10+ years experience</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white">
               <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
@@ -113,7 +113,7 @@ const Hero = () => {
           {/* Quick Booking Form */}
           <div className="animate-fade-in">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
-              <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Get Your Free Estimate</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Quick Locksmith Service Request</h3>
               <form className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input 
@@ -131,7 +131,7 @@ const Hero = () => {
                 </div>
                 <input 
                   type="text" 
-                  placeholder="Service Address (City, NJ)" 
+                  placeholder="Service Address (Elmwood Park, NJ)" 
                   required
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 placeholder-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 />
@@ -139,22 +139,22 @@ const Hero = () => {
                   required
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 bg-white text-gray-900 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all text-sm"
                 >
-                  <option value="">Select Service Needed</option>
-                  <option value="emergency-repair">Emergency Garage Door Repair</option>
-                  <option value="spring-repair">Spring Repair/Replacement</option>
-                  <option value="opener-repair">Garage Door Opener Repair</option>
-                  <option value="new-installation">New Garage Door Installation</option>
-                  <option value="maintenance">Maintenance & Tune-up</option>
+                  <option value="">Select Locksmith Service</option>
+                  <option value="car-lockout">Car Lockout (Emergency)</option>
+                  <option value="house-lockout">House Lockout (Emergency)</option>
+                  <option value="lock-replacement">Lock Replacement</option>
+                  <option value="lock-rekey">Lock Rekey</option>
+                  <option value="key-replacement">Key Replacement</option>
                 </select>
                 <Button 
-                  className="w-full text-base py-3 rounded-lg bg-gradient-to-r from-primary to-yellow-600 hover:from-primary/90 hover:to-yellow-600/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full text-base py-3 rounded-lg bg-gradient-to-r from-primary to-orange-500 hover:from-primary/90 hover:to-orange-500/90 shadow-lg hover:shadow-xl transition-all duration-300"
                   type="submit"
                 >
-                  Get Free Estimate
+                  Request Locksmith Service
                 </Button>
               </form>
               <p className="text-xs text-gray-600 text-center mt-3">
-                Free estimates • No obligation • Fast response within 15 minutes
+                Free quotes • No obligation • 15-minute emergency response
               </p>
             </div>
           </div>
@@ -164,8 +164,8 @@ const Hero = () => {
       {/* Floating Stats */}
       <div className="absolute bottom-8 right-8 hidden lg:block animate-slide-in-right">
         <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-lg p-4 shadow-lg">
-          <div className="text-2xl font-bold text-primary">500+</div>
-          <div className="text-sm text-gray-600">Garage Doors Serviced</div>
+          <div className="text-2xl font-bold text-primary">24/7</div>
+          <div className="text-sm text-gray-600">Emergency Service</div>
         </div>
       </div>
     </section>

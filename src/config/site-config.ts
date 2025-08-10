@@ -245,9 +245,9 @@ const baseConfig: SiteConfig = {
     },
     branding: {
       colors: {
-        primary: "hsl(15 85% 50%)",
-        secondary: "hsl(220 14% 96%)",
-        accent: "hsl(220 13% 91%)",
+        primary: "39 85% 55%",
+        secondary: "25 5% 13%",
+        accent: "39 85% 55%",
       },
       logos: {
         light: {
@@ -273,62 +273,74 @@ const baseConfig: SiteConfig = {
   },
   media: {
     hero: {
-      src: "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      src: "https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg?auto=compress&cs=tinysrgb&w=1600",
       width: 1600,
       height: 900,
-      alt: "Professional garage door installation and repair services",
+      alt: "Professional locksmith services - locks and keys",
       credit: {
-        source: "Freepik",
-        author: "Freepik",
+        source: "Other",
+        author: "Pexels",
         url: "https://www.pexels.com/",
         license: "Standard license",
       },
     },
     serviceCardDefault: {
-      src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      src: "https://images.pexels.com/photos/5691629/pexels-photo-5691629.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 800,
-      alt: "Professional garage door service",
+      alt: "Professional locksmith service",
     },
     gallery: [
       {
-        src: "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        src: "https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg?auto=compress&cs=tinysrgb&w=1200",
         width: 1200,
         height: 800,
-        alt: "Garage door installation and repair",
+        alt: "Locksmith services - security and access",
       },
     ],
   },
   taxonomy: {
     categories: [
       {
-        slug: "emergency-garage-door",
-        name: "Emergency Garage Door",
-        description: "24/7 emergency garage door repair and service—fast response when you need it most.",
+        slug: "emergency-locksmith",
+        name: "Emergency Locksmith",
+        description: "24/7 emergency locksmith service—fast response when you're locked out.",
       },
       {
-        slug: "garage-door-repair",
-        name: "Garage Door Repair",
-        description: "Complete garage door repair services including springs, openers, and rollers.",
+        slug: "residential-locksmith",
+        name: "Residential Locksmith",
+        description: "Complete residential locksmith services including lock installation and repair.",
       },
       {
-        slug: "garage-door-installation",
-        name: "Garage Door Installation",
-        description: "Professional garage door installation with quality materials and expert craftsmanship.",
+        slug: "commercial-locksmith",
+        name: "Commercial Locksmith",
+        description: "Professional commercial locksmith services for businesses and offices.",
+      },
+      {
+        slug: "automotive-locksmith",
+        name: "Automotive Locksmith",
+        description: "Car lockout, key replacement, and automotive locksmith services.",
       },
     ],
     services: [
-      // Emergency Garage Door
-      { slug: "24-7-emergency-garage-door-service", name: "24/7 Emergency Garage Door Service", categorySlug: "emergency-garage-door", shortDescription: "Emergency garage door repair available 24/7—fast response when you're stuck." },
+      // Emergency Locksmith
+      { slug: "car-lockout", name: "Car Lockout", categorySlug: "emergency-locksmith", shortDescription: "Fast car lockout service—get back in your vehicle quickly and safely." },
+      { slug: "house-lockout", name: "House Lockout", categorySlug: "emergency-locksmith", shortDescription: "Locked out of your home? 24/7 residential lockout service available." },
+      { slug: "business-lockout", name: "Business Lockout", categorySlug: "emergency-locksmith", shortDescription: "Commercial lockout service to get your business accessible again." },
       
-      // Garage Door Repair
-      { slug: "garage-door-repair", name: "Garage Door Repair", categorySlug: "garage-door-repair", shortDescription: "Expert garage door repair for all makes and models—same day service available." },
-      { slug: "garage-door-spring-repairs", name: "Garage Door Spring Repairs", categorySlug: "garage-door-repair", shortDescription: "Professional spring repair and replacement—restoring safe operation." },
-      { slug: "garage-door-opener-repair", name: "Garage Door Opener Repair", categorySlug: "garage-door-repair", shortDescription: "Garage door opener diagnosis and repair—all brands serviced." },
-      { slug: "roller-replacement-repair", name: "Roller Replacement & Repair", categorySlug: "garage-door-repair", shortDescription: "Smooth operation with professional roller replacement and repair services." },
+      // Residential Locksmith  
+      { slug: "lock-replacement", name: "Lock Replacement", categorySlug: "residential-locksmith", shortDescription: "Professional lock replacement for enhanced home security." },
+      { slug: "lock-rekey", name: "Lock Rekey", categorySlug: "residential-locksmith", shortDescription: "Rekey existing locks for new keys—cost-effective security solution." },
+      { slug: "lock-repair", name: "Lock Repair", categorySlug: "residential-locksmith", shortDescription: "Expert lock repair to restore proper function and security." },
+      
+      // Commercial Locksmith
+      { slug: "master-key-systems", name: "Master Key Systems", categorySlug: "commercial-locksmith", shortDescription: "Custom master key systems for businesses and property managers." },
+      { slug: "access-control", name: "Access Control", categorySlug: "commercial-locksmith", shortDescription: "Modern access control systems for enhanced business security." },
+      
+      // Automotive Locksmith
+      { slug: "car-key-replacement", name: "Car Key Replacement", categorySlug: "automotive-locksmith", shortDescription: "Professional car key replacement for all vehicle makes and models." },
+      { slug: "key-fob-programming", name: "Key Fob Programming", categorySlug: "automotive-locksmith", shortDescription: "Expert key fob programming and replacement services." },
 
-      // Garage Door Installation
-      { slug: "garage-door-installation", name: "Garage Door Installation", categorySlug: "garage-door-installation", shortDescription: "Complete garage door installation with quality materials and expert workmanship." },
     ],
   },
   locations: [
@@ -409,15 +421,15 @@ const baseConfig: SiteConfig = {
     serviceAreaDetail: (areaSlug: string) => `/service-areas/${areaSlug}`,
   },
   seo: {
-    defaultTitle: "ez2fix — Professional Garage Door Service in Elmwood Park, NJ",
+    defaultTitle: "ez2fix — 24/7 Locksmith Service in Elmwood Park, NJ | Emergency Lockouts",
     defaultDescription:
-      "Professional garage door installation, repair, and emergency services in Elmwood Park, NJ. Serving Bergen and Hudson counties with 24/7 availability.",
+      "24/7 emergency locksmith service in Elmwood Park, NJ. Car lockouts, house lockouts, lock repair, key replacement. Fast response across Bergen and Hudson counties.",
     siteUrl: "https://www.ez2fix.com",
     image: {
-      src: "https://images.pexels.com/photos/534151/pexels-photo-534151.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      src: "https://images.pexels.com/photos/4439444/pexels-photo-4439444.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 630,
-      alt: "ez2fix – quality garage door service",
+      alt: "ez2fix – quality locksmith service",
     },
     templates: {
       service: "{{service.name}} | {{business.name}}",
