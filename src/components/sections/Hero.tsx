@@ -4,6 +4,7 @@ import { PhoneCall, Star, Shield, Clock, CheckCircle2 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { getHomepageContent } from "@/lib/cms";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const { data } = useQuery({ queryKey: ["homepage"], queryFn: getHomepageContent, staleTime: 60_000 });
@@ -85,7 +86,7 @@ const Hero = () => {
               </a>
             </Button>
             <Button variant="outline" size="lg" className="text-base px-6 py-4 rounded-full border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
-              <a href="#estimate">Get Free Estimate</a>
+              <Link to="/contact">Get Free Estimate</Link>
             </Button>
           </div>
 
