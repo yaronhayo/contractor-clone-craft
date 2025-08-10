@@ -324,17 +324,72 @@ const baseConfig: SiteConfig = {
     ],
     services: [
       // Garage Door Repair
-      { slug: "garage-door-spring-repair", name: "Garage Door Spring Repair Services", categorySlug: "garage-door-repair", shortDescription: "Professional garage door spring repair and replacement with 10 year warranty." },
-      { slug: "garage-door-repair", name: "Garage Door Repair Services", categorySlug: "garage-door-repair", shortDescription: "Complete garage door repair services with same day service available." },
+      { 
+        slug: "garage-door-spring-repair", 
+        name: "Garage Door Spring Repair Services", 
+        categorySlug: "garage-door-repair", 
+        shortDescription: "Professional garage door spring repair and replacement with 10 year warranty.",
+        images: [{
+          src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/Garage%20Door%20Spring%20Repair.jpg",
+          width: 1200,
+          height: 800,
+          alt: "Professional garage door spring repair service"
+        }]
+      },
+      { 
+        slug: "garage-door-repair", 
+        name: "Garage Door Repair Services", 
+        categorySlug: "garage-door-repair", 
+        shortDescription: "Complete garage door repair services with same day service available.",
+        images: [{
+          src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/garage%20door%20repair.png",
+          width: 1200,
+          height: 800,
+          alt: "Professional garage door repair services"
+        }]
+      },
       
       // Garage Door Installation
-      { slug: "garage-door-installation", name: "Garage Door Installation Services", categorySlug: "garage-door-installation", shortDescription: "Professional garage door installation with free on-site estimate and 10% senior discount." },
+      { 
+        slug: "garage-door-installation", 
+        name: "Garage Door Installation Services", 
+        categorySlug: "garage-door-installation", 
+        shortDescription: "Professional garage door installation with free on-site estimate and 10% senior discount.",
+        images: [{
+          src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/Garage%20Door%20Installation.png",
+          width: 1200,
+          height: 800,
+          alt: "Professional garage door installation service"
+        }]
+      },
       
       // Garage Door Opener
-      { slug: "garage-door-opener-repair", name: "Garage Door Opener Repair Service", categorySlug: "garage-door-opener", shortDescription: "Expert garage door opener repair and programming with same day service." },
+      { 
+        slug: "garage-door-opener-repair", 
+        name: "Garage Door Opener Repair Service", 
+        categorySlug: "garage-door-opener", 
+        shortDescription: "Expert garage door opener repair and programming with same day service.",
+        images: [{
+          src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/Garage%20Door%20Opener%20Installation.webp",
+          width: 1200,
+          height: 800,
+          alt: "Garage door opener repair and installation service"
+        }]
+      },
       
       // Emergency Repair
-      { slug: "emergency-garage-door-repair", name: "24/7 Emergency Garage Door Repair", categorySlug: "emergency-repair", shortDescription: "24/7 emergency garage door repair with fast response across Elmwood Park and surrounding areas." },
+      { 
+        slug: "emergency-garage-door-repair", 
+        name: "24/7 Emergency Garage Door Repair", 
+        categorySlug: "emergency-repair", 
+        shortDescription: "24/7 emergency garage door repair with fast response across Elmwood Park and surrounding areas.",
+        images: [{
+          src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/Garage%20Door%20Repair.webp",
+          width: 1200,
+          height: 800,
+          alt: "24/7 emergency garage door repair service"
+        }]
+      },
     ],
   },
   locations: [
