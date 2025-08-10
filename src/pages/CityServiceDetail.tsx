@@ -71,7 +71,7 @@ const CityServiceDetail = () => {
 
           {img && (
             <div className="mt-8 rounded-lg overflow-hidden border">
-              <img src={img.src} alt={img.alt || `${service.name} in ${areaName}`} className="w-full h-72 object-cover" loading="lazy" />
+              <img src={img.src} alt={img.alt || `${service.name} in ${areaName}`} width={img.width} height={img.height} className="w-full h-72 object-cover" loading="lazy" />
             </div>
           )}
 

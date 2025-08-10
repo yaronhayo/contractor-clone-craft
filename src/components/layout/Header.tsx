@@ -81,7 +81,7 @@ export const Header = () => {
 
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="rounded-full">
-            <a href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`} aria-label={`Call ${siteConfig.business.name}`} onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "header", phone: siteConfig.business.phone }); } catch {} }}>Call Now</a>
+            <a href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`} aria-label={`Call ${siteConfig.business.name}`} onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "header", phone: siteConfig.business.phone }); } catch {} }}>Call {siteConfig.business.phone}</a>
           </Button>
         </div>
       </nav>

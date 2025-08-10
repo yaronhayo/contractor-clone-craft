@@ -56,7 +56,7 @@ const ServiceDetail = () => {
           </header>
 
           <div className="mt-8 rounded-lg overflow-hidden border">
-            {(() => { const img = service.images?.[0] || siteConfig.media.serviceCardDefault; return img ? (<img src={img.src} alt={img.alt || `${service.name} example photo`} className="w-full h-72 object-cover" loading="lazy" />) : null; })()}
+            {(() => { const img = service.images?.[0] || siteConfig.media.serviceCardDefault; return img ? (<img src={img.src} alt={img.alt || `${service.name} example photo`} width={img.width} height={img.height} className="w-full h-72 object-cover" loading="lazy" />) : null; })()}
           </div>
 
           <section className="prose prose-neutral dark:prose-invert max-w-none mt-8">
