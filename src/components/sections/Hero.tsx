@@ -67,32 +67,8 @@ const Hero = () => {
             <strong className="text-yellow-400"> Same day service available.</strong>
           </p>
 
-          {/* Key Benefits */}
-          <div className="mt-6 grid grid-cols-1 gap-2 animate-fade-in">
-            <div className="flex items-center gap-3 text-sm text-white">
-              <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Same day garage door repair service</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-white">
-              <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>10 year warranty on all repairs</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-white">
-              <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Licensed NJ contractor #13VH13553300</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-white">
-              <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>10% senior discount available</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-white">
-              <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-              <span>Free on-site estimate</span>
-            </div>
-          </div>
-
           {/* CTA Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row items-start gap-4 animate-fade-in">
+          <div className="mt-6 flex flex-col sm:flex-row items-start gap-4 animate-fade-in">
             <Button size="lg" className="text-base px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group" asChild>
               <a
                 href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
@@ -111,6 +87,30 @@ const Hero = () => {
             <Button variant="outline" size="lg" className="text-base px-6 py-4 rounded-full border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
               <a href="#estimate">Get Free Estimate</a>
             </Button>
+          </div>
+
+          {/* Key Benefits - Horizontal Layout */}
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 animate-fade-in">
+            <div className="flex items-center gap-2 text-sm text-white">
+              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+              <span>Same day service</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-white">
+              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+              <span>10 year warranty</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-white">
+              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+              <span>Licensed NJ contractor</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-white">
+              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+              <span>10% senior discount</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-white">
+              <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+              <span>Free estimate</span>
+            </div>
           </div>
           </div>
 
