@@ -48,6 +48,15 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
         addressCountry: siteConfig.business.hqAddress.country || "US",
       },
       areaServed: cities,
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: siteConfig.business.phone,
+          contactType: "customer service",
+          areaServed: cities.map((c: any) => c.name),
+          availableLanguage: ["English"],
+        },
+      ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Locksmith Services",
