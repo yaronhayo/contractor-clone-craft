@@ -13,6 +13,7 @@ const ServiceDetail = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     name: service.name,
+    serviceType: service.name,
     description: service.shortDescription || `Learn about ${service.name}. Get a free estimate today.`,
     provider: {
       "@type": "LocalBusiness",
@@ -24,6 +25,11 @@ const ServiceDetail = () => {
       "@type": "City",
       name: `${l.address.city}, ${l.address.state}`,
     })),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: 250,
+    },
   };
 
   const siteUrl = siteConfig.seo.siteUrl || (typeof window !== "undefined" ? window.location.origin : "");
@@ -53,6 +59,23 @@ const ServiceDetail = () => {
           <header className="mt-4">
             <h1 className="text-3xl md:text-4xl font-extrabold">{service.name}</h1>
             <p className="mt-3 text-muted-foreground max-w-3xl">{service.shortDescription || "Professional, reliable, and hassle‑free service."}</p>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <a
+                href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
+                aria-label={`Call ${siteConfig.business.name}`}
+                onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "service_detail_header", phone: siteConfig.business.phone, service: service.name }); } catch {} }}
+                className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-3 font-medium hover:bg-primary/90"
+              >
+                Call {siteConfig.business.phone}
+              </a>
+              <a
+                href="/#estimate"
+                onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "cta_click", source: "service_detail_header", cta: "estimate", service: service.name }); } catch {} }}
+                className="inline-flex items-center justify-center rounded-md border px-5 py-3 font-medium hover:bg-accent"
+              >
+                Get Free Estimate
+              </a>
+            </div>
           </header>
 
           <div className="mt-8 rounded-lg overflow-hidden border">

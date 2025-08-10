@@ -46,6 +46,11 @@ const CityServiceDetail = () => {
       url: siteUrl,
     },
     areaServed: area ? [{ "@type": "City", name: areaName }] : undefined,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: 250,
+    },
   };
 
   const img = service.images?.[0] || siteConfig.media.serviceCardDefault;
@@ -67,6 +72,23 @@ const CityServiceDetail = () => {
           <header className="mt-4">
             <h1 className="text-3xl md:text-4xl font-extrabold">{service.name} in {areaName}</h1>
             <p className="mt-3 text-muted-foreground max-w-3xl">{description}</p>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <a
+                href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`}
+                aria-label={`Call ${siteConfig.business.name}`}
+                onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "city_service_header", phone: siteConfig.business.phone, service: service.name, city: areaName }); } catch {} }}
+                className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-3 font-medium hover:bg-primary/90"
+              >
+                Call {siteConfig.business.phone}
+              </a>
+              <a
+                href="/#estimate"
+                onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "cta_click", source: "city_service_header", cta: "estimate", service: service.name, city: areaName }); } catch {} }}
+                className="inline-flex items-center justify-center rounded-md border px-5 py-3 font-medium hover:bg-accent"
+              >
+                Get Free Estimate
+              </a>
+            </div>
           </header>
 
           {img && (
