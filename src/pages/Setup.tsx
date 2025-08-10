@@ -333,6 +333,150 @@ const Setup = () => {
 
             <Card>
               <CardHeader>
+                <CardTitle>Address & Hours</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-6">
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="space-y-1">
+                    <Label htmlFor="addressLine1">Address line 1</Label>
+                    <Input id="addressLine1" value={form.addressLine1} onChange={(e) => setForm((f) => ({ ...f, addressLine1: e.target.value }))} />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="addressLine2">Address line 2 (optional)</Label>
+                    <Input id="addressLine2" value={form.addressLine2} onChange={(e) => setForm((f) => ({ ...f, addressLine2: e.target.value }))} />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="addressCity">City</Label>
+                    <Input id="addressCity" value={form.addressCity} onChange={(e) => setForm((f) => ({ ...f, addressCity: e.target.value }))} />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="addressState">State</Label>
+                    <Input id="addressState" value={form.addressState} onChange={(e) => setForm((f) => ({ ...f, addressState: e.target.value }))} />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="addressPostalCode">Postal code</Label>
+                    <Input id="addressPostalCode" value={form.addressPostalCode} onChange={(e) => setForm((f) => ({ ...f, addressPostalCode: e.target.value }))} />
+                  </div>
+                  <div className="space-y-1">
+                    <Label htmlFor="addressCountry">Country</Label>
+                    <Input id="addressCountry" value={form.addressCountry} onChange={(e) => setForm((f) => ({ ...f, addressCountry: e.target.value }))} />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-2">Business hours</p>
+                  <div className="grid md:grid-cols-4 gap-4">
+                    <div className="space-y-1">
+                      <Label htmlFor="hoursMon">Mon</Label>
+                      <Input id="hoursMon" value={form.hoursMon} onChange={(e) => setForm((f) => ({ ...f, hoursMon: e.target.value }))} />
+                    </div>
+                    <div className="space-y-1">
+                      <Label htmlFor="hoursTue">Tue</Label>
+                      <Input id="hoursTue" value={form.hoursTue} onChange={(e) => setForm((f) => ({ ...f, hoursTue: e.target.value }))} />
+                    </div>
+                    <div className="space-y-1">
+                      <Label htmlFor="hoursWed">Wed</Label>
+                      <Input id="hoursWed" value={form.hoursWed} onChange={(e) => setForm((f) => ({ ...f, hoursWed: e.target.value }))} />
+                    </div>
+                    <div className="space-y-1">
+                      <Label htmlFor="hoursThu">Thu</Label>
+                      <Input id="hoursThu" value={form.hoursThu} onChange={(e) => setForm((f) => ({ ...f, hoursThu: e.target.value }))} />
+                    </div>
+                    <div className="space-y-1">
+                      <Label htmlFor="hoursFri">Fri</Label>
+                      <Input id="hoursFri" value={form.hoursFri} onChange={(e) => setForm((f) => ({ ...f, hoursFri: e.target.value }))} />
+                    </div>
+                    <div className="space-y-1">
+                      <Label htmlFor="hoursSat">Sat</Label>
+                      <Input id="hoursSat" value={form.hoursSat} onChange={(e) => setForm((f) => ({ ...f, hoursSat: e.target.value }))} />
+                    </div>
+                    <div className="space-y-1">
+                      <Label htmlFor="hoursSun">Sun</Label>
+                      <Input id="hoursSun" value={form.hoursSun} onChange={(e) => setForm((f) => ({ ...f, hoursSun: e.target.value }))} />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Social Profiles</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <Label htmlFor="socialFacebook">Facebook</Label>
+                  <Input id="socialFacebook" placeholder="https://facebook.com/yourpage" value={form.socialFacebook} onChange={(e) => setForm((f) => ({ ...f, socialFacebook: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="socialInstagram">Instagram</Label>
+                  <Input id="socialInstagram" placeholder="https://instagram.com/yourprofile" value={form.socialInstagram} onChange={(e) => setForm((f) => ({ ...f, socialInstagram: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="socialTwitter">Twitter / X</Label>
+                  <Input id="socialTwitter" placeholder="https://x.com/yourhandle" value={form.socialTwitter} onChange={(e) => setForm((f) => ({ ...f, socialTwitter: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="socialYoutube">YouTube</Label>
+                  <Input id="socialYoutube" placeholder="https://youtube.com/@yourchannel" value={form.socialYoutube} onChange={(e) => setForm((f) => ({ ...f, socialYoutube: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="socialTiktok">TikTok</Label>
+                  <Input id="socialTiktok" placeholder="https://tiktok.com/@yourhandle" value={form.socialTiktok} onChange={(e) => setForm((f) => ({ ...f, socialTiktok: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="socialLinkedin">LinkedIn</Label>
+                  <Input id="socialLinkedin" placeholder="https://linkedin.com/company/yourcompany" value={form.socialLinkedin} onChange={(e) => setForm((f) => ({ ...f, socialLinkedin: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="socialYelp">Yelp</Label>
+                  <Input id="socialYelp" placeholder="https://yelp.com/biz/yourbiz" value={form.socialYelp} onChange={(e) => setForm((f) => ({ ...f, socialYelp: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="socialGoogleBusiness">Google Business Profile</Label>
+                  <Input id="socialGoogleBusiness" placeholder="https://g.page/yourplace" value={form.socialGoogleBusiness} onChange={(e) => setForm((f) => ({ ...f, socialGoogleBusiness: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Branding Colors (HSL)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-3 gap-4">
+                <p className="md:col-span-3 text-sm text-muted-foreground">These map to the design system tokens. Use HSL like "222.2 47.4% 11.2%".</p>
+                <div className="space-y-1">
+                  <Label htmlFor="brandingPrimary">Primary</Label>
+                  <Input id="brandingPrimary" placeholder="e.g. 222.2 47.4% 11.2%" value={form.brandingPrimary} onChange={(e) => setForm((f) => ({ ...f, brandingPrimary: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="brandingSecondary">Secondary</Label>
+                  <Input id="brandingSecondary" placeholder="e.g. 210 40% 96%" value={form.brandingSecondary} onChange={(e) => setForm((f) => ({ ...f, brandingSecondary: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="brandingAccent">Accent</Label>
+                  <Input id="brandingAccent" placeholder="e.g. 142.1 76.2% 36.3%" value={form.brandingAccent} onChange={(e) => setForm((f) => ({ ...f, brandingAccent: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Attribution (Freepik)</CardTitle>
+              </CardHeader>
+              <CardContent className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <Label htmlFor="freepikAttribution">Default attribution text</Label>
+                  <Input id="freepikAttribution" value={form.freepikAttribution} onChange={(e) => setForm((f) => ({ ...f, freepikAttribution: e.target.value }))} />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="freepikProfileUrl">Profile URL</Label>
+                  <Input id="freepikProfileUrl" placeholder="https://www.freepik.com/author/yourname" value={form.freepikProfileUrl} onChange={(e) => setForm((f) => ({ ...f, freepikProfileUrl: e.target.value }))} />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle>SEO</CardTitle>
               </CardHeader>
               <CardContent className="grid md:grid-cols-2 gap-4">
