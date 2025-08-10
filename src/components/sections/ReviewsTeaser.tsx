@@ -148,3 +148,4 @@ export default function ReviewsTeaser() {
       </div>
     </section>
   );
+}
