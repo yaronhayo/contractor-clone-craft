@@ -130,7 +130,7 @@ const App = () => {
                   <div className="p-8 text-center">
                     <h1 className="text-2xl font-bold mb-4">ServiceDetail Error</h1>
                     <p>There was an issue loading the service page.</p>
-                    <p className="text-sm mt-2">URL: {window.location.href}</p>
+                    <p className="text-sm mt-2">Check browser console for details</p>
                     <button onClick={() => window.location.reload()} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
                       Reload Page
                     </button>

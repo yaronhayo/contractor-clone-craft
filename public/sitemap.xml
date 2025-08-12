@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://www.example.com/sitemap-pages.xml</loc>
+    <loc>https://ez2fixllc.com/sitemap-pages.xml</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://www.example.com/sitemap-services.xml</loc>
+    <loc>https://ez2fixllc.com/sitemap-services.xml</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://www.example.com/sitemap-locations.xml</loc>
+    <loc>https://ez2fixllc.com/sitemap-locations.xml</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://www.example.com/sitemap-areas.xml</loc>
+    <loc>https://ez2fixllc.com/sitemap-areas.xml</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://www.example.com/sitemap-city-services.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.example.com/sitemap-locksmith-in.xml</loc>
+    <loc>https://ez2fix.com/sitemap-city-services.xml</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
   </sitemap>
 </sitemapindex>

@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.example.com/service-areas/san-antonio-tx</loc>
-    <lastmod>2025-08-10</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://ez2fixllc.com/service-areas/north-caldwell-nj</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ez2fixllc.com/service-areas/west-caldwell-nj</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ez2fixllc.com/service-areas/little-falls-nj</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ez2fixllc.com/service-areas/montclair-nj</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ez2fixllc.com/service-areas/cedar-grove-nj</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ez2fixllc.com/service-areas/fair-lawn-nj</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.example.com/service-areas/leon-valley-tx</loc>
-    <lastmod>2025-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://ez2fixllc.com/service-areas/clifton-nj</loc>
+    <lastmod>2025-08-12T08:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

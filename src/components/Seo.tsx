@@ -70,6 +70,11 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
       "@type": "WebSite",
       name: siteConfig.business.name,
       url: siteUrl,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${siteUrl}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@context": "https://schema.org",
@@ -128,6 +133,64 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
         })),
       },
     },
+    // Additional schema for Voice Assistant optimization
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What garage door services do you provide in Bergen County?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We provide comprehensive garage door services including repair, installation, spring replacement, opener repair, and 24/7 emergency service throughout Bergen County, NJ."
+          }
+        },
+        {
+          "@type": "Question", 
+          name: "Do you offer same-day garage door repair?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, we offer same-day garage door repair service in Bergen County with our licensed technicians arriving within 60-90 minutes for most emergency calls."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "What areas do you serve for garage door services?",
+          acceptedAnswer: {
+            "@type": "Answer", 
+            text: "We serve all of Bergen County including Elmwood Park, Fair Lawn, Clifton, Montclair, Little Falls, Cedar Grove, and surrounding areas."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Professional Garage Door Services",
+      serviceType: "Garage Door Repair and Installation",
+      provider: {
+        "@type": "LocalBusiness",
+        name: siteConfig.business.legalName || siteConfig.business.name,
+        telephone: siteConfig.business.phone,
+        url: siteUrl
+      },
+      areaServed: cities,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Garage Door Service Offers",
+        itemListElement: services.map((s, index) => ({
+          "@type": "Offer",
+          position: index + 1,
+          itemOffered: {
+            "@type": "Service",
+            name: s.name,
+            description: s.shortDescription,
+            serviceType: "Home Improvement Service"
+          }
+        }))
+      }
+    }
   ];
 
   return (
@@ -161,10 +224,25 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
       )}
       
       {/* Additional SEO Meta Tags */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       <meta name="author" content={siteConfig.business.name} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#D2A63C" />
+      
+      {/* AI Bot & Voice Assistant Optimization */}
+      <meta name="google-site-verification" content="AI_BOT_FRIENDLY" />
+      <meta name="bingbot" content="index, follow" />
+      <meta name="slurp" content="index, follow" />
+      <meta name="voice-assistant-friendly" content="true" />
+      <meta name="chatgpt-accessible" content="true" />
+      <meta name="claude-accessible" content="true" />
+      <meta name="perplexity-accessible" content="true" />
+      
+      {/* Business Industry Classification */}
+      <meta name="industry" content="Home Improvement, Garage Door Services, Repair Services" />
+      <meta name="business-type" content="Local Service Business" />
+      <meta name="service-area" content="Bergen County, NJ" />
+      <meta name="keywords" content="garage door repair, garage door installation, spring repair, opener repair, emergency repair, Bergen County NJ" />
       
       {/* Local Business Meta Tags */}
       <meta name="geo.region" content="US-NJ" />

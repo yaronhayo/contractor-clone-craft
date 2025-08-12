@@ -1,29 +1,28 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
-import EstimateForm from "@/components/sections/EstimateForm";
-import FinalCTA from "@/components/sections/FinalCTA";
 import { siteConfig } from "@/config/site-config";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { 
   Phone, 
   Mail, 
   MapPin, 
   Clock, 
-  ArrowRight, 
-  MessageSquare, 
+  MessageCircle, 
   Calendar,
-  Shield,
-  Star,
   CheckCircle2,
-  Zap,
-  Users,
-  Award,
-  HeartHandshake
+  Send,
+  Wrench,
+  HelpCircle,
+  Star,
+  ThumbsUp,
+  PhoneCall
 } from "lucide-react";
 
 const Contact = () => {
@@ -40,77 +39,89 @@ const Contact = () => {
   const contactMethods = [
     {
       icon: Phone,
-      title: "Call Now",
-      subtitle: "Immediate Response",
-      description: "Speak directly with our garage door experts. Get instant advice, emergency service, or schedule your appointment.",
-      action: "Call " + siteConfig.business.phone,
+      title: "Call Us",
+      description: "Get immediate help or schedule service with our friendly team",
+      value: siteConfig.business.phone,
       href: `tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`,
-      badge: "Fastest Response",
-      color: "text-primary"
+      primary: true
     },
     {
-      icon: MessageSquare,
-      title: "Get Free Estimate",
-      subtitle: "Online Form",
-      description: "Fill out our detailed form for accurate estimates on garage door repair, installation, or maintenance services.",
-      action: "Request Estimate",
-      href: "#estimate-form",
-      badge: "Most Popular",
-      color: "text-accent"
+      icon: MessageCircle,
+      title: "Send Message",
+      description: "Fill out our contact form and we'll get back to you quickly",
+      value: "Quick Response",
+      href: "#contact-form",
+      primary: false
     },
     {
-      icon: Mail,
-      title: "Email Us",
-      subtitle: "Detailed Inquiry",
-      description: "Send us detailed questions, photos of your garage door issues, or requests for comprehensive service quotes.",
-      action: "Email Us",
-      href: `mailto:${siteConfig.business.email}`,
-      badge: "Best for Details",
-      color: "text-primary"
+      icon: Calendar,
+      title: "Book Online",
+      description: "Schedule your service appointment at your convenience",
+      value: "24/7 Booking",
+      href: "/booking",
+      primary: false
     }
   ];
 
-  const businessHours = [
-    { day: "Monday - Friday", hours: "8:00 AM - 6:00 PM" },
-    { day: "Saturday", hours: "8:00 AM - 4:00 PM" },
-    { day: "Sunday", hours: "Emergency Only" },
-    { day: "Holidays", hours: "Emergency Available" }
-  ];
-
-  const whyChooseUs = [
+  const howItWorks = [
     {
-      icon: Zap,
-      title: "Same-Day Service",
-      description: "Emergency repairs and routine service available the same day you call"
+      step: "1",
+      icon: PhoneCall,
+      title: "Contact Us",
+      description: "Call, message, or book online - whatever works best for you"
     },
     {
-      icon: Shield,
-      title: "Licensed & Insured",
-      description: "$1M insurance coverage and licensed NJ contractors for your protection"
+      step: "2",
+      icon: Calendar,
+      title: "Schedule Service",
+      description: "We'll find a convenient time that fits your schedule"
     },
     {
-      icon: Star,
-      title: "5-Star Reviews",
-      description: "Consistently rated 5 stars by customers throughout Bergen & Hudson Counties"
+      step: "3",
+      icon: Wrench,
+      title: "Expert Service",
+      description: "Our technician arrives with the tools and parts needed"
     },
     {
-      icon: Award,
-      title: "10+ Years Experience",
-      description: "Decade of experience serving Northern New Jersey with trusted expertise"
+      step: "4",
+      icon: ThumbsUp,
+      title: "Job Complete",
+      description: "Your garage door works perfectly with our warranty"
     }
   ];
 
-  const serviceAreas = [
-    "Jersey City", "Hoboken", "Weehawken", "Union City", "North Bergen",
-    "Elmwood Park", "Montclair", "Fair Lawn", "Ridgewood", "Paramus",
-    "Little Falls", "Cedar Grove", "West Caldwell", "Verona", "Bloomfield"
+  const faqItems = [
+    {
+      question: "Do you provide free estimates?",
+      answer: "Yes! We offer completely free, no-obligation estimates for all garage door services. There's never any pressure or hidden fees."
+    },
+    {
+      question: "How quickly can you respond?",
+      answer: "We typically respond within hours and offer same-day service for most areas. Emergency service is available when you need it most."
+    },
+    {
+      question: "What areas do you serve?",
+      answer: "We serve Bergen and Hudson Counties in Northern New Jersey, including Elmwood Park, Jersey City, Montclair, and surrounding communities."
+    },
+    {
+      question: "Are you licensed and insured?",
+      answer: "Absolutely. We're fully licensed contractors with comprehensive insurance coverage for your complete protection and peace of mind."
+    },
+    {
+      question: "What garage door brands do you work with?",
+      answer: "We service all major brands including LiftMaster, Chamberlain, Genie, Wayne Dalton, and more. Our technicians are trained on all systems."
+    },
+    {
+      question: "Do you offer warranties on your work?",
+      answer: "Yes, we provide industry-leading warranties on both parts and labor. We stand behind our work with comprehensive coverage."
+    }
   ];
 
   return (
     <div>
       <Seo 
-        title={`Contact ${siteConfig.business.name} - Free Garage Door Estimates`}
-        description={`Contact ez2fix for professional garage door service in Bergen & Hudson Counties. Free estimates, same-day service, licensed technicians. Call ${siteConfig.business.phone}.`}
+        title="Contact ez2fix LLC | (201) 554-6769 | Emergency Garage Door Repair Bergen County"
+        description="📞 Contact ez2fix LLC for 24/7 emergency garage door repair in Bergen County NJ | Call (201) 554-6769 | FREE estimates, same-day service | Spring repair, installation, opener service | Licensed & insured | Elmwood Park office serving all of NJ"
         canonical="/contact" 
       />
       <Helmet>
@@ -120,128 +131,62 @@ const Contact = () => {
       
       <main id="content">
         {/* Hero Section */}
-        <section className="relative min-h-[60vh] bg-gradient-to-br from-secondary via-gray-800 to-foreground flex items-center overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(234,158,37,0.15),transparent)]" />
-          <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
+        <section className="relative py-20 md:py-32 bg-secondary">
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary/90 to-primary/10" />
           
-          <div className="relative container">
-            <nav aria-label="Breadcrumb" className="text-sm text-white mb-8">
-              <Link to="/" className="hover:text-primary transition-colors">Home</Link> 
-              <span className="mx-2">/</span> 
-              <span className="text-white font-medium">Contact Us</span>
-            </nav>
-            
-            <header className="text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                <HeartHandshake className="h-4 w-4" />
-                Ready to Help 24/7
-              </div>
-              <h1 className="text-3xl md:text-5xl font-extrabold text-white">
-                Get Expert Garage Door Service Today
-              </h1>
-              <p className="mt-6 text-lg text-white leading-relaxed">
-                <strong>Need garage door service fast?</strong> Our licensed technicians serve Bergen and Hudson Counties with same-day repairs, emergency service, and free estimates. Don't let garage door problems disrupt your day—contact us now.
-              </p>
+          <div className="relative container max-w-6xl">
+            <div className="text-center mb-16">
+              <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground mb-8">
+                <Link to="/" className="hover:text-primary transition-colors">Home</Link> 
+                <span className="mx-2">/</span> 
+                <span className="text-secondary-foreground font-medium">Contact</span>
+              </nav>
               
-              {/* Emergency Contact */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-red-600/20 to-red-800/20 backdrop-blur-sm border border-red-400/30 rounded-2xl">
-                <div className="flex items-center justify-center gap-3 mb-3">
-                  <Zap className="h-5 w-5 text-red-400" />
-                  <span className="text-red-400 font-bold">EMERGENCY SERVICE AVAILABLE</span>
-                </div>
-                <Button size="lg" className="bg-red-600 hover:bg-red-700 rounded-full px-8 py-4 text-lg font-bold shadow-lg transition-all duration-300" asChild>
-                  <a
-                    href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`}
-                    onClick={() => {
-                      try {
-                        (window as any).dataLayer = (window as any).dataLayer || [];
-                        (window as any).dataLayer.push({ event: "phone_click", source: "contact_emergency", phone: siteConfig.business.phone });
-                      } catch {}
-                    }}
-                  >
-                    <Phone className="h-5 w-5 mr-2" />
-                    Call {siteConfig.business.phone}
-                  </a>
-                </Button>
-              </div>
-            </header>
-          </div>
-        </section>
-
-        {/* Contact Methods Section */}
-        <section className="relative py-16 md:py-24 bg-background">
-          <div className="container">
-            <header className="text-center max-w-4xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-6">
-                <MessageSquare className="h-4 w-4" />
-                Multiple Ways to Connect
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Choose Your{" "}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Preferred Contact Method
-                </span>
-              </h2>
-              <p className="text-lg text-foreground max-w-3xl mx-auto leading-relaxed">
-                Whether you need emergency service or want to schedule maintenance, we make it easy to get the garage door help you need.
+              <h1 className="text-4xl md:text-6xl font-bold text-secondary-foreground mb-6 leading-tight">
+                Get Expert Help with
+                <span className="block text-primary">Your Garage Door</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                <strong className="text-secondary-foreground">Need garage door service?</strong> Whether it's a quick repair or full installation, 
+                we're here to help. Choose how you'd like to get in touch with our professional team.
               </p>
-            </header>
+            </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            {/* Contact Methods Grid */}
+            <div className="grid md:grid-cols-3 gap-8">
               {contactMethods.map((method, index) => (
-                <Card key={index} className={`h-full hover:shadow-xl transition-all duration-300 animate-fade-in border-2 hover:border-primary/20 group`} style={{ animationDelay: `${index * 150}ms` }}>
-                  <CardContent className="p-8 text-center relative">
-                    {/* Badge */}
-                    <div className="absolute top-4 right-4">
-                      <Badge variant="secondary" className="text-xs font-bold">
-                        {method.badge}
-                      </Badge>
+                <Card key={index} className={`group hover:shadow-xl transition-all duration-300 bg-white border-2 ${method.primary ? 'border-primary/30 ring-2 ring-primary/20' : 'border-gray-200 hover:border-primary/20'}`}>
+                  <CardContent className="p-8 text-center">
+                    <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 ${method.primary ? 'bg-primary/10' : 'bg-gray-100'}`}>
+                      <method.icon className={`h-10 w-10 ${method.primary ? 'text-primary' : 'text-gray-700'}`} />
                     </div>
-                    
-                    {/* Icon */}
-                    <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                      <method.icon className={`h-10 w-10 ${method.color}`} />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{method.title}</h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">{method.description}</p>
+                    <div className={`text-lg font-semibold mb-6 ${method.primary ? 'text-primary' : 'text-accent'}`}>
+                      {method.value}
                     </div>
-                    
-                    {/* Content */}
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                      {method.title}
-                    </h3>
-                    <p className="text-accent font-semibold mb-4">{method.subtitle}</p>
-                    <p className="text-foreground leading-relaxed mb-8">
-                      {method.description}
-                    </p>
-                    
-                    {/* CTA Button */}
                     <Button 
                       size="lg" 
-                      className="w-full rounded-full font-bold group-hover:shadow-lg transition-all duration-300" 
+                      className={`w-full rounded-xl font-semibold transition-all duration-300 ${
+                        method.primary 
+                          ? 'bg-primary hover:bg-primary/90 text-primary-foreground' 
+                          : 'bg-secondary hover:bg-secondary/90 text-secondary-foreground'
+                      }`}
                       asChild
                     >
                       <a 
                         href={method.href}
                         onClick={(e) => {
-                          if (method.href === "#estimate-form") {
+                          if (method.href === "#contact-form") {
                             e.preventDefault();
-                            const estimateSection = document.getElementById('estimate-form');
-                            if (estimateSection) {
-                              estimateSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            const contactSection = document.getElementById('contact-form');
+                            if (contactSection) {
+                              contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                             }
-                          } else {
-                            try {
-                              (window as any).dataLayer = (window as any).dataLayer || [];
-                              (window as any).dataLayer.push({ 
-                                event: method.href.includes('tel:') ? "phone_click" : "email_click", 
-                                source: "contact_methods", 
-                                method: method.title 
-                              });
-                            } catch {}
                           }
                         }}
                       >
-                        {method.action}
-                        <ArrowRight className="h-4 w-4 ml-2" />
+                        {method.title}
                       </a>
                     </Button>
                   </CardContent>
@@ -251,233 +196,318 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Business Info Section */}
-        <section className="relative py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
-          <div className="container">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              {/* Business Hours & Contact Info */}
-              <div>
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                  <Clock className="h-4 w-4" />
-                  Business Information
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                  When & How{" "}
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    to Reach Us
-                  </span>
-                </h2>
-
-                {/* Business Hours Card */}
-                <Card className="mb-8 hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                        <Clock className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold">Business Hours</h3>
-                        <p className="text-sm text-foreground">Regular & Emergency Service</p>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-3">
-                      {businessHours.map((schedule, index) => (
-                        <div key={index} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-                          <span className="font-medium">{schedule.day}</span>
-                          <span className="text-foreground">{schedule.hours}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className="mt-6 p-4 bg-red-50 rounded-xl border border-red-200">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Zap className="h-4 w-4 text-red-600" />
-                        <span className="text-red-600 font-bold text-sm">EMERGENCY SERVICE</span>
-                      </div>
-                      <p className="text-sm text-red-700">Available 24/7 for urgent garage door failures, security issues, and safety hazards.</p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Contact Details Card */}
-                <Card className="hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                        <MapPin className="h-6 w-6 text-accent" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold">Contact Details</h3>
-                        <p className="text-sm text-foreground">Licensed NJ Contractors</p>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <Phone className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                        <div>
-                          <p className="font-semibold">Phone</p>
-                          <a 
-                            href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`} 
-                            className="text-primary hover:underline"
-                          >
-                            {siteConfig.business.phone}
-                          </a>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-3">
-                        <Mail className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                        <div>
-                          <p className="font-semibold">Email</p>
-                          <a 
-                            href={`mailto:${siteConfig.business.email}`}
-                            className="text-primary hover:underline"
-                          >
-                            {siteConfig.business.email}
-                          </a>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-3">
-                        <MapPin className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                        <div>
-                          <p className="font-semibold">Service Area</p>
-                          <p className="text-foreground">Bergen & Hudson Counties, NJ</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+        {/* How It Works */}
+        <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+          <div className="container max-w-6xl">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <Wrench className="h-4 w-4" />
+                How It Works
               </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Simple Process, Professional Results
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Getting your garage door fixed shouldn't be complicated. Here's our straightforward process.
+              </p>
+            </div>
 
-              {/* Why Choose Us */}
-              <div>
-                <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                  <Award className="h-4 w-4" />
-                  Why Choose ez2fix
+            <div className="grid md:grid-cols-4 gap-8">
+              {howItWorks.map((step, index) => (
+                <Card key={index} className="group hover:shadow-lg transition-all duration-300 bg-white border border-gray-200">
+                  <CardContent className="p-6 text-center">
+                    <div className="relative mb-6">
+                      <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                        <step.icon className="h-10 w-10 text-primary group-hover:text-primary-foreground" />
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm">
+                        {step.step}
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Trust Factors */}
+        <section className="py-16 bg-white border-t border-gray-200">
+          <div className="container max-w-6xl">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                Why Northern New Jersey Trusts ez2fix
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                We've built our reputation on reliability, expertise, and customer satisfaction
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 className="h-8 w-8 text-primary" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                  Trusted{" "}
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    Garage Door Experts
-                  </span>
-                </h2>
-                
-                <div className="space-y-6">
-                  {whyChooseUs.map((reason, index) => (
-                    <Card key={index} className="hover:shadow-lg transition-all duration-300">
-                      <CardContent className="p-6">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <reason.icon className="h-6 w-6 text-primary" />
-                          </div>
-                          <div>
-                            <h3 className="text-lg font-bold mb-2">{reason.title}</h3>
-                            <p className="text-foreground leading-relaxed">{reason.description}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+                <div className="text-2xl font-bold text-gray-900 mb-2">Licensed & Insured</div>
+                <p className="text-gray-600 text-sm">Fully licensed contractors with comprehensive insurance coverage</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="h-8 w-8 text-primary" />
                 </div>
+                <div className="text-2xl font-bold text-gray-900 mb-2">5-Star Reviews</div>
+                <p className="text-gray-600 text-sm">Consistently rated 5 stars by satisfied customers</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-8 w-8 text-primary" />
+                </div>
+                <div className="text-2xl font-bold text-gray-900 mb-2">10+ Years</div>
+                <p className="text-gray-600 text-sm">Decade of experience serving Northern New Jersey</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <ThumbsUp className="h-8 w-8 text-primary" />
+                </div>
+                <div className="text-2xl font-bold text-gray-900 mb-2">10-Year Warranty</div>
+                <p className="text-gray-600 text-sm">Industry-leading warranty on parts and labor</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Service Areas Section */}
-        <section className="relative py-16 bg-background">
-          <div className="container">
-            <header className="text-center mb-12">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Areas We Serve
-              </h3>
-              <p className="text-lg text-foreground max-w-2xl mx-auto">
-                Professional garage door service throughout Northern New Jersey's most trusted communities.
+        {/* Contact Form */}
+        <section id="contact-form" className="py-20 bg-gradient-to-b from-primary/5 to-background">
+          <div className="container max-w-4xl">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <MessageCircle className="h-4 w-4" />
+                Send Us a Message
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+                Get Your Free Estimate
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Tell us about your garage door needs and we'll get back to you within 24 hours
               </p>
-            </header>
+            </div>
 
-            <Card className="max-w-4xl mx-auto">
-              <CardContent className="p-8">
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {serviceAreas.map((area, index) => (
-                    <div key={index} className="flex items-center gap-2 p-3 rounded-lg hover:bg-primary/5 transition-colors duration-200">
-                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                      <span className="text-foreground font-medium">{area}</span>
+            <Card className="shadow-xl border-2 border-primary/10">
+              <CardContent className="p-8 md:p-12">
+                <form className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                        Your Name
+                      </label>
+                      <Input 
+                        id="name"
+                        type="text" 
+                        placeholder="Enter your name"
+                        className="h-12 border-2 border-border focus:border-primary rounded-xl"
+                      />
                     </div>
-                  ))}
-                </div>
-                <div className="text-center mt-8">
-                  <p className="text-foreground mb-4">Don't see your area? Call us - we may still serve your location!</p>
-                  <Button variant="outline" size="lg" asChild>
-                    <Link to="/service-areas">
-                      View All Service Areas <ArrowRight className="h-4 w-4 ml-2" />
-                    </Link>
-                  </Button>
-                </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                        Phone Number
+                      </label>
+                      <Input 
+                        id="phone"
+                        type="tel" 
+                        placeholder="(123) 456-7890"
+                        className="h-12 border-2 border-border focus:border-primary rounded-xl"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      Email Address
+                    </label>
+                    <Input 
+                      id="email"
+                      type="email" 
+                      placeholder="your@email.com"
+                      className="h-12 border-2 border-border focus:border-primary rounded-xl"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="address" className="block text-sm font-medium text-foreground mb-2">
+                      Service Address
+                    </label>
+                    <Input 
+                      id="address"
+                      type="text" 
+                      placeholder="Where do you need service?"
+                      className="h-12 border-2 border-border focus:border-primary rounded-xl"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                      Describe Your Garage Door Issue
+                    </label>
+                    <Textarea 
+                      id="message"
+                      placeholder="Tell us what's happening with your garage door..."
+                      className="min-h-32 border-2 border-border focus:border-primary rounded-xl resize-none"
+                    />
+                  </div>
+
+                  <div className="text-center">
+                    <Button 
+                      size="lg" 
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <Send className="h-5 w-5 mr-2" />
+                      Send Message
+                    </Button>
+                  </div>
+                </form>
               </CardContent>
             </Card>
           </div>
         </section>
 
-        {/* Estimate Form Section */}
-        <section id="estimate-form" className="relative py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
-          <div className="container">
-            <header className="text-center max-w-4xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-full text-sm font-semibold mb-6">
-                <Calendar className="h-4 w-4" />
-                Free Estimate Request
+        {/* FAQ Section */}
+        <section className="py-20 bg-background">
+          <div className="container max-w-4xl">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <HelpCircle className="h-4 w-4" />
+                Frequently Asked Questions
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Get Your{" "}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Free Estimate
-                </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+                Common Questions & Answers
               </h2>
-              <p className="text-lg text-foreground max-w-3xl mx-auto leading-relaxed">
-                Fill out the form below and we'll provide you with an accurate, no-obligation estimate for your garage door service needs.
+              <p className="text-xl text-muted-foreground">
+                Find answers to the most common questions about our garage door services
               </p>
-            </header>
+            </div>
 
-            <div className="max-w-4xl mx-auto">
-              <EstimateForm />
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqItems.map((item, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="border-2 border-gray-200 rounded-xl px-6 hover:border-primary/30 transition-colors duration-300">
+                  <AccordionTrigger className="text-left font-semibold py-6 text-gray-900 hover:text-primary transition-colors duration-300">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 pb-6 leading-relaxed">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+            
+            <div className="text-center mt-12">
+              <p className="text-gray-600 mb-6">
+                Have more questions? Check out our comprehensive FAQ page.
+              </p>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-xl font-semibold"
+                asChild
+              >
+                <Link to="/faq">
+                  <HelpCircle className="h-5 w-5 mr-2" />
+                  See All FAQs
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
 
-        {/* Customer Testimonial CTA */}
-        <section className="relative py-16 md:py-20 bg-background">
-          <div className="container">
-            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl p-8 md:p-12 text-center">
-              <Users className="h-16 w-16 text-primary mx-auto mb-6" />
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Join 750+ Satisfied Customers
-              </h3>
-              <p className="text-lg text-foreground mb-8 max-w-2xl mx-auto">
-                Experience the difference of working with Northern New Jersey's most trusted garage door service company. Professional, reliable, and guaranteed.
-              </p>
+        {/* Final Call to Action */}
+        <section className="py-20 bg-gradient-to-br from-primary/10 to-accent/10">
+          <div className="container max-w-4xl text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Ready to Get Your Garage Door Working Perfectly?
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              <strong className="text-gray-900">Don't let garage door problems slow you down.</strong> Contact our licensed professionals today 
+              for fast, reliable service with our 10-year warranty protection.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-xl font-semibold shadow-lg text-lg" 
+                asChild
+              >
+                <a href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`}>
+                  <PhoneCall className="h-5 w-5 mr-2" />
+                  Call {siteConfig.business.phone}
+                </a>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg" 
+                asChild
+              >
+                <Link to="/booking">
+                  <Calendar className="h-5 w-5 mr-2" />
+                  Book Service Online
+                </Link>
+              </Button>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 text-left">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <Clock className="h-6 w-6 text-primary" />
+                  <h3 className="text-lg font-bold text-gray-900">Business Hours</h3>
+                </div>
+                <div className="space-y-2 text-gray-600">
+                  <div className="flex justify-between">
+                    <span>Monday - Friday</span>
+                    <span>7:00 AM - 7:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Saturday</span>
+                    <span>8:00 AM - 5:00 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Sunday</span>
+                    <span>9:00 AM - 3:00 PM</span>
+                  </div>
+                </div>
+              </div>
               
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 rounded-full px-8 py-4 text-lg font-bold shadow-xl transition-all duration-300" asChild>
-                  <a href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`}>
-                    <Phone className="h-5 w-5 mr-2" />
-                    Call {siteConfig.business.phone}
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" className="border-2 hover:bg-primary hover:text-primary-foreground rounded-full px-8 py-4 text-lg font-bold transition-all duration-300" asChild>
-                  <Link to="/reviews">
-                    Read Customer Reviews <Star className="h-4 w-4 ml-2 fill-current" />
-                  </Link>
-                </Button>
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <MapPin className="h-6 w-6 text-primary" />
+                  <h3 className="text-lg font-bold text-gray-900">Service Area</h3>
+                </div>
+                <div className="space-y-2 text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-primary" />
+                    <a href={`tel:${siteConfig.business.phone.replace(/[^+\\d]/g, "")}`} className="hover:text-primary transition-colors">
+                      {siteConfig.business.phone}
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-primary" />
+                    <a href={`mailto:${siteConfig.business.email}`} className="hover:text-primary transition-colors">
+                      {siteConfig.business.email}
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-primary" />
+                    <span>Bergen & Hudson Counties, NJ</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Final CTA Section */}
-        <FinalCTA />
       </main>
       <Footer />
     </div>

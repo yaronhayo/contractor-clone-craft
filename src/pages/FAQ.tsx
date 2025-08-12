@@ -117,7 +117,11 @@ const FAQ = () => {
 
   return (
     <div>
-      <Seo title={`Garage Door FAQ | ${siteConfig.business.name}`} description={`Answers to common garage door questions in ${siteConfig.business.hqAddress.city}, Bergen County, and Hudson County. Expert advice on repairs, installation, and maintenance.`} canonical="/faq" />
+      <Seo 
+        title="Garage Door FAQ Bergen County NJ | Expert Answers | ez2fix LLC"
+        description="❓ Get expert answers to garage door questions in Bergen County NJ | Spring repair, installation costs, emergency service, warranty info | Licensed contractor FAQ | When to repair vs replace | Safety tips | Call ez2fix LLC (201) 554-6769"
+        canonical="/faq" 
+      />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>

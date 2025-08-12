@@ -13,12 +13,14 @@ import FinalCTA from "@/components/sections/FinalCTA";
 import CompanyInfo from "@/components/sections/CompanyInfo";
 import Seo from "@/components/Seo";
 import FAQ from "@/components/sections/FAQ";
+import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 import { siteConfig } from "@/config/site-config";
 import { MapsProvider } from "@/contexts/MapsProvider";
 
 const Index = () => {
   return (
     <MapsProvider>
+      <PerformanceOptimizer />
       <Seo title={siteConfig.seo.defaultTitle} description={siteConfig.seo.defaultDescription} canonical="/" />
       <Header />
       <main id="content">

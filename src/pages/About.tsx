@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Seo from "@/components/Seo";
 import FinalCTA from "@/components/sections/FinalCTA";
+import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 import { siteConfig } from "@/config/site-config";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -102,9 +103,10 @@ const About = () => {
 
   return (
     <div>
+      <PerformanceOptimizer />
       <Seo 
-        title={`About ${siteConfig.business.name}`} 
-        description={`Learn about our garage door experts serving Jersey City, Bergen County, Hudson County—licensed, insured, and trusted for all garage door needs.`} 
+        title="About ez2fix LLC | Licensed Garage Door Repair Experts Bergen County NJ" 
+        description="🏆 Established 2012 | Licensed garage door repair & installation experts in Bergen County NJ | 750+ satisfied customers, 5-star rated, 24/7 emergency service | Specializing in spring repair, opener installation, commercial doors | Fully insured with 10-year warranties" 
         canonical="/about" 
       />
       <Helmet>

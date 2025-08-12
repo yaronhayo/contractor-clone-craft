@@ -77,8 +77,11 @@ const ServicesHub = () => {
 
   return (
     <div>
-      <Seo title="Locksmith Services in Englewood NJ | All Services" description={`Complete locksmith services in Englewood, Fort Lee, Tenafly and surrounding areas. Emergency lockout, rekeys, car keys, and commercial services.`} canonical="/services" />
-      <Seo title="Complete Garage Door Services in Elmwood Park NJ | ez2fix" description={`Expert garage door repair, installation, opener service, and emergency repairs in Elmwood Park, Montclair, Fair Lawn and surrounding Bergen County areas.`} canonical="/services" />
+      <Seo 
+        title="Garage Door Services Bergen County NJ | Repair, Installation & Emergency | ez2fix LLC"
+        description="🔧 Complete garage door services in Bergen County NJ | Repair, installation, spring replacement, opener service, 24/7 emergency | Licensed & insured | Elmwood Park, Fair Lawn, Clifton, Montclair | FREE estimates | 10-year warranty | Call (201) 554-6769"
+        canonical="/services" 
+      />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(itemListLd)}</script>

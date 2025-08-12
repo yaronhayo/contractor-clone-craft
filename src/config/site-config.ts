@@ -218,8 +218,8 @@ const baseConfig: SiteConfig = {
     name: "ez2fix",
     legalName: "ez2fix LLC",
     phone: "(201) 554-6769",
-    email: "info@ez2fix.com",
-    siteUrl: import.meta.env.VITE_SITE_URL || "https://ez2fix.com",
+    email: "ez2fixllc@gmail.com",
+    siteUrl: import.meta.env.VITE_SITE_URL || "https://ez2fixllc.com",
     hqAddress: {
       line1: "123 Main Street",
       city: "Elmwood Park",
@@ -305,12 +305,12 @@ const baseConfig: SiteConfig = {
       {
         slug: "garage-door-repair",
         name: "Garage Door Repair",
-        description: "Expert garage door repair services for all types of residential and commercial doors.",
+        description: "Expert garage door repair services in Bergen County NJ - broken springs, damaged panels, track alignment, cable replacement | Residential & commercial doors | Same-day emergency repair available 24/7.",
       },
       {
         slug: "garage-door-installation",
         name: "Garage Door Installation",
-        description: "Professional garage door installation with quality doors and expert craftsmanship.",
+        description: "Professional garage door installation in Bergen County NJ - residential & commercial doors, insulated models, steel, wood, aluminum | Expert craftsmanship with lifetime warranties | FREE estimates & senior discounts.",
       },
       {
         slug: "garage-door-opener",
@@ -334,7 +334,7 @@ const baseConfig: SiteConfig = {
         slug: "garage-door-spring-repair", 
         name: "Garage Door Spring Repair Services", 
         categorySlug: "garage-door-repair", 
-        shortDescription: "Professional garage door spring repair and replacement with 10 year warranty.",
+        shortDescription: "Expert garage door spring repair & replacement in Bergen County NJ - 24/7 emergency service, same-day installation, 10-year warranty on torsion & extension springs.",
         images: [{
           src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/Garage%20Door%20Spring%20Repair.jpg",
           width: 1200,
@@ -346,7 +346,7 @@ const baseConfig: SiteConfig = {
         slug: "garage-door-repair", 
         name: "Garage Door Repair Services", 
         categorySlug: "garage-door-repair", 
-        shortDescription: "Complete garage door repair services with same day service available.",
+        shortDescription: "Complete garage door repair services in Elmwood Park & Bergen County - broken springs, cables, rollers, tracks, openers | Licensed technicians | Same-day emergency service available 24/7.",
         images: [{
           src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/garage%20door%20repair.png",
           width: 1200,
@@ -360,7 +360,7 @@ const baseConfig: SiteConfig = {
         slug: "garage-door-installation", 
         name: "Garage Door Installation Services", 
         categorySlug: "garage-door-installation", 
-        shortDescription: "Professional garage door installation with free on-site estimate and 10% senior discount.",
+        shortDescription: "Professional garage door installation in Bergen County NJ - residential & commercial doors, insulated models, smart openers | FREE estimates, 10% senior discount, lifetime warranty available.",
         images: [{
           src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/Garage%20Door%20Installation.png",
           width: 1200,
@@ -374,7 +374,7 @@ const baseConfig: SiteConfig = {
         slug: "garage-door-opener-repair", 
         name: "Garage Door Opener Repair Service", 
         categorySlug: "garage-door-opener", 
-        shortDescription: "Expert garage door opener repair and programming with same day service.",
+        shortDescription: "Expert garage door opener repair, installation & programming in NJ - LiftMaster, Chamberlain, Genie, Craftsman | Remote programming, smart home integration | Same-day service guaranteed.",
         images: [{
           src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/Garage%20Door%20Opener%20Installation.webp",
           width: 1200,
@@ -388,7 +388,7 @@ const baseConfig: SiteConfig = {
         slug: "emergency-garage-door-repair", 
         name: "24/7 Emergency Garage Door Repair", 
         categorySlug: "emergency-repair", 
-        shortDescription: "24/7 emergency garage door repair with fast response across Elmwood Park and surrounding areas.",
+        shortDescription: "24/7 Emergency garage door repair in Bergen County NJ - broken springs, stuck doors, opener failures | 60-90 min response time | Licensed technicians with fully stocked trucks | No overtime charges.",
         images: [{
           src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/Garage%20Door%20Repair.webp",
           width: 1200,
@@ -402,7 +402,7 @@ const baseConfig: SiteConfig = {
         slug: "commercial-garage-door-service", 
         name: "Commercial Garage Door Services", 
         categorySlug: "commercial-garage-door", 
-        shortDescription: "Professional commercial garage door installation, repair, and maintenance for businesses and industrial facilities.",
+        shortDescription: "Commercial garage door services in Bergen County NJ - industrial overhead doors, loading dock equipment, high-speed doors | Businesses, warehouses, auto shops | 24/7 commercial emergency service available.",
         images: [{
           src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/commercial-garage-door.jpg",
           width: 1200,
@@ -466,10 +466,10 @@ const baseConfig: SiteConfig = {
     booking: "/booking",
   },
   seo: {
-    defaultTitle: "ez2fix - Professional Garage Door Repair & Installation in Elmwood Park, NJ",
+    defaultTitle: "Garage Door Repair Elmwood Park NJ | Emergency Service | ez2fix LLC",
     defaultDescription:
-      "Expert garage door repair and installation services in Elmwood Park, NJ. Licensed contractors offering same-day service, 10-year warranty, and free estimates. Call (201) 554-6769 for reliable, professional service.",
-    siteUrl: import.meta.env.VITE_SITE_URL || "https://ez2fix.com",
+      "🔧 #1 Garage Door Repair & Installation in Elmwood Park, NJ | Same-day service, 24/7 emergency repair, spring replacement, opener repair | Licensed, insured contractors with 10-year warranty | FREE estimates | Call (201) 554-6769",
+    siteUrl: import.meta.env.VITE_SITE_URL || "https://ez2fixllc.com",
     image: {
       src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,

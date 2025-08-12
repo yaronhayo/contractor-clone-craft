@@ -124,7 +124,11 @@ const Reviews = () => {
 
   return (
     <div>
-      <Seo title={`Customer Reviews | ${siteConfig.business.name}`} description={`Real customer reviews for our garage door services in Bergen County, Hudson County, and surrounding NJ areas. See why homeowners trust ez2fix for reliable garage door repair and installation.`} canonical="/reviews" />
+      <Seo 
+        title="Customer Reviews & Testimonials | 5-Star Garage Door Service | ez2fix LLC"
+        description="⭐ 5-star customer reviews for ez2fix LLC garage door services in Bergen County NJ | Real testimonials from satisfied customers | Spring repair, installation, emergency service reviews | Licensed & trusted contractor | See why homeowners choose ez2fix"
+        canonical="/reviews" 
+      />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(reviewLd)}</script>

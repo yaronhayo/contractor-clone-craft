@@ -2,6 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Core Web Vitals Performance Optimizations for 100% Mobile & Desktop */
+@layer base {
+  /* Font Loading Optimization - Prevent CLS */
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+  }
+
+  /* Critical Performance CSS - Above the Fold Optimization */
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+  }
+
+  /* LCP Optimization - Images */
+  img {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 400px;
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* Hero images - Critical LCP */
+  .hero-image {
+    content-visibility: auto;
+    contain-intrinsic-size: 1600px 900px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    will-change: transform;
+  }
+
+  /* CLS Prevention for Dynamic Content */
+  .skeleton-loader {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* FID Optimization - Button Interactions */
+  button, [role="button"], .btn {
+    contain: layout style paint;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Container Query Support for Layout Stability */
+  .container {
+    container-type: inline-size;
+    contain: layout style;
+  }
+
+  /* Critical Above-the-Fold Content Containers */
+  .critical-section {
+    contain: layout style paint;
+    content-visibility: auto;
+  }
+
+  /* Lazy Loading Placeholder */
+  .lazy-placeholder {
+    background-color: hsl(var(--muted));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+  }
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
