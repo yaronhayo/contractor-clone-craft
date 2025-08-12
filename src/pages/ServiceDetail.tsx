@@ -631,7 +631,7 @@ const ServiceDetail = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Star className="h-4 w-4" style={{color: '#EECD5C'}} />
-                    <span>4.9★ Rating</span>
+                    <span>5.0★ Rating</span>
                   </div>
                 </div>
               </div>
@@ -738,7 +738,7 @@ const ServiceDetail = () => {
               <Card className="text-center border-2 hover:shadow-lg transition-shadow duration-300" style={{borderColor: 'rgba(238, 205, 92, 0.3)', backgroundColor: 'white'}}>
                 <CardContent className="p-8">
                   <div className="text-3xl font-bold mb-2" style={{color: '#D2A63C'}}>
-                    4.9★
+                    5.0★
                   </div>
                   <div className="font-semibold" style={{color: '#1D1912'}}>Customer Rating</div>
                 </CardContent>
