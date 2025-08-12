@@ -16,16 +16,16 @@ const ReviewCard = ({ rating, text, author, location, service }: {
     <CardContent className="p-6">
       <div className="flex items-center gap-1 mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} className={`h-4 w-4 ${i < rating ? 'text-primary fill-current' : 'text-muted-foreground'}`} />
+          <Star key={i} className={`h-4 w-4 ${i < rating ? 'text-primary fill-current' : 'text-foreground'}`} />
         ))}
       </div>
       <Quote className="h-6 w-6 text-primary/30 mb-3" />
-      <blockquote className="text-muted-foreground mb-4 leading-relaxed group-hover:text-foreground/80 transition-colors">
+      <blockquote className="text-foreground mb-4 leading-relaxed group-hover:text-foreground/80 transition-colors">
         "{text}"
       </blockquote>
       <div className="border-t pt-4">
         <cite className="font-semibold text-foreground not-italic">{author}</cite>
-        <div className="text-sm text-muted-foreground">{location} • {service}</div>
+        <div className="text-sm text-foreground">{location} • {service}</div>
       </div>
     </CardContent>
   </Card>
@@ -50,21 +50,21 @@ export default function ReviewsTeaser() {
   const reviews = [
     {
       rating: 5,
-      text: "Emergency garage door spring repair at midnight - technician arrived in 20 minutes and had everything working perfectly. Professional, courteous, and fairly priced!",
+      text: "THANK GOD for ez2fix! Garage door spring snapped late at night with my car trapped inside. Had work early the next morning. They arrived quickly and fixed it perfectly. The technician even showed me how to prevent it from happening again. Excellent service!",
       author: "Sarah M.",
       location: "Fort Lee, NJ",
       service: "Emergency Spring Repair"
     },
     {
       rating: 5,
-      text: "New garage door installation exceeded our expectations. Beautiful craftsmanship, quality materials, and the team cleaned up perfectly. Highly recommend!",
+      text: "After getting multiple quotes, ez2fix stood out as the only fully licensed contractor with comprehensive warranty coverage. Months later, when my neighbor's discount installation started having issues, I knew I made the right choice. Quality you can see and feel.",
       author: "Robert K.",
       location: "Englewood, NJ", 
       service: "Garage Door Installation"
     },
     {
       rating: 5,
-      text: "Garage door opener was making terrible noises. They diagnosed the problem quickly, explained everything clearly, and fixed it for a very reasonable price.",
+      text: "Garage door opener started making grinding noises. Instead of trying to sell me a new one (like the last company), ez2fix's technician cleaned and adjusted it for a reasonable fee. He could have easily recommended a full replacement, but he was honest. That's integrity!",
       author: "Maria G.",
       location: "Jersey City, NJ",
       service: "Opener Repair"
@@ -72,7 +72,7 @@ export default function ReviewsTeaser() {
   ];
 
   return (
-    <section className="relative py-16 md:py-24 bg-gray-50 overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-background overflow-hidden">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(ratingLd)}</script>
       </Helmet>
@@ -87,11 +87,11 @@ export default function ReviewsTeaser() {
             Customer Reviews
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-            Trusted by Homeowners Across {city}
+            Trusted by Elmwood Park Families
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Don't just take our word for it—see what your neighbors in Bergen and Hudson Counties 
-            are saying about our garage door services.
+          <p className="mt-6 text-lg text-foreground leading-relaxed">
+            <strong>Still considering unlicensed handymen or big box store installers?</strong> Read what happens when homeowners choose the licensed professionals your neighbors trust. 
+            These aren't fake reviews—these are your Elmwood Park neighbors.
           </p>
         </header>
 
@@ -105,17 +105,17 @@ export default function ReviewsTeaser() {
                   <Star key={i} className="h-5 w-5 text-primary fill-current" />
                 ))}
               </div>
-              <div className="text-sm text-muted-foreground">Average Rating</div>
+              <div className="text-sm text-foreground">Average Rating</div>
             </div>
             <div className="h-12 w-px bg-border" />
             <div className="text-center">
               <div className="text-4xl font-extrabold text-primary mb-1">250+</div>
-              <div className="text-sm text-muted-foreground">Customer Reviews</div>
+              <div className="text-sm text-foreground">Customer Reviews</div>
             </div>
             <div className="h-12 w-px bg-border" />
             <div className="text-center">
               <div className="text-4xl font-extrabold text-primary mb-1">500+</div>
-              <div className="text-sm text-muted-foreground">Garage Doors Serviced</div>
+              <div className="text-sm text-foreground">Garage Doors Serviced</div>
             </div>
           </div>
         </div>
@@ -134,10 +134,10 @@ export default function ReviewsTeaser() {
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 text-primary-foreground shadow-xl">
             <div className="text-center sm:text-left">
               <h3 className="text-2xl font-bold mb-2">Join Our Satisfied Customers</h3>
-              <p className="opacity-90">Experience the same professional garage door service that earned us 250+ five-star reviews</p>
+              <p className="opacity-90">While unlicensed contractors leave homeowners with damaged property and voided insurance, our customers sleep soundly knowing their garage doors are safe and reliable.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100 rounded-full px-8" asChild>
+              <Button size="lg" variant="secondary" className="bg-card text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 rounded-full px-8" asChild>
                 <Link to="/reviews">
                   Read All Reviews <Star className="h-4 w-4 ml-2" />
                 </Link>

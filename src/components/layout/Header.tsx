@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Phone, Calendar } from "lucide-react";
 import { siteConfig } from "@/config/site-config";
 import MobileNav from "@/components/layout/MobileNav";
 import { useCallTracking } from "@/hooks/useCallTracking";
@@ -20,7 +20,7 @@ export const Header = () => {
               alt={siteConfig.business.branding.logos.light.alt || `${siteConfig.business.name} logo`}
               width={siteConfig.business.branding.logos.light.width}
               height={siteConfig.business.branding.logos.light.height}
-             className="h-[78px] w-auto"
+             className="h-8 w-auto"
               loading="eager"
             />
           ) : (
@@ -44,9 +44,9 @@ export const Header = () => {
                 Services <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="z-50 bg-background border shadow-md" sideOffset={6}>
-                {siteConfig.taxonomy.categories.map((c) => (
-                  <DropdownMenuItem asChild key={c.slug}>
-                    <Link to={siteConfig.routes.serviceCategory(c.slug)}>{c.name}</Link>
+                {siteConfig.taxonomy.services.map((s) => (
+                  <DropdownMenuItem asChild key={s.slug}>
+                    <Link to={siteConfig.routes.individualService(s.slug)}>{s.name}</Link>
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuItem asChild>
@@ -86,10 +86,19 @@ export const Header = () => {
           </li>
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <Button asChild size="sm" variant="outline" className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold transition-all duration-300">
+            <Link to="/booking">
+              <Calendar className="h-4 w-4 mr-2" />
+              Book Service
+            </Link>
+          </Button>
           {(() => { const { phone, telHref } = useCallTracking(siteConfig.business.phone); return (
             <Button asChild size="sm" className="rounded-full">
-              <a href={telHref} aria-label={`Call ${siteConfig.business.name}`} onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "header", phone }); } catch {} }}>Call {phone}</a>
+              <a href={telHref} aria-label={`Call ${siteConfig.business.name}`} onClick={() => { try { (window as any).dataLayer = (window as any).dataLayer || []; (window as any).dataLayer.push({ event: "phone_click", source: "header", phone }); } catch {} }}>
+                <Phone className="h-4 w-4 mr-2" />
+                Call {phone}
+              </a>
             </Button>
           ); })()}
         </div>

@@ -6,7 +6,7 @@ const FeatureItem = ({ icon: Icon, text, highlight }: {
   highlight?: boolean; 
 }) => (
   <div className={`flex items-center justify-center gap-3 py-4 px-6 transition-all duration-300 ${
-    highlight ? 'bg-primary/20 text-primary' : 'text-white hover:bg-primary/10 hover:text-primary'
+    highlight ? 'bg-primary/20 text-primary' : 'text-secondary-foreground hover:bg-primary/10 hover:text-primary'
   }`}>
     <Icon className="h-5 w-5 flex-shrink-0" />
     <span className="font-semibold text-sm md:text-base whitespace-nowrap">{text}</span>
@@ -23,7 +23,7 @@ const FeaturesBar = () => {
   ];
 
   return (
-    <section aria-label="Key features" className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-y shadow-lg">
+    <section aria-label="Key features" className="bg-secondary border-y border-border shadow-lg">
       <div className="container">
         {/* Mobile: Scrollable horizontal list */}
         <div className="md:hidden">
@@ -37,7 +37,7 @@ const FeaturesBar = () => {
         </div>
 
         {/* Desktop: Even grid */}
-        <div className="hidden md:grid md:grid-cols-5 divide-x divide-gray-700">
+        <div className="hidden md:grid md:grid-cols-5 divide-x divide-border">
           {features.map((feature, i) => (
             <div key={i} className="last:divide-x-0">
               <FeatureItem {...feature} />

@@ -82,17 +82,17 @@ export type Service = {
 };
 
 export type ServiceAreaCity = {
-  name: string; // e.g., "Edison"
+  name: string; // e.g., "Jersey City"
   state: string; // e.g., "NJ"
-  slug: string; // e.g., "edison-nj"
+  slug: string; // e.g., "jersey-city-nj"
   center?: Geo; // optional map marker
   neighborhoods?: string[];
 };
 
 export type Location = {
   id: string;
-  name: string; // e.g., "Pro Line Garage Experts Edison"
-  slug: string; // e.g., "pro-line-garage-experts-edison-nj"
+  name: string; // e.g., "Pro Line Garage Experts Jersey City"
+  slug: string; // e.g., "pro-line-garage-experts-jersey-city-nj"
   phone: string;
   email?: string;
   address: Address;
@@ -105,8 +105,7 @@ export type Location = {
 
 export type RouteTemplates = {
   servicesIndex: string; // "/services"
-  serviceCategory: (categorySlug: string) => string; // "/services/garage-door-repair"
-  individualService: (categorySlug: string, serviceSlug: string) => string; // "/services/garage-door-repair/garage-door-spring-repair"
+  individualService: (serviceSlug: string) => string; // "/services/garage-door-spring-repair"
   serviceCity: (serviceSlug: string, citySlug: string) => string; // "/garage-door-repair-edison-nj"
   locationsIndex: string; // "/locations"
   locationDetail: (locationSlug: string) => string; // "/locations/pro-line-garage-experts-edison-nj"
@@ -213,14 +212,14 @@ function mergeDeep<T>(target: T, source: any): T {
   return output;
 }
 
-// Configuration for Pro Line Garage Experts
+// Configuration for ez2fix - Professional Contractor Services
 const baseConfig: SiteConfig = {
   business: {
     name: "ez2fix",
     legalName: "ez2fix LLC",
     phone: "(201) 554-6769",
-    email: "support@ez2fix.com",
-    siteUrl: "https://ez2fix.com",
+    email: "info@ez2fix.com",
+    siteUrl: import.meta.env.VITE_SITE_URL || "https://ez2fix.com",
     hqAddress: {
       line1: "123 Main Street",
       city: "Elmwood Park",
@@ -245,9 +244,11 @@ const baseConfig: SiteConfig = {
     },
     branding: {
       colors: {
-        primary: "42 63% 53%", // #D2A63C
-        secondary: "38 23% 9%", // #1D1912  
-        accent: "46 81% 65%", // #EECD5C
+        primary: "42 63% 53%", // #D2A63C - Main brand gold
+        secondary: "38 23% 9%", // #1D1912 - Dark brown/black
+        accent: "46 81% 65%", // #EECD5C - Bright gold
+        neutral: "38 65% 44%", // #BB8525 - Medium brown  
+        background: "60 33% 94%", // #F3F3E6 - Light cream
       },
       logos: {
         light: {
@@ -321,6 +322,11 @@ const baseConfig: SiteConfig = {
         name: "Emergency Repair",
         description: "24/7 emergency garage door repair for urgent situations and same-day service.",
       },
+      {
+        slug: "commercial-garage-door",
+        name: "Commercial Garage Door",
+        description: "Professional commercial garage door services for businesses, warehouses, and industrial facilities.",
+      },
     ],
     services: [
       // Garage Door Repair
@@ -390,6 +396,20 @@ const baseConfig: SiteConfig = {
           alt: "24/7 emergency garage door repair service"
         }]
       },
+
+      // Commercial Garage Door
+      { 
+        slug: "commercial-garage-door-service", 
+        name: "Commercial Garage Door Services", 
+        categorySlug: "commercial-garage-door", 
+        shortDescription: "Professional commercial garage door installation, repair, and maintenance for businesses and industrial facilities.",
+        images: [{
+          src: "https://qjvikxuhqs1py0go.public.blob.vercel-storage.com/commercial-garage-door.jpg",
+          width: 1200,
+          height: 800,
+          alt: "Commercial garage door services for businesses"
+        }]
+      },
     ],
   },
   locations: [
@@ -437,49 +457,50 @@ const baseConfig: SiteConfig = {
   ],
   routes: {
     servicesIndex: "/services",
-    serviceCategory: (categorySlug: string) => `/services/${categorySlug}`,
-    individualService: (categorySlug: string, serviceSlug: string) => `/services/${categorySlug}/${serviceSlug}`,
+    individualService: (serviceSlug: string) => `/services/${serviceSlug}`,
     serviceCity: (serviceSlug: string, citySlug: string) => `/services/${serviceSlug}-${citySlug}`,
     locationsIndex: "/locations",
     locationDetail: (locationSlug: string) => `/locations/${locationSlug}`,
     serviceAreasIndex: "/service-areas",
     serviceAreaDetail: (areaSlug: string) => `/service-areas/${areaSlug}`,
+    booking: "/booking",
   },
   seo: {
-    defaultTitle: "ez2fix — Garage Door Repair Elmwood Park NJ | Same Day Service | Free Estimate",
+    defaultTitle: "ez2fix - Professional Garage Door Repair & Installation in Elmwood Park, NJ",
     defaultDescription:
-      "Garage door repair Elmwood Park NJ - Spring repair, opener service, installation. Same day service, 10 year warranty, 10% senior discount. Free on-site estimate.",
-    siteUrl: "https://ez2fix.com",
+      "Expert garage door repair and installation services in Elmwood Park, NJ. Licensed contractors offering same-day service, 10-year warranty, and free estimates. Call (201) 554-6769 for reliable, professional service.",
+    siteUrl: import.meta.env.VITE_SITE_URL || "https://ez2fix.com",
     image: {
       src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1200",
       width: 1200,
       height: 630,
-      alt: "ez2fix – quality garage door service",
+      alt: "ez2fix - Professional garage door repair and installation services in Elmwood Park, NJ",
     },
     templates: {
-      service: "{{service.name}} | {{business.name}}",
-      category: "{{category.name}} Services | {{business.name}}",
-      serviceCity: "{{service.name}} in {{city.name}}, {{city.state}} | {{business.name}}",
-      location: "{{location.name}} | {{business.name}}",
+      service: "{{service.name}} - Professional Service | {{business.name}}",
+      category: "{{category.name}} Services in NJ | {{business.name}}",
+      serviceCity: "{{service.name}} in {{city.name}}, {{city.state}} - Licensed Contractors | {{business.name}}",
+      location: "{{location.name}} - Local Service Area | {{business.name}}",
     },
   },
   integrations: {
     googleMaps: {
-      apiKey: "", // set per-site in Vercel Project Environment
+      apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "",
       defaultCenter: { lat: 40.9026, lng: -74.1218 },
       defaultZoom: 11,
+      mapId: import.meta.env.VITE_GOOGLE_MAPS_MAP_ID || undefined,
     },
     recaptcha: {
       version: "v2-invisible",
-      siteKey: "", // set per-site in Vercel Project Environment
+      siteKey: import.meta.env.VITE_RECAPTCHA_SITE_KEY || "",
     },
     gtm: {
-      containerId: "", // e.g., GTM-XXXXXX
+      containerId: import.meta.env.VITE_GTM_ID || "",
       dataLayerName: "dataLayer",
     },
     resend: {
       fromEmail: "no-reply@ez2fix.com",
-      replyToEmail: "support@ez2fix.com",
+      replyToEmail: "info@ez2fix.com",
       brand: "ez2fix",
       templates: {
         contactForm: "resend_template_contact",
@@ -488,17 +509,17 @@ const baseConfig: SiteConfig = {
       },
     },
     sanity: {
-      projectId: "", // set per-site
-      dataset: "production",
-      apiVersion: "2024-10-01",
-      useCdn: true,
+      projectId: import.meta.env.VITE_SANITY_PROJECT_ID || "",
+      dataset: import.meta.env.VITE_SANITY_DATASET || "production",
+      apiVersion: import.meta.env.VITE_SANITY_API_VERSION || "2024-10-01",
+      useCdn: import.meta.env.VITE_SANITY_USE_CDN !== "false",
     },
     freepik: {
       defaultAttribution: "Image by Pexels",
       profileUrl: "https://www.pexels.com/",
     },
     vercel: {
-      projectName: "ez2fix",
+      projectName: import.meta.env.VERCEL_PROJECT_NAME || "ez2fix",
     },
   },
 };

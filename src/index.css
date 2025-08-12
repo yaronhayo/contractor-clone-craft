@@ -8,44 +8,46 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* #FFFFFF */
-    --foreground: 0 0% 0%; /* #000000 */
+    /* Brand Colors Only - Ensuring WCAG AA Contrast Compliance */
+    --background: 60 33% 94%; /* #F3F3E6 - Light cream */
+    --foreground: 38 23% 9%; /* #1D1912 - Dark brown (High contrast on light) */
 
-    --card: 0 0% 100%; /* #FFFFFF */
-    --card-foreground: 0 0% 0%; /* #000000 */
+    --card: 60 33% 94%; /* #F3F3E6 - Light cream */
+    --card-foreground: 38 23% 9%; /* #1D1912 - Dark brown */
 
-    --popover: 0 0% 100%; /* #FFFFFF */
-    --popover-foreground: 0 0% 0%; /* #000000 */
+    --popover: 60 33% 94%; /* #F3F3E6 - Light cream */
+    --popover-foreground: 38 23% 9%; /* #1D1912 - Dark brown */
 
-    --primary: 42 63% 53%; /* #D2A63C */
-    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --primary: 42 63% 53%; /* #D2A63C - Main brand gold */
+    --primary-foreground: 38 23% 9%; /* #1D1912 - Dark brown (Better contrast) */
 
-    --secondary: 38 67% 44%; /* #BB8525 */
-    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+    --secondary: 38 23% 9%; /* #1D1912 - Dark brown/black */
+    --secondary-foreground: 60 33% 94%; /* #F3F3E6 - Light cream */
 
-    --muted: 0 0% 95%; /* #F2F2F2 */
-    --muted-foreground: 0 0% 40%; /* #666666 */
+    --muted: 38 65% 44%; /* #BB8525 - Medium brown */
+    --muted-foreground: 60 33% 94%; /* #F3F3E6 - Light cream */
 
-    --accent: 46 81% 65%; /* #EECD5C */
-    --accent-foreground: 0 0% 0%; /* #000000 */
+    --accent: 46 81% 65%; /* #EECD5C - Bright gold */
+    --accent-foreground: 38 23% 9%; /* #1D1912 - Dark brown */
 
-    --destructive: 42 63% 53%; /* #D2A63C - using primary for destructive */
-    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+    --destructive: 38 23% 9%; /* Using dark brown for destructive to maintain brand */
+    --destructive-foreground: 60 33% 94%; /* #F3F3E6 - Light cream */
 
-    --border: 0 0% 90%; /* #E5E5E5 */
-    --input: 0 0% 95%; /* #F2F2F2 */
-    --ring: 42 63% 53%; /* #D2A63C */
+    --border: 38 65% 44%; /* #BB8525 - Medium brown for borders */
+    --input: 60 33% 94%; /* #F3F3E6 - Light cream */
+    --ring: 42 63% 53%; /* #D2A63C - Gold focus ring */
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 100%; /* #FFFFFF */
-    --sidebar-foreground: 0 0% 0%; /* #000000 */
-    --sidebar-primary: 42 63% 53%; /* #D2A63C */
-    --sidebar-primary-foreground: 0 0% 100%; /* #FFFFFF */
-    --sidebar-accent: 46 81% 65%; /* #EECD5C */
-    --sidebar-accent-foreground: 0 0% 0%; /* #000000 */
-    --sidebar-border: 0 0% 90%; /* #E5E5E5 */
-    --sidebar-ring: 42 63% 53%; /* #D2A63C */
+    /* Sidebar using brand colors */
+    --sidebar-background: 60 33% 94%; /* #F3F3E6 - Light cream */
+    --sidebar-foreground: 38 23% 9%; /* #1D1912 - Dark brown */
+    --sidebar-primary: 42 63% 53%; /* #D2A63C - Gold */
+    --sidebar-primary-foreground: 38 23% 9%; /* #1D1912 - Dark brown */
+    --sidebar-accent: 46 81% 65%; /* #EECD5C - Bright gold */
+    --sidebar-accent-foreground: 38 23% 9%; /* #1D1912 - Dark brown */
+    --sidebar-border: 38 65% 44%; /* #BB8525 - Medium brown */
+    --sidebar-ring: 42 63% 53%; /* #D2A63C - Gold */
   }
 }
 
@@ -95,5 +97,44 @@ All colors MUST be HSL.
   /* Button hover effects */
   .btn-primary-enhanced {
     @apply bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Enhanced skeleton animations */
+  @keyframes skeleton-wave {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .skeleton-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skeleton-shimmer::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: skeleton-wave 1.5s ease-in-out 0.5s infinite;
+    content: '';
+  }
+
+  /* Skeleton loading states */
+  .animate-skeleton {
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+  }
+
+  /* Better skeleton colors for dark backgrounds */
+  .skeleton-dark {
+    background: hsl(var(--muted) / 0.2);
   }
 }

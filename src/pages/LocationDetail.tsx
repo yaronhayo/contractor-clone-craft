@@ -72,7 +72,7 @@ const LocationDetail = () => {
   return (
     <div>
       <Seo title={title} description={`Visit or contact ${location.name}. View address, phone, and service coverage.`} canonical={siteConfig.routes.locationDetail(location.slug)} />
-      <Seo title={title} description={`Visit or contact ${location.name} for garage door services. Professional repair, installation, and emergency service in Edison and surrounding NJ areas.`} canonical={siteConfig.routes.locationDetail(location.slug)} />
+      <Seo title={title} description={`Visit or contact ${location.name} for garage door services. Professional repair, installation, and emergency service in Jersey City and surrounding NJ areas.`} canonical={siteConfig.routes.locationDetail(location.slug)} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         <script type="application/ld+json">{JSON.stringify(locationLd)}</script>

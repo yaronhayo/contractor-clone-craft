@@ -21,16 +21,16 @@ const FeatureCard = ({ icon: Icon, title, description, stats }: {
       )}
     </CardHeader>
     <CardContent className="text-center">
-      <p className="text-muted-foreground leading-relaxed">{description}</p>
+      <p className="text-foreground leading-relaxed">{description}</p>
     </CardContent>
   </Card>
 );
 
 const Welcome = () => {
   return (
-    <section id="about" className="relative py-16 md:py-24 bg-gray-50 overflow-hidden">
+    <section id="about" className="relative py-16 md:py-24 bg-muted/30 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-gray-50 to-accent/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-muted/30 to-accent/10" />
       <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
       
@@ -43,7 +43,7 @@ const Welcome = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
             Elmwood Park's Most Trusted Garage Door Service
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="mt-6 text-lg text-foreground leading-relaxed max-w-3xl mx-auto">
             For over 10 years, we've been providing expert garage door repair in Elmwood Park, Montclair, and surrounding areas. 
             Our commitment to quality service and 10 year warranty shows in every project.
           </p>
@@ -65,7 +65,7 @@ const Welcome = () => {
                 Call {siteConfig.business.phone}
               </a>
             </Button>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-foreground">
               Same day service available • Free estimates
             </p>
           </div>
@@ -99,7 +99,7 @@ const Welcome = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Trusted by Homeowners Across New Jersey
             </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-foreground max-w-2xl mx-auto">
               Our commitment to quality garage door service has earned us the trust of hundreds of families and businesses.
             </p>
           </div>
@@ -109,25 +109,25 @@ const Welcome = () => {
               <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
                 5.0★
               </div>
-              <div className="text-sm text-muted-foreground">Average Rating</div>
+              <div className="text-sm text-foreground">Average Rating</div>
             </div>
             <div className="group">
               <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
                 250+
               </div>
-              <div className="text-sm text-muted-foreground">Happy Customers</div>
+              <div className="text-sm text-foreground">Happy Customers</div>
             </div>
             <div className="group">
               <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
                 15min
               </div>
-              <div className="text-sm text-muted-foreground">Average Response</div>
+              <div className="text-sm text-foreground">Average Response</div>
             </div>
             <div className="group">
               <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
                 100%
               </div>
-              <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+              <div className="text-sm text-foreground">Satisfaction Rate</div>
             </div>
           </div>
         </div>

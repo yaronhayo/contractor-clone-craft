@@ -11,7 +11,7 @@ const Footer = () => {
   const mailHref = `mailto:${email}`;
 
   return (
-    <footer className="bg-gray-900 border-t mt-16">
+    <footer className="bg-secondary border-t border-border mt-16">
       <div className="container py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Company Info with Logo */}
@@ -23,38 +23,38 @@ const Footer = () => {
                   alt={siteConfig.business.branding.logos.light.alt || `${siteConfig.business.name} logo`}
                   width={siteConfig.business.branding.logos.light.width}
                   height={siteConfig.business.branding.logos.light.height}
-                 className="h-[94px] w-auto"
+                 className="h-10 w-auto"
                 />
               ) : (
-                <div className="text-2xl font-extrabold text-white">{siteConfig.business.name}</div>
+                <div className="text-2xl font-extrabold text-secondary-foreground">{siteConfig.business.name}</div>
               )}
             </Link>
             
             <div className="space-y-3">
-              <p className="text-sm text-gray-300 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Professional garage door repair and installation services in Elmwood Park, Montclair, and surrounding New Jersey areas.
               </p>
               
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-primary" />
-                  <a href={telHref} className="text-white hover:text-primary transition-colors font-medium">
+                  <a href={telHref} className="text-secondary-foreground hover:text-primary transition-colors font-medium">
                     {phone}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-primary" />
-                  <a href={mailHref} className="text-white hover:text-primary transition-colors">
+                  <a href={mailHref} className="text-secondary-foreground hover:text-primary transition-colors">
                     {email}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-primary" />
-                  <span className="text-white">Elmwood Park, NJ</span>
+                  <span className="text-secondary-foreground">Elmwood Park, NJ</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4 text-primary" />
-                  <span className="text-white">24/7 Emergency Service</span>
+                  <span className="text-secondary-foreground">24/7 Emergency Service</span>
                 </div>
               </div>
 
@@ -69,7 +69,7 @@ const Footer = () => {
               {siteConfig.business.social?.facebook && (
                 <a 
                   href={siteConfig.business.social.facebook} 
-                  className="text-gray-400 hover:text-primary transition-colors" 
+                  className="text-muted-foreground hover:text-primary transition-colors" 
                   aria-label="Facebook" 
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -82,7 +82,7 @@ const Footer = () => {
               {siteConfig.business.social?.instagram && (
                 <a 
                   href={siteConfig.business.social.instagram} 
-                  className="text-gray-400 hover:text-primary transition-colors" 
+                  className="text-muted-foreground hover:text-primary transition-colors" 
                   aria-label="Instagram" 
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -95,7 +95,7 @@ const Footer = () => {
               {siteConfig.business.social?.googleBusiness && (
                 <a 
                   href={siteConfig.business.social.googleBusiness} 
-                  className="text-gray-400 hover:text-primary transition-colors" 
+                  className="text-muted-foreground hover:text-primary transition-colors" 
                   aria-label="Google Business" 
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -113,7 +113,7 @@ const Footer = () => {
 
           {/* Column 2: Services */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold flex items-center gap-2 text-white">
+            <h3 className="text-lg font-bold flex items-center gap-2 text-secondary-foreground">
               <Wrench className="h-5 w-5 text-primary" />
               Our Services
             </h3>
@@ -122,7 +122,7 @@ const Footer = () => {
                 <li key={service.slug}>
                   <Link 
                     to={siteConfig.routes.individualService(service.categorySlug, service.slug)} 
-                    className="text-gray-300 hover:text-primary transition-colors hover:underline"
+                    className="text-muted-foreground hover:text-primary transition-colors hover:underline"
                   >
                     {service.name}
                   </Link>
@@ -141,7 +141,7 @@ const Footer = () => {
 
           {/* Column 3: Service Areas */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold flex items-center gap-2 text-white">
+            <h3 className="text-lg font-bold flex items-center gap-2 text-secondary-foreground">
               <MapPin className="h-5 w-5 text-primary" />
               Areas We Serve
             </h3>
@@ -150,7 +150,7 @@ const Footer = () => {
                 <li key={area.slug}>
                   <Link 
                     to={siteConfig.routes.serviceAreaDetail(area.slug)} 
-                    className="text-gray-300 hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {area.name}, {area.state}
                   </Link>
@@ -169,7 +169,7 @@ const Footer = () => {
 
           {/* Column 4: Quick Links & Contact */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold flex items-center gap-2 text-white">
+            <h3 className="text-lg font-bold flex items-center gap-2 text-secondary-foreground">
               <Info className="h-5 w-5 text-primary" />
               Quick Links
             </h3>
@@ -177,42 +177,42 @@ const Footer = () => {
               <li>
                 <Link to="/about" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Info className="h-4 w-4 text-primary" />
-                  <span className="text-gray-300">About Us</span>
+                  <span className="text-muted-foreground">About Us</span>
                 </Link>
               </li>
               <li>
                 <Link to="/faq" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <HelpCircle className="h-4 w-4 text-primary" />
-                  <span className="text-gray-300">FAQ</span>
+                  <span className="text-muted-foreground">FAQ</span>
                 </Link>
               </li>
               <li>
                 <Link to="/reviews" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Star className="h-4 w-4 text-primary" />
-                  <span className="text-gray-300">Reviews</span>
+                  <span className="text-muted-foreground">Reviews</span>
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Phone className="h-4 w-4 text-primary" />
-                  <span className="text-gray-300">Contact</span>
+                  <span className="text-muted-foreground">Contact</span>
                 </Link>
               </li>
               <li>
                 <Link to="/locations" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <MapIcon className="h-4 w-4 text-primary" />
-                  <span className="text-gray-300">Locations</span>
+                  <span className="text-muted-foreground">Locations</span>
                 </Link>
               </li>
             </ul>
 
             {/* Emergency Contact Highlight */}
             <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 mt-6">
-              <h4 className="font-bold text-white mb-2 flex items-center gap-2">
+              <h4 className="font-bold text-secondary-foreground mb-2 flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 24/7 Emergency Service
               </h4>
-              <p className="text-xs text-gray-300 mb-3">
+              <p className="text-xs text-muted-foreground mb-3">
                 Garage door emergency? We're available around the clock.
               </p>
               <a 
@@ -234,21 +234,21 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 bg-gray-800">
+      <div className="border-t border-border bg-muted">
         <div className="container py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} {siteConfig.business.legalName || siteConfig.business.name}. All rights reserved.
             </div>
             
             <div className="flex items-center gap-6 text-sm">
-              <Link to="/privacy-policy" className="text-gray-400 hover:text-primary transition-colors">
+              <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-primary transition-colors">
+              <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
                 Terms & Conditions
               </Link>
-              <span className="text-gray-400">
+              <span className="text-muted-foreground">
                 NJ License #13VH13553300
               </span>
             </div>

@@ -42,6 +42,12 @@ const Services = () => {
         features: ["15 minute response time", "Mobile repair units", "After-hours availability"],
         urgency: "Available now",
         icon: Clock
+      },
+      "commercial-garage-door-service": {
+        tagline: "Commercial Solutions",
+        features: ["Industrial-grade doors", "Maintenance contracts", "Business continuity focus"],
+        urgency: "Free consultation",
+        icon: Shield
       }
     };
     
@@ -65,7 +71,7 @@ const Services = () => {
         <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
           Garage Door Experts You Can Trust
         </h2>
-        <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+        <p className="mt-6 text-lg text-foreground leading-relaxed">
           Professional garage door repair and installation in {siteConfig.business.hqAddress.city}. Licensed technicians, 
           10 year warranty, and same-day service available. Your garage door problems solved right the first time.
         </p>
@@ -74,8 +80,7 @@ const Services = () => {
       {/* Detailed Services Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
         {enhancedServices.map((service, index) => {
-          const categorySlug = siteConfig.taxonomy.services.find(ts => ts.slug === service.slug)?.categorySlug || siteConfig.taxonomy.categories[0]?.slug || "garage-door-repair";
-          const to = siteConfig.routes.individualService(categorySlug, service.slug);
+          const to = siteConfig.routes.individualService(service.slug);
           const imgSrc = service.imageUrl || siteConfig.media.serviceCardDefault?.src || "";
           const alt = `${service.name} in ${siteConfig.business.hqAddress.city}`;
           const ServiceIcon = service.icon;
@@ -83,7 +88,7 @@ const Services = () => {
           return (
             <article 
               key={service.slug} 
-              className={`group relative overflow-hidden rounded-2xl border-2 hover:border-primary transition-all duration-500 hover:shadow-2xl animate-fade-in bg-gradient-to-br from-background to-accent/5`}
+              className={`group relative overflow-hidden rounded-2xl border-2 border-border hover:border-primary transition-all duration-500 hover:shadow-2xl animate-fade-in bg-card`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Floating Icon */}
@@ -114,17 +119,17 @@ const Services = () => {
                   </div>
                   
                   {/* Bottom overlay with tagline */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-foreground/90 to-transparent text-background">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-secondary/95 to-transparent text-secondary-foreground">
                     <div className="text-sm font-semibold opacity-90">{service.tagline}</div>
                   </div>
                 </div>
 
                 {/* Service Content */}
                 <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-200">
+                  <h3 className="text-xl font-bold mb-3 text-card-foreground group-hover:text-primary transition-colors duration-200">
                     {service.name}
                   </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-foreground mb-6 leading-relaxed">
                     {service.shortDescription || "Professional garage door service with expert technicians and quality parts."}
                   </p>
                   
@@ -133,13 +138,13 @@ const Services = () => {
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-3 text-sm">
                         <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
+                        <span className="text-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   
                   {/* CTA Section */}
-                  <div className="border-t pt-4">
+                  <div className="border-t border-border pt-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Star className="h-4 w-4 text-primary fill-current" />
@@ -187,7 +192,7 @@ const Services = () => {
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Need Garage Door Service in {siteConfig.business.hqAddress.city}?
           </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+          <p className="text-foreground max-w-2xl mx-auto mb-6">
             Don't let garage door problems disrupt your day. Our expert technicians are ready to help 
             with professional repair and installation services across Bergen and Hudson Counties.
           </p>
@@ -230,14 +235,14 @@ const Services = () => {
             </a>
           </Button>
           <Button size="lg" variant="outline" className="rounded-full px-8 py-4 text-lg font-bold border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300" asChild>
-            <Link to="/services">
-              View All Services <ArrowRight className="h-5 w-5 ml-2" />
+            <Link to="/booking">
+              Book Service <ArrowRight className="h-5 w-5 ml-2" />
             </Link>
           </Button>
         </div>
         
         {/* Bottom note */}
-        <p className="text-center text-sm text-muted-foreground mt-6">
+        <p className="text-center text-sm text-foreground mt-6">
           Free estimates • Licensed professionals • Emergency service available 24/7
         </p>
       </div>

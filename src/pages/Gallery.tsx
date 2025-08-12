@@ -32,7 +32,7 @@ const Stat = ({ value, label }: { value: string; label: string }) => (
     <CardHeader>
       <CardTitle className="text-2xl font-extrabold">{value}</CardTitle>
     </CardHeader>
-    <CardContent className="text-muted-foreground text-xs md:text-sm">{label}</CardContent>
+    <CardContent className="text-foreground text-xs md:text-sm">{label}</CardContent>
   </Card>
 );
 
@@ -70,7 +70,7 @@ const Gallery = () => {
   return (
     <div>
       <Seo title="Project Gallery | Recent Work" description="Browse recent locksmith projects—lock installs, rekeys, car keys, and smart locks." canonical="/gallery" />
-      <Seo title="Garage Door Gallery | Recent Projects" description="Browse recent garage door installations, repairs, spring replacements, and opener services in Edison, Bergen County, and Hudson County." canonical="/gallery" />
+      <Seo title="Garage Door Gallery | Recent Projects" description="Browse recent garage door installations, repairs, spring replacements, and opener services in Jersey City, Bergen County, and Hudson County." canonical="/gallery" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(galleryLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
@@ -81,7 +81,7 @@ const Gallery = () => {
         <section className="container py-14 md:py-20 animate-fade-in">
           <header className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-5xl font-extrabold">Garage Door Project Gallery</h1>
-            <p className="mt-4 text-muted-foreground">Recent garage door installations, repairs, and service work across Edison, Bergen County, and Hudson County.</p>
+            <p className="mt-4 text-foreground">Recent garage door installations, repairs, and service work across Jersey City, Bergen County, and Hudson County.</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               {categories.map((cat) => (
                 <Button
@@ -122,7 +122,7 @@ const Gallery = () => {
                 </button>
                 <figcaption className="flex items-center justify-between p-3 text-xs md:text-sm">
                   <span className="text-foreground/90 truncate">{img.alt}</span>
-                  <span className="inline-flex items-center gap-1 text-muted-foreground">
+                  <span className="inline-flex items-center gap-1 text-foreground">
                     <CalendarDays className="h-4 w-4" aria-hidden="true" />
                     {new Date(img.date).toLocaleDateString()}
                   </span>
@@ -135,7 +135,7 @@ const Gallery = () => {
           {/* CTA */}
           <div className="mt-12 rounded-lg border p-6 md:p-10 text-center bg-card">
             <h2 className="text-xl md:text-2xl font-bold">Need Garage Door Service?</h2>
-            <p className="mt-2 text-muted-foreground">Tell us about your garage door needs—we'll provide a fast, professional estimate for repair or installation.</p>
+            <p className="mt-2 text-foreground">Tell us about your garage door needs—we'll provide a fast, professional estimate for repair or installation.</p>
             <div className="mt-4 flex items-center justify-center gap-3">
               <Button asChild>
                 <Link to="/contact">Get Free Garage Door Estimate</Link>
@@ -162,7 +162,7 @@ const Gallery = () => {
                 <div className="flex items-center justify-between gap-3 text-sm">
                   <div className="flex items-center gap-2">
                     <Badge variant="secondary">{images[index]?.category}</Badge>
-                    <span className="inline-flex items-center gap-1 text-muted-foreground">
+                    <span className="inline-flex items-center gap-1 text-foreground">
                       <CalendarDays className="h-4 w-4" aria-hidden="true" />
                       {images[index] ? new Date(images[index].date).toLocaleDateString() : ""}
                     </span>

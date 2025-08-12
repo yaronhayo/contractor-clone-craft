@@ -5,7 +5,7 @@ const FinalCTA = () => {
   return (
     <section className="container py-14 md:py-20">
       <div className="rounded-xl border bg-gradient-to-r from-primary/90 to-primary/70 text-primary-foreground px-6 py-10 text-center shadow">
-        <h3 className="text-2xl font-bold">Need Garage Door Service in Edison or Bergen County?</h3>
+        <h3 className="text-2xl font-bold">Need Garage Door Service in Hudson or Bergen County?</h3>
         <p className="mt-2 opacity-90">Don't wait—call Pro Line Garage Experts for fast, professional garage door repair and installation.</p>
         <div className="mt-6 flex items-center justify-center gap-3">
           <Button asChild size="lg" variant="secondary" className="rounded-full bg-background text-foreground hover:opacity-90">

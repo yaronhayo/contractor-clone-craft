@@ -3,8 +3,14 @@ import { siteConfig } from "@/config/site-config";
 
 export const getSanityClient = () => {
   const cfg = siteConfig.integrations.sanity || {};
+  
+  // Ensure we have minimum required configuration
+  if (!cfg.projectId || cfg.projectId.trim() === '') {
+    throw new Error('Sanity project ID not configured');
+  }
+  
   const clientConfig: ClientConfig = {
-    projectId: cfg.projectId || "",
+    projectId: cfg.projectId,
     dataset: cfg.dataset || "production",
     apiVersion: cfg.apiVersion || "2023-01-01",
     useCdn: cfg.useCdn ?? true,

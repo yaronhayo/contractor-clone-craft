@@ -10,7 +10,24 @@ import ServiceAreasMap from "@/components/maps/ServiceAreasMap";
 const toTitle = (slug?: string) => (slug || "").split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 
 const CityServiceDetail = () => {
-  const { serviceSlug, citySlug } = useParams();
+  const { serviceSlug, citySlug } = useParams<{ serviceSlug: string; citySlug: string }>();
+  
+  // Guard against missing parameters
+  if (!serviceSlug || !citySlug) {
+    console.error('CityServiceDetail: Missing URL parameters', { serviceSlug, citySlug });
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Invalid Service URL</h1>
+          <p>Missing service or city information in the URL</p>
+          <Link to="/services" className="inline-block mt-4 px-6 py-2 bg-primary text-white rounded">
+            View All Services
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   const service = siteConfig.taxonomy.services.find((s) => s.slug === serviceSlug) || siteConfig.taxonomy.services[0];
   const area = siteConfig.locations
     .flatMap((l) => l.serviceAreas.map((a) => ({ ...a, locationId: l.id })))

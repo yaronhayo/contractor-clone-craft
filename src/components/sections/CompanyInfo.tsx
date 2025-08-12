@@ -16,7 +16,7 @@ const CompanyInfo = () => {
     postalCode: data?.address?.postalCode || siteConfig.business.hqAddress.postalCode,
   };
   const description = data?.defaultDescription || siteConfig.seo.defaultDescription;
-  const garageDescription = data?.defaultDescription || "Professional garage door installation, repair, and emergency services in Edison, Bergen County, Hudson County, and surrounding NJ areas. Licensed, insured, and available 24/7.";
+  const garageDescription = data?.defaultDescription || "Professional garage door installation, repair, and emergency services in Jersey City, Bergen County, Hudson County, and surrounding NJ areas. Licensed, insured, and available 24/7.";
 
   const telHref = `tel:${(phone || "").replace(/[^+\d]/g, "")}`;
   const mailHref = `mailto:${email}`;

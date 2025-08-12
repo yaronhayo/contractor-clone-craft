@@ -9,9 +9,9 @@ const ProblemCard = ({ icon: Icon, title, description, urgency }: {
   urgency: "high" | "medium" | "low";
 }) => {
   const urgencyColors = {
-    high: "border-red-200 bg-red-50 text-red-800",
-    medium: "border-yellow-200 bg-yellow-50 text-yellow-800", 
-    low: "border-blue-200 bg-blue-50 text-blue-800"
+    high: "border-destructive/30 bg-destructive/10 text-destructive",
+    medium: "border-accent/30 bg-accent/10 text-accent-foreground", 
+    low: "border-primary/30 bg-primary/10 text-primary"
   };
 
   return (
@@ -83,7 +83,7 @@ const Questions = () => {
     <section id="problems" className="relative py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
       <div className="container">
         <header className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <AlertTriangle className="h-4 w-4" />
             Common Garage Door Problems
           </div>
@@ -106,12 +106,12 @@ const Questions = () => {
 
         {/* Emergency CTA */}
         <div className="text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-2xl p-8 shadow-lg">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-destructive to-destructive/80 text-destructive-foreground rounded-2xl p-8 shadow-lg">
             <div className="text-center sm:text-left">
               <h3 className="text-2xl font-bold mb-2">Emergency Garage Door Service?</h3>
-              <p className="opacity-90">Available 24/7 across Edison, Bergen County & Hudson County</p>
+              <p className="opacity-90">Available 24/7 across Jersey City, Bergen County & Hudson County</p>
             </div>
-            <Button size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100 rounded-full px-8" asChild>
+            <Button size="lg" variant="secondary" className="bg-background text-destructive hover:bg-muted rounded-full px-8" asChild>
               <a 
                 href={`tel:${siteConfig.business.phone.replace(/[^+\d]/g, "")}`}
                 onClick={() => {
@@ -131,4 +131,4 @@ const Questions = () => {
   );
 };
 
-export default Services;
+export default Questions;

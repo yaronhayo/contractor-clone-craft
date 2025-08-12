@@ -19,7 +19,7 @@ const CityCard = ({ area, services }: {
           <h3 className="font-bold text-lg group-hover:text-primary transition-colors duration-200">
             {area.name}, {area.state}
           </h3>
-          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+          <div className="flex items-center gap-1 text-xs text-foreground">
             <Star className="h-3 w-3 text-yellow-500 fill-current" />
             <span>5.0/5 garage door service</span>
           </div>
@@ -38,7 +38,7 @@ const CityCard = ({ area, services }: {
               <span className="text-sm font-medium group-hover/link:text-primary transition-colors">
                 {service.name} in {area.name}
               </span>
-              <ArrowRight className="h-4 w-4 text-muted-foreground group-hover/link:text-primary group-hover/link:translate-x-1 transition-all duration-200" />
+              <ArrowRight className="h-4 w-4 text-foreground group-hover/link:text-primary group-hover/link:translate-x-1 transition-all duration-200" />
             </div>
           </Link>
         ))}
@@ -60,7 +60,7 @@ const PopularCityServices = () => {
   const topServices = siteConfig.taxonomy.services.slice(0, 3);
 
   return (
-    <section id="popular-city-services" className="relative py-16 md:py-24 bg-white">
+    <section id="popular-city-services" className="relative py-16 md:py-24 bg-background">
       <div className="container">
         <header className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
@@ -70,7 +70,7 @@ const PopularCityServices = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
             Garage Door Services Near You
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-6 text-lg text-foreground leading-relaxed">
             Quick access to our most requested garage door services in the top cities we serve across 
             Bergen County, Hudson County, and surrounding New Jersey areas.
           </p>
@@ -91,16 +91,16 @@ const PopularCityServices = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Browse Garage Door Services by Category
             </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-foreground max-w-2xl mx-auto">
               Find the exact garage door service you need with our organized service categories.
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {siteConfig.taxonomy.categories.map((category, index) => (
+            {siteConfig.taxonomy.services.slice(0, 6).map((service, index) => (
               <Link 
-                key={category.slug} 
-                to={siteConfig.routes.serviceCategory(category.slug)}
+                key={service.slug} 
+                to={siteConfig.routes.individualService(service.slug)}
                 className={`group block animate-fade-in`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -109,13 +109,13 @@ const PopularCityServices = () => {
                     <Wrench className="h-6 w-6 text-primary" />
                   </div>
                   <h4 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors duration-200">
-                    {category.name}
+                    {service.name}
                   </h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {category.description}
+                  <p className="text-sm text-foreground leading-relaxed">
+                    {service.shortDescription || "Professional service when you need it most."}
                   </p>
                   <div className="mt-4 inline-flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all duration-200">
-                    <span className="text-sm">Explore Services</span>
+                    <span className="text-sm">Learn More</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
                 </div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Routing Test</title>
+    <style>
+        body { 
+            font-family: system-ui; 
+            margin: 0; 
+            padding: 40px; 
+            background: #f8f9fa; 
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .success { 
+            color: #27ae60; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+        }
+        .info { 
+            background: #ecf0f1; 
+            padding: 15px; 
+            border-radius: 4px; 
+            margin: 10px 0; 
+        }
+        button { 
+            background: #3498db; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            margin: 5px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success">✅ Basic HTML Loading: SUCCESS</div>
+        
+        <h1>Vercel Routing Test</h1>
+        
+        <p>If you can see this page, it means:</p>
+        <ul>
+            <li>✅ Vercel is serving HTML files correctly</li>
+            <li>✅ DNS and CDN are working</li>
+            <li>✅ Your browser can load static content</li>
+        </ul>
+        
+        <div class="info">
+            <strong>Current URL:</strong> <span id="current-url"></span><br>
+            <strong>Timestamp:</strong> <span id="timestamp"></span><br>
+            <strong>User Agent:</strong> <span id="user-agent"></span>
+        </div>
+        
+        <h3>Test Navigation</h3>
+        <button onclick="testNavigation('/')">Test Home</button>
+        <button onclick="testNavigation('/services')">Test Services</button>
+        <button onclick="testNavigation('/health')">Test Health</button>
+        <button onclick="window.location.reload()">Reload This Page</button>
+        
+        <div id="test-results"></div>
+        
+        <h3>Next Steps</h3>
+        <p>If this static HTML page loads but React routes fail, the issue is with:</p>
+        <ul>
+            <li>JavaScript bundle loading</li>
+            <li>React initialization</li>
+            <li>Browser compatibility</li>
+        </ul>
+    </div>
+
+    <script>
+        // Fill in page info
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('timestamp').textContent = new Date().toISOString();
+        document.getElementById('user-agent').textContent = navigator.userAgent;
+        
+        // Test navigation function
+        function testNavigation(path) {
+            const results = document.getElementById('test-results');
+            results.innerHTML = `<div class="info">Testing navigation to: ${path}</div>`;
+            
+            // Try to navigate
+            setTimeout(() => {
+                window.location.href = path;
+            }, 1000);
+        }
+        
+        console.log('Static HTML test page loaded successfully');
+        console.log('URL:', window.location.href);
+        console.log('User Agent:', navigator.userAgent);
+    </script>
+</body>
+</html>

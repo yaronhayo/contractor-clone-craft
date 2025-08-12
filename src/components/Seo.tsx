@@ -109,7 +109,7 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Locksmith Services",
+        name: "Garage Door Services",
         itemListElement: services.map((s) => ({
           "@type": "Offer",
           itemOffered: {
@@ -158,6 +158,22 @@ const Seo = ({ title, description, canonical = "/" }: SeoProps) => {
       {shareImage && <meta name="twitter:image" content={shareImage.src} />}
       {siteConfig.business.social?.twitter && (
         <meta name="twitter:site" content={"@" + siteConfig.business.social.twitter.split("/").pop()} />
+      )}
+      
+      {/* Additional SEO Meta Tags */}
+      <meta name="robots" content="index, follow" />
+      <meta name="author" content={siteConfig.business.name} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#D2A63C" />
+      
+      {/* Local Business Meta Tags */}
+      <meta name="geo.region" content="US-NJ" />
+      <meta name="geo.placename" content="Elmwood Park" />
+      {siteConfig.business.geo && (
+        <>
+          <meta name="geo.position" content={`${siteConfig.business.geo.lat};${siteConfig.business.geo.lng}`} />
+          <meta name="ICBM" content={`${siteConfig.business.geo.lat}, ${siteConfig.business.geo.lng}`} />
+        </>
       )}
 
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>

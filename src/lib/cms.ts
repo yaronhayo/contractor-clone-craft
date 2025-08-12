@@ -52,6 +52,10 @@ export type CMSSiteSettings = {
 
 export const isSanityConfigured = () => {
   try {
+    const cfg = siteConfig.integrations.sanity;
+    if (!cfg || !cfg.projectId || cfg.projectId.trim() === '') {
+      return false;
+    }
     const client = getSanityClient();
     return Boolean(client.config().projectId);
   } catch {

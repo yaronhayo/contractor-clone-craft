@@ -20,10 +20,10 @@ const MobileNav = () => {
           <div>
             <div className="text-xs uppercase tracking-wide text-muted-foreground">Services</div>
             <ul className="mt-2 space-y-2">
-              {siteConfig.taxonomy.categories.map((c) => (
-                <li key={c.slug}>
+              {siteConfig.taxonomy.services.map((s) => (
+                <li key={s.slug}>
                   <SheetClose asChild>
-                    <Link to={siteConfig.routes.serviceCategory(c.slug)} className="hover:text-primary">{c.name}</Link>
+                    <Link to={siteConfig.routes.individualService(s.slug)} className="hover:text-primary">{s.name}</Link>
                   </SheetClose>
                 </li>
               ))}

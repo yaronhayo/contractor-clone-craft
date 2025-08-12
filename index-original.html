@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ez2fix | Garage Door Repair Elmwood Park NJ | (201) 554-6769 | Same Day Service</title>
+    <meta name="description" content="Garage door repair Elmwood Park NJ - Spring repair, opener service, installation. Call (201) 554-6769. Same day service, 10 year warranty, 10% senior discount." />
+    <meta name="author" content="ez2fix" />
+    <meta name="keywords" content="garage door repair, elmwood park, nj, spring repair, door opener, installation, same day service" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Ez2Fix" />
+    <link rel="apple-touch-icon" href="/ez2fix-logo.png" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/ez2fix-logo.png" as="image" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="//maps.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="ez2fix | Garage Door Repair Elmwood Park NJ | (201) 554-6769" />
+    <meta property="og:description" content="Garage door repair Elmwood Park NJ - Spring repair, opener service, installation. Call (201) 554-6769. Same day service, 10 year warranty." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: system-ui;">
+        <div style="text-align: center;">
+          <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; animation: spin 2s linear infinite; margin: 0 auto 20px;"></div>
+          <div>Loading application...</div>
+        </div>
+      </div>
+      <style>
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+    </div>
+    <script>
+      // Debug script loading
+      console.log('HTML: Document loaded, attempting to load React app...');
+      
+      // Catch any script loading errors
+      window.addEventListener('error', function(e) {
+        console.error('HTML: Script loading error:', e);
+        document.getElementById('root').innerHTML = 
+          '<div style="padding: 20px; text-align: center; color: red;">' +
+          '<h2>Application Load Error</h2>' +
+          '<p>Failed to load the application. Please refresh the page.</p>' +
+          '<p style="font-size: 12px; color: gray;">Error: ' + e.message + '</p>' +
+          '<button onclick="location.reload()" style="margin-top: 10px; padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer;">Refresh Page</button>' +
+          '</div>';
+      });
+      
+      // Set a timeout to detect if React never loads
+      setTimeout(function() {
+        const root = document.getElementById('root');
+        if (root && root.innerHTML.includes('Loading application...')) {
+          console.error('HTML: React app failed to load within 10 seconds');
+          root.innerHTML = 
+            '<div style="padding: 20px; text-align: center; color: orange;">' +
+            '<h2>Application Load Timeout</h2>' +
+            '<p>The application is taking longer than expected to load.</p>' +
+            '<p style="font-size: 12px; color: gray;">Current URL: ' + window.location.href + '</p>' +
+            '<button onclick="location.reload()" style="margin-top: 10px; padding: 10px 20px; background: #e67e22; color: white; border: none; border-radius: 4px; cursor: pointer;">Retry</button>' +
+            '</div>';
+        }
+      }, 10000);
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

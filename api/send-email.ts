@@ -1,4 +1,18 @@
 import { Resend } from "resend";
+import { RateLimiter } from "limiter";
+import validator from "validator";
+import DOMPurify from "dompurify";
+import { JSDOM } from "jsdom";
+
+// Create DOM for server-side DOMPurify
+const window = new JSDOM('').window;
+const purify = DOMPurify(window);
+
+// Rate limiter: 5 requests per minute per IP
+const limiter = new RateLimiter({
+  tokensPerInterval: 5,
+  interval: 'minute',
+});
 
 // Vercel serverless function to send transactional emails via Resend
 // Required env vars (set per project in Vercel):
@@ -9,6 +23,18 @@ import { Resend } from "resend";
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Method not allowed" });
+    return;
+  }
+
+  // Rate limiting check
+  const clientIP = req.headers["x-forwarded-for"] || req.connection?.remoteAddress || req.socket?.remoteAddress || "unknown";
+  const remainingRequests = await limiter.removeTokens(1);
+  
+  if (remainingRequests < 0) {
+    res.status(429).json({ 
+      error: "Rate limit exceeded. Please wait before submitting another request.",
+      retryAfter: 60
+    });
     return;
   }
 
@@ -41,6 +67,32 @@ export default async function handler(req: any, res: any) {
     honeypot,
     company,
   } = body || {};
+
+  // Input validation and sanitization
+  if (!name || !phone || !email || !address) {
+    res.status(400).json({ error: "Missing required fields: name, phone, email, address" });
+    return;
+  }
+
+  // Validate email format
+  if (!validator.isEmail(email)) {
+    res.status(400).json({ error: "Invalid email format" });
+    return;
+  }
+
+  // Sanitize inputs
+  const sanitizedName = purify.sanitize(validator.escape(name?.toString() || ""));
+  const sanitizedPhone = purify.sanitize(validator.escape(phone?.toString() || ""));
+  const sanitizedEmail = validator.normalizeEmail(email?.toString() || "") || "";
+  const sanitizedAddress = purify.sanitize(validator.escape(address?.toString() || ""));
+  const sanitizedMessage = purify.sanitize(validator.escape(message?.toString() || ""));
+
+  // Validate phone number format (basic validation)
+  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+  if (!phoneRegex.test(sanitizedPhone.replace(/[\s\-\(\)\.]/g, ""))) {
+    res.status(400).json({ error: "Invalid phone number format" });
+    return;
+  }
 
   // Honeypot spam check: silently accept but do not send
   const hp = (honeypot || company || "").toString().trim();
@@ -82,19 +134,19 @@ export default async function handler(req: any, res: any) {
   }
 
   const subjectBase = type === "estimate_request" ? "New Estimate Request" : "New Form Submission";
-  const subject = `${subjectBase}${name ? ` from ${name}` : ""}`;
+  const subject = `${subjectBase}${sanitizedName ? ` from ${sanitizedName}` : ""}`;
 
   const html = `
     <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;color:#111">
       <h2 style="margin:0 0 12px 0">${subjectBase}</h2>
       <table style="border-collapse:collapse;width:100%;max-width:640px">
         <tbody>
-          ${name ? `<tr><td style="padding:6px 8px;font-weight:600">Name</td><td style="padding:6px 8px">${escapeHtml(name)}</td></tr>` : ""}
-          ${phone ? `<tr><td style="padding:6px 8px;font-weight:600">Phone</td><td style="padding:6px 8px">${escapeHtml(phone)}</td></tr>` : ""}
-          ${email ? `<tr><td style="padding:6px 8px;font-weight:600">Email</td><td style="padding:6px 8px">${escapeHtml(email)}</td></tr>` : ""}
-          ${address ? `<tr><td style="padding:6px 8px;font-weight:600">Address</td><td style="padding:6px 8px">${escapeHtml(address)}</td></tr>` : ""}
-          ${Array.isArray(services) && services.length ? `<tr><td style="padding:6px 8px;font-weight:600">Services</td><td style="padding:6px 8px">${services.map(escapeHtml).join(", ")}</td></tr>` : ""}
-          ${message ? `<tr><td style="padding:6px 8px;font-weight:600">Message</td><td style="padding:6px 8px;white-space:pre-wrap">${escapeHtml(message)}</td></tr>` : ""}
+          ${sanitizedName ? `<tr><td style="padding:6px 8px;font-weight:600">Name</td><td style="padding:6px 8px">${sanitizedName}</td></tr>` : ""}
+          ${sanitizedPhone ? `<tr><td style="padding:6px 8px;font-weight:600">Phone</td><td style="padding:6px 8px">${sanitizedPhone}</td></tr>` : ""}
+          ${sanitizedEmail ? `<tr><td style="padding:6px 8px;font-weight:600">Email</td><td style="padding:6px 8px">${sanitizedEmail}</td></tr>` : ""}
+          ${sanitizedAddress ? `<tr><td style="padding:6px 8px;font-weight:600">Address</td><td style="padding:6px 8px">${sanitizedAddress}</td></tr>` : ""}
+          ${Array.isArray(services) && services.length ? `<tr><td style="padding:6px 8px;font-weight:600">Services</td><td style="padding:6px 8px">${services.map(s => purify.sanitize(validator.escape(s?.toString() || ""))).join(", ")}</td></tr>` : ""}
+          ${sanitizedMessage ? `<tr><td style="padding:6px 8px;font-weight:600">Message</td><td style="padding:6px 8px;white-space:pre-wrap">${sanitizedMessage}</td></tr>` : ""}
           ${pageUrl ? `<tr><td style="padding:6px 8px;font-weight:600">Landing Page</td><td style="padding:6px 8px"><a href="${escapeAttr(pageUrl)}">${escapeHtml(pageUrl)}</a></td></tr>` : ""}
           ${referrer ? `<tr><td style=\"padding:6px 8px;font-weight:600\">Referrer</td><td style=\"padding:6px 8px\">${escapeHtml(referrer)}</td></tr>` : ""}
           ${(utmSource || utmMedium || utmCampaign || utmTerm || utmContent) ? `
@@ -117,7 +169,7 @@ export default async function handler(req: any, res: any) {
       from,
       to,
       subject,
-      reply_to: email,
+      reply_to: sanitizedEmail,
       html,
     });
     res.status(200).json({ ok: true });

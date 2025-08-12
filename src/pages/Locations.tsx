@@ -20,7 +20,7 @@ const Locations = () => {
   return (
     <div>
       <Seo title="Locations" description="Find our locations and service coverage on the map." canonical="/locations" />
-      <Seo title="Garage Door Service Locations in NJ" description="Find our Edison, NJ location and garage door service coverage across Bergen County, Hudson County, and surrounding areas." canonical="/locations" />
+      <Seo title="Garage Door Service Locations in NJ" description="Find our Jersey City, NJ location and garage door service coverage across Bergen County, Hudson County, and surrounding areas." canonical="/locations" />
       <Header />
       <main id="content">
         <section className="container py-14 md:py-20">
@@ -29,7 +29,7 @@ const Locations = () => {
           </Helmet>
           <header className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-extrabold">Pro Line Garage Experts Locations</h1>
-            <p className="mt-3 text-muted-foreground">Our Edison, NJ location serves Bergen County, Hudson County, and surrounding areas with professional garage door services.</p>
+            <p className="mt-3 text-muted-foreground">Our Jersey City, NJ location serves Bergen County, Hudson County, and surrounding areas with professional garage door services.</p>
           </header>
 
           <div className="mt-10 grid lg:grid-cols-3 gap-6">

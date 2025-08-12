@@ -1,0 +1,52 @@
+{
+  "name": "Ez2Fix Garage Door Services",
+  "short_name": "Ez2Fix",
+  "description": "Professional garage door repair and installation services in New Jersey",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "categories": ["business", "utilities"],
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/ez2fix-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/ez2fix-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Get Estimate",
+      "short_name": "Estimate",
+      "description": "Get a free garage door repair estimate",
+      "url": "/#estimate",
+      "icons": [
+        {
+          "src": "/ez2fix-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Call Now",
+      "short_name": "Call",
+      "description": "Call for emergency garage door service",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/ez2fix-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

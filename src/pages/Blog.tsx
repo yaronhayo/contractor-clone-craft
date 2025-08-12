@@ -66,7 +66,7 @@ const Blog = () => {
   return (
     <div>
       <Seo title="Blog | Locksmith Tips & Guides" description="Explore expert locksmith tips, how‑tos, and planning guides for local homeowners." canonical="/blog" />
-      <Seo title="Blog | Garage Door Tips & Guides" description="Expert garage door maintenance tips, repair guides, and installation advice for homeowners in Edison, Bergen County, and Hudson County." canonical="/blog" />
+      <Seo title="Blog | Garage Door Tips & Guides" description="Expert garage door maintenance tips, repair guides, and installation advice for homeowners in Jersey City, Bergen County, and Hudson County." canonical="/blog" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
       </Helmet>

@@ -140,9 +140,8 @@ const EstimateForm = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
             Get Your Free Garage Door Quote
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Professional garage door estimates with transparent pricing. No hidden fees, no pressure—just honest, 
-            upfront quotes for repair or installation.
+          <p className="mt-6 text-lg text-foreground leading-relaxed">
+            Professional garage door estimates with transparent evaluation. No sales calls, no pressure—just honest assessment of your garage door needs.
           </p>
         </header>
 
@@ -157,8 +156,8 @@ const EstimateForm = () => {
                   </div>
                   Request Your Free Estimate
                 </CardTitle>
-                <p className="text-muted-foreground">
-                  Fill out the form below and we'll provide a detailed quote within 15 minutes during business hours.
+                <p className="text-foreground">
+                  Submit this form to receive a detailed evaluation of your garage door needs. We'll provide a comprehensive assessment and service recommendations.
                 </p>
               </CardHeader>
               <CardContent className="p-8">
@@ -187,7 +186,7 @@ const EstimateForm = () => {
                       >
                         <Input 
                           required 
-                          placeholder="123 Main St, Edison, NJ 08817" 
+                          placeholder="123 Main St, Jersey City, NJ 07302" 
                           value={address} 
                           onChange={(e) => setAddress(e.target.value)}
                           className="h-12 text-base"
@@ -196,7 +195,7 @@ const EstimateForm = () => {
                     ) : (
                       <Input 
                         required 
-                        placeholder="123 Main St, Edison, NJ 08817" 
+                        placeholder="123 Main St, Jersey City, NJ 07302" 
                         value={address} 
                         onChange={(e) => setAddress(e.target.value)}
                         className="h-12 text-base"
@@ -293,9 +292,9 @@ const EstimateForm = () => {
                   </div>
 
                   {/* Consent Checkbox */}
-                  <div className="flex items-start gap-3 p-4 bg-muted/30 rounded-lg">
+                  <div className="flex items-start gap-3 p-4 bg-muted/15 rounded-lg">
                     <Checkbox id="consent" checked={consent} onCheckedChange={(v) => setConsent(Boolean(v))} />
-                    <label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed">
+                    <label htmlFor="consent" className="text-sm text-foreground leading-relaxed">
                       I agree to the <Link to="/privacy-policy" className="text-primary underline hover:no-underline">Privacy Policy</Link> and 
                       consent to being contacted about garage door services.
                     </label>
@@ -326,7 +325,7 @@ const EstimateForm = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-foreground mb-4">
                   For emergency garage door service or immediate assistance, call us directly:
                 </p>
                 <Button size="lg" className="w-full rounded-full text-lg font-bold" asChild>
@@ -343,7 +342,7 @@ const EstimateForm = () => {
                     {siteConfig.business.phone}
                   </a>
                 </Button>
-                <p className="text-xs text-muted-foreground mt-3 text-center">
+                <p className="text-xs text-foreground mt-3 text-center">
                   Available 24/7 for Emergency Service
                 </p>
               </CardContent>
@@ -391,11 +390,11 @@ const EstimateForm = () => {
                     <Star key={i} className="h-4 w-4 text-primary fill-current" />
                   ))}
                 </div>
-                <blockquote className="text-sm text-gray-700 mb-3 italic">
+                <blockquote className="text-sm text-foreground mb-3 italic">
                   "Emergency garage door repair at 11pm - technician arrived quickly and had us back up and running. 
                   Professional service when we needed it most!"
                 </blockquote>
-                <cite className="text-xs font-semibold text-gray-600">— Maria G., Englewood, NJ</cite>
+                <cite className="text-xs font-semibold text-foreground">— Maria G., Englewood, NJ</cite>
               </CardContent>
             </Card>
 
@@ -412,7 +411,7 @@ const EstimateForm = () => {
                   {Array.from(new Map(siteConfig.locations.flatMap(l => l.serviceAreas).map(a => [a.slug, a])).values())
                     .slice(0, 8)
                     .map((area) => (
-                      <div key={area.slug} className="text-muted-foreground">
+                      <div key={area.slug} className="text-foreground">
                         {area.name}, {area.state}
                       </div>
                     ))}
@@ -433,7 +432,7 @@ const EstimateForm = () => {
               <span>Licensed & Insured</span>
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold">
-              <Clock className="h-4 w-4 text-blue-600" />
+              <Clock className="h-4 w-4 text-primary" />
               <span>24/7 Emergency Service</span>
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold">

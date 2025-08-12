@@ -12,11 +12,22 @@ const MapsContext = createContext<MapsContextValue>({ isLoaded: false, hasApiKey
 
 export const MapsProvider = ({ children }: { children: ReactNode }) => {
   const apiKey = siteConfig.integrations.googleMaps?.apiKey || "";
-  // Always call the hook with centralized, identical options to avoid mismatches
-  const { isLoaded } = useJsApiLoader(getMapsLoaderOptions(apiKey));
+  const hasValidApiKey = Boolean(apiKey && apiKey.trim() !== '');
+  
+  // Only load Google Maps if we have a valid API key, otherwise provide a no-op loader
+  const loaderOptions = hasValidApiKey 
+    ? getMapsLoaderOptions(apiKey)
+    : {
+        googleMapsApiKey: '', // Empty string to prevent loading
+        libraries: [],
+        id: 'no-maps-placeholder',
+        preventGoogleFontsLoading: true
+      };
+      
+  const { isLoaded } = useJsApiLoader(loaderOptions);
 
   return (
-    <MapsContext.Provider value={{ isLoaded, hasApiKey: Boolean(apiKey) }}>
+    <MapsContext.Provider value={{ isLoaded: hasValidApiKey && isLoaded, hasApiKey: hasValidApiKey }}>
       {children}
     </MapsContext.Provider>
   );
