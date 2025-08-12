@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import type { Location, ServiceAreaCity } from "@/config/site-config";
 import Papa from "papaparse";
 
@@ -23,7 +23,7 @@ const download = (filename: string, text: string) => {
 };
 
 const templateLocations = `id,name,slug,phone,email,address_line1,address_line2,city,state,postal_code,country,lat,lng,hours_mon,hours_tue,hours_wed,hours_thu,hours_fri,hours_sat,hours_sun,isPrimary,coverageRadiusMiles
-loc-san-antonio,Locksmith San Antonio,locksmith-san-antonio-tx,(210) 000-0000,sa@example.com,200 Houston St,,San Antonio,TX,78205,US,29.426,-98.489,8:00AM – 6:00PM,8:00AM – 6:00PM,8:00AM – 6:00PM,8:00AM – 6:00PM,8:00AM – 6:00PM,8:00AM – 4:00PM,Closed,true,40`;
+loc-san-antonio,Garage Door San Antonio,garage-door-san-antonio-tx,(210) 000-0000,sa@example.com,200 Houston St,,San Antonio,TX,78205,US,29.426,-98.489,8:00AM – 6:00PM,8:00AM – 6:00PM,8:00AM – 6:00PM,8:00AM – 6:00PM,8:00AM – 6:00PM,8:00AM – 4:00PM,Closed,true,40`;
 
 const templateServiceAreas = `locationId,name,state,slug,center_lat,center_lng,neighborhoods
 loc-san-antonio,San Antonio,TX,san-antonio-tx,29.4241,-98.4936,"Downtown|Alamo Heights|Stone Oak"

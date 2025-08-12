@@ -213,8 +213,8 @@ const BlogPost = () => {
 
               {/* Prev/Next */}
               <nav className="mt-8 flex items-center justify-between" aria-label="Article pagination">
-                <Link to="/blog/choose-right-locksmith-1" className="text-sm text-primary story-link">← Previous</Link>
-                <Link to="/blog/choose-right-locksmith-2" className="text-sm text-primary story-link">Next →</Link>
+                <Link to="/blog/choose-right-garage-door-company-1" className="text-sm text-primary story-link">← Previous</Link>
+                <Link to="/blog/choose-right-garage-door-company-2" className="text-sm text-primary story-link">Next →</Link>
               </nav>
             </div>
 

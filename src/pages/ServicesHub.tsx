@@ -66,7 +66,7 @@ const ServicesHub = () => {
   const itemListLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "All Locksmith Services",
+    name: "All Garage Door Services",
     itemListElement: siteConfig.taxonomy.services.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,

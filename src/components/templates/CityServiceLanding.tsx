@@ -36,7 +36,6 @@ const CityServiceLanding = ({ slug, area, locationId }: CityServiceLandingProps)
 
   return (
     <div>
-      <Seo title={`${area} | Locksmith Service Area`} description={`Locksmith services available in ${area}. Get a free estimate today.`} canonical={canonical} />
       <Seo title={`Garage Door Service in ${area} | ${siteConfig.business.name}`} description={`Professional garage door repair and installation in ${area}. 24/7 emergency service available.`} canonical={canonical} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

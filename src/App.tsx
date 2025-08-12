@@ -10,8 +10,6 @@ import PageViewTracker from "@/components/integrations/PageViewTracker";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import SkeletonLoader from "@/components/SkeletonLoader";
-import RouteDebugger from "@/components/RouteDebugger";
-import TestPage from "@/components/TestPage";
 import HealthCheck from "@/components/HealthCheck";
 import NavigationGuard from "@/components/NavigationGuard";
 import { initSentry, Sentry } from "@/lib/sentry";
@@ -43,13 +41,6 @@ const CityServiceDetail = lazy(() => import("./pages/CityServiceDetail"));
 const ServiceCategoryDetail = lazy(() => import("./pages/ServiceCategoryDetail"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const Reviews = lazy(() => import("./pages/Reviews"));
-// New "Locksmith in" and "Locksmith near" pages
-const LocksmithInIndex = lazy(() => import("./pages/LocksmithInIndex"));
-const LocksmithInState = lazy(() => import("./pages/LocksmithInState"));
-const LocksmithInCounty = lazy(() => import("./pages/LocksmithInCounty"));
-const LocksmithInCity = lazy(() => import("./pages/LocksmithInCity"));
-const LocksmithInNeighborhood = lazy(() => import("./pages/LocksmithInNeighborhood"));
-const LocksmithNear = lazy(() => import("./pages/LocksmithNear"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -111,7 +102,6 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <NavigationGuard />
-            <RouteDebugger />
             <PageViewTracker />
             <main id="main-content">
               <Suspense fallback={<SkeletonLoader text="Loading page..." />}>
@@ -122,8 +112,6 @@ const App = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/services" element={<ServicesHub />} />
-              <Route path="/debug-test" element={<TestPage />} />
-              <Route path="/debug-test/:slug" element={<TestPage />} />
               <Route path="/services/:serviceSlug-:citySlug" element={<CityServiceDetail />} />
               <Route path="/services/:slug" element={
                 <ErrorBoundary fallback={
@@ -148,14 +136,6 @@ const App = () => {
               <Route path="/city/:slug" element={<CityHub />} />
               <Route path="/service-categories" element={<ServiceCategories />} />
               
-              {/* Locksmith in hierarchy */}
-              <Route path="/locksmith-in" element={<LocksmithInIndex />} />
-              <Route path="/locksmith-in/:state" element={<LocksmithInState />} />
-              <Route path="/locksmith-in/:state/counties/:county" element={<LocksmithInCounty />} />
-              <Route path="/locksmith-in/:state/:city" element={<LocksmithInCity />} />
-              <Route path="/locksmith-in/:state/:city/:neighborhood" element={<LocksmithInNeighborhood />} />
-              {/* Locksmith near */}
-              <Route path="/locksmith-near/:slug" element={<LocksmithNear />} />
               
               <Route path="/faq" element={<FAQ />} />
               <Route path="/reviews" element={<Reviews />} />

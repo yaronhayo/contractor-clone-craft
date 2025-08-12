@@ -69,7 +69,6 @@ const Gallery = () => {
 
   return (
     <div>
-      <Seo title="Project Gallery | Recent Work" description="Browse recent locksmith projects—lock installs, rekeys, car keys, and smart locks." canonical="/gallery" />
       <Seo title="Garage Door Gallery | Recent Projects" description="Browse recent garage door installations, repairs, spring replacements, and opener services in Jersey City, Bergen County, and Hudson County." canonical="/gallery" />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(galleryLd)}</script>

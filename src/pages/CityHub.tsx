@@ -27,7 +27,6 @@ const CityHub = () => {
 
   return (
     <div>
-      <Seo title={`Locksmith in ${areaName}`} description={`Your trusted locksmith in ${areaName}. Fast response for lockouts, rekeys, car keys, and smart locks.`} canonical={canonical} />
       <Seo title={`Garage Door Service in ${areaName} | ${siteConfig.business.name}`} description={`Professional garage door repair and installation in ${areaName}. 24/7 emergency service, spring repair, opener service, and new door installation.`} canonical={canonical} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>

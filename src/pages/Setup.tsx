@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Helmet } from "react-helmet-async";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Switch } from "@/components/ui/switch";
 import LocationsImporter from "@/components/setup/LocationsImporter";
 import LocationsSheetsSync from "@/components/setup/LocationsSheetsSync";

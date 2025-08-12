@@ -20,7 +20,7 @@ const ServiceCategories = () => {
   const categoriesListLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Locksmith Service Categories",
+    name: "Garage Door Service Categories",
     itemListElement: categories.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -32,8 +32,8 @@ const ServiceCategories = () => {
   return (
     <div>
       <Seo
-        title={`Locksmith Service Categories | ${siteConfig.business.name}`}
-        description={`Browse locksmith services by category in ${siteConfig.business.hqAddress.city}: automotive, residential, and more.`}
+        title={`Garage Door Service Categories | ${siteConfig.business.name}`}
+        description={`Browse garage door services by category in ${siteConfig.business.hqAddress.city}: residential, commercial, emergency repairs, and more.`}
         canonical="/service-categories"
       />
       <Helmet>
