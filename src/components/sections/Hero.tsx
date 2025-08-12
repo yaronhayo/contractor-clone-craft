@@ -44,14 +44,14 @@ const Hero = () => {
             <div className="absolute inset-0 -inset-x-8 -inset-y-8 bg-black/20 rounded-3xl backdrop-blur-sm" />
             <div className="relative z-10 space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-foreground leading-tight">
-                Garage Door Broke?
+                #1 Garage Door Repair
                 <br />
-                <span className="text-primary">Fixed Today!</span>
+                <span className="text-primary">Bergen County NJ</span>
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
-                <strong className="text-secondary-foreground">Stuck with a broken garage door in Elmwood Park?</strong> Our licensed technicians provide emergency repairs, spring replacements, opener fixes, and new installations with our comprehensive warranty coverage.
-                <strong className="text-accent block mt-3 text-xl">Professional Service Available Now!</strong>
+                <strong className="text-secondary-foreground">Garage door won't open? Springs broken?</strong> Licensed NJ contractors with 12+ years experience serving Elmwood Park, Jersey City, and all Bergen County. Same-day emergency repair, spring replacement, opener service.
+                <strong className="text-accent block mt-3 text-xl">FREE Estimates • 10-Year Warranty • $2M Insured</strong>
               </p>
 
               {/* CTA Buttons */}

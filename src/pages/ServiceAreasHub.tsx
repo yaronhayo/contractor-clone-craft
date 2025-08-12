@@ -30,7 +30,7 @@ const ServiceAreasHub = () => {
   return (
     <MapsProvider>
       <div>
-        <Seo title="Garage Door Service Areas Bergen & Hudson County NJ | ez2fix" description={`Professional garage door repair & installation throughout Bergen County (Elmwood Park, Montclair, Fair Lawn) and Hudson County (Jersey City, Hoboken, Weehawken). Licensed NJ contractors serving 25+ communities.`} canonical="/service-areas" />
+        <Seo title="Service Areas Bergen & Hudson County NJ | Licensed Garage Door Contractor | ez2fix" description={`⭐ Garage door repair & installation throughout Bergen County (Elmwood Park, Fair Lawn, Clifton, Montclair) & Hudson County (Jersey City, Hoboken, Weehawken) | Licensed NJ contractor #13VH09315400 | 12+ years experience | Serving 25+ communities with same-day service | FREE estimates`} canonical="/service-areas" />
         <Helmet>
           <script type="application/ld+json">{JSON.stringify(breadcrumbLd)}</script>
         </Helmet>
@@ -56,25 +56,30 @@ const ServiceAreasHub = () => {
                   #1 Choice Across Bergen & Hudson Counties
                 </div>
                 <h1 className="text-3xl md:text-5xl font-extrabold text-white">
-                  Professional Garage Door Service Throughout Northern New Jersey
+                  Licensed Garage Door Contractor Serving
+                  <span className="block text-primary">Bergen & Hudson County, NJ</span>
                 </h1>
-                <p className="mt-6 text-lg text-white leading-relaxed">
-                  <strong>Broken garage door ruining your day?</strong> Our licensed technicians serve 25+ communities from Jersey City's historic brownstones to Bergen County's modern developments. Over 750 successful repairs with zero safety incidents across both counties.
+                <p className="mt-6 text-lg text-white leading-relaxed max-w-3xl mx-auto">
+                  <strong>Your trusted garage door experts across 25+ Northern NJ communities since 2012.</strong> From Jersey City's historic brownstones to Bergen County's suburban neighborhoods, our NJ-licensed technicians (#13VH09315400) have completed 3,000+ installations and repairs with zero safety incidents. Same-day emergency service available.
                 </p>
                 
                 {/* Trust Indicators */}
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                   <div className="flex items-center gap-2 bg-muted/20 backdrop-blur-sm rounded-full px-4 py-2 border border-muted">
                     <Star className="h-4 w-4 text-primary fill-current" />
-                    <span className="text-sm font-semibold text-white">750+ Satisfied Customers</span>
+                    <span className="text-sm font-semibold text-white">3,000+ Jobs Completed</span>
                   </div>
                   <div className="flex items-center gap-2 bg-muted/20 backdrop-blur-sm rounded-full px-4 py-2 border border-muted">
                     <Shield className="h-4 w-4 text-green-400" />
-                    <span className="text-sm font-semibold text-white">Licensed & $1M Insured</span>
+                    <span className="text-sm font-semibold text-white">NJ License #13VH09315400</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-muted/20 backdrop-blur-sm rounded-full px-4 py-2 border border-muted">
+                    <MapPin className="h-4 w-4 text-accent" />
+                    <span className="text-sm font-semibold text-white">25+ Communities Served</span>
                   </div>
                   <div className="flex items-center gap-2 bg-muted/20 backdrop-blur-sm rounded-full px-4 py-2 border border-muted">
                     <Clock className="h-4 w-4 text-accent" />
-                    <span className="text-sm font-semibold text-white">Emergency Service Available</span>
+                    <span className="text-sm font-semibold text-white">12+ Years Experience</span>
                   </div>
                 </div>
 

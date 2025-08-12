@@ -78,8 +78,8 @@ const ServicesHub = () => {
   return (
     <div>
       <Seo 
-        title="Garage Door Services Bergen County NJ | Repair, Installation & Emergency | ez2fix LLC"
-        description="🔧 Complete garage door services in Bergen County NJ | Repair, installation, spring replacement, opener service, 24/7 emergency | Licensed & insured | Elmwood Park, Fair Lawn, Clifton, Montclair | FREE estimates | 10-year warranty | Call (201) 554-6769"
+        title="Professional Garage Door Services Bergen County NJ | #1 Rated Contractor | ez2fix LLC"
+        description="⭐ Comprehensive garage door services in Bergen County NJ | Emergency repair, spring replacement, opener service, new installations | 12+ years experience, Licensed NJ contractor (#13VH09315400), $2M insured | Serving 25+ communities | Same-day service | Call (201) 554-6769"
         canonical="/services" 
       />
       <Helmet>
@@ -104,28 +104,33 @@ const ServicesHub = () => {
             <header className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 <Wrench className="h-4 w-4" />
-                #1 Garage Door Company in Elmwood Park
+                Bergen County's #1 Rated Garage Door Company
               </div>
               <h1 className="text-3xl md:text-5xl font-extrabold text-white">
-                Expert Garage Door Repair & Installation Services in Elmwood Park, NJ
+                Professional Garage Door Services
+                <span className="block text-primary">Bergen & Hudson County, NJ</span>
               </h1>
-              <p className="mt-6 text-lg text-white leading-relaxed">
-                <strong>Garage door won't open? Spring broken? Opener malfunctioning?</strong> Our licensed technicians have completed over 500 garage door repairs in Elmwood Park, Bergen County with zero safety incidents. Same-day emergency service available.
+              <p className="mt-6 text-lg text-white leading-relaxed max-w-3xl mx-auto">
+                <strong>Trusted by 3,000+ homeowners across Northern New Jersey since 2012.</strong> Licensed NJ contractor (#13VH09315400) specializing in emergency repairs, spring replacements, opener service, and premium door installations. Serving Elmwood Park, Jersey City, Fair Lawn, Montclair, and 20+ communities with same-day service.
               </p>
               
               {/* Trust Indicators */}
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                 <div className="flex items-center gap-2 bg-muted/20 backdrop-blur-sm rounded-full px-4 py-2 border border-muted">
                   <Star className="h-4 w-4 text-primary fill-current" />
-                  <span className="text-sm font-semibold text-white">500+ Satisfied Customers</span>
+                  <span className="text-sm font-semibold text-white">3,000+ Jobs Completed</span>
                 </div>
                 <div className="flex items-center gap-2 bg-muted/20 backdrop-blur-sm rounded-full px-4 py-2 border border-muted">
                   <Shield className="h-4 w-4 text-green-400" />
-                  <span className="text-sm font-semibold text-white">Licensed & $1M Insured</span>
+                  <span className="text-sm font-semibold text-white">Licensed NJ Contractor</span>
+                </div>
+                <div className="flex items-center gap-2 bg-muted/20 backdrop-blur-sm rounded-full px-4 py-2 border border-muted">
+                  <Award className="h-4 w-4 text-accent" />
+                  <span className="text-sm font-semibold text-white">10-Year Warranty</span>
                 </div>
                 <div className="flex items-center gap-2 bg-muted/20 backdrop-blur-sm rounded-full px-4 py-2 border border-muted">
                   <Clock className="h-4 w-4 text-accent" />
-                  <span className="text-sm font-semibold text-white">Same-Day Service</span>
+                  <span className="text-sm font-semibold text-white">24/7 Emergency Service</span>
                 </div>
               </div>
 

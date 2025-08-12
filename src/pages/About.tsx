@@ -38,10 +38,10 @@ const About = () => {
   };
 
   const companyStats = [
-    { icon: Users, number: "750+", label: "Satisfied Customers", color: "text-primary" },
-    { icon: Star, number: "5.0/5", label: "Average Rating", color: "text-primary" },
-    { icon: Clock, number: "24/7", label: "Emergency Service", color: "text-accent" },
-    { icon: Award, number: "10+", label: "Years Experience", color: "text-accent" }
+    { icon: Users, number: "3,000+", label: "Jobs Completed", color: "text-primary" },
+    { icon: Star, number: "5.0/5", label: "Google Reviews", color: "text-primary" },
+    { icon: Shield, number: "12+", label: "Years Licensed", color: "text-accent" },
+    { icon: Award, number: "0", label: "Safety Incidents", color: "text-green-500" }
   ];
 
   const coreValues = [
@@ -105,8 +105,8 @@ const About = () => {
     <div>
       <PerformanceOptimizer />
       <Seo 
-        title="About ez2fix LLC | Licensed Garage Door Repair Experts Bergen County NJ" 
-        description="🏆 Established 2012 | Licensed garage door repair & installation experts in Bergen County NJ | 750+ satisfied customers, 5-star rated, 24/7 emergency service | Specializing in spring repair, opener installation, commercial doors | Fully insured with 10-year warranties" 
+        title="About ez2fix LLC | NJ Licensed Contractor #13VH09315400 | 12+ Years Experience Bergen County" 
+        description="🏆 Meet ez2fix LLC: Licensed NJ garage door contractor since 2012 | 3,000+ successful installations & repairs, zero safety incidents | Licensed #13VH09315400, $2M insured | Bergen County's most trusted garage door experts | Serving Elmwood Park, Jersey City, Fair Lawn, Montclair | 10-year warranty on all work" 
         canonical="/about" 
       />
       <Helmet>

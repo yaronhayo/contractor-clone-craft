@@ -466,9 +466,9 @@ const baseConfig: SiteConfig = {
     booking: "/booking",
   },
   seo: {
-    defaultTitle: "Garage Door Repair Elmwood Park NJ | Emergency Service | ez2fix LLC",
+    defaultTitle: "#1 Garage Door Repair Bergen County NJ | Same-Day Service | ez2fix LLC",
     defaultDescription:
-      "🔧 #1 Garage Door Repair & Installation in Elmwood Park, NJ | Same-day service, 24/7 emergency repair, spring replacement, opener repair | Licensed, insured contractors with 10-year warranty | FREE estimates | Call (201) 554-6769",
+      "⭐ #1 Rated Garage Door Repair in Bergen County NJ | 24/7 emergency service, spring replacement, opener repair, new installations | Licensed NJ contractors, 12+ years experience, 10-year warranty | Serving Elmwood Park, Jersey City, Montclair | FREE estimates | Call (201) 554-6769",
     siteUrl: import.meta.env.VITE_SITE_URL || "https://ez2fixllc.com",
     image: {
       src: "https://images.pexels.com/photos/5691653/pexels-photo-5691653.jpeg?auto=compress&cs=tinysrgb&w=1200",
