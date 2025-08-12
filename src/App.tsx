@@ -8,9 +8,7 @@ import { Suspense, lazy, useEffect } from "react";
 import GTM from "@/components/integrations/GTM";
 import PageViewTracker from "@/components/integrations/PageViewTracker";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import LoadingSpinner from "@/components/LoadingSpinner";
 import SkeletonLoader from "@/components/SkeletonLoader";
-import HealthCheck from "@/components/HealthCheck";
 import NavigationGuard from "@/components/NavigationGuard";
 import { initSentry, Sentry } from "@/lib/sentry";
 import { useAccessibility, useKeyboardNavigation, useAriaLive } from "@/hooks/useAccessibility";
@@ -32,7 +30,6 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const ServiceAreaDetail = lazy(() => import("./pages/ServiceAreaDetail"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Locations = lazy(() => import("./pages/Locations"));
-const Setup = lazy(() => import("./pages/Setup"));
 const LocationDetail = lazy(() => import("./pages/LocationDetail"));
 const ServiceCategories = lazy(() => import("./pages/ServiceCategories"));
 const CityHub = lazy(() => import("./pages/CityHub"));
@@ -61,10 +58,9 @@ const queryClient = new QueryClient({
 initSentry();
 
 const App = () => {
-  // Temporarily disable accessibility features to test routing
-  // useAccessibility();
-  // useKeyboardNavigation();
-  // useAriaLive();
+  useAccessibility();
+  useKeyboardNavigation();
+  useAriaLive();
 
   useEffect(() => {
     // Track app initialization
@@ -75,23 +71,22 @@ const App = () => {
   }, []);
 
   return (
-    // Temporarily disable Sentry error boundary for testing
-    // <Sentry.ErrorBoundary fallback={({ error, resetError }) => (
-    //   <div className="min-h-screen flex items-center justify-center p-8">
-    //     <div className="text-center max-w-md">
-    //       <h2 className="text-2xl font-bold mb-4">Something went wrong</h2>
-    //       <p className="text-gray-600 mb-6">
-    //         We've been notified and are working on a fix. Please try refreshing the page.
-    //       </p>
-    //       <button 
-    //         onClick={resetError}
-    //         className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90"
-    //       >
-    //         Try again
-    //       </button>
-    //     </div>
-    //   </div>
-    // )}>
+    <Sentry.ErrorBoundary fallback={({ error, resetError }) => (
+      <div className="min-h-screen flex items-center justify-center p-8">
+        <div className="text-center max-w-md">
+          <h2 className="text-2xl font-bold mb-4">Something went wrong</h2>
+          <p className="text-gray-600 mb-6">
+            We've been notified and are working on a fix. Please try refreshing the page.
+          </p>
+          <button 
+            onClick={resetError}
+            className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90"
+          >
+            Try again
+          </button>
+        </div>
+      </div>
+    )}>
       <ErrorBoundary>
         <HelmetProvider>
           <GTM />
@@ -107,7 +102,6 @@ const App = () => {
               <Suspense fallback={<SkeletonLoader text="Loading page..." />}>
                 <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/health" element={<HealthCheck />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
@@ -139,7 +133,6 @@ const App = () => {
               
               <Route path="/faq" element={<FAQ />} />
               <Route path="/reviews" element={<Reviews />} />
-              <Route path="/setup" element={<Setup />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/booking" element={<Booking />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -149,12 +142,13 @@ const App = () => {
                 </Routes>
               </Suspense>
             </main>
+            <MobileCallBar />
           </BrowserRouter>
-        <MobileCallBar />
       </TooltipProvider>
     </QueryClientProvider>
     </HelmetProvider>
     </ErrorBoundary>
+    </Sentry.ErrorBoundary>
   );
 };
 

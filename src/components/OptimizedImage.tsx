@@ -1,6 +1,6 @@
 import { useState, ImgHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
-import LoadingSpinner from './LoadingSpinner';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface OptimizedImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'loading'> {
   src: string;
@@ -41,9 +41,7 @@ const OptimizedImage = ({
   return (
     <div className={cn('relative', className)}>
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
-          <LoadingSpinner size="sm" />
-        </div>
+        <Skeleton className="absolute inset-0 animate-pulse" />
       )}
       
       <img
